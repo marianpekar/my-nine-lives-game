@@ -8,7 +8,11 @@ public sealed class PlayerStates
     public float WalkingSpeed { get; } = 0.8f;
     public float WalkingBackSpeed { get; } = 1f;
     public float RotationSpeed { get; } = 100f;
-    public float JumpSpeed { get; } = 6f;
+    public float JumpSpeed { get; } = 10f;
+    public float LongJumpSpeed { get; } = 4f;
+    public float LongJumpDistance { get; } = 12f;
+    public float BackJumpSpeed { get; } = 4f;
+    public float BackJumpDistance { get; } = 4f;
     public bool IsDead { get; set; } = false;
     public bool IsWalking { get; set; } = false;
     public bool IsWalkingBackward { get; set; } = false;

@@ -44,19 +44,36 @@ public class PlayerController : MonoBehaviour
             }
             else if (verticalAxis < 0)
             {
+                PlayerStates.Singleton.IsWalkingBackward = true;
                 moveDirection *= PlayerStates.Singleton.WalkingBackSpeed;
                 walkBack.Execute(animator);
             }
             else if (verticalAxis > 0)
             {
+                PlayerStates.Singleton.IsWalkingBackward = false;
                 moveDirection *= PlayerStates.Singleton.RunningSpeed;
                 run.Execute(animator);
             }
             else
+            {
+                PlayerStates.Singleton.IsWalkingBackward = false;
                 idle.Execute(animator);
+            }
 
-            // Jump
-            if (Input.GetButton("Jump"))
+            // Jumps
+            if (Input.GetButton("Jump") && PlayerStates.Singleton.IsWalking)
+            {
+                moveDirection.y = PlayerStates.Singleton.LongJumpSpeed;
+                moveDirection.z = PlayerStates.Singleton.LongJumpDistance;
+                moveDirection = transform.TransformDirection(moveDirection);
+            }
+            else if (Input.GetButton("Jump") && PlayerStates.Singleton.IsWalkingBackward)
+            {
+                moveDirection.y = PlayerStates.Singleton.BackJumpSpeed;
+                moveDirection.z = -PlayerStates.Singleton.BackJumpDistance;
+                moveDirection = transform.TransformDirection(moveDirection);
+            }
+            else if (Input.GetButton("Jump"))
                 moveDirection.y = PlayerStates.Singleton.JumpSpeed;
         }
         // Gravity
