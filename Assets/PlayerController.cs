@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    AnimatorCommand run, walk, walkBack, jump, idle;
+    AnimatorCommand run, walk, walkBack, jumpBack, jumpLong, idle;
     CharacterController characterController;
     Animator animator;
 
@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
         run = new Run();
         walk = new Walk();
         walkBack = new WalkBack();
-        jump = new Jump();
+        jumpBack = new JumpBack();
+        jumpLong = new JumpLong();
         idle = new Idle();
 
         characterController = GetComponent<CharacterController>();
@@ -61,20 +62,23 @@ public class PlayerController : MonoBehaviour
             }
 
             // Jumps
+            // TODO: JumpIdle and JumpHigh
             if (Input.GetButton("Jump") && PlayerStates.Singleton.IsWalking)
             {
                 moveDirection.y = PlayerStates.Singleton.LongJumpSpeed;
                 moveDirection.z = PlayerStates.Singleton.LongJumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
+                jumpLong.Execute(animator);
             }
             else if (Input.GetButton("Jump") && PlayerStates.Singleton.IsWalkingBackward)
             {
                 moveDirection.y = PlayerStates.Singleton.BackJumpSpeed;
                 moveDirection.z = -PlayerStates.Singleton.BackJumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
+                jumpBack.Execute(animator);
             }
             else if (Input.GetButton("Jump"))
-                moveDirection.y = PlayerStates.Singleton.JumpSpeed;
+                moveDirection.y = PlayerStates.Singleton.HighJumpSpeed;
         }
         // Gravity
         moveDirection.y -= PlayerStates.Singleton.Gravity * Time.deltaTime;

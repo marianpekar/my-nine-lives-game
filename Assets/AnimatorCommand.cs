@@ -52,13 +52,20 @@ public class WalkBack : AnimatorCommand
     }
 }
 
-public class Jump : AnimatorCommand
+public class JumpBack : AnimatorCommand
 {
     public void Execute(Animator animator)
     {
-        //Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
-        //rigidbody.AddForce(Vector3.up * PlayerStates.Singleton.JumpForce, ForceMode.Impulse);
+        animator.SetTrigger("jumpBack");
     } 
+}
+
+public class JumpLong : AnimatorCommand
+{
+    public void Execute(Animator animator)
+    {
+        animator.SetTrigger("jumpLong");
+    }
 }
 
 public class Idle : AnimatorCommand
