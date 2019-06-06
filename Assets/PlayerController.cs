@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    AnimatorCommand run, walk, walkBack, jumpBack, jumpLong, idle;
+    AnimatorCommand run, walk, walkBack, jumpBack, jumpLong, jumpHigh, idle;
     CharacterController characterController;
     Animator animator;
 
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
         walkBack = new WalkBack();
         jumpBack = new JumpBack();
         jumpLong = new JumpLong();
+        jumpHigh = new JumpHigh();
         idle = new Idle();
 
         characterController = GetComponent<CharacterController>();
@@ -63,22 +64,25 @@ public class PlayerController : MonoBehaviour
 
             // Jumps
             // TODO: JumpIdle and JumpHigh
-            if (Input.GetButton("Jump") && PlayerStates.Singleton.IsWalking)
+            if (Input.GetButtonDown("Jump") && PlayerStates.Singleton.IsWalking)
             {
                 moveDirection.y = PlayerStates.Singleton.LongJumpSpeed;
                 moveDirection.z = PlayerStates.Singleton.LongJumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
                 jumpLong.Execute(animator);
             }
-            else if (Input.GetButton("Jump") && PlayerStates.Singleton.IsWalkingBackward)
+            else if (Input.GetButtonDown("Jump") && PlayerStates.Singleton.IsWalkingBackward)
             {
                 moveDirection.y = PlayerStates.Singleton.BackJumpSpeed;
                 moveDirection.z = -PlayerStates.Singleton.BackJumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
                 jumpBack.Execute(animator);
             }
-            else if (Input.GetButton("Jump"))
+            else if (Input.GetButtonDown("Jump"))
+            {
                 moveDirection.y = PlayerStates.Singleton.HighJumpSpeed;
+                jumpHigh.Execute(animator);
+            }
         }
         // Gravity
         moveDirection.y -= PlayerStates.Singleton.Gravity * Time.deltaTime;

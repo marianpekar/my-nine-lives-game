@@ -68,6 +68,14 @@ public class JumpLong : AnimatorCommand
     }
 }
 
+public class JumpHigh : AnimatorCommand
+{
+    public void Execute(Animator animator)
+    {
+        animator.SetTrigger("jumpHigh");
+    }
+}
+
 public class Idle : AnimatorCommand
 {
     public void Execute(Animator animator)
