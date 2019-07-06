@@ -45,16 +45,16 @@ public class FollowCamera : MonoBehaviour
         if (IsCloseToObstacle(2.5f, transform.forward + transform.up, 0.7f))
 
             if (Vector3.Distance(GetHitPoint(3f, transform.forward + transform.up, 0.7f), -transform.right) < Vector3.Distance(GetHitPoint(2f, transform.forward, 0.7f), transform.right))
-                addToOffset.x += 0.33f;
+                addToOffset += new Vector3(0.33f, 0, -0.06f);
             else
-                addToOffset.x -= 0.33f;
+                addToOffset -= new Vector3(0.33f, 0, -0.06f);
 
         else if (IsCloseToObstacle(3f, -transform.right + transform.forward + transform.up, 0.5f))
             addToOffset.x -= 0.16f;
         else if (IsCloseToObstacle(3f, transform.right + transform.forward + transform.up, 0.5f))
             addToOffset.x += 0.16f;
         else
-            addToOffset.x = 0;
+            addToOffset = Vector3.zero;
     }
 
     bool IsCloseToObstacle(float distance, Vector3 direction, float multiplier = 1f)
