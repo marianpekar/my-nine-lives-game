@@ -1,17 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public GameObject target;
+
     Vector3 offset;
-    float initialGroundDistance;
+    Vector3 addToOffset = Vector3.zero;
+    int initialDistanceToGround;
 
     void Start()
     {
         offset = target.transform.position - transform.position;
-        initialGroundDistance = GetFlooredGroundDistance();
+        initialDistanceToGround = (int)DistanceToGround();
     }
     void LateUpdate()
     {
@@ -19,18 +18,19 @@ public class FollowCamera : MonoBehaviour
         float desiredAngle = target.transform.eulerAngles.y;
         float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime);
 
-        if (GetFlooredGroundDistance() < initialGroundDistance)
+        if ((int)DistanceToGround() < initialDistanceToGround)
             offset.y--;
-        else if (GetFlooredGroundDistance() > initialGroundDistance)
+        else if ((int)DistanceToGround() > initialDistanceToGround)
             offset.y++;
-  
+
+        CalculateOffsetToAvoidObstacle();
+
         Quaternion rotation = Quaternion.Euler(0, angle, 0);
-        transform.position = Vector3.Lerp(transform.position, target.transform.position - (rotation * offset), Time.deltaTime);
-      
+        transform.position = Vector3.Lerp(transform.position, target.transform.position - (rotation * (offset + addToOffset)), Time.deltaTime);     
         transform.LookAt(target.transform);
     }
 
-    float GetGroundDistance()
+    float DistanceToGround()
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
@@ -40,8 +40,37 @@ public class FollowCamera : MonoBehaviour
         return -1f;
     }
 
-    float GetFlooredGroundDistance()
+    void CalculateOffsetToAvoidObstacle()
     {
-       return Mathf.Floor(GetGroundDistance());
+        if (IsCloseToObstacle(2.5f, transform.forward + transform.up, 0.7f))
+
+            if (Vector3.Distance(GetHitPoint(3f, transform.forward + transform.up, 0.7f), -transform.right) < Vector3.Distance(GetHitPoint(2f, transform.forward, 0.7f), transform.right))
+                addToOffset.x += 0.33f;
+            else
+                addToOffset.x -= 0.33f;
+
+        else if (IsCloseToObstacle(3f, -transform.right + transform.forward + transform.up, 0.5f))
+            addToOffset.x -= 0.16f;
+        else if (IsCloseToObstacle(3f, transform.right + transform.forward + transform.up, 0.5f))
+            addToOffset.x += 0.16f;
+        else
+            addToOffset.x = 0;
+    }
+
+    bool IsCloseToObstacle(float distance, Vector3 direction, float multiplier = 1f)
+    {
+        Debug.DrawRay(transform.position, (direction * multiplier) * distance, Color.green);
+        return Physics.Raycast(transform.position, (direction * multiplier), distance);
+    }
+
+    Vector3 GetHitPoint(float distance, Vector3 direction, float multiplier = 1f)
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, (direction * multiplier) * distance);
+        if (Physics.Raycast(ray, out hit))
+            return hit.transform.position;
+        else
+            return Vector3.zero;
+
     }
 }
