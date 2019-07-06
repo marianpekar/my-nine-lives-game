@@ -5,7 +5,6 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public GameObject target;
-    public float damping = 1;
     Vector3 offset;
     float initialGroundDistance;
 
@@ -18,7 +17,7 @@ public class FollowCamera : MonoBehaviour
     {
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = target.transform.eulerAngles.y;
-        float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime * damping);
+        float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime);
 
         if (GetFlooredGroundDistance() < initialGroundDistance)
             offset.y--;
@@ -30,19 +29,6 @@ public class FollowCamera : MonoBehaviour
       
         transform.LookAt(target.transform);
     }
-
-    //bool SeePlayer()
-    //{
-    //    RaycastHit hit;
-    //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity)) {
-    //        if (hit.transform.tag == "Player")
-    //        {
-    //            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-    //            return true;
-    //        }
-    //    }
-    //    return false;
-    //}
 
     float GetGroundDistance()
     {
