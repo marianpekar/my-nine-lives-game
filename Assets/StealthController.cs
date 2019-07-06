@@ -20,7 +20,7 @@ public class StealthController : MonoBehaviour
             PlayerStates.Singleton.CurrentStealthLevel = PlayerStates.Singleton.StealthLevelHigh + PlayerStates.Singleton.StealthLevelAddition;
         }
 
-        Debug.Log("Current stealth level: " + PlayerStates.Singleton.CurrentStealthLevel);
+        //Debug.Log("Current stealth level: " + PlayerStates.Singleton.CurrentStealthLevel);
     }
 
     IEnumerator HandleStealthLevelAddition()
