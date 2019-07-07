@@ -48,13 +48,13 @@ public class FollowCamera : MonoBehaviour
     Vector3 rightRayDir;
     const float sideRaysDist = 2f;
 
-    readonly Vector3 forwardOffsetAddition = new Vector3(0.66f, 0, -0.01f);
-    readonly Vector3 sideOffsetAddition = new Vector3(0.22f, 0, -0.01f);
+    readonly Vector3 forwardOffsetAddition = new Vector3(0.16f, -0.1f, 0f);
+    readonly Vector3 sideOffsetAddition = new Vector3(0.66f, 0, 0f);
     void CalculateRaycastVectors()
     {
         forwardRayDir = (transform.forward + transform.up) * 0.7f;
-        leftRayDir = (2f * -transform.right + transform.forward + transform.up) * 0.5f;
-        rightRayDir = (2f * transform.right + transform.forward + transform.up) * 0.5f;
+        leftRayDir = (0.8f * -transform.right + transform.forward + transform.up) * 0.5f;
+        rightRayDir = (0.8f * transform.right + transform.forward + transform.up) * 0.5f;
     }
 
     void CalculateOffsetToAvoidObstacle()
@@ -67,7 +67,7 @@ public class FollowCamera : MonoBehaviour
             else
                 addToOffset -= forwardOffsetAddition;
 
-        else if (IsCloseToObstacle(sideRaysDist, leftRayDir))
+        if (IsCloseToObstacle(sideRaysDist, leftRayDir))
             addToOffset -= sideOffsetAddition;
         else if (IsCloseToObstacle(sideRaysDist, rightRayDir))
             addToOffset += sideOffsetAddition;
