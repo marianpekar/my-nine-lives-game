@@ -21,15 +21,10 @@ public class FollowCamera : MonoBehaviour
         float desiredAngle = target.transform.eulerAngles.y;
         float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime);
 
-        if ((int)DistanceToGround() < initialDistanceToGround)
-            offset.y--;
-        else if ((int)DistanceToGround() > initialDistanceToGround)
-            offset.y++;
-
-        if (offset.y < minYOffset)
-            offset.y++;
-        else if (offset.y > maxYOffset)
-            offset.y--;
+        if ((int)DistanceToGround() < initialDistanceToGround || offset.y > maxYOffset)
+            offset.y -= 0.01f;
+        else if ((int)DistanceToGround() > initialDistanceToGround || offset.y < minYOffset)
+            offset.y += 0.01f;
 
         CalculateOffsetToAvoidObstacle();
 
