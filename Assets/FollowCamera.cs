@@ -7,6 +7,8 @@ public class FollowCamera : MonoBehaviour
     Vector3 addToOffset = Vector3.zero;
     int initialDistanceToGround;
 
+    const float minYOffset = -5f;
+
     void Start()
     {
         offset = target.transform.position - transform.position;
@@ -14,6 +16,7 @@ public class FollowCamera : MonoBehaviour
     }
     void LateUpdate()
     {
+        Debug.Log(offset);
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = target.transform.eulerAngles.y;
         float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime);
@@ -23,10 +26,13 @@ public class FollowCamera : MonoBehaviour
         else if ((int)DistanceToGround() > initialDistanceToGround)
             offset.y++;
 
+        if (offset.y < minYOffset)
+            offset.y++;
+
         CalculateOffsetToAvoidObstacle();
 
         Quaternion rotation = Quaternion.Euler(0, angle, 0);
-        transform.position = Vector3.Lerp(transform.position, target.transform.position - (rotation * (offset + addToOffset)), Time.deltaTime);     
+        transform.position = Vector3.Lerp(transform.position, target.transform.position - (rotation * (offset + addToOffset)), Time.deltaTime);
         transform.LookAt(target.transform);
     }
 
@@ -48,8 +54,8 @@ public class FollowCamera : MonoBehaviour
     Vector3 rightRayDir;
     const float sideRaysDist = 2f;
 
-    readonly Vector3 forwardOffsetAddition = new Vector3(0.16f, -0.1f, 0f);
-    readonly Vector3 sideOffsetAddition = new Vector3(0.66f, 0, 0f);
+    readonly Vector3 forwardOffsetAddition = new Vector3(0.16f, 0f, 0f);
+    readonly Vector3 sideOffsetAddition = new Vector3(0.66f, 0f, 0f);
     void CalculateRaycastVectors()
     {
         forwardRayDir = (transform.forward + transform.up) * 0.7f;
