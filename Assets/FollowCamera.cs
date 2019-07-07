@@ -8,6 +8,7 @@ public class FollowCamera : MonoBehaviour
     int initialDistanceToGround;
 
     const float minYOffset = -5f;
+    const float maxYOffset = -2f;
 
     void Start()
     {
@@ -16,7 +17,6 @@ public class FollowCamera : MonoBehaviour
     }
     void LateUpdate()
     {
-        Debug.Log(offset);
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = target.transform.eulerAngles.y;
         float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime);
@@ -28,6 +28,8 @@ public class FollowCamera : MonoBehaviour
 
         if (offset.y < minYOffset)
             offset.y++;
+        else if (offset.y > maxYOffset)
+            offset.y--;
 
         CalculateOffsetToAvoidObstacle();
 
