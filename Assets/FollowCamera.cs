@@ -40,37 +40,54 @@ public class FollowCamera : MonoBehaviour
         return -1f;
     }
 
+    // Calculate Vector3 as addition to offset to avoid obstacles if there's any, if not addition is Vector3.zero 
+    Vector3 forwardRayDir;
+    const float forwardRayDist = 4f;
+
+    Vector3 leftRayDir;
+    Vector3 rightRayDir;
+    const float sideRaysDist = 2f;
+
+    readonly Vector3 forwardOffsetAddition = new Vector3(0.66f, 0, -0.01f);
+    readonly Vector3 sideOffsetAddition = new Vector3(0.22f, 0, -0.01f);
+    void CalculateRaycastVectors()
+    {
+        forwardRayDir = (transform.forward + transform.up) * 0.7f;
+        leftRayDir = (2f * -transform.right + transform.forward + transform.up) * 0.5f;
+        rightRayDir = (2f * transform.right + transform.forward + transform.up) * 0.5f;
+    }
+
     void CalculateOffsetToAvoidObstacle()
     {
-        if (IsCloseToObstacle(2.5f, transform.forward + transform.up, 0.7f))
+        CalculateRaycastVectors();
 
-            if (Vector3.Distance(GetHitPoint(3f, transform.forward + transform.up, 0.7f), -transform.right) < Vector3.Distance(GetHitPoint(2f, transform.forward, 0.7f), transform.right))
-                addToOffset += new Vector3(0.33f, 0, -0.06f);
+        if (IsCloseToObstacle(forwardRayDist, forwardRayDir))
+            if (Vector3.Distance(GetHitPoint(forwardRayDist, forwardRayDir), -transform.right) < Vector3.Distance(GetHitPoint(forwardRayDist, forwardRayDir), transform.right))
+                addToOffset += forwardOffsetAddition;
             else
-                addToOffset -= new Vector3(0.33f, 0, -0.06f);
+                addToOffset -= forwardOffsetAddition;
 
-        else if (IsCloseToObstacle(3f, -transform.right + transform.forward + transform.up, 0.5f))
-            addToOffset.x -= 0.16f;
-        else if (IsCloseToObstacle(3f, transform.right + transform.forward + transform.up, 0.5f))
-            addToOffset.x += 0.16f;
+        else if (IsCloseToObstacle(sideRaysDist, leftRayDir))
+            addToOffset -= sideOffsetAddition;
+        else if (IsCloseToObstacle(sideRaysDist, rightRayDir))
+            addToOffset += sideOffsetAddition;
         else
             addToOffset = Vector3.zero;
     }
 
-    bool IsCloseToObstacle(float distance, Vector3 direction, float multiplier = 1f)
+    bool IsCloseToObstacle(float distance, Vector3 direction)
     {
-        Debug.DrawRay(transform.position, (direction * multiplier) * distance, Color.green);
-        return Physics.Raycast(transform.position, (direction * multiplier), distance);
+        Debug.DrawRay(transform.position, (direction) * distance, Color.green);
+        return Physics.Raycast(transform.position, (direction), distance);
     }
 
-    Vector3 GetHitPoint(float distance, Vector3 direction, float multiplier = 1f)
+    Vector3 GetHitPoint(float distance, Vector3 direction)
     {
         RaycastHit hit;
-        Ray ray = new Ray(transform.position, (direction * multiplier) * distance);
+        Ray ray = new Ray(transform.position, direction * distance);
         if (Physics.Raycast(ray, out hit))
             return hit.transform.position;
         else
             return Vector3.zero;
-
     }
 }
