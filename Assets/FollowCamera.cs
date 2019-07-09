@@ -56,8 +56,8 @@ public class FollowCamera : MonoBehaviour
     void CalculateRaycastVectors()
     {
         forwardRayDir = (transform.forward + transform.up) * 0.7f;
-        leftRayDir = (0.8f * -transform.right + transform.forward + transform.up) * 0.5f;
-        rightRayDir = (0.8f * transform.right + transform.forward + transform.up) * 0.5f;
+        leftRayDir = (0.8f * -transform.right + transform.forward + transform.up) * 0.75f;
+        rightRayDir = (0.8f * transform.right + transform.forward + transform.up) * 0.75f;
     }
 
     void CalculateOffsetToAvoidObstacle()
