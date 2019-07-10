@@ -10,13 +10,21 @@ public class FollowCamera : MonoBehaviour
     const float minYOffset = -5f;
     const float maxYOffset = -2f;
 
+    float raysDistMultiplier = 1f;
+
     void Start()
     {
         offset = target.transform.position - transform.position;
         initialDistanceToGround = (int)DistanceToGround();
     }
+
     void LateUpdate()
     {
+        if (IsInSpaceofSize(3f))
+            raysDistMultiplier = 0.33f;
+        else
+            raysDistMultiplier = 1f;
+
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = target.transform.eulerAngles.y;
         float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime);
@@ -50,14 +58,15 @@ public class FollowCamera : MonoBehaviour
     Vector3 leftRayDir;
     Vector3 rightRayDir;
     const float sideRaysDist = 2f;
+    const float sideRaysSpread = 0.9f;
 
     readonly Vector3 forwardOffsetAddition = new Vector3(0.16f, 0f, 0f);
-    readonly Vector3 sideOffsetAddition = new Vector3(0.66f, 0f, 0f);
+    readonly Vector3 sideOffsetAddition = new Vector3(0.52f, 0f, 0f);
     void CalculateRaycastVectors()
     {
-        forwardRayDir = (transform.forward + transform.up) * 0.7f;
-        leftRayDir = (0.8f * -transform.right + transform.forward + transform.up) * 0.75f;
-        rightRayDir = (0.8f * transform.right + transform.forward + transform.up) * 0.75f;
+        forwardRayDir = (transform.forward + transform.up) * raysDistMultiplier;
+        leftRayDir = (sideRaysSpread * -transform.right + transform.forward + transform.up) * raysDistMultiplier;
+        rightRayDir = (sideRaysSpread * transform.right + transform.forward + transform.up) * raysDistMultiplier;
     }
 
     void CalculateOffsetToAvoidObstacle()
@@ -92,5 +101,23 @@ public class FollowCamera : MonoBehaviour
             return hit.transform.position;
         else
             return Vector3.zero;
+    }
+
+    bool IsInSpaceofSize(float size)
+    {
+        Debug.DrawRay(transform.position, (Vector3.forward) * size, Color.red);
+        Debug.DrawRay(transform.position, (Vector3.left) * size, Color.red);
+        Debug.DrawRay(transform.position, (-Vector3.forward) * size, Color.red);
+        Debug.DrawRay(transform.position, (-Vector3.left) * size, Color.red);
+   
+        Ray rayForward = new Ray(transform.position, (Vector3.forward));
+        Ray rayBackward = new Ray(transform.position, (-Vector3.forward));
+        Ray rayLeft = new Ray(transform.position, (Vector3.left));
+        Ray rayRight = new Ray(transform.position, (-Vector3.left));
+
+        return Physics.Raycast(rayForward, size) ||
+               Physics.Raycast(rayBackward, size) ||
+               Physics.Raycast(rayLeft, size) ||
+               Physics.Raycast(rayRight, size);
     }
 }
