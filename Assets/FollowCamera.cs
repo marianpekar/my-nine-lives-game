@@ -57,7 +57,7 @@ public class FollowCamera : MonoBehaviour
     const float sideRaysDist = 2f;
     const float sideRaysSpread = 0.9f;
 
-    readonly Vector3 forwardOffsetAddition = new Vector3(0.46f, 0f, 0f);
+    readonly Vector3 forwardOffsetAddition = new Vector3(0.66f, 0f, 0f);
     readonly Vector3 sideOffsetAddition = new Vector3(0.33f, 0f, 0f);
 
     void CalculateRaycastsDirections()
@@ -76,13 +76,20 @@ public class FollowCamera : MonoBehaviour
         return target.transform.position - transform.position;
     }
 
+    Vector3 PointOneUpThePlayer()
+    {
+        return target.transform.position + Vector3.up;
+    }
+
     void CalculateOffsetToAvoidObstacle()
     {
         CalculateRaycastsDirections();
+        Debug.DrawRay(PointOneUpThePlayer(), (Vector3.left + Vector3.down) * 2f, Color.yellow);
+        Debug.DrawRay(PointOneUpThePlayer(), (-Vector3.left + Vector3.down) * 2f, Color.yellow);
 
         if (IsPlayerOccluded())
-            if (Vector3.Distance(GetHitPoint(DirectionToPlayer(), DistanceToPlayer()), Vector3.right)
-                < Vector3.Distance(GetHitPoint(DirectionToPlayer(), DistanceToPlayer()), -Vector3.right))
+            if (Vector3.Distance(GetHitPoint(DirectionToPlayer(), DistanceToPlayer()), GetHitPoint(PointOneUpThePlayer(), -Vector3.left + Vector3.down, 2f))
+                < Vector3.Distance(GetHitPoint(DirectionToPlayer(), DistanceToPlayer()), GetHitPoint(PointOneUpThePlayer(), Vector3.left + Vector3.down, 2f)))
                 addToOffset += forwardOffsetAddition;
             else
                 addToOffset -= forwardOffsetAddition;
@@ -111,6 +118,16 @@ public class FollowCamera : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, direction * distance);
+        if (Physics.Raycast(ray, out hit))
+            return hit.transform.position;
+        else
+            return Vector3.zero;
+    }
+
+    Vector3 GetHitPoint(Vector3 startPos, Vector3 direction, float distance)
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(startPos, direction * distance);
         if (Physics.Raycast(ray, out hit))
             return hit.transform.position;
         else
