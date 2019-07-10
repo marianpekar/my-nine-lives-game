@@ -66,14 +66,14 @@ public class FollowCamera : MonoBehaviour
         rightRayDir = (sideRaysSpread * transform.right + transform.forward + transform.up) * raysDistMultiplier;
     }
 
-    float DistanceToPlayer()
+    float DistanceTo(Vector3 point)
     {
-        return Vector3.Distance(target.transform.position, transform.position) * 0.75f;
+        return Vector3.Distance(point, transform.position) * 0.75f;
     }
 
-    Vector3 DirectionToPlayer()
+    Vector3 DirectionTo(Vector3 point)
     {
-        return target.transform.position - transform.position;
+        return point - transform.position;
     }
 
     Vector3 PointOneUpThePlayer()
@@ -87,9 +87,9 @@ public class FollowCamera : MonoBehaviour
         Debug.DrawRay(PointOneUpThePlayer(), (Vector3.left + Vector3.down) * 2f, Color.yellow);
         Debug.DrawRay(PointOneUpThePlayer(), (-Vector3.left + Vector3.down) * 2f, Color.yellow);
 
-        if (IsPlayerOccluded())
-            if (Vector3.Distance(GetHitPoint(DirectionToPlayer(), DistanceToPlayer()), GetHitPoint(PointOneUpThePlayer(), -Vector3.left + Vector3.down, 2f))
-                < Vector3.Distance(GetHitPoint(DirectionToPlayer(), DistanceToPlayer()), GetHitPoint(PointOneUpThePlayer(), Vector3.left + Vector3.down, 2f)))
+        if (IsPointOccluded(PointOneUpThePlayer()))
+            if (Vector3.Distance(GetHitPoint(DirectionTo(PointOneUpThePlayer()), DistanceTo(PointOneUpThePlayer())), GetHitPoint(PointOneUpThePlayer(), -Vector3.left + Vector3.down, 2f))
+                < Vector3.Distance(GetHitPoint(DirectionTo(PointOneUpThePlayer()), DistanceTo(PointOneUpThePlayer())), GetHitPoint(PointOneUpThePlayer(), Vector3.left + Vector3.down, 2f)))
                 addToOffset += forwardOffsetAddition;
             else
                 addToOffset -= forwardOffsetAddition;
@@ -108,10 +108,10 @@ public class FollowCamera : MonoBehaviour
         return Physics.Raycast(transform.position, (direction), distance);
     }
 
-    bool IsPlayerOccluded()
+    bool IsPointOccluded(Vector3 point)
     {
-        Debug.DrawRay(transform.position, 0.75f * (target.transform.position - transform.position), Color.blue);
-        return Physics.Raycast(transform.position, target.transform.position - transform.position, 0.75f * Vector3.Distance(target.transform.position, transform.position));
+        Debug.DrawRay(transform.position, point - transform.position, Color.blue);
+        return Physics.Raycast(transform.position, point - transform.position, Vector3.Distance(point, transform.position));
     }
 
     Vector3 GetHitPoint(Vector3 direction, float distance)
