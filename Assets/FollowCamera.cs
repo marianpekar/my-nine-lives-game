@@ -23,7 +23,7 @@ public class FollowCamera : MonoBehaviour
         Debug.Log(IsPlayerOccluded());
 
         if (IsInPlaneofSize(3f))
-            raysDistMultiplier = 0.33f;
+            raysDistMultiplier = 0.5f;
         else
             raysDistMultiplier = 1f;
 
@@ -54,32 +54,41 @@ public class FollowCamera : MonoBehaviour
     }
 
     // Calculate Vector3 as addition to offset to avoid obstacles if there's any, if not addition is Vector3.zero 
-    Vector3 forwardRayDir;
-    const float forwardRayDist = 4f;
-
     Vector3 leftRayDir;
     Vector3 rightRayDir;
     const float sideRaysDist = 2f;
     const float sideRaysSpread = 0.9f;
 
-    readonly Vector3 forwardOffsetAddition = new Vector3(0.16f, 0f, 0f);
+    readonly Vector3 forwardOffsetAddition = new Vector3(0.46f, 0f, 0f);
     readonly Vector3 sideOffsetAddition = new Vector3(0.33f, 0f, 0f);
-    void CalculateRaycastVectors()
+
+    void CalculateRaycastsDirections()
     {
-        forwardRayDir = (transform.forward + transform.up) * raysDistMultiplier;
         leftRayDir = (sideRaysSpread * -transform.right + transform.forward + transform.up) * raysDistMultiplier;
         rightRayDir = (sideRaysSpread * transform.right + transform.forward + transform.up) * raysDistMultiplier;
     }
 
+    float DistanceToPlayer()
+    {
+        return Vector3.Distance(target.transform.position, transform.position) * 0.75f;
+    }
+
+    Vector3 DirectionToPlayer()
+    {
+        return target.transform.position - transform.position;
+    }
+
     void CalculateOffsetToAvoidObstacle()
     {
-        CalculateRaycastVectors();
+        CalculateRaycastsDirections();
 
-        if (IsCloseToObstacle(forwardRayDist, forwardRayDir))
-            if (Vector3.Distance(GetHitPoint(forwardRayDist, forwardRayDir), -transform.right) < Vector3.Distance(GetHitPoint(forwardRayDist, forwardRayDir), transform.right))
+        if (IsPlayerOccluded())
+            if (Vector3.Distance(GetHitPoint(DirectionToPlayer(), DistanceToPlayer()), Vector3.right)
+                < Vector3.Distance(GetHitPoint(DirectionToPlayer(), DistanceToPlayer()), -Vector3.right))
                 addToOffset += forwardOffsetAddition;
             else
                 addToOffset -= forwardOffsetAddition;
+
         if (IsCloseToObstacle(sideRaysDist, leftRayDir))
             addToOffset -= sideOffsetAddition;
         else if (IsCloseToObstacle(sideRaysDist, rightRayDir))
@@ -100,7 +109,7 @@ public class FollowCamera : MonoBehaviour
         return Physics.Raycast(transform.position, target.transform.position - transform.position, 0.75f * Vector3.Distance(target.transform.position, transform.position));
     }
 
-    Vector3 GetHitPoint(float distance, Vector3 direction)
+    Vector3 GetHitPoint(Vector3 direction, float distance)
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, direction * distance);
@@ -112,15 +121,15 @@ public class FollowCamera : MonoBehaviour
 
     bool IsInPlaneofSize(float size)
     {
-        Debug.DrawRay(transform.position, (Vector3.forward) * size, Color.red);
-        Debug.DrawRay(transform.position, (Vector3.left) * size, Color.red);
-        Debug.DrawRay(transform.position, (-Vector3.forward) * size, Color.red);
-        Debug.DrawRay(transform.position, (-Vector3.left) * size, Color.red);
-   
-        Ray rayForward = new Ray(transform.position, (Vector3.forward));
-        Ray rayBackward = new Ray(transform.position, (-Vector3.forward));
-        Ray rayLeft = new Ray(transform.position, (Vector3.left));
-        Ray rayRight = new Ray(transform.position, (-Vector3.left));
+        Debug.DrawRay(transform.position, (Vector3.forward - Vector3.left) * size, Color.red);
+        Debug.DrawRay(transform.position, (Vector3.forward + Vector3.left) * size, Color.red);
+        Debug.DrawRay(transform.position, -(Vector3.forward - Vector3.left) * size, Color.red);
+        Debug.DrawRay(transform.position, -(Vector3.forward + Vector3.left) * size, Color.red);
+
+        Ray rayForward = new Ray(transform.position, Vector3.forward - Vector3.left);
+        Ray rayBackward = new Ray(transform.position, Vector3.forward + Vector3.left);
+        Ray rayLeft = new Ray(transform.position, -(Vector3.forward - Vector3.left));
+        Ray rayRight = new Ray(transform.position, -(Vector3.forward + Vector3.left));
 
         return Physics.Raycast(rayForward, size) ||
                Physics.Raycast(rayBackward, size) ||
