@@ -20,8 +20,6 @@ public class FollowCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        Debug.Log(IsPlayerOccluded());
-
         if (IsInPlaneofSize(3f))
             raysDistMultiplier = 0.5f;
         else
