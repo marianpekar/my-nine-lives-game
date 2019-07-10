@@ -20,7 +20,7 @@ public class FollowCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        if (IsInSpaceofSize(3f))
+        if (IsInPlaneofSize(3f))
             raysDistMultiplier = 0.33f;
         else
             raysDistMultiplier = 1f;
@@ -103,7 +103,7 @@ public class FollowCamera : MonoBehaviour
             return Vector3.zero;
     }
 
-    bool IsInSpaceofSize(float size)
+    bool IsInPlaneofSize(float size)
     {
         Debug.DrawRay(transform.position, (Vector3.forward) * size, Color.red);
         Debug.DrawRay(transform.position, (Vector3.left) * size, Color.red);
