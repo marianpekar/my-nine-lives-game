@@ -10,7 +10,7 @@ public class FollowCamera : MonoBehaviour
     const float minYOffset = -5f;
     const float maxYOffset = -2f;
 
-    float raysDistMultiplier = 1f;
+    float raysDistMultiplier;
 
     void Start()
     {
@@ -20,6 +20,8 @@ public class FollowCamera : MonoBehaviour
 
     void LateUpdate()
     {
+        Debug.Log(IsPlayerOccluded());
+
         if (IsInPlaneofSize(3f))
             raysDistMultiplier = 0.33f;
         else
@@ -61,7 +63,7 @@ public class FollowCamera : MonoBehaviour
     const float sideRaysSpread = 0.9f;
 
     readonly Vector3 forwardOffsetAddition = new Vector3(0.16f, 0f, 0f);
-    readonly Vector3 sideOffsetAddition = new Vector3(0.52f, 0f, 0f);
+    readonly Vector3 sideOffsetAddition = new Vector3(0.33f, 0f, 0f);
     void CalculateRaycastVectors()
     {
         forwardRayDir = (transform.forward + transform.up) * raysDistMultiplier;
@@ -78,7 +80,6 @@ public class FollowCamera : MonoBehaviour
                 addToOffset += forwardOffsetAddition;
             else
                 addToOffset -= forwardOffsetAddition;
-
         if (IsCloseToObstacle(sideRaysDist, leftRayDir))
             addToOffset -= sideOffsetAddition;
         else if (IsCloseToObstacle(sideRaysDist, rightRayDir))
@@ -91,6 +92,12 @@ public class FollowCamera : MonoBehaviour
     {
         Debug.DrawRay(transform.position, (direction) * distance, Color.green);
         return Physics.Raycast(transform.position, (direction), distance);
+    }
+
+    bool IsPlayerOccluded()
+    {
+        Debug.DrawRay(transform.position, 0.75f * (target.transform.position - transform.position), Color.blue);
+        return Physics.Raycast(transform.position, target.transform.position - transform.position, 0.75f * Vector3.Distance(target.transform.position, transform.position));
     }
 
     Vector3 GetHitPoint(float distance, Vector3 direction)
