@@ -21,7 +21,7 @@ public class FollowCamera : MonoBehaviour
     void LateUpdate()
     {
         if (IsInPlaneofSize(3f))
-            raysDistMultiplier = 0.5f;
+            raysDistMultiplier = 0.75f;
         else
             raysDistMultiplier = 1f;
 
@@ -62,8 +62,8 @@ public class FollowCamera : MonoBehaviour
 
     void CalculateRaycastsDirections()
     {
-        leftRayDir = (sideRaysSpread * -transform.right + transform.forward + transform.up) * raysDistMultiplier;
-        rightRayDir = (sideRaysSpread * transform.right + transform.forward + transform.up) * raysDistMultiplier;
+        leftRayDir = (sideRaysSpread * -transform.right + transform.forward + transform.up);
+        rightRayDir = (sideRaysSpread * transform.right + transform.forward + transform.up);
     }
 
     float DistanceTo(Vector3 point)
@@ -94,9 +94,9 @@ public class FollowCamera : MonoBehaviour
             else
                 addToOffset -= forwardOffsetAddition;
 
-        if (IsCloseToObstacle(sideRaysDist, leftRayDir))
+        if (IsCloseToObstacle(sideRaysDist * raysDistMultiplier, leftRayDir))
             addToOffset -= sideOffsetAddition;
-        else if (IsCloseToObstacle(sideRaysDist, rightRayDir))
+        else if (IsCloseToObstacle(sideRaysDist * raysDistMultiplier, rightRayDir))
             addToOffset += sideOffsetAddition;
         else
             addToOffset = Vector3.zero;
