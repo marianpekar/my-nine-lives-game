@@ -23,7 +23,7 @@ public class FollowCamera : MonoBehaviour
     void LateUpdate()
     {
         if (IsInPlaneofSize(3f))
-            raysDistMultiplier = 0.75f;
+            raysDistMultiplier = 0.5f;
         else
             raysDistMultiplier = 1f;
 
@@ -48,7 +48,12 @@ public class FollowCamera : MonoBehaviour
             offset = initialOffset;
         }
 
-        transform.LookAt(PointOneUpThePlayer() + Vector3.forward);
+
+        Vector3 targetLocalForward = target.transform.TransformDirection(Vector3.forward);
+
+        Debug.DrawRay(PointOneUpThePlayer(), targetLocalForward, Color.magenta);
+
+        transform.LookAt(PointOneUpThePlayer() + targetLocalForward);
         Quaternion rotation = Quaternion.Euler(0, angle, 0);
         transform.position = Vector3.Lerp(transform.position, PointOneUpThePlayer() - (rotation * (offset + addToOffset)), Time.deltaTime);
     }
@@ -80,7 +85,7 @@ public class FollowCamera : MonoBehaviour
 
     float DistanceTo(Vector3 point)
     {
-        return Vector3.Distance(point, transform.position) * 0.75f;
+        return Vector3.Distance(point, transform.position);
     }
 
     Vector3 DirectionTo(Vector3 point)
@@ -96,12 +101,14 @@ public class FollowCamera : MonoBehaviour
     void CalculateOffsetToAvoidObstacle()
     {
         CalculateRaycastsDirections();
-        Debug.DrawRay(PointOneUpThePlayer(), (Vector3.left + Vector3.down) * 2f, Color.yellow);
-        Debug.DrawRay(PointOneUpThePlayer(), (-Vector3.left + Vector3.down) * 2f, Color.yellow);
+        Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.left + Vector3.down) * 2f, Color.yellow);
+        Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(-Vector3.left + Vector3.down) * 2f, Color.yellow);
 
         if (IsPointOccluded(PointOneUpThePlayer()))
-            if (Vector3.Distance(GetHitPoint(DirectionTo(PointOneUpThePlayer()), DistanceTo(PointOneUpThePlayer())), GetHitPoint(PointOneUpThePlayer(), -Vector3.left + Vector3.down, 2f))
-                < Vector3.Distance(GetHitPoint(DirectionTo(PointOneUpThePlayer()), DistanceTo(PointOneUpThePlayer())), GetHitPoint(PointOneUpThePlayer(), Vector3.left + Vector3.down, 2f)))
+            if (Vector3.Distance(GetHitPoint(DirectionTo(PointOneUpThePlayer()), DistanceTo(PointOneUpThePlayer()) * 0.75f), 
+                GetHitPoint(PointOneUpThePlayer(), target.transform.TransformDirection(-Vector3.left + Vector3.down), 2f))
+                < Vector3.Distance(GetHitPoint(DirectionTo(PointOneUpThePlayer()), DistanceTo(PointOneUpThePlayer()) * 0.75f), 
+                GetHitPoint(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.left + Vector3.down), 2f)))
                 addToOffset += forwardOffsetAddition;
             else
                 addToOffset -= forwardOffsetAddition;
