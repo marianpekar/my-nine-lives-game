@@ -4,10 +4,11 @@ public class FollowCamera : MonoBehaviour
     public GameObject target;
 
     Vector3 offset;
+    Vector3 initialOffset;
     Vector3 addToOffset = Vector3.zero;
     int initialDistanceToGround;
 
-    const float minYOffset = -5f;
+    const float minYOffset = -3f;
     const float maxYOffset = -1f;
 
     float raysDistMultiplier;
@@ -15,6 +16,7 @@ public class FollowCamera : MonoBehaviour
     void Start()
     {
         offset = PointOneUpThePlayer() - transform.position;
+        initialOffset = offset;
         initialDistanceToGround = (int)DistanceToGround();
     }
 
@@ -36,9 +38,19 @@ public class FollowCamera : MonoBehaviour
 
         CalculateOffsetToAvoidObstacle();
 
+        if (PlayerStates.Singleton.IsWalking && !PlayerStates.Singleton.IsWalkingBackward && PlayerStates.Singleton.IsGrounded)
+        {
+            offset.y = offset.y / 3f;
+            offset.z = offset.z / 2f;
+        }
+        else
+        {
+            offset = initialOffset;
+        }
+
+        transform.LookAt(PointOneUpThePlayer() + Vector3.forward);
         Quaternion rotation = Quaternion.Euler(0, angle, 0);
         transform.position = Vector3.Lerp(transform.position, PointOneUpThePlayer() - (rotation * (offset + addToOffset)), Time.deltaTime);
-        transform.LookAt(PointOneUpThePlayer());
     }
 
     float DistanceToGround()
