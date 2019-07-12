@@ -53,13 +53,13 @@ public class FollowCamera : MonoBehaviour
     {
         offset.y = offset.y / 3f;
         offset.z = offset.z / 2f;
-        sideRaysDist = 1f;
+        sideRaysDist = 0.5f;
     }
 
     void SetOriginalCamera()
     {
         offset = initialOffset;
-        sideRaysDist = 2f;
+        sideRaysDist = 1f;
     }
 
     float DistanceToGround()
@@ -75,11 +75,11 @@ public class FollowCamera : MonoBehaviour
     // Calculate Vector3 as addition to offset to avoid obstacles if there's any, if not addition is Vector3.zero 
     Vector3 leftRayDir;
     Vector3 rightRayDir;
-    const float sideRaysSpread = 1f;
+    const float sideRaysSpread = 3f;
 
     Vector3 leftRayDir2;
     Vector3 rightRayDir2;
-    const float sideRaysSpread2 = 0.2f;
+    const float sideRaysSpread2 = 0.5f;
 
     readonly Vector3 forwardOffsetAddition = new Vector3(0.66f, 0f, 0f);
     readonly Vector3 sideOffsetAddition = new Vector3(0.16f, 0f, 0f);
