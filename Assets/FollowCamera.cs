@@ -14,9 +14,11 @@ public class FollowCamera : MonoBehaviour
     const float minXRotation = -0.2f;
     const float maxXRotation = 0.15f;
 
-    const float rotationSpeed = 2f;
+    float rotationSpeed = 64f;
 
     float sideRaysDist;
+    const float sideRayDistSmall = 0.5f;
+    const float sideRayDistOriginal = 1f;
 
     void Start()
     {
@@ -42,10 +44,12 @@ public class FollowCamera : MonoBehaviour
         CalculateOffsetToAvoidObstacle();
 
         Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.forward), Color.magenta);
-        transform.LookAt(PointOneUpThePlayer() + target.transform.TransformDirection(Vector3.forward));
 
-        Quaternion rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(PointOneUpThePlayer()), Time.deltaTime * rotationSpeed);
+        Quaternion rotation = Quaternion.Slerp(transform.rotation,
+                                               Quaternion.LookRotation((PointOneUpThePlayer() + target.transform.TransformDirection(Vector3.forward)) - transform.position), 
+                                               Time.deltaTime * rotationSpeed);
         Quaternion clampedRotation = new Quaternion(Mathf.Clamp(rotation.x, minXRotation, maxXRotation), rotation.y, rotation.z, rotation.w);
+        transform.rotation = clampedRotation;
         transform.position = Vector3.Lerp(transform.position, PointOneUpThePlayer() - (clampedRotation * (offset + addToOffset)), Time.deltaTime);
     }
 
@@ -53,13 +57,13 @@ public class FollowCamera : MonoBehaviour
     {
         offset.y = offset.y / 3f;
         offset.z = offset.z / 2f;
-        sideRaysDist = 0.5f;
+        sideRaysDist = sideRayDistSmall;
     }
 
     void SetOriginalCamera()
     {
         offset = initialOffset;
-        sideRaysDist = 1f;
+        sideRaysDist = sideRayDistOriginal;
     }
 
     float DistanceToGround()
@@ -75,11 +79,11 @@ public class FollowCamera : MonoBehaviour
     // Calculate Vector3 as addition to offset to avoid obstacles if there's any, if not addition is Vector3.zero 
     Vector3 leftRayDir;
     Vector3 rightRayDir;
-    const float sideRaysSpread = 3f;
+    const float sideRaysSpread = 2f;
 
     Vector3 leftRayDir2;
     Vector3 rightRayDir2;
-    const float sideRaysSpread2 = 0.5f;
+    const float sideRaysSpread2 = 0.7f;
 
     readonly Vector3 forwardOffsetAddition = new Vector3(0.66f, 0f, 0f);
     readonly Vector3 sideOffsetAddition = new Vector3(0.16f, 0f, 0f);
@@ -119,14 +123,14 @@ public class FollowCamera : MonoBehaviour
                 GetHitPoint(PointOneUpThePlayer(), target.transform.TransformDirection(-Vector3.left + Vector3.down), 2f))
                 < Vector3.Distance(GetHitPoint(DirectionTo(PointOneUpThePlayer()), DistanceTo(PointOneUpThePlayer()) * 0.75f), 
                 GetHitPoint(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.left + Vector3.down), 2f)))
-                addToOffset += forwardOffsetAddition;
+                addToOffset += Vector3.Lerp(Vector3.zero, forwardOffsetAddition, Time.deltaTime * 2f);
             else
                 addToOffset -= forwardOffsetAddition;
 
         if (IsCloseToObstacle(sideRaysDist, leftRayDir) || IsCloseToObstacle(sideRaysDist, leftRayDir2))
-            addToOffset -= sideOffsetAddition;
+            addToOffset -= Vector3.Lerp(Vector3.zero, sideOffsetAddition, Time.deltaTime * 2f);
         else if (IsCloseToObstacle(sideRaysDist, rightRayDir) || IsCloseToObstacle(sideRaysDist, rightRayDir2))
-            addToOffset += sideOffsetAddition;
+            addToOffset += Vector3.Lerp(Vector3.zero, sideOffsetAddition, Time.deltaTime * 2f);
         else
             addToOffset = Vector3.zero;
     }
