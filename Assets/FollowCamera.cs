@@ -6,6 +6,11 @@ public class FollowCamera : MonoBehaviour
     Vector3 offset;
     Vector3 initialOffset;
     Vector3 addToOffset = Vector3.zero;
+
+    Vector3 pointToLookAtFront;
+    Vector3 pointToLookAtBack;
+    Vector3 pointToLookAt;
+
     int initialDistanceToGround;
 
     const float minYOffset = -3f;
@@ -14,15 +19,17 @@ public class FollowCamera : MonoBehaviour
     const float minXRotation = -0.2f;
     const float maxXRotation = 0.15f;
 
-    float rotationSpeed = 64f;
+    float rotationSpeed = 4f;
 
     float sideRaysDist;
     const float sideRayDistSmall = 0.5f;
     const float sideRayDistOriginal = 1f;
 
+    const float planeToSwitchToCloserCameraLength = 1.25f;
+
     void Start()
     {
-        offset = PointOneUpThePlayer() - transform.position;
+        offset = DirectionTo(PointOneUpThePlayer());
         initialOffset = offset;
         initialDistanceToGround = (int)DistanceToGround();
     }
@@ -36,7 +43,7 @@ public class FollowCamera : MonoBehaviour
         else if ((int)DistanceToGround() > initialDistanceToGround || offset.y < minYOffset)
             offset.y += 0.01f;
 
-        if ((PlayerStates.Singleton.IsWalking && !PlayerStates.Singleton.IsWalkingBackward && PlayerStates.Singleton.IsGrounded) || IsInPlaneOfLenght(1.25f))
+        if ((PlayerStates.Singleton.IsWalking && !PlayerStates.Singleton.IsWalkingBackward && PlayerStates.Singleton.IsGrounded) || IsInPlaneOfLenght(planeToSwitchToCloserCameraLength))
             SetCloserCamera();
         else
             SetOriginalCamera();
@@ -44,10 +51,18 @@ public class FollowCamera : MonoBehaviour
         CalculateOffsetToAvoidObstacle();
 
         Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.forward), Color.magenta);
+        Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(-Vector3.forward), Color.cyan);
 
-        Quaternion rotation = Quaternion.Slerp(transform.rotation,
-                                               Quaternion.LookRotation((PointOneUpThePlayer() + target.transform.TransformDirection(Vector3.forward)) - transform.position), 
-                                               Time.deltaTime * rotationSpeed);
+        pointToLookAtFront = PointOneUpThePlayer() + target.transform.TransformDirection(Vector3.forward) - transform.position;
+        pointToLookAtBack = PointOneUpThePlayer() + target.transform.TransformDirection(-Vector3.forward) - transform.position;
+
+        if (PlayerStates.Singleton.IsWalkingBackward)
+            pointToLookAt = pointToLookAtBack;
+        else
+            pointToLookAt = pointToLookAtFront;
+
+
+        Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(pointToLookAt), Time.deltaTime * rotationSpeed);
         Quaternion clampedRotation = new Quaternion(Mathf.Clamp(rotation.x, minXRotation, maxXRotation), rotation.y, rotation.z, rotation.w);
         transform.rotation = clampedRotation;
         transform.position = Vector3.Lerp(transform.position, PointOneUpThePlayer() - (clampedRotation * (offset + addToOffset)), Time.deltaTime);
@@ -108,7 +123,7 @@ public class FollowCamera : MonoBehaviour
 
     Vector3 PointOneUpThePlayer()
     {
-        return target.transform.position + target.transform.TransformDirection(Vector3.up);
+        return target.transform.position + target.transform.TransformDirection(Vector3.up); ;
     }
 
     void CalculateOffsetToAvoidObstacle()
