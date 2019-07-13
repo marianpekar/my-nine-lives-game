@@ -25,7 +25,7 @@ public class FollowCamera : MonoBehaviour
     const float sideRayDistSmall = 0.5f;
     const float sideRayDistOriginal = 1f;
 
-    const float planeToSwitchToCloserCameraLength = 1.25f;
+    const float obstaclesOnBothSidesRayLength = 1.25f;
 
     void Start()
     {
@@ -36,36 +36,50 @@ public class FollowCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        Debug.Log(offset);
-
+        KeepDistanceFromGround();
+        SetBetweenCloserAndOriginalCamera();
+        CalculateOffsetToAvoidObstacle();
+        SetPointToLookAt();
+        SetPositionAndRotation();
+    }
+    void KeepDistanceFromGround()
+    {
         if ((int)DistanceToGround() < initialDistanceToGround || offset.y > maxYOffset)
             offset.y -= 0.01f;
         else if ((int)DistanceToGround() > initialDistanceToGround || offset.y < minYOffset)
             offset.y += 0.01f;
+    }
 
-        if ((PlayerStates.Singleton.IsWalking && !PlayerStates.Singleton.IsWalkingBackward && PlayerStates.Singleton.IsGrounded) || IsInPlaneOfLenght(planeToSwitchToCloserCameraLength))
-            SetCloserCamera();
-        else
-            SetOriginalCamera();
+    float DistanceToGround()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            return hit.distance;
+        }
+        return -1f;
+    }
 
-        CalculateOffsetToAvoidObstacle();
-
+    void SetPointToLookAt()
+    {
         Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.forward), Color.magenta);
         Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(-Vector3.forward), Color.cyan);
 
-        pointToLookAtFront = PointOneUpThePlayer() + target.transform.TransformDirection(Vector3.forward) - transform.position;
-        pointToLookAtBack = PointOneUpThePlayer() + target.transform.TransformDirection(-Vector3.forward) - transform.position;
+        pointToLookAtFront = PointOneUpThePlayer() + DirectionTo(target.transform.TransformDirection(Vector3.forward));
+        pointToLookAtBack = PointOneUpThePlayer() + DirectionTo(target.transform.TransformDirection(-Vector3.forward));
 
         if (PlayerStates.Singleton.IsWalkingBackward)
             pointToLookAt = pointToLookAtBack;
         else
             pointToLookAt = pointToLookAtFront;
+    }
 
-
-        Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(pointToLookAt), Time.deltaTime * rotationSpeed);
-        Quaternion clampedRotation = new Quaternion(Mathf.Clamp(rotation.x, minXRotation, maxXRotation), rotation.y, rotation.z, rotation.w);
-        transform.rotation = clampedRotation;
-        transform.position = Vector3.Lerp(transform.position, PointOneUpThePlayer() - (clampedRotation * (offset + addToOffset)), Time.deltaTime);
+    void SetBetweenCloserAndOriginalCamera()
+    {
+        if ((PlayerStates.Singleton.IsWalking && !PlayerStates.Singleton.IsWalkingBackward && PlayerStates.Singleton.IsGrounded) || ObstaclesFromBothSides(obstaclesOnBothSidesRayLength))
+            SetCloserCamera();
+        else
+            SetOriginalCamera();
     }
 
     void SetCloserCamera()
@@ -81,14 +95,12 @@ public class FollowCamera : MonoBehaviour
         sideRaysDist = sideRayDistOriginal;
     }
 
-    float DistanceToGround()
+    void SetPositionAndRotation()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
-        {
-            return hit.distance;
-        }
-        return -1f;
+        Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(pointToLookAt), Time.deltaTime * rotationSpeed);
+        Quaternion clampedRotation = new Quaternion(Mathf.Clamp(rotation.x, minXRotation, maxXRotation), rotation.y, rotation.z, rotation.w);
+        transform.rotation = clampedRotation;
+        transform.position = Vector3.Lerp(transform.position, PointOneUpThePlayer() - (clampedRotation * (offset + addToOffset)), Time.deltaTime);
     }
 
     // Calculate Vector3 as addition to offset to avoid obstacles if there's any, if not addition is Vector3.zero 
@@ -158,8 +170,8 @@ public class FollowCamera : MonoBehaviour
 
     bool IsPointOccluded(Vector3 point)
     {
-        Debug.DrawRay(transform.position, point - transform.position, Color.blue);
-        return Physics.Raycast(transform.position, point - transform.position, Vector3.Distance(point, transform.position));
+        Debug.DrawRay(transform.position, DirectionTo(point), Color.blue);
+        return Physics.Raycast(transform.position, DirectionTo(point), Vector3.Distance(point, transform.position));
     }
 
     Vector3 GetHitPoint(Vector3 direction, float distance)
@@ -182,14 +194,14 @@ public class FollowCamera : MonoBehaviour
             return Vector3.zero;
     }
 
-    bool IsInPlaneOfLenght(float lenght)
+    bool ObstaclesFromBothSides(float rayLenght)
     {
-        Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.left) * lenght, Color.red);
-        Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(-Vector3.left) * lenght, Color.red);
+        Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.left) * rayLenght, Color.red);
+        Debug.DrawRay(PointOneUpThePlayer(), target.transform.TransformDirection(-Vector3.left) * rayLenght, Color.red);
 
         Ray rayLeft= new Ray(PointOneUpThePlayer(), target.transform.TransformDirection(Vector3.left));
         Ray rayRight = new Ray(PointOneUpThePlayer(), target.transform.TransformDirection(-Vector3.left));
 
-        return Physics.Raycast(rayLeft, lenght) && Physics.Raycast(rayRight, lenght);
+        return Physics.Raycast(rayLeft, rayLenght) && Physics.Raycast(rayRight, rayLenght);
     }
 }
