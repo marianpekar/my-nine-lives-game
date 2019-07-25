@@ -28,13 +28,15 @@ public sealed class PlayerStates
     // Stealth Level
     public float CurrentStealthLevel { get; set; } = 1f;
     public float StealthLevelHigh { get; } = 0.75f;
-    public float StealthLevelLow { get; } = 0.05f;
+    public float StealthLevelLow { get; } = 0.005f;
     public float StealthLevelAddition { get; set; } = 0f;
     public float StealthLevelMaximumAddition { get; } = 0.25f;
     public float AddToStealthAdditionRate { get; } = 1f; // in seconds
-    public float AddToStealthAddition { get; } = 0.0005f;
+    public float AddToStealthAddition { get; } = 0.00005f;
 
     public float SubstractFromStealthAddition { get; } = 0.05f;
+
+    public Vector3 Position { get; set; }
 
 
     private static PlayerStates instance;

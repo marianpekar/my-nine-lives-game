@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        PlayerStates.Singleton.Position = transform.position;
+
         if (PlayerStates.Singleton.IsDead) return;
 
         PlayerStates.Singleton.IsWalking = Input.GetButton("Walk");
