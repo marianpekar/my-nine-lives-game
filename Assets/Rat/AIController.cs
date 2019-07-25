@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class AIController : MonoBehaviour
 {
     float wanderRadius = 30f;
-    float detectionRadius = 10f;
+    float detectionRadius = 6f;
     float criticalDetectionRadius = 2f;
-    float fleeRadius = 30f;
+    float fleeRadius = 60f;
     float stealthLevelDetectionLimit = 0.75f;
 
     float walkSpeed = 0.5f;
@@ -50,6 +50,9 @@ public class AIController : MonoBehaviour
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, criticalDetectionRadius);
     }
 
     bool CloseToPlayer(Vector3 position, float detectionRadius)
