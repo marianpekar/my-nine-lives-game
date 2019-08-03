@@ -5,19 +5,19 @@ using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
-    float wanderRadius = 30f;
-    float detectionRadius = 6f;
-    float criticalDetectionRadius = 2f;
-    float fleeRadius = 60f;
-    float stealthLevelDetectionLimit = 0.75f;
+    public float wanderRadius = 30f;
+    public float detectionRadius = 6f;
+    public float criticalDetectionRadius = 2f;
+    public float fleeRadius = 60f;
+    public float stealthLevelDetectionLimit = 0.75f;
 
-    float walkSpeed = 0.5f;
-    float walkAngularSpeed = 120f;
-    float runSpeed = 6f;
-    float runAngularSpeed = 600f;
+    public float walkSpeed = 0.5f;
+    public float walkAngularSpeed = 120f;
+    public float runSpeed = 6f;
+    public float runAngularSpeed = 600f;
 
-    float maxIdleTime = 6f;  
-    float minIdleTime = 2f;
+    public float maxIdleTime = 6f;
+    public float minIdleTime = 2f;
 
     NavMeshAgent agent;
     Animator animator;
