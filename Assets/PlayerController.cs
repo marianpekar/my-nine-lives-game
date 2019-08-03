@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
         // Rotation
         float horizontalAxis = Input.GetAxis("Horizontal");
-        transform.Rotate(0, horizontalAxis, 0);
+        transform.Rotate(0, horizontalAxis * PlayerStates.Singleton.RotationSpeed, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, GetHitNormal()) * transform.rotation, 5 * Time.deltaTime);
     }
 
@@ -111,7 +111,14 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
-            return hit.normal;
+            //Debug.Log(Vector3.Angle(hit.normal, Vector3.up));
+            Debug.DrawRay(hit.point, Vector3.up, Color.red);
+            Debug.DrawRay(hit.point, hit.normal, Color.blue);
+
+            if (Vector3.Angle(hit.normal, Vector3.up) < 30)
+                return hit.normal;
+            else
+                return Vector3.zero;
         } else
         {
             return Vector3.zero;
