@@ -15,7 +15,7 @@ public class PreySpawner : MonoBehaviour
         for(int i = 0; i < preyCount; i++)
             Instantiate(prey, CalculateSpawnPosition(), Quaternion.identity, this.transform);
     }
-    Vector3 CalculateSpawnPosition()
+    public Vector3 CalculateSpawnPosition()
     {
         Vector3 rayStartPos = new Vector3(Random.Range(this.transform.position.x - size/2, this.transform.position.x + size / 2), 500f, 
                                           Random.Range(this.transform.position.x - size / 2, this.transform.position.x + size / 2));

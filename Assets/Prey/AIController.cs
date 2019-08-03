@@ -21,12 +21,14 @@ public class AIController : MonoBehaviour
 
     NavMeshAgent agent;
     Animator animator;
+    PreySpawner parentSpawner;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        parentSpawner = GetComponentInParent<PreySpawner>();
 
         Walk();
         agent.SetDestination(RandomNavmeshLocation(wanderRadius));
@@ -47,7 +49,6 @@ public class AIController : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
@@ -105,14 +106,35 @@ public class AIController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(CloseToPlayer(PlayerStates.Singleton.Position, detectionRadius))
+        CheckForBeingEaten();
+        CheckForDanger();
+        CheckForGoal();
+    }
+
+    void CheckForBeingEaten()
+    {
+        if (Vector3.Distance(this.transform.position, PlayerStates.Singleton.Position) < 0.5f)
         {
-            if(PlayerStates.Singleton.CurrentStealthLevel > stealthLevelDetectionLimit || CloseToPlayer(PlayerStates.Singleton.Position, criticalDetectionRadius))
+            Debug.Log("This agent has been eaten");
+            this.transform.position = parentSpawner.CalculateSpawnPosition();
+            Walk();
+            agent.SetDestination(RandomNavmeshLocation(wanderRadius));
+        }
+    }
+
+    void CheckForDanger()
+    {
+        if (CloseToPlayer(PlayerStates.Singleton.Position, detectionRadius))
+        {
+            if (PlayerStates.Singleton.CurrentStealthLevel > stealthLevelDetectionLimit || CloseToPlayer(PlayerStates.Singleton.Position, criticalDetectionRadius))
             {
                 Flee(PlayerStates.Singleton.Position);
             }
         }
+    }
 
+    void CheckForGoal()
+    {
         if (agent.remainingDistance < 1f)
         {
             Idle();
