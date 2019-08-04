@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(hit.point, Vector3.up, Color.red);
             Debug.DrawRay(hit.point, hit.normal, Color.blue);
 
-            if (Vector3.Angle(hit.normal, Vector3.up) < 30)
+            if (Vector3.Angle(hit.normal, Vector3.up) < 45)
                 return hit.normal;
             else
                 return Vector3.zero;

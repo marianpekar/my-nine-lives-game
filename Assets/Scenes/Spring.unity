@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+  m_FogColor: {r: 0.75686276, g: 0.75686276, b: 0.75686276, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.002
+  m_FogDensity: 0.0025
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -120,6 +120,61 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &338019695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 338019696}
+  - component: {fileID: 338019697}
+  m_Layer: 0
+  m_Name: FlowersSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &338019696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338019695}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 902378254}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &338019697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338019695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 500
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 11a06836062e07048848e41385d1ad23, type: 3}
+  - {fileID: -927199367670048503, guid: d7306ffe890a84b4a8c4d66b1c3bd383, type: 3}
+  - {fileID: -927199367670048503, guid: 27cb700323af1d34192135799dc6d367, type: 3}
+  - {fileID: -927199367670048503, guid: 182f0508b2029e44591398795bbf0843, type: 3}
+  - {fileID: -927199367670048503, guid: 8c68e4dc10c45e342a07bef8b691869a, type: 3}
+  - {fileID: -927199367670048503, guid: 153627173cebb874f92a6a4733a9fa37, type: 3}
+  count: 500
+  maxSteepAngle: 80
+  isNavMeshObstacle: 0
+  lowerOffset: 0.05
 --- !u!1 &424856993
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4c882ffdfbf0548abe3cfc80759444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 500
+  size: 300
   prey: {fileID: 8334855634422311627, guid: 70b994b77a8994e41ba9a34ef6cbf402, type: 3}
   preyCount: 50
 --- !u!4 &424856995
@@ -258,7 +313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448627146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 300, y: 63.456, z: 298.066}
+  m_LocalPosition: {x: 500, y: 95.03, z: 497.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -320,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 800
+  size: 500
   gameObjects:
   - {fileID: -927199367670048503, guid: f3b376f58f231644e83a39b456bb5045, type: 3}
   - {fileID: -927199367670048503, guid: 66179f38a403ec14e9f30e765fcf81c1, type: 3}
@@ -329,10 +384,62 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: b5048f1861a0dba40be834087d71ee98, type: 3}
   - {fileID: -927199367670048503, guid: 624720c8a57f15447809ee37159beeaf, type: 3}
   - {fileID: -927199367670048503, guid: d07eda94056f0314c82f31c0c567fc27, type: 3}
-  count: 60
+  count: 120
   maxSteepAngle: 80
   isNavMeshObstacle: 1
   lowerOffset: 0.25
+--- !u!1 &496139709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496139710}
+  - component: {fileID: 496139711}
+  m_Layer: 0
+  m_Name: GrassSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496139710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496139709}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 902378254}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496139711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496139709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 500
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 96c38f43af1722746b0368fa0d91a304, type: 3}
+  - {fileID: -927199367670048503, guid: 04b633b116c91014b98792aae60d06f0, type: 3}
+  - {fileID: -927199367670048503, guid: e6b2149ab013125488862b1297297528, type: 3}
+  count: 500
+  maxSteepAngle: 80
+  isNavMeshObstacle: 0
+  lowerOffset: 0.05
 --- !u!1 &767777546
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +451,7 @@ GameObject:
   - component: {fileID: 767777548}
   - component: {fileID: 767777547}
   m_Layer: 0
-  m_Name: PineTreesSpawner
+  m_Name: DeadTreesSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,14 +469,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 800
+  size: 500
   gameObjects:
   - {fileID: -927199367670048503, guid: 587e121c83336824a9bd943e8afdd412, type: 3}
   - {fileID: -927199367670048503, guid: 378903d0b2e2f604189c2d061a8a8ea0, type: 3}
   - {fileID: -927199367670048503, guid: 45bfcd1f7db21554bb962efc94c98b14, type: 3}
   - {fileID: -927199367670048503, guid: 107dd59b7e4ab7746aae49e9f79b6e6c, type: 3}
   - {fileID: -927199367670048503, guid: d7715c799339e5044bf294616d977a27, type: 3}
-  count: 300
+  count: 100
   maxSteepAngle: 20
   isNavMeshObstacle: 1
   lowerOffset: 0.25
@@ -420,6 +527,8 @@ Transform:
   - {fileID: 479644903}
   - {fileID: 935019536}
   - {fileID: 1298558019}
+  - {fileID: 338019696}
+  - {fileID: 496139710}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -466,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 800
+  size: 500
   gameObjects:
   - {fileID: -927199367670048503, guid: 2599b968d8ec0144a9adca8db444e918, type: 3}
   - {fileID: -927199367670048503, guid: 9b1f23c1bc7f57c418810f3277180ca2, type: 3}
@@ -489,17 +598,17 @@ PrefabInstance:
     - target: {fileID: 5641631285422964705, guid: f47066f7a0d0d854f820a68a65381450,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5641631285422964705, guid: f47066f7a0d0d854f820a68a65381450,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 62.29911
+      value: 93.87311
       objectReference: {fileID: 0}
     - target: {fileID: 5641631285422964705, guid: f47066f7a0d0d854f820a68a65381450,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5641631285422964705, guid: f47066f7a0d0d854f820a68a65381450,
         type: 3}
@@ -592,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 800
+  size: 500
   gameObjects:
   - {fileID: -927199367670048503, guid: 6a1e48aaab7c9fa4eb78e1c81c7e492b, type: 3}
   - {fileID: -927199367670048503, guid: 7bc034edde4e86348af4b6e3479c3d1d, type: 3}
@@ -822,7 +931,7 @@ GameObject:
   - component: {fileID: 1963395231}
   - component: {fileID: 1963395232}
   m_Layer: 0
-  m_Name: DeadTreesSpawner
+  m_Name: PineTreesSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,14 +963,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 800
+  size: 500
   gameObjects:
   - {fileID: -927199367670048503, guid: 93881000edc6a7c4f9560043c56b9cc9, type: 3}
   - {fileID: -927199367670048503, guid: e1a0d5c9ea754f54fbc9be8f227f4819, type: 3}
   - {fileID: -927199367670048503, guid: 1cd0dd2acfca25e4f8f72bcb3be4d6a3, type: 3}
   - {fileID: -927199367670048503, guid: 21da8424083720e459da1f4bff951a14, type: 3}
   - {fileID: -927199367670048503, guid: 2828097ddbb7de249af845a15ea95c2d, type: 3}
-  count: 100
+  count: 300
   maxSteepAngle: 40
   isNavMeshObstacle: 1
   lowerOffset: 0.25
