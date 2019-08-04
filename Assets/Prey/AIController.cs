@@ -116,7 +116,7 @@ public class AIController : MonoBehaviour
         if (Vector3.Distance(this.transform.position, PlayerStates.Singleton.Position) < 0.5f)
         {
             Debug.Log("This agent has been eaten");
-            this.transform.position = parentSpawner.CalculateSpawnPosition();
+            this.transform.position = parentSpawner.CalculateSpawnHit().point;
             Walk();
             agent.SetDestination(RandomNavmeshLocation(wanderRadius));
         }

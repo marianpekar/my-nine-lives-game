@@ -9,20 +9,28 @@ public class PreySpawner : MonoBehaviour
     public GameObject prey;
     public int preyCount;
 
+    int terrainLayerMask = 9;
+
     // Start is called before the first frame update
     void Start()
     {
         for(int i = 0; i < preyCount; i++)
-            Instantiate(prey, CalculateSpawnPosition(), Quaternion.identity, this.transform);
+        {
+            RaycastHit hit = CalculateSpawnHit();
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+                Instantiate(prey, hit.point, Quaternion.identity, this.transform);
+        }
+        
     }
-    public Vector3 CalculateSpawnPosition()
+
+    public RaycastHit CalculateSpawnHit()
     {
-        Vector3 rayStartPos = new Vector3(Random.Range(this.transform.position.x - size/2, this.transform.position.x + size / 2), 500f, 
+        Vector3 rayStartPos = new Vector3(Random.Range(this.transform.position.x - size / 2, this.transform.position.x + size / 2), 500f,
                                           Random.Range(this.transform.position.x - size / 2, this.transform.position.x + size / 2));
         RaycastHit hit;
-        if (Physics.Raycast(rayStartPos, Vector3.down * 1000f, out hit))
-            return hit.point;
+        if (Physics.Raycast(rayStartPos, Vector3.down, out hit, Mathf.Infinity))
+            return hit;
         else
-            return Vector3.zero;
+            return new RaycastHit();
     }
 }
