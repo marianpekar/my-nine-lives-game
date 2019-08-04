@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ObjectsSpawner : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ObjectsSpawner : MonoBehaviour
     public GameObject[] gameObjects;
     public int count;
     public float maxSteepAngle = 40f;
+    public bool isNavMeshObstacle = true;
+    public float lowerOffset = 0.22f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +22,15 @@ public class ObjectsSpawner : MonoBehaviour
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain") && Vector3.Angle(hit.normal, Vector3.up) < maxSteepAngle)
             {
                 Debug.DrawRay(hit.point, hit.normal, Color.green, Mathf.Infinity);
-                GameObject treeInstance = Instantiate(gameObjects[Random.Range(0, gameObjects.Length)], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), this.transform) as GameObject;
-                treeInstance.transform.Rotate(transform.right, -90);
-                treeInstance.transform.Translate(0, -0.22f, 0);
+                GameObject gameObject = Instantiate(gameObjects[Random.Range(0, gameObjects.Length)], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), this.transform) as GameObject;
+                gameObject.transform.Rotate(transform.right, -90);
+                gameObject.transform.localPosition += new Vector3(0, -lowerOffset, 0);
+
+                if(isNavMeshObstacle)
+                {
+                    gameObject.AddComponent<NavMeshObstacle>().carving = true;
+                }
+
             } else
             {
                 i--;
