@@ -83,7 +83,7 @@ public class AIController : MonoBehaviour
         if (path.status != NavMeshPathStatus.PathInvalid)
         {
             agent.SetDestination(path.corners[path.corners.Length - 1]);
-            animator.SetTrigger("run");
+            animator.SetBool("isRunning", true);
             agent.speed = runSpeed;
             agent.angularSpeed = runAngularSpeed;
         }
@@ -91,14 +91,16 @@ public class AIController : MonoBehaviour
 
     public void Idle()
     {
-        animator.SetTrigger("idle");
+        animator.SetBool("isWalking", false);
         agent.speed = 0;
         agent.angularSpeed = 0;
+        agent.SetDestination(RandomNavmeshLocation(wanderRadius));
+        Invoke("Walk", Random.Range(minIdleTime, maxIdleTime));
     }
 
     public void Walk()
     {
-        animator.SetTrigger("walk");
+        animator.SetBool("isWalking", true);
         agent.speed = walkSpeed;
         agent.angularSpeed = walkAngularSpeed;
     }
@@ -106,9 +108,9 @@ public class AIController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        CheckForGoal();
         CheckForBeingEaten();
         CheckForDanger();
-        CheckForGoal();
     }
 
     void CheckForBeingEaten()
@@ -118,7 +120,6 @@ public class AIController : MonoBehaviour
             Debug.Log("This agent has been eaten");
             this.transform.position = parentSpawner.CalculateSpawnHit().point;
             Walk();
-            agent.SetDestination(RandomNavmeshLocation(wanderRadius));
         }
     }
 
@@ -127,19 +128,16 @@ public class AIController : MonoBehaviour
         if (CloseToPlayer(PlayerStates.Singleton.Position, detectionRadius))
         {
             if (PlayerStates.Singleton.CurrentStealthLevel > stealthLevelDetectionLimit || CloseToPlayer(PlayerStates.Singleton.Position, criticalDetectionRadius))
-            {
                 Flee(PlayerStates.Singleton.Position);
-            }
         }
     }
 
     void CheckForGoal()
     {
-        if (agent.remainingDistance < 1f)
+        if (agent.remainingDistance < 0.5f)
         {
+            animator.SetBool("isRunning", false);
             Idle();
-            Invoke("Walk", Random.Range(minIdleTime, maxIdleTime));
-            agent.SetDestination(RandomNavmeshLocation(wanderRadius));
         }
     }
 }
