@@ -115,39 +115,6 @@ public class AIController : MonoBehaviour
         animator.SetFloat("velocity", agent.velocity.magnitude);
     }
 
-    void LateUpdate()
-    {
-        AlignWithTerrain();
-    }
-
-    private Quaternion smoothTilt;
-    void AlignWithTerrain()
-    {
-        RaycastHit rcHit;
-        Vector3 theRay = transform.TransformDirection(Vector3.down);
-
-        if (Physics.Raycast(transform.position, theRay, out rcHit, LayerMask.NameToLayer("Terrain")))
-        {
-            float GroundDis = rcHit.distance;
-            Quaternion grndTilt = Quaternion.FromToRotation(Vector3.up, rcHit.normal);
-
-            smoothTilt = Quaternion.Slerp(smoothTilt, grndTilt, Time.deltaTime * 5.0f);
-
-            Quaternion newRot = new Quaternion();
-            Vector3 vec = new Vector3();
-            vec.x = smoothTilt.eulerAngles.x;
-            vec.y = transform.rotation.eulerAngles.y;
-            vec.z = smoothTilt.eulerAngles.z;
-            newRot.eulerAngles = vec;
-
-            transform.rotation = newRot;
-
-            Vector3 locPos = transform.localPosition;
-            locPos.y = (transform.localPosition.y - GroundDis);
-            transform.localPosition = locPos;
-        }
-    }
-
     private Vector3 GetHitNormal()
     {
         RaycastHit hit;
