@@ -455,14 +455,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5673f6791bf464f9917b99287690a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 30
-  detectionRadius: 6
-  criticalDetectionRadius: 2
-  fleeRadius: 60
+  wanderRadius: 80
+  detectionRadius: 3
+  criticalDetectionRadius: 1.5
+  fleeRadius: 40
   stealthLevelDetectionLimit: 0.75
-  walkSpeed: 0.5
+  walkSpeed: 0.8
   walkAngularSpeed: 120
-  runSpeed: 6
+  runSpeed: 8
   runAngularSpeed: 600
   maxIdleTime: 6
   minIdleTime: 2
