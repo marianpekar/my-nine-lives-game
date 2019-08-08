@@ -32,6 +32,9 @@ public class AIController : MonoBehaviour
 
         Walk();
         agent.SetDestination(RandomNavmeshLocation(wanderRadius));
+
+        //agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     public Vector3 RandomNavmeshLocation(float radius)
@@ -113,6 +116,25 @@ public class AIController : MonoBehaviour
         CheckForDanger();
 
         animator.SetFloat("velocity", agent.velocity.magnitude);
+    }
+
+    void LateUpdate()
+    {
+        AlignWithTerrain();
+    }
+
+    void AlignWithTerrain()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, LayerMask.NameToLayer("Terrain")))
+        {
+            Debug.DrawRay(this.transform.position, hit.normal, Color.magenta);
+
+            Vector3 direction = agent.destination - this.transform.position;
+
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(transform.forward, hit.normal), 1.5f * Time.deltaTime);
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - hit.distance, this.transform.position.z);
+        }
     }
 
     void FixedUpdate()
