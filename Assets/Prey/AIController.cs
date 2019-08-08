@@ -30,6 +30,9 @@ public class AIController : MonoBehaviour
         animator = GetComponent<Animator>();
         parentSpawner = GetComponentInParent<PreySpawner>();
 
+        if (!agent.isOnNavMesh || !agent.isActiveAndEnabled)
+            parentSpawner.Respawn(this.gameObject);
+
         Walk();
         agent.SetDestination(RandomNavmeshLocation(wanderRadius));
 
@@ -139,9 +142,8 @@ public class AIController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!agent.isOnNavMesh || !agent.isActiveAndEnabled)
+        if (!agent.isOnNavMesh || !agent.isActiveAndEnabled)
             parentSpawner.Respawn(this.gameObject);
-
     }
 
     private Vector3 GetHitNormal()
