@@ -23,6 +23,11 @@ public class PreySpawner : MonoBehaviour
         
     }
 
+    public void Respawn(GameObject prey)
+    {
+        prey.transform.position = CalculateSpawnHit().point;
+    }
+
     public RaycastHit CalculateSpawnHit()
     {
         Vector3 rayStartPos = new Vector3(Random.Range(this.transform.position.x - size / 2, this.transform.position.x + size / 2), 500f,

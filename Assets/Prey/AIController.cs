@@ -115,6 +115,13 @@ public class AIController : MonoBehaviour
         animator.SetFloat("velocity", agent.velocity.magnitude);
     }
 
+    void FixedUpdate()
+    {
+        if(!agent.isOnNavMesh)
+            parentSpawner.Respawn(this.gameObject);
+
+    }
+
     private Vector3 GetHitNormal()
     {
         RaycastHit hit;
@@ -140,7 +147,7 @@ public class AIController : MonoBehaviour
         if (Vector3.Distance(this.transform.position, PlayerStates.Singleton.Position) < 0.5f)
         {
             Debug.Log("This agent has been eaten");
-            this.transform.position = parentSpawner.CalculateSpawnHit().point;
+            parentSpawner.Respawn(this.gameObject);
             Walk();
         }
     }
