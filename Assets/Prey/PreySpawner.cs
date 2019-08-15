@@ -9,8 +9,6 @@ public class PreySpawner : MonoBehaviour
     public GameObject prey;
     public int preyCount;
 
-    int terrainLayerMask = 9;
-
     // Start is called before the first frame update
     void Start()
     {
