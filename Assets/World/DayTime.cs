@@ -27,37 +27,74 @@ public class DayTime : MonoBehaviour
     void Start()
     {
         sun = GetComponent<Light>();
+        InvokeRepeating("DayCycle", 60f, 60f);
     }
 
-    private void Update()
+    void DayCycle()
+    {
+        minutes++;
+        if(minutes >= 60)
+        {
+            hours++;
+            if (hours >= 24)
+                hours = 0;
+
+            minutes = 0;
+        }
+    }
+
+    void Update()
     {
         SetSunRotation(hours, minutes);
-        SetColor(hours);
+        SetSunColor(hours);
+        SetFogColor(hours);
     }
 
     // Update is called once per frame
     public void SetSunRotation(int hours, int minutes)
     {
         float xRotation = 2 * (0.125f * (hours * 60 + minutes));
-        sun.transform.rotation = Quaternion.Euler(new Vector3(xRotation - 90, 0,0));
+        sun.transform.rotation = Quaternion.Euler(new Vector3(xRotation - 90, -30,0));
     }
 
-    public void SetColor(int hours)
+    public void SetFogColor(int hours)
+    {
+        if (hours >= NIGHT)
+            RenderSettings.fogColor = nightFog;
+        else if (hours == NIGHT - 1)
+            RenderSettings.fogColor = Color.Lerp(dayFog, nightFog, 0.03227f * minutes);
+        else if (hours == MORNING)
+            RenderSettings.fogColor = Color.Lerp(nightFog, dayFog, 0.01667f * minutes);
+        else if (hours > MORNING)
+            RenderSettings.fogColor = dayFog;
+    }
+
+    public void SetSunColor(int hours)
     {
         if (hours < MORNING || hours >= NIGHT)
         {
-            sun.color = nightColor;
-            RenderSettings.fogColor = nightFog;
+            if (hours == NIGHT)
+                sun.color = Color.Lerp(afternoonColor, nightColor, 0.01667f * minutes);
+            else
+                sun.color = nightColor;
+
             return;
         }
 
-        RenderSettings.fogColor = dayFog;
-
         if (hours >= MORNING && hours < NOON)
-            sun.color = morningColor;
+            if (hours == MORNING)
+                sun.color = Color.Lerp(nightColor, morningColor, 0.01667f * minutes);
+            else
+                sun.color = morningColor;
         else if (hours >= NOON && hours < AFTERNOON)
-            sun.color = noonColor;
+            if (hours == NOON)
+                sun.color = Color.Lerp(morningColor, noonColor, 0.01667f * minutes);
+            else
+                sun.color = noonColor;
         else if (hours >= AFTERNOON && hours < NIGHT)
-            sun.color = afternoonColor;
+            if (hours == AFTERNOON)
+                sun.color = Color.Lerp(noonColor, afternoonColor, 0.01667f * minutes);
+            else
+                sun.color = afternoonColor;
     }
 }
