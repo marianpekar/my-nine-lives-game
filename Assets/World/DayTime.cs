@@ -14,87 +14,96 @@ public class DayTime : MonoBehaviour
     public Color afternoonColor;
     public Color nightColor;
 
-    public Color dayFog;
+    public Color morningFog;
+    public Color noonFog;
+    public Color afternoonFog;
     public Color nightFog;
 
-    const int MORNING = 6;
+    const int MORNING = 8;
     const int NOON = 12;
     const int AFTERNOON = 16;
     const int NIGHT = 19;
 
-    Light sun;
+    public Material morningSkybox;
+    public Material noonSkybox;
+    public Material afternoonSkybox;
+    public Material nightSkybox;
+
+    public Light sun;
+    public Light moon;
     // Start is called before the first frame update
     void Start()
     {
-        sun = GetComponent<Light>();
-        InvokeRepeating("DayCycle", 60f, 60f);
-    }
-
-    void DayCycle()
-    {
-        minutes++;
-        if(minutes >= 60)
-        {
-            hours++;
-            if (hours >= 24)
-                hours = 0;
-
-            minutes = 0;
-        }
+        hours = Random.Range(0, 24);
+        minutes = Random.Range(0, 60);
     }
 
     void Update()
     {
+        // TODO: Remove this before release
+        if(Input.GetKeyUp(KeyCode.F1)) {
+            hours = Random.Range(0, 24);
+            minutes = Random.Range(0, 60);
+        }
+
         SetSunRotation();
         SetSunColor();
         SetFogColor();
+        SetSkybox();
     }
 
-    // Update is called once per frame
-    public void SetSunRotation()
-    {
-        float xRotation = 2 * (0.125f * (hours * 60 + minutes));
-        sun.transform.rotation = Quaternion.Euler(new Vector3(xRotation - 90, -30,0));
-    }
-
-    public void SetFogColor()
-    {
-        if (hours >= NIGHT || hours < MORNING)
-            RenderSettings.fogColor = nightFog;
-        else if (hours == NIGHT - 1)
-            RenderSettings.fogColor = Color.Lerp(dayFog, nightFog, 0.03227f * minutes);
-        else if (hours == MORNING)
-            RenderSettings.fogColor = Color.Lerp(nightFog, dayFog, 0.01667f * minutes);
-        else if (hours > MORNING)
-            RenderSettings.fogColor = dayFog;
-    }
-
-    public void SetSunColor()
+    void SetSkybox()
     {
         if (hours < MORNING || hours >= NIGHT)
         {
-            if (hours == NIGHT)
-                sun.color = Color.Lerp(afternoonColor, nightColor, 0.01667f * minutes);
-            else
-                sun.color = nightColor;
-
+            RenderSettings.skybox = nightSkybox;
             return;
         }
 
         if (hours >= MORNING && hours < NOON)
-            if (hours == MORNING)
-                sun.color = Color.Lerp(nightColor, morningColor, 0.01667f * minutes);
-            else
-                sun.color = morningColor;
+            RenderSettings.skybox = morningSkybox;
         else if (hours >= NOON && hours < AFTERNOON)
-            if (hours == NOON)
-                sun.color = Color.Lerp(morningColor, noonColor, 0.01667f * minutes);
-            else
-                sun.color = noonColor;
+            RenderSettings.skybox = noonSkybox;
         else if (hours >= AFTERNOON && hours < NIGHT)
-            if (hours == AFTERNOON)
-                sun.color = Color.Lerp(noonColor, afternoonColor, 0.01667f * minutes);
-            else
-                sun.color = afternoonColor;
+            RenderSettings.skybox = afternoonSkybox;
+    }
+
+    void SetSunRotation()
+    {
+        float xRotation = 2 * (0.125f * (hours * 60 + minutes));
+        sun.transform.rotation = Quaternion.Euler(new Vector3(xRotation - 120, -30,0));
+        moon.transform.rotation = Quaternion.Euler(new Vector3(xRotation + 180 - 120, -30, 0));
+    }
+
+    void SetFogColor()
+    {
+        if (hours < MORNING || hours >= NIGHT)
+        {
+            RenderSettings.fogColor = nightFog;
+            return;
+        }
+
+        if (hours >= MORNING && hours < NOON)
+            RenderSettings.fogColor = morningFog;
+        else if (hours >= NOON && hours < AFTERNOON)
+            RenderSettings.fogColor = noonFog;
+        else if (hours >= AFTERNOON && hours < NIGHT)
+            RenderSettings.fogColor = afternoonFog;
+    }
+
+    void SetSunColor()
+    {
+        if (hours < MORNING || hours >= NIGHT)
+        {
+            sun.color = nightColor;
+            return;
+        }
+
+        if (hours >= MORNING && hours < NOON)
+            sun.color = morningColor;
+        else if (hours >= NOON && hours < AFTERNOON)
+            sun.color = noonColor;
+        else if (hours >= AFTERNOON && hours < NIGHT)
+            sun.color = afternoonColor;
     }
 }
