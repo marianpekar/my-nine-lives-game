@@ -17,7 +17,7 @@ public class DayTime : MonoBehaviour
     public Color dayFog;
     public Color nightFog;
 
-    const int MORNING = 5;
+    const int MORNING = 6;
     const int NOON = 12;
     const int AFTERNOON = 16;
     const int NIGHT = 19;
@@ -39,7 +39,7 @@ public class DayTime : MonoBehaviour
     public void SetSunRotation(int hours, int minutes)
     {
         float xRotation = 2 * (0.125f * (hours * 60 + minutes));
-        sun.transform.rotation = Quaternion.Euler(new Vector3(xRotation - 90, -30,0));
+        sun.transform.rotation = Quaternion.Euler(new Vector3(xRotation - 90, 0,0));
     }
 
     public void SetColor(int hours)
