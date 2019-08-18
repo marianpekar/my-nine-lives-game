@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1634152159}
-  m_IndirectSpecularColor: {r: 0.44824702, g: 0.49827307, b: 0.575583, a: 1}
+  m_IndirectSpecularColor: {r: 0.44824654, g: 0.49827242, b: 0.5755816, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -673,7 +673,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -750,6 +750,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hours: 12
   minutes: 0
+  morningColor: {r: 0.990566, g: 0.9592262, b: 0.87375396, a: 0}
+  noonColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 0}
+  afternoonColor: {r: 0.9150943, g: 0.71784544, b: 0.33236915, a: 0}
+  nightColor: {r: 0, g: 0.3652167, b: 0.5188679, a: 0}
+  dayFog: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0}
+  nightFog: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1963395230
 GameObject:
   m_ObjectHideFlags: 0
