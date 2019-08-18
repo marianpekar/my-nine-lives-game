@@ -45,21 +45,21 @@ public class DayTime : MonoBehaviour
 
     void Update()
     {
-        SetSunRotation(hours, minutes);
-        SetSunColor(hours);
-        SetFogColor(hours);
+        SetSunRotation();
+        SetSunColor();
+        SetFogColor();
     }
 
     // Update is called once per frame
-    public void SetSunRotation(int hours, int minutes)
+    public void SetSunRotation()
     {
         float xRotation = 2 * (0.125f * (hours * 60 + minutes));
         sun.transform.rotation = Quaternion.Euler(new Vector3(xRotation - 90, -30,0));
     }
 
-    public void SetFogColor(int hours)
+    public void SetFogColor()
     {
-        if (hours >= NIGHT)
+        if (hours >= NIGHT || hours < MORNING)
             RenderSettings.fogColor = nightFog;
         else if (hours == NIGHT - 1)
             RenderSettings.fogColor = Color.Lerp(dayFog, nightFog, 0.03227f * minutes);
@@ -69,7 +69,7 @@ public class DayTime : MonoBehaviour
             RenderSettings.fogColor = dayFog;
     }
 
-    public void SetSunColor(int hours)
+    public void SetSunColor()
     {
         if (hours < MORNING || hours >= NIGHT)
         {
