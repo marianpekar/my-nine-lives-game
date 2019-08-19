@@ -29,6 +29,12 @@ public class DayTime : MonoBehaviour
     public Material afternoonSkybox;
     public Material nightSkybox;
 
+    public Material terrain;
+    public Color morningTerrain;
+    public Color noonTerrain;
+    public Color afternoonTerrain;
+    public Color nightTerrain;
+
     public Light sun;
     public Light moon;
     // Start is called before the first frame update
@@ -50,6 +56,23 @@ public class DayTime : MonoBehaviour
         SetSunColor();
         SetFogColor();
         SetSkybox();
+        SetTerrainColor();
+    }
+
+    void SetTerrainColor()
+    {
+        if (hours < MORNING || hours >= NIGHT)
+        {
+            terrain.color = nightTerrain;
+            return;
+        }
+
+        if (hours >= MORNING && hours < NOON)
+            terrain.color = morningTerrain;
+        else if (hours >= NOON && hours < AFTERNOON)
+            terrain.color = noonTerrain;
+        else if (hours >= AFTERNOON && hours < NIGHT)
+            terrain.color = afternoonTerrain;
     }
 
     void SetSkybox()
