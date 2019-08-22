@@ -67,6 +67,7 @@ public class PositionController : MonoBehaviour
         else
         {
             overlay.color = new Color(1, 1, 1, 0);
+            cam.GetComponent<FollowCamera>().ResetFollowSpeed();
         }
 
 
