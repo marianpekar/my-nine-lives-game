@@ -15,6 +15,6 @@ public class StealthController : MonoBehaviour
             PlayerStates.Singleton.IsStealth = false;
         }
 
-        Debug.Log("Stealth: " + PlayerStates.Singleton.IsStealth);
+        //Debug.Log("Stealth: " + PlayerStates.Singleton.IsStealth);
     }
 }
