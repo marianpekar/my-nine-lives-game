@@ -4264,7 +4264,7 @@ GameObject:
   - component: {fileID: 2674955290822872592}
   - component: {fileID: 9202162854079842861}
   m_Layer: 0
-  m_Name: Cat
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4329,10 +4329,10 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: 0.55
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.01
+  m_SkinWidth: 0.02
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0.08}
 --- !u!114 &9202162854079842861
