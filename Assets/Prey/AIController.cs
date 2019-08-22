@@ -43,10 +43,10 @@ public class AIController : MonoBehaviour
         agent.updateUpAxis = false;
 
         spawnPosition = this.transform.position;
-        Invoke("DestroyIfStuck", destroyIfStuckTime);
+        Invoke("RecreateIfStuck", destroyIfStuckTime);
     }
 
-    void DestroyIfStuck()
+    void RecreateIfStuck()
     {
         //Debug.Log("Stucked AI Destroyed");
         if (Vector3.Distance(spawnPosition, this.transform.position) < 0.5f)
@@ -149,9 +149,13 @@ public class AIController : MonoBehaviour
         {
             Debug.DrawRay(this.transform.position, hit.normal, Color.magenta);
 
-            Vector3 direction = agent.destination - this.transform.position;
-            
-            if(agent.speed > 0)
+            Vector3 direction = Vector3.zero;
+            if (agent.path.corners.Length > 1)
+                 direction = agent.path.corners[1] - this.transform.position;
+            else
+                 direction = agent.destination - this.transform.position;
+
+            if (agent.speed > 0)
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(transform.forward + direction, hit.normal), 1.5f * Time.deltaTime);
 
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - hit.distance, this.transform.position.z);
@@ -184,7 +188,7 @@ public class AIController : MonoBehaviour
         {
             Debug.Log("This agent has been eaten");
             parentSpawner.Respawn(this.gameObject);
-            Invoke("DestroyIfStuck", destroyIfStuckTime);
+            Invoke("RecreateIfStuck", destroyIfStuckTime);
             Walk();
         }
     }
