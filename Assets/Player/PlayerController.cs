@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    AnimatorCommand run, walk, walkBack, jumpBack, jumpLong, jumpHigh, idle, clean;
+    AnimatorCommand run, walk, walkBack, jumpBack, jumpLong, jumpHigh, idle;
     CharacterController characterController;
     Animator animator;
 
@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
         jumpLong = new JumpLong();
         jumpHigh = new JumpHigh();
         idle = new Idle();
-        clean = new Clean();
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -38,14 +37,6 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerStates.Singleton.IsGrounded)
         {
-            // Clean
-            PlayerStates.Singleton.IsCleaning = Input.GetButton("Clean");
-            if (PlayerStates.Singleton.IsCleaning)
-            {
-                clean.Execute(animator);
-                return;
-            }
-
             // Move
             float verticalAxis = Input.GetAxis("Vertical");
 

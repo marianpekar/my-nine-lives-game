@@ -180,7 +180,7 @@ public class AIController : MonoBehaviour
     {
         if (CloseToPlayer(PlayerStates.Singleton.Position, detectionRadius))
         {
-            if (PlayerStates.Singleton.CurrentStealthLevel > stealthLevelDetectionLimit || CloseToPlayer(PlayerStates.Singleton.Position, criticalDetectionRadius))
+            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(PlayerStates.Singleton.Position, criticalDetectionRadius))
                 Flee(PlayerStates.Singleton.Position);
         }
     }

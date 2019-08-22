@@ -14,7 +14,6 @@ public class Run : AnimatorCommand
         animator.SetBool("isRunning", true);
         animator.SetBool("isWalkingBack", false);
         animator.SetBool("isWalking", false);
-        animator.SetBool("isCleaning", false);
 
         if (PlayerStates.Singleton.IsWalking)
             animator.SetBool("isIdleWalk", true);
@@ -30,7 +29,6 @@ public class Walk : AnimatorCommand
         animator.SetBool("isWalking", true);
         animator.SetBool("isRunning", false);
         animator.SetBool("isWalkingBack", false);
-        animator.SetBool("isCleaning", false);
 
         if (PlayerStates.Singleton.IsWalking)
             animator.SetBool("isIdleWalk", true);
@@ -46,7 +44,6 @@ public class WalkBack : AnimatorCommand
         animator.SetBool("isWalkingBack", true);
         animator.SetBool("isRunning", false);
         animator.SetBool("isWalking", false);
-        animator.SetBool("isCleaning", false);
 
         if (PlayerStates.Singleton.IsWalking)
             animator.SetBool("isIdleWalk", true);
@@ -86,7 +83,6 @@ public class Idle : AnimatorCommand
         animator.SetBool("isRunning", false);
         animator.SetBool("isWalking", false);
         animator.SetBool("isWalkingBack", false);
-        animator.SetBool("isCleaning", false);
 
         if (PlayerStates.Singleton.IsWalking)
             animator.SetBool("isIdleWalk", true);
@@ -102,6 +98,5 @@ public class Clean : AnimatorCommand
         animator.SetBool("isRunning", false);
         animator.SetBool("isWalking", false);
         animator.SetBool("isWalkingBack", false);
-        animator.SetBool("isCleaning", true);
     }
 }

@@ -25,16 +25,8 @@ public sealed class PlayerStates
     public bool IsGrounded { get; set; } = true;
     public bool IsCleaning { get; set; } = false;
 
-    // Stealth Level
-    public float CurrentStealthLevel { get; set; } = 1f;
-    public float StealthLevelHigh { get; } = 0.75f;
-    public float StealthLevelLow { get; } = 0.005f;
-    public float StealthLevelAddition { get; set; } = 0f;
-    public float StealthLevelMaximumAddition { get; } = 0.25f;
-    public float AddToStealthAdditionRate { get; } = 1f; // in seconds
-    public float AddToStealthAddition { get; } = 0.00005f;
-
-    public float SubstractFromStealthAddition { get; } = 0.05f;
+    // Stealth
+    public bool IsStealth { get; set; } = false;
 
     public Vector3 Position { get; set; }
 
