@@ -117,6 +117,7 @@ public class AIController : MonoBehaviour
         CheckForGoal();
         CheckForBeingEaten();
         CheckForDanger();
+        CheckForStuck();
 
         animator.SetFloat("velocity", agent.velocity.magnitude);
     }
@@ -124,6 +125,12 @@ public class AIController : MonoBehaviour
     void LateUpdate()
     {
         AlignWithTerrain();
+    }
+
+    void CheckForStuck()
+    {
+        if (agent.isOnOffMeshLink)
+            parentSpawner.Respawn(this.gameObject);
     }
 
     void AlignWithTerrain()
@@ -140,12 +147,6 @@ public class AIController : MonoBehaviour
 
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - hit.distance, this.transform.position.z);
         }
-    }
-
-    void FixedUpdate()
-    {
-        if (!agent.isOnNavMesh || !agent.isActiveAndEnabled)
-            parentSpawner.Respawn(this.gameObject);
     }
 
     private Vector3 GetHitNormal()
