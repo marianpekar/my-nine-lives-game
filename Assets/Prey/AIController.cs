@@ -36,7 +36,7 @@ public class AIController : MonoBehaviour
         Walk();
         agent.SetDestination(RandomNavmeshLocation(wanderRadius));
 
-        //agent.updateRotation = false;
+        agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
 
@@ -133,9 +133,9 @@ public class AIController : MonoBehaviour
         {
             Debug.DrawRay(this.transform.position, hit.normal, Color.magenta);
 
-            //Vector3 direction = agent.destination - this.transform.position;
-
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(transform.forward, hit.normal), 1.5f * Time.deltaTime);
+            Vector3 direction = agent.destination - this.transform.position;
+      
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(transform.forward + direction, hit.normal), 1.5f * Time.deltaTime);
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - hit.distance, this.transform.position.z);
         }
     }
