@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    AnimatorCommand run, walk, walkBack, jumpBack, jumpLong, jumpHigh, idle;
+    AnimatorCommand run, walk, walkBack, jumpBack, jump, jumpHigh, idle;
     CharacterController characterController;
     Animator animator;
 
@@ -17,8 +17,7 @@ public class PlayerController : MonoBehaviour
         walk = new Walk();
         walkBack = new WalkBack();
         jumpBack = new JumpBack();
-        jumpLong = new JumpLong();
-        jumpHigh = new JumpHigh();
+        jump = new Jump();
         idle = new Idle();
 
         characterController = GetComponent<CharacterController>();
@@ -72,7 +71,7 @@ public class PlayerController : MonoBehaviour
                 moveDirection.y = PlayerStates.Singleton.LongJumpSpeed;
                 moveDirection.z = PlayerStates.Singleton.LongJumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
-                jumpLong.Execute(animator);
+                jump.Execute(animator);
             }
             else if (Input.GetButtonDown("Jump") && PlayerStates.Singleton.IsWalkingBackward)
             {
@@ -80,11 +79,6 @@ public class PlayerController : MonoBehaviour
                 moveDirection.z = -PlayerStates.Singleton.BackJumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
                 jumpBack.Execute(animator);
-            }
-            else if (Input.GetButtonDown("Jump"))
-            {
-                moveDirection.y = PlayerStates.Singleton.HighJumpSpeed;
-                jumpHigh.Execute(animator);
             }
         }
         // Gravity

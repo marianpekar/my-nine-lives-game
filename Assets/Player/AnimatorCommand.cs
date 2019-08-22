@@ -60,19 +60,11 @@ public class JumpBack : AnimatorCommand
     } 
 }
 
-public class JumpLong : AnimatorCommand
+public class Jump : AnimatorCommand
 {
     public void Execute(Animator animator)
     {
-        animator.SetTrigger("jumpLong");
-    }
-}
-
-public class JumpHigh : AnimatorCommand
-{
-    public void Execute(Animator animator)
-    {
-        animator.SetTrigger("jumpHigh");
+        animator.SetTrigger("jump");
     }
 }
 
