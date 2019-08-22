@@ -13,6 +13,8 @@ public class PositionController : MonoBehaviour
     public GameObject player;
     public GameObject cam;
 
+    public DayTime dayTimeManager;
+
     Vector3 cameraSpawnPos;
     Vector3 spawnPosition;
 
@@ -42,6 +44,8 @@ public class PositionController : MonoBehaviour
 
         cam.transform.position = cameraSpawnPos;
         cam.GetComponent<FollowCamera>().ResetFollowSpeed();
+
+        dayTimeManager.SetRandomDayTime();
     }
 
     public void Update()

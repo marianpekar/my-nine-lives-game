@@ -43,6 +43,11 @@ public class DayTime : MonoBehaviour
         hours = Random.Range(0, 24);
         minutes = Random.Range(0, 60);
     }
+    public void SetRandomDayTime()
+    {
+        hours = Random.Range(0, 24);
+        minutes = Random.Range(0, 60);
+    }
 
     void Update()
     {

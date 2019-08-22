@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 304542439}
   - component: {fileID: 304542438}
   m_Layer: 0
-  m_Name: DayTime
+  m_Name: DayTimeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,6 +650,7 @@ MonoBehaviour:
   cameraStopFollowRadius: 190
   player: {fileID: 10949131}
   cam: {fileID: 1297671313}
+  dayTimeManager: {fileID: 304542438}
 --- !u!4 &1289037424
 Transform:
   m_ObjectHideFlags: 0
