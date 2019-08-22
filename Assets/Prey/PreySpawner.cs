@@ -15,7 +15,7 @@ public class PreySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < preyCount; i++)
+        for(int i = 0; i <= preyCount; i++)
         {
             RaycastHit hit = CalculateSpawnHit();
 
@@ -24,8 +24,18 @@ public class PreySpawner : MonoBehaviour
 
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
                 Instantiate(prey, hit.point, Quaternion.identity, this.transform);
-        }
-        
+            else
+                i--;
+        }      
+    }
+
+    public void Spawn()
+    {
+        RaycastHit hit = CalculateSpawnHit();
+        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+            Instantiate(prey, hit.point, Quaternion.identity, this.transform);
+        else
+            Spawn();
     }
 
     public void Respawn(GameObject prey)

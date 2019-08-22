@@ -18,6 +18,9 @@ public class AIController : MonoBehaviour
 
     public float maxIdleTime = 6f;
     public float minIdleTime = 2f;
+    public float destroyIfStuckTime = 6f;
+
+    Vector3 spawnPosition;
 
     NavMeshAgent agent;
     Animator animator;
@@ -38,6 +41,19 @@ public class AIController : MonoBehaviour
 
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        spawnPosition = this.transform.position;
+        Invoke("DestroyIfStuck", destroyIfStuckTime);
+    }
+
+    void DestroyIfStuck()
+    {
+        //Debug.Log("Stucked AI Destroyed");
+        if (Vector3.Distance(spawnPosition, this.transform.position) < 0.5f)
+        {
+            Destroy(this.gameObject);
+            parentSpawner.Spawn();
+        }
     }
 
     public Vector3 RandomNavmeshLocation(float radius)
@@ -117,7 +133,6 @@ public class AIController : MonoBehaviour
         CheckForGoal();
         CheckForBeingEaten();
         CheckForDanger();
-        CheckForStuck();
 
         animator.SetFloat("velocity", agent.velocity.magnitude);
     }
@@ -125,12 +140,6 @@ public class AIController : MonoBehaviour
     void LateUpdate()
     {
         AlignWithTerrain();
-    }
-
-    void CheckForStuck()
-    {
-        if (agent.isOnOffMeshLink)
-            parentSpawner.Respawn(this.gameObject);
     }
 
     void AlignWithTerrain()
@@ -175,6 +184,7 @@ public class AIController : MonoBehaviour
         {
             Debug.Log("This agent has been eaten");
             parentSpawner.Respawn(this.gameObject);
+            Invoke("DestroyIfStuck", destroyIfStuckTime);
             Walk();
         }
     }
