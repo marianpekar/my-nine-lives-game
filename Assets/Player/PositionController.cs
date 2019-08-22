@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PositionController : MonoBehaviour
 {
     public Vector2 spawnLocation = new Vector2(500,500);
     public Vector3 offset = new Vector3(0,0.33f,0);
     public Vector3 cameraSpawnOffset = new Vector3(0, 3, -6);
+    public float outsideWorldLimit = 3f;
 
     public float worldRaius = 200;
     public float cameraStopFollowRadius = 190;
     public GameObject player;
     public GameObject cam;
+    public Image overlay;
 
     public DayTime dayTimeManager;
 
@@ -52,10 +55,22 @@ public class PositionController : MonoBehaviour
     {
         Debug.Log("Distance from spawnPoint: " + Vector3.Distance(player.transform.position, spawnPosition));
 
-        if(Vector3.Distance(player.transform.position, spawnPosition) > cameraStopFollowRadius)
-            cam.GetComponent<FollowCamera>().SetFollowSpeed(0.01f);
+        float playerDistanceFromSpawnPoint = Vector3.Distance(player.transform.position, spawnPosition);
 
-        if (Vector3.Distance(player.transform.position, spawnPosition) > worldRaius)
+        if (playerDistanceFromSpawnPoint > cameraStopFollowRadius)
+        {
+            float normalizedOverlayIntensityUnit = (worldRaius - cameraStopFollowRadius) / 128f;
+            float overlayIntensity = (playerDistanceFromSpawnPoint - cameraStopFollowRadius) * normalizedOverlayIntensityUnit; 
+            overlay.color = new Color(1, 1, 1, overlayIntensity);
+            cam.GetComponent<FollowCamera>().SetFollowSpeed(0.01f);
+        }
+        else
+        {
+            overlay.color = new Color(1, 1, 1, 0);
+        }
+
+
+        if (playerDistanceFromSpawnPoint > worldRaius + outsideWorldLimit)
             Respawn();
     }
 
