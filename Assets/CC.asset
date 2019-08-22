@@ -121,12 +121,12 @@ MonoBehaviour:
         neutralWhiteLevel: 5.8
         neutralWhiteClip: 10
       basic:
-        postExposure: 0.4
+        postExposure: 0.5
         temperature: 22
         tint: -3
         hueShift: 0
-        saturation: 0.93
-        contrast: 0.72
+        saturation: 1.242
+        contrast: 0.512
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
@@ -151,23 +151,23 @@ MonoBehaviour:
               time: 0
               value: 0
               inSlope: 0
-              outSlope: 1.4821434
+              outSlope: 2.3126988
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
               outWeight: 0
             - serializedVersion: 3
-              time: 0.12951808
-              value: 0.2546584
-              inSlope: 3.8950999
-              outSlope: 3.8950999
+              time: 0.24255319
+              value: 0.52444446
+              inSlope: 1.7233337
+              outSlope: 1.7233337
               tangentMode: 0
               weightedMode: 0
               inWeight: 0
               outWeight: 0
             - serializedVersion: 3
-              time: 0.70331323
-              value: 0.9409938
+              time: 0.7765958
+              value: 0.90666664
               inSlope: 0.23698992
               outSlope: 0.23698992
               tangentMode: 0
