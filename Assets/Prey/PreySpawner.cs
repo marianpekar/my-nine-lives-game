@@ -9,12 +9,19 @@ public class PreySpawner : MonoBehaviour
     public GameObject prey;
     public int preyCount;
 
+    public Vector2 blankSpaceCenterPosition = new Vector2(500, 500);
+    public float blankSpaceRadius = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
         for(int i = 0; i < preyCount; i++)
         {
             RaycastHit hit = CalculateSpawnHit();
+
+            if (Vector2.Distance(new Vector2(hit.point.x, hit.point.z), blankSpaceCenterPosition) < blankSpaceRadius)
+                continue;
+
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
                 Instantiate(prey, hit.point, Quaternion.identity, this.transform);
         }

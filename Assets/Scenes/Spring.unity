@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 500
+  offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: 11a06836062e07048848e41385d1ad23, type: 3}
   - {fileID: -927199367670048503, guid: d7306ffe890a84b4a8c4d66b1c3bd383, type: 3}
@@ -316,6 +317,8 @@ MonoBehaviour:
   maxSteepAngle: 80
   isNavMeshObstacle: 0
   lowerOffset: 0.05
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
 --- !u!1 &424856993
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +351,8 @@ MonoBehaviour:
   size: 300
   prey: {fileID: 8334855634422311627, guid: 70b994b77a8994e41ba9a34ef6cbf402, type: 3}
   preyCount: 50
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 30
 --- !u!4 &424856995
 Transform:
   m_ObjectHideFlags: 0
@@ -406,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 500
+  offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: f3b376f58f231644e83a39b456bb5045, type: 3}
   - {fileID: -927199367670048503, guid: 66179f38a403ec14e9f30e765fcf81c1, type: 3}
@@ -418,6 +424,8 @@ MonoBehaviour:
   maxSteepAngle: 80
   isNavMeshObstacle: 1
   lowerOffset: 0.25
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
 --- !u!1 &496139709
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 500
+  offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: 96c38f43af1722746b0368fa0d91a304, type: 3}
   - {fileID: -927199367670048503, guid: 04b633b116c91014b98792aae60d06f0, type: 3}
@@ -470,6 +479,8 @@ MonoBehaviour:
   maxSteepAngle: 80
   isNavMeshObstacle: 0
   lowerOffset: 0.05
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
 --- !u!1 &767777546
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 500
+  offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: 587e121c83336824a9bd943e8afdd412, type: 3}
   - {fileID: -927199367670048503, guid: 378903d0b2e2f604189c2d061a8a8ea0, type: 3}
@@ -510,6 +522,8 @@ MonoBehaviour:
   maxSteepAngle: 20
   isNavMeshObstacle: 1
   lowerOffset: 0.25
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
 --- !u!4 &767777548
 Transform:
   m_ObjectHideFlags: 0
@@ -561,7 +575,7 @@ Transform:
   - {fileID: 424856995}
   - {fileID: 2110089426}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935019535
 GameObject:
@@ -607,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 500
+  offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: 2599b968d8ec0144a9adca8db444e918, type: 3}
   - {fileID: -927199367670048503, guid: 9b1f23c1bc7f57c418810f3277180ca2, type: 3}
@@ -614,6 +629,8 @@ MonoBehaviour:
   maxSteepAngle: 10
   isNavMeshObstacle: 1
   lowerOffset: 1
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
 --- !u!1 &1289037422
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +680,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1297671313 stripped
 GameObject:
@@ -715,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 500
+  offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: 6a1e48aaab7c9fa4eb78e1c81c7e492b, type: 3}
   - {fileID: -927199367670048503, guid: 7bc034edde4e86348af4b6e3479c3d1d, type: 3}
@@ -722,6 +740,8 @@ MonoBehaviour:
   maxSteepAngle: 30
   isNavMeshObstacle: 1
   lowerOffset: 0.15
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
 --- !u!1 &1361570437
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +912,7 @@ PrefabInstance:
     - target: {fileID: 3644249844474166871, guid: 81c45f8675eee2e4aa947256fe848b50,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3644249844474166871, guid: 81c45f8675eee2e4aa947256fe848b50,
         type: 3}
@@ -1142,6 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 500
+  offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: 93881000edc6a7c4f9560043c56b9cc9, type: 3}
   - {fileID: -927199367670048503, guid: e1a0d5c9ea754f54fbc9be8f227f4819, type: 3}
@@ -1152,6 +1173,8 @@ MonoBehaviour:
   maxSteepAngle: 40
   isNavMeshObstacle: 1
   lowerOffset: 0.25
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
 --- !u!1 &2110089425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,3 +1221,5 @@ MonoBehaviour:
   size: 300
   prey: {fileID: 1708761484820264130, guid: 9dc9077befe13b240841a1d17b343698, type: 3}
   preyCount: 50
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 30
