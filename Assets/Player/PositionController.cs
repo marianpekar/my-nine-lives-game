@@ -41,7 +41,7 @@ public class PositionController : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
 
         cam.transform.position = cameraSpawnPos;
-        cam.GetComponent<FollowCamera>().enabled = true;
+        cam.GetComponent<FollowCamera>().ResetFollowSpeed();
     }
 
     public void Update()
@@ -49,7 +49,7 @@ public class PositionController : MonoBehaviour
         Debug.Log("Distance from spawnPoint: " + Vector3.Distance(player.transform.position, spawnPosition));
 
         if(Vector3.Distance(player.transform.position, spawnPosition) > cameraStopFollowRadius)
-            cam.GetComponent<FollowCamera>().enabled = false;
+            cam.GetComponent<FollowCamera>().SetFollowSpeed(0.01f);
 
         if (Vector3.Distance(player.transform.position, spawnPosition) > worldRaius)
             Respawn();

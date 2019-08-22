@@ -20,6 +20,7 @@ public class FollowCamera : MonoBehaviour
     const float maxXRotation = 0.15f;
 
     float rotationSpeed = 4f;
+    float followSpeed = 1f;
 
     float sideRaysDist;
     const float sideRayDistSmall = 0.5f;
@@ -32,6 +33,16 @@ public class FollowCamera : MonoBehaviour
         offset = DirectionTo(PointOneUpThePlayer());
         initialOffset = offset;
         initialDistanceToGround = (int)DistanceToGround();
+    }
+
+    public void SetFollowSpeed(float speed)
+    {
+        followSpeed = speed;
+    }
+
+    public void ResetFollowSpeed()
+    {
+        followSpeed = 1f;
     }
 
     void LateUpdate()
@@ -100,7 +111,7 @@ public class FollowCamera : MonoBehaviour
         Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(pointToLookAt), Time.deltaTime * rotationSpeed);
         Quaternion clampedRotation = new Quaternion(Mathf.Clamp(rotation.x, minXRotation, maxXRotation), rotation.y, rotation.z, rotation.w);
         transform.rotation = clampedRotation;
-        transform.position = Vector3.Lerp(transform.position, PointOneUpThePlayer() - (clampedRotation * (offset + addToOffset)), Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, PointOneUpThePlayer() - (clampedRotation * (offset + addToOffset)), followSpeed * Time.deltaTime);
     }
 
     // Calculate Vector3 as addition to offset to avoid obstacles if there's any, if not addition is Vector3.zero 
