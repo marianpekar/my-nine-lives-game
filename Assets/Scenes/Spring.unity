@@ -903,6 +903,7 @@ MonoBehaviour:
   spawnLocation: {x: 500, y: 500}
   offset: {x: 0, y: 0.33, z: 0}
   cameraSpawnOffset: {x: 0, y: 3, z: -6}
+  outsideWorldLimit: 3
   worldRaius: 200
   cameraStopFollowRadius: 190
   player: {fileID: 10949131}
@@ -1123,7 +1124,7 @@ PrefabInstance:
     - target: {fileID: 3644249844474166871, guid: 81c45f8675eee2e4aa947256fe848b50,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.97
+      value: 1.137
       objectReference: {fileID: 0}
     - target: {fileID: 3644249844474166871, guid: 81c45f8675eee2e4aa947256fe848b50,
         type: 3}
