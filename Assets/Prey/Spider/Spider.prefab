@@ -466,6 +466,7 @@ MonoBehaviour:
   runAngularSpeed: 600
   maxIdleTime: 6
   minIdleTime: 2
+  destroyIfStuckTime: 6
 --- !u!1 &1937499352019604679
 GameObject:
   m_ObjectHideFlags: 0
