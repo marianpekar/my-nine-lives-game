@@ -426,6 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 300
   prey: {fileID: 8334855634422311627, guid: 70b994b77a8994e41ba9a34ef6cbf402, type: 3}
+  preys: []
   preyCount: 50
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 30
@@ -923,6 +924,9 @@ MonoBehaviour:
   - {fileID: 1298558020}
   - {fileID: 338019697}
   - {fileID: 496139711}
+  preySpawners:
+  - {fileID: 2110089427}
+  - {fileID: 424856994}
 --- !u!4 &1289037424
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,6 +1481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 300
   prey: {fileID: 1708761484820264130, guid: 9dc9077befe13b240841a1d17b343698, type: 3}
+  preys: []
   preyCount: 50
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 30

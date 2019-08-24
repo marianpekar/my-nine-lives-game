@@ -6,17 +6,17 @@ public class PreySpawner : MonoBehaviour
 {
 
     public float size = 450f;
-    public GameObject prey;
-    public List<GameObject> preys = new List<GameObject>();
-    public int preyCount;
-
     public Vector2 blankSpaceCenterPosition = new Vector2(500, 500);
     public float blankSpaceRadius = 30f;
+
+    public GameObject prey;
+    List<GameObject> preys = new List<GameObject>();
+    public int preyCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i <= preyCount; i++)
+        for(int i = 0; i < preyCount; i++)
         {
             RaycastHit spawnPosition = CalculateSpawnHit();
 
@@ -25,7 +25,9 @@ public class PreySpawner : MonoBehaviour
 
             if (spawnPosition.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
             {
-                preys.Add(Instantiate(prey, spawnPosition.point, Quaternion.identity, this.transform));
+                GameObject currentPrey = (Instantiate(prey, spawnPosition.point, Quaternion.identity, this.transform));
+                currentPrey.name = prey.name + "_" + (i + 1);
+                preys.Add(currentPrey);
             }
             else
                 i--;

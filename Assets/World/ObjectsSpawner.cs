@@ -7,15 +7,16 @@ public class ObjectsSpawner : MonoBehaviour
 {
     public float size = 800;
     public float offset = 5f;
-    public GameObject[] gameObjects;
-    public List<GameObject> instantiatedObjects = new List<GameObject>();
-    public int count;
-    public float maxSteepAngle = 40f;
-    public bool isNavMeshObstacle = true;
-    public float lowerOffset = 0.22f;
-
     public Vector2 blankSpaceCenterPosition = new Vector2(500, 500);
     public float blankSpaceRadius = 10f;
+
+    public GameObject[] gameObjects;
+    List<GameObject> instantiatedObjects = new List<GameObject>();
+    public int count;
+    public float maxSteepAngle = 40f;
+    public float lowerOffset = 0.22f;
+
+    public bool isNavMeshObstacle = true;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +30,11 @@ public class ObjectsSpawner : MonoBehaviour
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain") && Vector3.Angle(hit.normal, Vector3.up) < maxSteepAngle)
             {
                 Debug.DrawRay(hit.point, hit.normal, Color.green, Mathf.Infinity);
-                GameObject gameObject = Instantiate(gameObjects[Random.Range(0, gameObjects.Length)], hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), this.transform) as GameObject;
+                GameObject prefab = gameObjects[Random.Range(0, gameObjects.Length)];
+                GameObject gameObject = Instantiate(prefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), this.transform) as GameObject;
                 gameObject.transform.Rotate(transform.right, -90);
                 gameObject.transform.localPosition += new Vector3(0, -lowerOffset, 0);
+                gameObject.name = prefab.name + "_" + (i + 1);
 
                 if(isNavMeshObstacle)
                 {
