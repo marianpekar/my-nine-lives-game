@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 500
+  size: 800
   offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: 587e121c83336824a9bd943e8afdd412, type: 3}
@@ -692,7 +692,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 45bfcd1f7db21554bb962efc94c98b14, type: 3}
   - {fileID: -927199367670048503, guid: 107dd59b7e4ab7746aae49e9f79b6e6c, type: 3}
   - {fileID: -927199367670048503, guid: d7715c799339e5044bf294616d977a27, type: 3}
-  count: 100
+  count: 150
   maxSteepAngle: 20
   isNavMeshObstacle: 1
   lowerOffset: 0.25
@@ -1215,9 +1215,9 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.9
     m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_NormalBias: 0.02
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
@@ -1306,9 +1306,9 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
-    m_NormalBias: 0
+    m_NormalBias: 0.02
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 500
+  size: 800
   offset: 5
   gameObjects:
   - {fileID: -927199367670048503, guid: 93881000edc6a7c4f9560043c56b9cc9, type: 3}
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 1cd0dd2acfca25e4f8f72bcb3be4d6a3, type: 3}
   - {fileID: -927199367670048503, guid: 21da8424083720e459da1f4bff951a14, type: 3}
   - {fileID: -927199367670048503, guid: 2828097ddbb7de249af845a15ea95c2d, type: 3}
-  count: 300
+  count: 350
   maxSteepAngle: 40
   isNavMeshObstacle: 1
   lowerOffset: 0.25
