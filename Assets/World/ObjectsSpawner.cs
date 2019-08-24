@@ -8,6 +8,7 @@ public class ObjectsSpawner : MonoBehaviour
     public float size = 800;
     public float offset = 5f;
     public GameObject[] gameObjects;
+    public List<GameObject> instantiatedObjects = new List<GameObject>();
     public int count;
     public float maxSteepAngle = 40f;
     public bool isNavMeshObstacle = true;
@@ -37,11 +38,31 @@ public class ObjectsSpawner : MonoBehaviour
                     gameObject.AddComponent<NavMeshObstacle>().carving = true;
                 }
 
+                instantiatedObjects.Add(gameObject);
+
             } else
             {
                 i--;
             }
         }   
+    }
+
+    public void RepositionAll()
+    {
+        foreach (GameObject gameObject in instantiatedObjects)
+        {
+            RaycastHit hit = CalculateSpawnHit();
+            if (Vector2.Distance(new Vector2(hit.point.x, hit.point.z), blankSpaceCenterPosition) < blankSpaceRadius)
+                continue;
+
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain") && Vector3.Angle(hit.normal, Vector3.up) < maxSteepAngle)
+            {
+                gameObject.transform.position = hit.point;
+                gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                gameObject.transform.Rotate(transform.right, -90);
+                gameObject.transform.localPosition += new Vector3(0, -lowerOffset, 0);
+            }
+        }
     }
 
     public RaycastHit CalculateSpawnHit()

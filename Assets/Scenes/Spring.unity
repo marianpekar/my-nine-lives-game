@@ -388,6 +388,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 182f0508b2029e44591398795bbf0843, type: 3}
   - {fileID: -927199367670048503, guid: 8c68e4dc10c45e342a07bef8b691869a, type: 3}
   - {fileID: -927199367670048503, guid: 153627173cebb874f92a6a4733a9fa37, type: 3}
+  instantiatedObjects: []
   count: 500
   maxSteepAngle: 80
   isNavMeshObstacle: 0
@@ -495,6 +496,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: b5048f1861a0dba40be834087d71ee98, type: 3}
   - {fileID: -927199367670048503, guid: 624720c8a57f15447809ee37159beeaf, type: 3}
   - {fileID: -927199367670048503, guid: d07eda94056f0314c82f31c0c567fc27, type: 3}
+  instantiatedObjects: []
   count: 120
   maxSteepAngle: 80
   isNavMeshObstacle: 1
@@ -550,6 +552,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 96c38f43af1722746b0368fa0d91a304, type: 3}
   - {fileID: -927199367670048503, guid: 04b633b116c91014b98792aae60d06f0, type: 3}
   - {fileID: -927199367670048503, guid: e6b2149ab013125488862b1297297528, type: 3}
+  instantiatedObjects: []
   count: 500
   maxSteepAngle: 80
   isNavMeshObstacle: 0
@@ -692,6 +695,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 45bfcd1f7db21554bb962efc94c98b14, type: 3}
   - {fileID: -927199367670048503, guid: 107dd59b7e4ab7746aae49e9f79b6e6c, type: 3}
   - {fileID: -927199367670048503, guid: d7715c799339e5044bf294616d977a27, type: 3}
+  instantiatedObjects: []
   count: 150
   maxSteepAngle: 20
   isNavMeshObstacle: 1
@@ -799,6 +803,7 @@ MonoBehaviour:
   gameObjects:
   - {fileID: -927199367670048503, guid: 2599b968d8ec0144a9adca8db444e918, type: 3}
   - {fileID: -927199367670048503, guid: 9b1f23c1bc7f57c418810f3277180ca2, type: 3}
+  instantiatedObjects: []
   count: 5
   maxSteepAngle: 10
   isNavMeshObstacle: 1
@@ -910,6 +915,14 @@ MonoBehaviour:
   cam: {fileID: 1297671313}
   overlay: {fileID: 137000467}
   dayTimeManager: {fileID: 304542438}
+  objectsSpawners:
+  - {fileID: 767777547}
+  - {fileID: 1963395232}
+  - {fileID: 479644904}
+  - {fileID: 935019537}
+  - {fileID: 1298558020}
+  - {fileID: 338019697}
+  - {fileID: 496139711}
 --- !u!4 &1289037424
 Transform:
   m_ObjectHideFlags: 0
@@ -978,6 +991,7 @@ MonoBehaviour:
   gameObjects:
   - {fileID: -927199367670048503, guid: 6a1e48aaab7c9fa4eb78e1c81c7e492b, type: 3}
   - {fileID: -927199367670048503, guid: 7bc034edde4e86348af4b6e3479c3d1d, type: 3}
+  instantiatedObjects: []
   count: 50
   maxSteepAngle: 30
   isNavMeshObstacle: 1
@@ -1411,6 +1425,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 1cd0dd2acfca25e4f8f72bcb3be4d6a3, type: 3}
   - {fileID: -927199367670048503, guid: 21da8424083720e459da1f4bff951a14, type: 3}
   - {fileID: -927199367670048503, guid: 2828097ddbb7de249af845a15ea95c2d, type: 3}
+  instantiatedObjects: []
   count: 350
   maxSteepAngle: 40
   isNavMeshObstacle: 1

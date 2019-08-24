@@ -18,6 +18,8 @@ public class PositionController : MonoBehaviour
 
     public DayTime dayTimeManager;
 
+    public ObjectsSpawner[] objectsSpawners;
+
     Vector3 cameraSpawnPos;
     Vector3 spawnPosition;
 
@@ -37,6 +39,11 @@ public class PositionController : MonoBehaviour
 
     public void Respawn()
     {
+        foreach(ObjectsSpawner objectsSpawner in objectsSpawners)
+        {
+            objectsSpawner.RepositionAll();
+        }
+
         player.GetComponent<CharacterController>().enabled = false;
         player.GetComponent<PlayerController>().enabled = false;
 
