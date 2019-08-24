@@ -18,9 +18,9 @@ public class AIController : MonoBehaviour
 
     public float maxIdleTime = 6f;
     public float minIdleTime = 2f;
-    public float destroyIfStuckTime = 6f;
 
-    Vector3 spawnPosition;
+    public Vector3 SpawnPosition { get; set; }
+    float maxStuckTime;
 
     NavMeshAgent agent;
     Animator animator;
@@ -30,29 +30,44 @@ public class AIController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        parentSpawner = GetComponentInParent<PreySpawner>();
-
-        if (!agent.isOnNavMesh || !agent.isActiveAndEnabled)
-            parentSpawner.Respawn(this.gameObject);
-
-        Walk();
-        agent.SetDestination(RandomNavmeshLocation(wanderRadius));
-
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        spawnPosition = this.transform.position;
-        Invoke("RecreateIfStuck", destroyIfStuckTime);
+        animator = GetComponent<Animator>();
+        parentSpawner = GetComponentInParent<PreySpawner>();
+
+        Walk();
+        SetRandomDestination();
+
+        maxStuckTime = 1.5f * maxIdleTime;
+        SpawnPosition = this.transform.position;
+        PerformStuckCheck();
     }
 
-    void RecreateIfStuck()
+    public void PerformStuckCheck()
     {
-        //Debug.Log("Stucked AI Destroyed");
-        if (Vector3.Distance(spawnPosition, this.transform.position) < 0.5f)
+        Invoke("RespawnIfStuck", maxStuckTime);
+    }
+
+    public void RespawnIfStuck()
+    {
+        if (Vector3.Distance(SpawnPosition, this.transform.position) < 0.5f)
         {
-            Destroy(this.gameObject);
-            parentSpawner.Spawn();
+            Debug.Log("Agent is stuck. Respawn.");
+            parentSpawner.Respawn(this.gameObject);
+        }
+    }
+
+    void SetRandomDestination()
+    {
+        try
+        {
+            agent.SetDestination(RandomNavmeshLocation(wanderRadius));
+        }
+        catch
+        {
+            Debug.Log("Agent can't set himself a destination. Respawn.");
+            parentSpawner.Respawn(this.gameObject);
         }
     }
 
@@ -116,7 +131,7 @@ public class AIController : MonoBehaviour
         animator.SetBool("isWalking", false);
         agent.speed = 0;
         agent.angularSpeed = 0;
-        agent.SetDestination(RandomNavmeshLocation(wanderRadius));
+        SetRandomDestination();
         Invoke("Walk", Random.Range(minIdleTime, maxIdleTime));
     }
 
@@ -188,7 +203,6 @@ public class AIController : MonoBehaviour
         {
             Debug.Log("This agent has been eaten");
             parentSpawner.Respawn(this.gameObject);
-            Invoke("RecreateIfStuck", destroyIfStuckTime);
             Walk();
         }
     }

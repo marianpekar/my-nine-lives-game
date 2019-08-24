@@ -17,30 +17,26 @@ public class PreySpawner : MonoBehaviour
     {
         for(int i = 0; i <= preyCount; i++)
         {
-            RaycastHit hit = CalculateSpawnHit();
+            RaycastHit spawnPosition = CalculateSpawnHit();
 
-            if (Vector2.Distance(new Vector2(hit.point.x, hit.point.z), blankSpaceCenterPosition) < blankSpaceRadius)
+            if (Vector2.Distance(new Vector2(spawnPosition.point.x, spawnPosition.point.z), blankSpaceCenterPosition) < blankSpaceRadius)
                 continue;
 
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
-                Instantiate(prey, hit.point, Quaternion.identity, this.transform);
+            if (spawnPosition.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+            {
+                Instantiate(prey, spawnPosition.point, Quaternion.identity, this.transform);
+            }
             else
                 i--;
-        }      
-    }
-
-    public void Spawn()
-    {
-        RaycastHit hit = CalculateSpawnHit();
-        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
-            Instantiate(prey, hit.point, Quaternion.identity, this.transform);
-        else
-            Spawn();
+            }      
     }
 
     public void Respawn(GameObject prey)
     {
-        prey.transform.position = CalculateSpawnHit().point;
+        Vector3 spawnPosition = CalculateSpawnHit().point;
+        prey.transform.position = spawnPosition;
+        prey.GetComponent<AIController>().SpawnPosition = spawnPosition;
+        prey.GetComponent<AIController>().PerformStuckCheck();
     }
 
     public RaycastHit CalculateSpawnHit()
