@@ -245,7 +245,7 @@ MonoBehaviour:
   afternoonSkybox: {fileID: 2100000, guid: 527255ce452b44e4491d619d8f3872f4, type: 2}
   nightSkybox: {fileID: 2100000, guid: dea6b9c1bcbc448ad97333c375aada1d, type: 2}
   terrain: {fileID: 2100000, guid: 911a958908b07dd4ab549feaeba4c7e1, type: 2}
-  morningTerrain: {r: 0.57254905, g: 1, b: 0.69411767, a: 0}
+  morningTerrain: {r: 0.68235296, g: 0.28627452, b: 0.5372549, a: 0}
   noonTerrain: {r: 1, g: 0.94509804, b: 0.105882354, a: 0}
   afternoonTerrain: {r: 0.83137256, g: 0.94509804, b: 0.105882354, a: 0}
   nightTerrain: {r: 0.25882354, g: 0.67058825, b: 1, a: 0}
