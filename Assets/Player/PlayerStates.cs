@@ -9,9 +9,8 @@ public sealed class PlayerStates
     public float WalkingSpeed { get; } = 0.8f;
     public float WalkingBackSpeed { get; } = 1f;
     public float RotationSpeed { get; } = 2f;
-    public float HighJumpSpeed { get; } = 9f;
-    public float LongJumpSpeed { get; } = 4f;
-    public float LongJumpDistance { get; } = 12f;
+    public float JumpHeight { get; } = 4f;
+    public float JumpDistance { get; } = 10f;
     public float BackJumpSpeed { get; } = 4f;
     public float BackJumpDistance { get; } = 4f;
 
@@ -23,7 +22,6 @@ public sealed class PlayerStates
     public bool IsWalking { get; set; } = false;
     public bool IsWalkingBackward { get; set; } = false;
     public bool IsGrounded { get; set; } = true;
-    public bool IsCleaning { get; set; } = false;
 
     // Stealth
     public bool IsStealth { get; set; } = false;

@@ -68,8 +68,8 @@ public class PlayerController : MonoBehaviour
             // Jumps
             if (Input.GetButtonDown("Jump") && PlayerStates.Singleton.IsWalking)
             {
-                moveDirection.y = PlayerStates.Singleton.LongJumpSpeed;
-                moveDirection.z = PlayerStates.Singleton.LongJumpDistance;
+                moveDirection.y = PlayerStates.Singleton.JumpHeight;
+                moveDirection.z = PlayerStates.Singleton.JumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
                 jump.Execute(animator);
             }
