@@ -5,6 +5,9 @@ using UnityEngine;
 public class GroundSelector : MonoBehaviour
 {
     public GameObject[] grounds;
+
+    public int currentGroundIndex;
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -12,11 +15,20 @@ public class GroundSelector : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void SelectRandomGround()
+    void SelectRandomGround()
     {
-        foreach(GameObject ground in grounds)
-            ground.SetActive(false);
+        currentGroundIndex = Random.Range(0, grounds.Length);
+        grounds[currentGroundIndex].SetActive(true);
+    }
 
-        grounds[Random.Range(0, grounds.Length)].SetActive(true);
+    public void SelectNextGround()
+    {
+        grounds[currentGroundIndex].SetActive(false);
+
+        currentGroundIndex++;
+        if (currentGroundIndex > grounds.Length - 1)
+            currentGroundIndex = 0;
+
+        grounds[currentGroundIndex].SetActive(true);
     }
 }
