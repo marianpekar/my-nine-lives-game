@@ -29,7 +29,7 @@ public class ObjectsSpawner : MonoBehaviour
 
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain") && Vector3.Angle(hit.normal, Vector3.up) < maxSteepAngle)
             {
-                Debug.DrawRay(hit.point, hit.normal, Color.green, Mathf.Infinity);
+                //Debug.DrawRay(hit.point, hit.normal, Color.green, Mathf.Infinity);
                 GameObject prefab = gameObjects[Random.Range(0, gameObjects.Length)];
                 GameObject gameObject = Instantiate(prefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), this.transform) as GameObject;
                 gameObject.transform.Rotate(transform.right, -90);
@@ -53,18 +53,28 @@ public class ObjectsSpawner : MonoBehaviour
     public void RepositionAll()
     {
         foreach (GameObject gameObject in instantiatedObjects)
-        {
-            RaycastHit hit = CalculateSpawnHit();
-            if (Vector2.Distance(new Vector2(hit.point.x, hit.point.z), blankSpaceCenterPosition) < blankSpaceRadius)
-                continue;
+            Reposition(gameObject);
+    }
 
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain") && Vector3.Angle(hit.normal, Vector3.up) < maxSteepAngle)
-            {
-                gameObject.transform.position = hit.point;
-                gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-                gameObject.transform.Rotate(transform.right, -90);
-                gameObject.transform.localPosition += new Vector3(0, -lowerOffset, 0);
-            }
+    public void Reposition(GameObject gameObject)
+    {
+        RaycastHit hit = CalculateSpawnHit();
+        if (Vector2.Distance(new Vector2(hit.point.x, hit.point.z), blankSpaceCenterPosition) < blankSpaceRadius)
+        {
+            Reposition(gameObject);
+            return;
+        }
+
+        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain") && Vector3.Angle(hit.normal, Vector3.up) < maxSteepAngle)
+        {
+            gameObject.transform.position = hit.point;
+            gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+            gameObject.transform.Rotate(transform.right, -90);
+            gameObject.transform.localPosition += new Vector3(0, -lowerOffset, 0);
+        }
+        else
+        {
+            Reposition(gameObject);
         }
     }
 

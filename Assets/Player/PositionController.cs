@@ -21,6 +21,8 @@ public class PositionController : MonoBehaviour
     public ObjectsSpawner[] objectsSpawners;
     public PreySpawner[] preySpawners;
 
+    public GroundSelector groundSelector;
+
     Vector3 cameraSpawnPos;
     Vector3 spawnPosition;
 
@@ -40,7 +42,9 @@ public class PositionController : MonoBehaviour
 
     public void Respawn()
     {
-        foreach(ObjectsSpawner objectsSpawner in objectsSpawners)
+        groundSelector.SelectRandomGround();
+
+        foreach (ObjectsSpawner objectsSpawner in objectsSpawners)
         {
             objectsSpawner.RepositionAll();
         }
@@ -53,12 +57,12 @@ public class PositionController : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = false;
         player.GetComponent<PlayerController>().enabled = false;
 
-        player.transform.position = spawnPosition;
+        spawnPosition = CalculateSpawnHit().point + offset;
+        Spawn(spawnPosition);
 
         player.GetComponent<CharacterController>().enabled = true;
         player.GetComponent<PlayerController>().enabled = true;
 
-        cam.transform.position = cameraSpawnPos;
         cam.GetComponent<FollowCamera>().ResetFollowSpeed();
 
         dayTimeManager.SetRandomDayTime();

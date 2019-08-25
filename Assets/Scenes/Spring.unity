@@ -126,6 +126,54 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 306741235}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &23846018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 23846020}
+  - component: {fileID: 23846019}
+  m_Layer: 0
+  m_Name: GroundSelector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &23846019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23846018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0278c699b719b5d4cb1c5e6dc8aa4485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grounds:
+  - {fileID: 1361570437}
+  - {fileID: 1564342089}
+--- !u!4 &23846020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23846018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 518.89667, y: 46.354446, z: 502.6076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1361570440}
+  - {fileID: 1564342092}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &137000465
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 500
   offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
   gameObjects:
   - {fileID: -927199367670048503, guid: 11a06836062e07048848e41385d1ad23, type: 3}
   - {fileID: -927199367670048503, guid: d7306ffe890a84b4a8c4d66b1c3bd383, type: 3}
@@ -388,13 +438,10 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 182f0508b2029e44591398795bbf0843, type: 3}
   - {fileID: -927199367670048503, guid: 8c68e4dc10c45e342a07bef8b691869a, type: 3}
   - {fileID: -927199367670048503, guid: 153627173cebb874f92a6a4733a9fa37, type: 3}
-  instantiatedObjects: []
   count: 500
   maxSteepAngle: 80
-  isNavMeshObstacle: 0
   lowerOffset: 0.05
-  blankSpaceCenterPosition: {x: 500, y: 500}
-  blankSpaceRadius: 10
+  isNavMeshObstacle: 0
 --- !u!1 &424856993
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,11 +472,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 300
-  prey: {fileID: 8334855634422311627, guid: 70b994b77a8994e41ba9a34ef6cbf402, type: 3}
-  preys: []
-  preyCount: 50
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 30
+  prey: {fileID: 8334855634422311627, guid: 70b994b77a8994e41ba9a34ef6cbf402, type: 3}
+  preyCount: 50
 --- !u!4 &424856995
 Transform:
   m_ObjectHideFlags: 0
@@ -489,6 +535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 500
   offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
   gameObjects:
   - {fileID: -927199367670048503, guid: f3b376f58f231644e83a39b456bb5045, type: 3}
   - {fileID: -927199367670048503, guid: 66179f38a403ec14e9f30e765fcf81c1, type: 3}
@@ -497,13 +545,10 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: b5048f1861a0dba40be834087d71ee98, type: 3}
   - {fileID: -927199367670048503, guid: 624720c8a57f15447809ee37159beeaf, type: 3}
   - {fileID: -927199367670048503, guid: d07eda94056f0314c82f31c0c567fc27, type: 3}
-  instantiatedObjects: []
   count: 120
   maxSteepAngle: 80
-  isNavMeshObstacle: 1
   lowerOffset: 0.25
-  blankSpaceCenterPosition: {x: 500, y: 500}
-  blankSpaceRadius: 10
+  isNavMeshObstacle: 1
 --- !u!1 &496139709
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,17 +594,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 500
   offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
   gameObjects:
   - {fileID: -927199367670048503, guid: 96c38f43af1722746b0368fa0d91a304, type: 3}
   - {fileID: -927199367670048503, guid: 04b633b116c91014b98792aae60d06f0, type: 3}
   - {fileID: -927199367670048503, guid: e6b2149ab013125488862b1297297528, type: 3}
-  instantiatedObjects: []
   count: 500
   maxSteepAngle: 80
-  isNavMeshObstacle: 0
   lowerOffset: 0.05
-  blankSpaceCenterPosition: {x: 500, y: 500}
-  blankSpaceRadius: 10
+  isNavMeshObstacle: 0
 --- !u!1 &522174323
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,19 +734,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 800
   offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
   gameObjects:
   - {fileID: -927199367670048503, guid: 587e121c83336824a9bd943e8afdd412, type: 3}
   - {fileID: -927199367670048503, guid: 378903d0b2e2f604189c2d061a8a8ea0, type: 3}
   - {fileID: -927199367670048503, guid: 45bfcd1f7db21554bb962efc94c98b14, type: 3}
   - {fileID: -927199367670048503, guid: 107dd59b7e4ab7746aae49e9f79b6e6c, type: 3}
   - {fileID: -927199367670048503, guid: d7715c799339e5044bf294616d977a27, type: 3}
-  instantiatedObjects: []
   count: 150
   maxSteepAngle: 20
-  isNavMeshObstacle: 1
   lowerOffset: 0.25
-  blankSpaceCenterPosition: {x: 500, y: 500}
-  blankSpaceRadius: 10
+  isNavMeshObstacle: 1
 --- !u!4 &767777548
 Transform:
   m_ObjectHideFlags: 0
@@ -801,16 +844,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 500
   offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
   gameObjects:
   - {fileID: -927199367670048503, guid: 2599b968d8ec0144a9adca8db444e918, type: 3}
   - {fileID: -927199367670048503, guid: 9b1f23c1bc7f57c418810f3277180ca2, type: 3}
-  instantiatedObjects: []
   count: 5
   maxSteepAngle: 10
-  isNavMeshObstacle: 1
   lowerOffset: 1
-  blankSpaceCenterPosition: {x: 500, y: 500}
-  blankSpaceRadius: 10
+  isNavMeshObstacle: 1
 --- !u!1 &1154449084
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +969,7 @@ MonoBehaviour:
   preySpawners:
   - {fileID: 2110089427}
   - {fileID: 424856994}
+  groundSelector: {fileID: 23846019}
 --- !u!4 &1289037424
 Transform:
   m_ObjectHideFlags: 0
@@ -939,7 +982,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1297671313 stripped
 GameObject:
@@ -992,16 +1035,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 500
   offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
   gameObjects:
   - {fileID: -927199367670048503, guid: 6a1e48aaab7c9fa4eb78e1c81c7e492b, type: 3}
   - {fileID: -927199367670048503, guid: 7bc034edde4e86348af4b6e3479c3d1d, type: 3}
-  instantiatedObjects: []
   count: 50
   maxSteepAngle: 30
-  isNavMeshObstacle: 1
   lowerOffset: 0.15
-  blankSpaceCenterPosition: {x: 500, y: 500}
-  blankSpaceRadius: 10
+  isNavMeshObstacle: 1
 --- !u!1 &1361570437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,12 +1058,12 @@ GameObject:
   - component: {fileID: 1361570441}
   - component: {fileID: 1361570442}
   m_Layer: 9
-  m_Name: World
+  m_Name: Ground_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1361570438
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1072,12 +1114,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361570437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -518.89667, y: -46.354446, z: -502.6076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 23846020}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1361570441
 MonoBehaviour:
@@ -1086,7 +1128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361570437}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae26ac1733df3c445bbef0c97d8e21b5, type: 3}
   m_Name: 
@@ -1287,6 +1329,126 @@ Transform:
   m_Father: {fileID: 304542439}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: -30, z: 0}
+--- !u!1 &1564342089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564342092}
+  - component: {fileID: 1564342091}
+  - component: {fileID: 1564342090}
+  - component: {fileID: 1564342094}
+  - component: {fileID: 1564342093}
+  m_Layer: 9
+  m_Name: Ground_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 0
+--- !u!154 &1564342090
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564342089}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 262cdd959cd1df443955e93535628850, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &1564342091
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564342089}
+  m_Enabled: 1
+  serializedVersion: 5
+  m_TerrainData: {fileID: 15600000, guid: 262cdd959cd1df443955e93535628850, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 2
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialTemplate: {fileID: 2100000, guid: 911a958908b07dd4ab549feaeba4c7e1, type: 2}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ScaleInLightmap: 0.0256
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_AllowAutoConnect: 1
+--- !u!4 &1564342092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564342089}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -518.89667, y: -46.354446, z: -502.6076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 23846020}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1564342093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564342089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -334000983
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.13333334
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 354450e1cb4ace5489fcbf07949802c3, type: 2}
+--- !u!114 &1564342094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564342089}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae26ac1733df3c445bbef0c97d8e21b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightMapTexture: {fileID: 2800000, guid: cab95a98a3fdce746a3971588f7ff3a8, type: 3}
+  smoothPasses: 7
 --- !u!1 &1634152158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,19 +1585,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 800
   offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
   gameObjects:
   - {fileID: -927199367670048503, guid: 93881000edc6a7c4f9560043c56b9cc9, type: 3}
   - {fileID: -927199367670048503, guid: e1a0d5c9ea754f54fbc9be8f227f4819, type: 3}
   - {fileID: -927199367670048503, guid: 1cd0dd2acfca25e4f8f72bcb3be4d6a3, type: 3}
   - {fileID: -927199367670048503, guid: 21da8424083720e459da1f4bff951a14, type: 3}
   - {fileID: -927199367670048503, guid: 2828097ddbb7de249af845a15ea95c2d, type: 3}
-  instantiatedObjects: []
   count: 350
   maxSteepAngle: 40
-  isNavMeshObstacle: 1
   lowerOffset: 0.25
-  blankSpaceCenterPosition: {x: 500, y: 500}
-  blankSpaceRadius: 10
+  isNavMeshObstacle: 1
 --- !u!1 &2110089425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,8 +1641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 300
-  prey: {fileID: 1708761484820264130, guid: 9dc9077befe13b240841a1d17b343698, type: 3}
-  preys: []
-  preyCount: 50
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 30
+  prey: {fileID: 1708761484820264130, guid: 9dc9077befe13b240841a1d17b343698, type: 3}
+  preyCount: 50
