@@ -70,6 +70,10 @@ public class PositionController : MonoBehaviour
 
     public void Update()
     {
+        // TODO: Remove this before release
+        if (Input.GetKey(KeyCode.F1))
+            Respawn();
+
         //Debug.Log("Distance from spawnPoint: " + Vector3.Distance(player.transform.position, spawnPosition));
 
         float playerDistanceFromSpawnPoint = Vector3.Distance(player.transform.position, spawnPosition);
