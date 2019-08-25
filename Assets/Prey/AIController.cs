@@ -46,6 +46,7 @@ public class AIController : MonoBehaviour
 
     public void PerformStuckCheck()
     {
+        GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         Invoke("RespawnIfStuck", maxStuckTime);
     }
 
@@ -55,6 +56,11 @@ public class AIController : MonoBehaviour
         {
             Debug.Log("Agent is stuck. Respawn.");
             parentSpawner.Respawn(this.gameObject);
+        }
+        else
+        {
+            Debug.Log("Agent is ok. Make visible.");
+            GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         }
     }
 
