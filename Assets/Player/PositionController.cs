@@ -94,9 +94,9 @@ public class PositionController : MonoBehaviour
 
     RaycastHit CalculateSpawnHit()
     {
-        Vector3 rayStartPos = new Vector3(spawnLocation.x, 500f, spawnLocation.y);
+        Vector3 rayStartPos = new Vector3(spawnLocation.x, 1000f, spawnLocation.y);
         RaycastHit hit;
-        if (Physics.Raycast(rayStartPos, Vector3.down, out hit, Mathf.Infinity))
+        if (Physics.Raycast(rayStartPos, Vector3.down, out hit, 2000f))
             return hit;
         else
             return new RaycastHit();

@@ -80,10 +80,10 @@ public class ObjectsSpawner : MonoBehaviour
 
     public RaycastHit CalculateSpawnHit()
     {
-        Vector3 rayStartPos = new Vector3(Random.Range(this.transform.position.x - size / 2, this.transform.position.x + size / 2), 500f,
+        Vector3 rayStartPos = new Vector3(Random.Range(this.transform.position.x - size / 2, this.transform.position.x + size / 2), 1000f,
                                           Random.Range(this.transform.position.x - size / 2, this.transform.position.x + size / 2));
         RaycastHit hit;
-        if (Physics.Raycast(rayStartPos, Vector3.down, out hit, Mathf.Infinity))
+        if (Physics.Raycast(rayStartPos, Vector3.down, out hit, 2000f))
             return hit;
         else
             return new RaycastHit();

@@ -75,7 +75,7 @@ public class FollowCamera : MonoBehaviour
     float DistanceToGround()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 100f))
         {
             return hit.distance;
         }
