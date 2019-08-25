@@ -40,23 +40,17 @@ public class DayTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hours = Random.Range(0, 24);
-        minutes = Random.Range(0, 60);
+        SetRandomDayTime();
     }
     public void SetRandomDayTime()
     {
         hours = Random.Range(0, 24);
         minutes = Random.Range(0, 60);
+        Init();
     }
 
-    void Update()
+    void Init()
     {
-        // TODO: Remove this before release
-        if(Input.GetKeyUp(KeyCode.F1)) {
-            hours = Random.Range(0, 24);
-            minutes = Random.Range(0, 60);
-        }
-
         SetSunRotation();
         SetSunColor();
         SetFogColor();
