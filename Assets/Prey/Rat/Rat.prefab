@@ -1410,6 +1410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderRadius: 30
+  visibleRadius: 8
+  fieldOfView: 45
   detectionRadius: 6
   criticalDetectionRadius: 2
   fleeRadius: 60
@@ -1420,7 +1422,6 @@ MonoBehaviour:
   runAngularSpeed: 600
   maxIdleTime: 6
   minIdleTime: 2
-  destroyIfStuckTime: 6
 --- !u!1 &8854547184402036941
 GameObject:
   m_ObjectHideFlags: 0

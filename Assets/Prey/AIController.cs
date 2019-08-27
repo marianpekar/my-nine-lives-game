@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class AIController : MonoBehaviour
 {
     public float wanderRadius = 30f;
+    public float visibleRadius = 8f;
+    public float fieldOfView = 45f;
     public float detectionRadius = 6f;
     public float criticalDetectionRadius = 2f;
     public float fleeRadius = 60f;
@@ -97,16 +99,32 @@ public class AIController : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, criticalDetectionRadius);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, visibleRadius);
     }
 
-    bool CloseToPlayer(Vector3 position, float detectionRadius)
+    bool CloseToPlayer(float detectionRadius)
     {
-        return (Vector3.Distance(position, transform.position) < detectionRadius);
+        return CalculateDistanceToPlayer() < detectionRadius;
     }
 
-    void Flee(Vector3 position)
+    bool SeePlayer()
     {
-        Vector3 fleeDirection = (transform.position - position).normalized;
+        if(CalculateDistanceToPlayer() < visibleRadius)
+        {
+            Debug.DrawRay(transform.position, CalculateDirectionToPlayer() * CalculateDistanceToPlayer(), Color.green);
+            Debug.DrawRay(transform.position, transform.forward * 3f, Color.blue);
+        }
+
+        return CalculateDistanceToPlayer() < visibleRadius && 
+            (Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) < fieldOfView || 
+             Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) > 360 - fieldOfView);
+    }
+
+    void Flee()
+    {
+        Vector3 fleeDirection = -CalculateDirectionToPlayer().normalized;
         Vector3 newGoalUp = (transform.position + fleeDirection * fleeRadius) + Vector3.up * fleeRadius;
 
         Vector3 newGoal;
@@ -163,6 +181,24 @@ public class AIController : MonoBehaviour
         AlignWithTerrain();
     }
 
+    Vector3 CalculateDirectionToGoal()
+    {
+        if (agent.path.corners.Length > 1)
+            return agent.path.corners[1] - this.transform.position;
+        else
+            return agent.destination - this.transform.position;
+    }
+
+    Vector3 CalculateDirectionToPlayer()
+    {
+        return PlayerStates.Singleton.Position - transform.position;
+    }
+
+    float CalculateDistanceToPlayer()
+    {
+        return Vector3.Distance(PlayerStates.Singleton.Position, this.transform.position);
+    }
+
     void AlignWithTerrain()
     {
         RaycastHit hit;
@@ -170,11 +206,7 @@ public class AIController : MonoBehaviour
         {
             Debug.DrawRay(this.transform.position, hit.normal, Color.magenta);
 
-            Vector3 direction = Vector3.zero;
-            if (agent.path.corners.Length > 1)
-                 direction = agent.path.corners[1] - this.transform.position;
-            else
-                 direction = agent.destination - this.transform.position;
+            Vector3 direction = CalculateDirectionToGoal();
 
             if (agent.speed > 0)
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(transform.forward + direction, hit.normal), 1.5f * Time.deltaTime);
@@ -205,7 +237,7 @@ public class AIController : MonoBehaviour
 
     void CheckForBeingEaten()
     {
-        if (Vector3.Distance(this.transform.position, PlayerStates.Singleton.Position) < 0.5f)
+        if (CalculateDistanceToPlayer() < 0.5f)
         {
             Debug.Log("This agent has been eaten");
             parentSpawner.Respawn(this.gameObject);
@@ -215,10 +247,13 @@ public class AIController : MonoBehaviour
 
     void CheckForDanger()
     {
-        if (CloseToPlayer(PlayerStates.Singleton.Position, detectionRadius))
+        if(SeePlayer())
+            Flee();
+
+        if (CloseToPlayer(detectionRadius))
         {
-            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(PlayerStates.Singleton.Position, criticalDetectionRadius))
-                Flee(PlayerStates.Singleton.Position);
+            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(criticalDetectionRadius))
+                Flee();
         }
     }
 
