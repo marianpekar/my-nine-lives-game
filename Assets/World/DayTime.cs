@@ -37,10 +37,31 @@ public class DayTime : MonoBehaviour
 
     public Light sun;
     public Light moon;
+
+    public GameObject dayTimePreserverPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
-        SetRandomDayTime();
+        GameObject dayTimePreserverGameObject = new GameObject("DayTimePreserver");
+        DayTimePreserver dayTimePreserver = FindObjectOfType<DayTimePreserver>();
+
+        if (!dayTimePreserver)
+        {
+            SetRandomDayTime();
+            dayTimePreserverGameObject.AddComponent<DayTimePreserver>();
+            dayTimePreserverGameObject.GetComponent<DayTimePreserver>().Hours = hours;
+            dayTimePreserverGameObject.GetComponent<DayTimePreserver>().Minutes = minutes;
+        }
+        else
+            SetDayTime(dayTimePreserver.Hours, dayTimePreserver.Minutes);
+    }
+
+    public void SetDayTime(int hour, int minute)
+    {
+        hours = hour;
+        minutes = minute;
+        Init();
     }
     public void SetRandomDayTime()
     {

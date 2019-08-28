@@ -1550,6 +1550,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DayTimeManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3349359029621242485, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3349359029621242487, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: m_LocalPosition.x

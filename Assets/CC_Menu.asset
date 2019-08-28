@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: CC
+  m_Name: CC_Menu
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -72,8 +72,8 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 1
     m_Settings:
-      focusDistance: 1.9999998
-      aperture: 11.999998
+      focusDistance: 1.9999996
+      aperture: 2
       focalLength: 50
       useCameraFov: 0
       kernelSize: 0
