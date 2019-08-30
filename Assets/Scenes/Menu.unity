@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -389,6 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -448,6 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -533,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 800
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -641,6 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -695,6 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -1298,6 +1304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 800
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -1505,7 +1512,7 @@ PrefabInstance:
     - target: {fileID: 3349359029621242485, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: m_Name
-      value: DayTimeManager
+      value: EnvironmentManager
       objectReference: {fileID: 0}
     - target: {fileID: 3349359029621242487, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}

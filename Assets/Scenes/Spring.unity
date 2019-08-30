@@ -167,15 +167,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23846018}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 518.89667, y: 46.354446, z: 502.6076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1361570440}
   - {fileID: 1564342092}
   - {fileID: 1664406388}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 909919022}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &137000465
 GameObject:
@@ -314,7 +314,7 @@ PrefabInstance:
     - target: {fileID: 5641631285422964705, guid: f47066f7a0d0d854f820a68a65381450,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5641631285422964705, guid: f47066f7a0d0d854f820a68a65381450,
         type: 3}
@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -482,6 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -541,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -645,7 +648,7 @@ RectTransform:
   m_Children:
   - {fileID: 137000466}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -681,6 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 800
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -732,7 +736,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902378253}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -745,8 +749,66 @@ Transform:
   - {fileID: 496139710}
   - {fileID: 424856995}
   - {fileID: 2110089426}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 909919022}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &909919020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909919022}
+  - component: {fileID: 909919021}
+  m_Layer: 0
+  m_Name: EnvironmentSpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &909919021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909919020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77e2551cae368b4593fedad64733af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  environmentManager: {fileID: 304542438}
+  objectsSpawners:
+  - {fileID: 767777547}
+  - {fileID: 1963395232}
+  - {fileID: 479644904}
+  - {fileID: 935019537}
+  - {fileID: 1298558020}
+  - {fileID: 338019697}
+  - {fileID: 496139711}
+  preySpawners:
+  - {fileID: 424856994}
+  - {fileID: 2110089427}
+  groundSelector: {fileID: 23846019}
+--- !u!4 &909919022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909919020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 902378254}
+  - {fileID: 23846020}
+  m_Father: {fileID: 1696136315}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935019535
 GameObject:
@@ -791,6 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -866,7 +929,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1289037422
 GameObject:
@@ -906,19 +969,7 @@ MonoBehaviour:
   player: {fileID: 10949131}
   cam: {fileID: 1297671313}
   overlay: {fileID: 137000467}
-  dayTimeManager: {fileID: 304542438}
-  objectsSpawners:
-  - {fileID: 767777547}
-  - {fileID: 1963395232}
-  - {fileID: 479644904}
-  - {fileID: 935019537}
-  - {fileID: 1298558020}
-  - {fileID: 338019697}
-  - {fileID: 496139711}
-  preySpawners:
-  - {fileID: 2110089427}
-  - {fileID: 424856994}
-  groundSelector: {fileID: 23846019}
+  environmentSpawnManager: {fileID: 909919021}
 --- !u!4 &1289037424
 Transform:
   m_ObjectHideFlags: 0
@@ -982,6 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 500
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -1163,7 +1215,7 @@ PrefabInstance:
     - target: {fileID: 3644249844474166871, guid: 81c45f8675eee2e4aa947256fe848b50,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3644249844474166871, guid: 81c45f8675eee2e4aa947256fe848b50,
         type: 3}
@@ -1433,6 +1485,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightMapTexture: {fileID: 2800000, guid: 5d94e1ae1aa4c564f9f52cf1885f2a07, type: 3}
   smoothPasses: 7
+--- !u!4 &1696136315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3349359029621242487, guid: b898490b5b861f6469b63ca1cfd7afab,
+    type: 3}
+  m_PrefabInstance: {fileID: 3349359029388626064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1963395230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisEnvironmentType: 6
   size: 800
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -1548,12 +1607,7 @@ PrefabInstance:
     - target: {fileID: 3349359029621242485, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: m_Name
-      value: DayTimeManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3349359029621242485, guid: b898490b5b861f6469b63ca1cfd7afab,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 3349359029621242487, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}

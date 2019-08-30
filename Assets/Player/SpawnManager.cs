@@ -16,15 +16,10 @@ public class SpawnManager : MonoBehaviour
     public GameObject cam;
     public Image overlay;
 
-    public DayTime dayTimeManager;
-
-    public ObjectsSpawner[] objectsSpawners;
-    public PreySpawner[] preySpawners;
-
-    public GroundSelector groundSelector;
-
     Vector3 cameraSpawnPos;
     Vector3 spawnPosition;
+
+    public EnvironmentSpawnManager environmentSpawnManager;
 
     void Start()
     {
@@ -42,17 +37,7 @@ public class SpawnManager : MonoBehaviour
 
     public void Respawn()
     {
-        groundSelector.SelectNextGround();
-
-        foreach (ObjectsSpawner objectsSpawner in objectsSpawners)
-        {
-            objectsSpawner.RepositionAll();
-        }
-
-        foreach (PreySpawner preySpawner in preySpawners)
-        {
-            preySpawner.RespawnAll();
-        }
+        environmentSpawnManager.Respawn();
 
         player.GetComponent<CharacterController>().enabled = false;
         player.GetComponent<PlayerController>().enabled = false;
@@ -64,8 +49,6 @@ public class SpawnManager : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
 
         cam.GetComponent<FollowCamera>().ResetFollowSpeed();
-
-        dayTimeManager.SetRandomDayTime();
     }
 
     public void Update()

@@ -66,6 +66,7 @@ MonoBehaviour:
   nightTerrain: {r: 0.25882354, g: 0.67058825, b: 1, a: 0}
   sun: {fileID: 3349359029902370383}
   moon: {fileID: 3349359030847943625}
+  dayTimePreserverPrefab: {fileID: 0}
 --- !u!1 &3349359029902370382
 GameObject:
   m_ObjectHideFlags: 0

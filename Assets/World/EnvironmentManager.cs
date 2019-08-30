@@ -2,8 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DayTime : MonoBehaviour
+public class EnvironmentManager : MonoBehaviour
 {
+    public enum EnvironmentType
+    {
+        DeciduousSpring, 
+        ConiferousSpring,
+        DecidousFall,
+        ConiferousFall,
+        DecidousWinter,
+        ConiferousWinter,
+        All
+    }
+
+    const int EnvironmentTypesCount = 6;
+
+    public EnvironmentType CurrentEnvironmentType { get; set; }
+
     [Range(0,24)]
     public int hours = 12;
     [Range(0, 60)]
@@ -43,18 +58,24 @@ public class DayTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject dayTimePreserverGameObject = new GameObject("DayTimePreserver");
-        DayTimePreserver dayTimePreserver = FindObjectOfType<DayTimePreserver>();
+        GameObject environmentPreserverGameObject = new GameObject("EnvironmentPreserver");
+        EnvironmentPreserver environmentPreserver = FindObjectOfType<EnvironmentPreserver>();
 
-        if (!dayTimePreserver)
+        if (!environmentPreserver)
         {
             SetRandomDayTime();
-            dayTimePreserverGameObject.AddComponent<DayTimePreserver>();
-            dayTimePreserverGameObject.GetComponent<DayTimePreserver>().Hours = hours;
-            dayTimePreserverGameObject.GetComponent<DayTimePreserver>().Minutes = minutes;
+            SetRandomEnvironmentType();
+            environmentPreserverGameObject.AddComponent<EnvironmentPreserver>();
+            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Hours = hours;
+            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Minutes = minutes;
+            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentType = CurrentEnvironmentType;
         }
         else
-            SetDayTime(dayTimePreserver.Hours, dayTimePreserver.Minutes);
+        {
+            SetDayTime(environmentPreserver.Hours, environmentPreserver.Minutes);
+            CurrentEnvironmentType = environmentPreserver.EnvironmentType;
+        }
+
     }
 
     public void SetDayTime(int hour, int minute)
@@ -70,8 +91,14 @@ public class DayTime : MonoBehaviour
         Init();
     }
 
+    public void SetRandomEnvironmentType()
+    {
+        CurrentEnvironmentType = (EnvironmentType)Random.Range(0, EnvironmentTypesCount);
+    }
+
     void Init()
     {
+        SetRandomEnvironmentType();
         SetSunRotation();
         SetSunColor();
         SetFogColor();

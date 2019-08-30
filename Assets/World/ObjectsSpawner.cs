@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class ObjectsSpawner : MonoBehaviour
 {
+    public EnvironmentManager.EnvironmentType thisEnvironmentType;
+
     public float size = 800;
     public float offset = 5f;
     public Vector2 blankSpaceCenterPosition = new Vector2(500, 500);
@@ -18,8 +20,13 @@ public class ObjectsSpawner : MonoBehaviour
 
     public bool isNavMeshObstacle = true;
 
+    void Show()
+    {
+       
+    }
+
     // Start is called before the first frame update
-    void Start()
+    public void Spawn()
     {
         for (int i = 0; i < count; i++)
         {
@@ -42,12 +49,25 @@ public class ObjectsSpawner : MonoBehaviour
                 }
 
                 instantiatedObjects.Add(gameObject);
-
             } else
             {
                 i--;
             }
-        }   
+        }
+
+        SetAllInactive();
+    }
+
+    public void SetAllActive()
+    {
+        foreach (GameObject gameObject in instantiatedObjects)
+            gameObject.SetActive(true);
+    }
+
+    public void SetAllInactive()
+    {
+        foreach (GameObject gameObject in instantiatedObjects)
+            gameObject.SetActive(false);
     }
 
     public void RepositionAll()
