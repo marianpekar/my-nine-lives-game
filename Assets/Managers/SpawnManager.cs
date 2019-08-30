@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PositionController : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     public Vector2 spawnLocation = new Vector2(500,500);
     public Vector3 offset = new Vector3(0,0.33f,0);
