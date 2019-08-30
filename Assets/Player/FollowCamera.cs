@@ -35,15 +35,13 @@ public class FollowCamera : MonoBehaviour
     const float baseCameraFocusDistance = 2f;
     const float focusSpeed = 2f;
 
-    PostProcessingProfile postProcessingProfile;
+    public PostProcesingManager postProcesingManager;
 
     void Start()
     {
         offset = DirectionTo(PointOneUpThePlayer());
         initialOffset = offset;
         initialDistanceToGround = (int)DistanceToGround();
-
-        postProcessingProfile = GetComponent<PostProcessingBehaviour>().profile;
     }
 
     public void SetFollowSpeed(float speed)
@@ -109,28 +107,14 @@ public class FollowCamera : MonoBehaviour
         offset.y = offset.y / 3f;
         offset.z = offset.z / 2f;
         sideRaysDist = sideRayDistSmall;
-        SetDOF(closerCameraFStop, closerCameraFocusDistance, focusSpeed);
+        postProcesingManager.SetDOF(closerCameraFStop, closerCameraFocusDistance, focusSpeed);
     }
 
     void SetOriginalCamera()
     {
         offset = initialOffset;
         sideRaysDist = sideRayDistOriginal;
-        SetDOF(baseCameraFStop, baseCameraFocusDistance, focusSpeed);
-    }
-    
-    void SetDOF(float targetAperture, float targetFocusDistance, float speed)
-    {
-        DepthOfFieldModel.Settings dof = postProcessingProfile.depthOfField.settings;
-
-        float originalfStop = dof.aperture;
-        dof.aperture = Mathf.Lerp(originalfStop, targetAperture, speed * Time.deltaTime);
-
-        float originalFocusDistance = dof.focusDistance;
-        dof.focusDistance = Mathf.Lerp(originalFocusDistance, targetFocusDistance, speed * Time.deltaTime);
-
-        postProcessingProfile.depthOfField.settings = dof;
-
+        postProcesingManager.SetDOF(baseCameraFStop, baseCameraFocusDistance, focusSpeed);
     }
 
     void SetPositionAndRotation()
