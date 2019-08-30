@@ -177,6 +177,39 @@ Transform:
   m_Father: {fileID: 909919022}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &75641313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75641314}
+  m_Layer: 0
+  m_Name: Winter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &75641314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75641313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -182.79398, y: 3935.0164, z: 6908.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1829954774}
+  - {fileID: 653627593}
+  - {fileID: 932885633}
+  m_Father: {fileID: 902378254}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &137000465
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +285,216 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137000465}
   m_CullTransparentMesh: 0
+--- !u!1 &143876916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143876917}
+  - component: {fileID: 143876918}
+  m_Layer: 0
+  m_Name: WinterDeadWillowTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143876917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143876916}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 653627593}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &143876918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143876916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 2
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: b8a71d6fabc9c4c4a81ddff6fa0d2f30, type: 3}
+  - {fileID: -927199367670048503, guid: b39ed59da28b23148a7316da867adda6, type: 3}
+  - {fileID: -927199367670048503, guid: f4e9294a9b0f69245a6910895eae6d43, type: 3}
+  - {fileID: -927199367670048503, guid: 94461f1b3f0474c4c834ae41997b7bca, type: 3}
+  - {fileID: -927199367670048503, guid: 82a8b5b93d9364941ac85fb6fdb5585e, type: 3}
+  count: 25
+  maxSteepAngle: 20
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
+--- !u!1 &181816159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181816160}
+  - component: {fileID: 181816161}
+  m_Layer: 0
+  m_Name: SpringRocksSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181816160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181816159}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 621950201}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &181816161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181816159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 0
+  size: 250
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: e1b450cb6229b094d955e407d4ac1c37, type: 3}
+  - {fileID: -927199367670048503, guid: 5a7fb6def4f579c408a51d1277ac5997, type: 3}
+  - {fileID: -927199367670048503, guid: dea3706ffdbb69f4687ab1a839fbac56, type: 3}
+  - {fileID: -927199367670048503, guid: de00d4c8e46c265408d2f1fbd7fd362c, type: 3}
+  - {fileID: -927199367670048503, guid: 068835506f2db5a4888d7676f7dd9bcb, type: 3}
+  - {fileID: -927199367670048503, guid: 033885f1536aa5f4da44b1b73715206f, type: 3}
+  - {fileID: -927199367670048503, guid: 349c5a7cd387d5447b41eda14c502044, type: 3}
+  count: 120
+  maxSteepAngle: 30
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
+--- !u!1 &200523330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200523331}
+  - component: {fileID: 200523332}
+  m_Layer: 0
+  m_Name: SpringWillowTrees
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &200523331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200523330}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1663634959}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &200523332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200523330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 0
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 7891d1c28858f004f900020e8a530c8a, type: 3}
+  - {fileID: -927199367670048503, guid: f0e2dfb63ea533d439733366404a00ec, type: 3}
+  - {fileID: -927199367670048503, guid: 79fc20c49bb5687419d830007aaf73aa, type: 3}
+  - {fileID: -927199367670048503, guid: 685c86f70cb29b04ca3c20c5b66d048d, type: 3}
+  - {fileID: -927199367670048503, guid: 17c326774464cb144841060f05a3f1e8, type: 3}
+  count: 50
+  maxSteepAngle: 20
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
+--- !u!1 &208673833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208673834}
+  m_Layer: 0
+  m_Name: Conifeus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208673834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208673833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 315079130}
+  m_Father: {fileID: 1252000117}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &304542438 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
@@ -333,6 +576,65 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f47066f7a0d0d854f820a68a65381450, type: 3}
+--- !u!1 &315079129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315079130}
+  - component: {fileID: 315079131}
+  m_Layer: 0
+  m_Name: FallPineTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &315079130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315079129}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 208673834}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315079131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315079129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 1
+  thisEnvironmentEpoch: 1
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 77733708bf2294642813304e7bb2e654, type: 3}
+  - {fileID: -927199367670048503, guid: d324862de3f30f5459bbcbdad44c7abf, type: 3}
+  - {fileID: -927199367670048503, guid: bc1edcffd241aa543a6d3500aa2b2f74, type: 3}
+  - {fileID: -927199367670048503, guid: 075cdb710b505e44d95f6878de217857, type: 3}
+  - {fileID: -927199367670048503, guid: 5b62ecb2ca5dcd3468a68fa9bfeac33b, type: 3}
+  count: 350
+  maxSteepAngle: 40
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
 --- !u!1 &338019695
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,11 +660,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338019695}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 902378254}
-  m_RootOrder: 5
+  m_Father: {fileID: 930373493}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &338019697
 MonoBehaviour:
@@ -376,8 +678,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnvironmentType: 6
-  size: 500
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 3
+  size: 250
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
@@ -392,6 +695,65 @@ MonoBehaviour:
   maxSteepAngle: 80
   lowerOffset: 0.05
   isNavMeshObstacle: 0
+--- !u!1 &381268390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381268391}
+  - component: {fileID: 381268392}
+  m_Layer: 0
+  m_Name: FallWillowTreesSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &381268391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381268390}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 782873619}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &381268392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381268390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 1
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 7cfd52a2d62bc054e9f15afbe47b8810, type: 3}
+  - {fileID: -927199367670048503, guid: 8621c9e0f46c8ee418e395e3e92be8c3, type: 3}
+  - {fileID: -927199367670048503, guid: 0e3308dfbeb068947a60775db7f966f0, type: 3}
+  - {fileID: -927199367670048503, guid: 139b5b9886d624e42a3e8b1c96306ebe, type: 3}
+  - {fileID: -927199367670048503, guid: e3d30b5dc6f473941815b7b908adbde3, type: 3}
+  count: 25
+  maxSteepAngle: 40
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
 --- !u!1 &424856993
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,11 +796,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424856993}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 902378254}
-  m_RootOrder: 7
+  m_Father: {fileID: 578011845}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479644902
 GameObject:
@@ -451,7 +813,7 @@ GameObject:
   - component: {fileID: 479644903}
   - component: {fileID: 479644904}
   m_Layer: 0
-  m_Name: RocksSpawner
+  m_Name: FallRocksSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,10 +827,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479644902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 902378254}
+  m_Father: {fileID: 1063267525}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &479644904
@@ -483,8 +845,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnvironmentType: 6
-  size: 500
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 1
+  size: 250
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
@@ -497,7 +860,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 624720c8a57f15447809ee37159beeaf, type: 3}
   - {fileID: -927199367670048503, guid: d07eda94056f0314c82f31c0c567fc27, type: 3}
   count: 120
-  maxSteepAngle: 80
+  maxSteepAngle: 30
   lowerOffset: 0.25
   isNavMeshObstacle: 1
 --- !u!1 &496139709
@@ -525,11 +888,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496139709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 902378254}
-  m_RootOrder: 6
+  m_Father: {fileID: 930373493}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &496139711
 MonoBehaviour:
@@ -543,8 +906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnvironmentType: 6
-  size: 500
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 3
+  size: 250
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
@@ -556,6 +920,65 @@ MonoBehaviour:
   maxSteepAngle: 80
   lowerOffset: 0.05
   isNavMeshObstacle: 0
+--- !u!1 &512885816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512885817}
+  - component: {fileID: 512885818}
+  m_Layer: 0
+  m_Name: FallBirchTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &512885817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512885816}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 782873619}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512885818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512885816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 1
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: a382b5e8bc9cdc244951cc7b25002d6c, type: 3}
+  - {fileID: -927199367670048503, guid: 5b1726783f9c20e4e81450060e483034, type: 3}
+  - {fileID: -927199367670048503, guid: ffa2c48501391264690f735424c63bde, type: 3}
+  - {fileID: -927199367670048503, guid: cd0b22c0c6437fd4daf71230f6aa0b5c, type: 3}
+  - {fileID: -927199367670048503, guid: cde7afbbfcf6d6a499e6d7bff0ca4e07, type: 3}
+  count: 150
+  maxSteepAngle: 40
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
 --- !u!1 &522174323
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +1078,275 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &536774196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 536774197}
+  - component: {fileID: 536774198}
+  m_Layer: 0
+  m_Name: SpringWoodLogSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &536774197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536774196}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 621950201}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &536774198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536774196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 0
+  size: 250
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 9b1f23c1bc7f57c418810f3277180ca2, type: 3}
+  count: 5
+  maxSteepAngle: 10
+  lowerOffset: 1
+  isNavMeshObstacle: 1
+--- !u!1 &578011844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 578011845}
+  m_Layer: 0
+  m_Name: AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &578011845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578011844}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -182.79398, y: 3935.0164, z: 6908.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2110089426}
+  - {fileID: 424856995}
+  m_Father: {fileID: 902378254}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &592495461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 592495462}
+  - component: {fileID: 592495463}
+  m_Layer: 0
+  m_Name: WinterWillowTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &592495462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592495461}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 653627593}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &592495463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592495461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 2
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 87372837a9c03cd4e8a1fd8d64d8ef7d, type: 3}
+  - {fileID: -927199367670048503, guid: a37544cefc408a641a54ce0eea553e9b, type: 3}
+  - {fileID: -927199367670048503, guid: ced4bd79fb07f9a4ba7c6659f8bc8f3c, type: 3}
+  - {fileID: -927199367670048503, guid: a3500326c5909214dae47897688d68ae, type: 3}
+  - {fileID: -927199367670048503, guid: 3b0daadf799032046b138962029e5f0a, type: 3}
+  count: 25
+  maxSteepAngle: 40
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
+--- !u!1 &597222478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597222479}
+  - component: {fileID: 597222480}
+  m_Layer: 0
+  m_Name: FallBushSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &597222479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597222478}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1063267525}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &597222480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597222478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 1
+  size: 250
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: e50deb1aba02b3048a5212f3318b06d6, type: 3}
+  - {fileID: -927199367670048503, guid: c8a1fd2acff987842a97de51182c4825, type: 3}
+  count: 50
+  maxSteepAngle: 30
+  lowerOffset: 0.15
+  isNavMeshObstacle: 1
+--- !u!1 &621950200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621950201}
+  m_Layer: 0
+  m_Name: All
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &621950201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621950200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 536774197}
+  - {fileID: 874642610}
+  - {fileID: 181816160}
+  m_Father: {fileID: 1013433765}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &653627592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653627593}
+  m_Layer: 0
+  m_Name: Decidous
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653627593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653627592}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1981479642}
+  - {fileID: 1887170677}
+  - {fileID: 143876917}
+  - {fileID: 592495462}
+  m_Father: {fileID: 75641314}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767777546
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +1358,7 @@ GameObject:
   - component: {fileID: 767777548}
   - component: {fileID: 767777547}
   m_Layer: 0
-  m_Name: DeadTreesSpawner
+  m_Name: FallDeadWillowTrees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,7 +1376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnvironmentType: 6
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 1
   size: 800
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
@@ -695,7 +1388,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 45bfcd1f7db21554bb962efc94c98b14, type: 3}
   - {fileID: -927199367670048503, guid: 107dd59b7e4ab7746aae49e9f79b6e6c, type: 3}
   - {fileID: -927199367670048503, guid: d7715c799339e5044bf294616d977a27, type: 3}
-  count: 150
+  count: 25
   maxSteepAngle: 20
   lowerOffset: 0.25
   isNavMeshObstacle: 1
@@ -707,12 +1400,161 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767777546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 902378254}
+  m_Father: {fileID: 782873619}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &782873618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782873619}
+  m_Layer: 0
+  m_Name: Dedicous
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782873619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782873618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 767777548}
+  - {fileID: 381268391}
+  - {fileID: 512885817}
+  - {fileID: 2122407554}
+  m_Father: {fileID: 1252000117}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &874642609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874642610}
+  - component: {fileID: 874642611}
+  m_Layer: 0
+  m_Name: SpringBushSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874642610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874642609}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 621950201}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874642611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874642609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 0
+  size: 250
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 6a1e48aaab7c9fa4eb78e1c81c7e492b, type: 3}
+  - {fileID: -927199367670048503, guid: 7bc034edde4e86348af4b6e3479c3d1d, type: 3}
+  count: 50
+  maxSteepAngle: 30
+  lowerOffset: 0.15
+  isNavMeshObstacle: 1
+--- !u!1 &888077075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 888077076}
+  - component: {fileID: 888077077}
+  m_Layer: 0
+  m_Name: SpringBirchTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &888077076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888077075}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1663634959}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &888077077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888077075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 0
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: b41ac5b059a72ed4888361b99635ffb6, type: 3}
+  - {fileID: -927199367670048503, guid: 60f008f5904df47428baade4c995bad9, type: 3}
+  - {fileID: -927199367670048503, guid: b98f8a0514f1972418223fd36fcd1898, type: 3}
+  - {fileID: -927199367670048503, guid: aacfa23bef5153e48a3963930658c502, type: 3}
+  - {fileID: -927199367670048503, guid: 0f0ec348e013a35498061e6b8bdbb53a, type: 3}
+  count: 300
+  maxSteepAngle: 40
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
 --- !u!1 &902378253
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,15 +1582,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 767777548}
-  - {fileID: 1963395231}
-  - {fileID: 479644903}
-  - {fileID: 935019536}
-  - {fileID: 1298558019}
-  - {fileID: 338019696}
-  - {fileID: 496139710}
-  - {fileID: 424856995}
-  - {fileID: 2110089426}
+  - {fileID: 1013433765}
+  - {fileID: 1252000117}
+  - {fileID: 75641314}
+  - {fileID: 930373493}
+  - {fileID: 578011845}
   m_Father: {fileID: 909919022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -783,13 +1621,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environmentManager: {fileID: 304542438}
   objectsSpawners:
-  - {fileID: 767777547}
-  - {fileID: 1963395232}
-  - {fileID: 479644904}
+  - {fileID: 536774198}
+  - {fileID: 874642611}
+  - {fileID: 181816161}
+  - {fileID: 200523332}
+  - {fileID: 888077077}
+  - {fileID: 1241064550}
   - {fileID: 935019537}
-  - {fileID: 1298558020}
-  - {fileID: 338019697}
+  - {fileID: 597222480}
+  - {fileID: 479644904}
+  - {fileID: 767777547}
+  - {fileID: 381268392}
+  - {fileID: 512885818}
+  - {fileID: 2122407555}
+  - {fileID: 315079131}
+  - {fileID: 2141147508}
+  - {fileID: 2145475245}
+  - {fileID: 1407356745}
+  - {fileID: 1981479643}
+  - {fileID: 1887170678}
+  - {fileID: 143876918}
+  - {fileID: 592495463}
+  - {fileID: 1077729215}
   - {fileID: 496139711}
+  - {fileID: 338019697}
   preySpawners:
   - {fileID: 424856994}
   - {fileID: 2110089427}
@@ -810,6 +1665,69 @@ Transform:
   m_Father: {fileID: 1696136315}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &930373492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 930373493}
+  m_Layer: 0
+  m_Name: Shared
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &930373493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930373492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -182.79398, y: 3935.0164, z: 6908.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 496139710}
+  - {fileID: 338019696}
+  m_Father: {fileID: 902378254}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &932885632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932885633}
+  m_Layer: 0
+  m_Name: Coniferous
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &932885633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932885632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1077729214}
+  m_Father: {fileID: 75641314}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935019535
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +1739,7 @@ GameObject:
   - component: {fileID: 935019536}
   - component: {fileID: 935019537}
   m_Layer: 0
-  m_Name: LogSpawner
+  m_Name: FallWoodLogSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,11 +1753,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935019535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 902378254}
-  m_RootOrder: 3
+  m_Father: {fileID: 1063267525}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &935019537
 MonoBehaviour:
@@ -853,17 +1771,142 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnvironmentType: 6
-  size: 500
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 1
+  size: 250
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
   gameObjects:
   - {fileID: -927199367670048503, guid: 2599b968d8ec0144a9adca8db444e918, type: 3}
-  - {fileID: -927199367670048503, guid: 9b1f23c1bc7f57c418810f3277180ca2, type: 3}
   count: 5
   maxSteepAngle: 10
   lowerOffset: 1
+  isNavMeshObstacle: 1
+--- !u!1 &1013433764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013433765}
+  m_Layer: 0
+  m_Name: Spring
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013433765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013433764}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -182.79398, y: 3935.0164, z: 6908.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 621950201}
+  - {fileID: 1663634959}
+  - {fileID: 1784488037}
+  m_Father: {fileID: 902378254}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1063267524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1063267525}
+  m_Layer: 0
+  m_Name: All
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1063267525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063267524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 935019536}
+  - {fileID: 597222479}
+  - {fileID: 479644903}
+  m_Father: {fileID: 1252000117}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1077729213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077729214}
+  - component: {fileID: 1077729215}
+  m_Layer: 0
+  m_Name: WinterPineTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1077729214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077729213}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 932885633}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077729215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077729213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 1
+  thisEnvironmentEpoch: 2
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: d66c977ae6cd89c4db578eac331259c9, type: 3}
+  - {fileID: -927199367670048503, guid: 061547dac24e37c4fbe7454438a48c9b, type: 3}
+  - {fileID: -927199367670048503, guid: e8ad3f27f73762e449f5872da48f84c1, type: 3}
+  - {fileID: -927199367670048503, guid: d0be1c7ed24a2e14f8c7e58aba16a24e, type: 3}
+  - {fileID: -927199367670048503, guid: 97f77c53e29e32d418706b8073db4695, type: 3}
+  count: 350
+  maxSteepAngle: 40
+  lowerOffset: 0.25
   isNavMeshObstacle: 1
 --- !u!1 &1154449084
 GameObject:
@@ -931,6 +1974,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1241064548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1241064549}
+  - component: {fileID: 1241064550}
+  m_Layer: 0
+  m_Name: SpringPineTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1241064549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241064548}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1784488037}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1241064550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241064548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 1
+  thisEnvironmentEpoch: 0
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 93881000edc6a7c4f9560043c56b9cc9, type: 3}
+  - {fileID: -927199367670048503, guid: e1a0d5c9ea754f54fbc9be8f227f4819, type: 3}
+  - {fileID: -927199367670048503, guid: 1cd0dd2acfca25e4f8f72bcb3be4d6a3, type: 3}
+  - {fileID: -927199367670048503, guid: 21da8424083720e459da1f4bff951a14, type: 3}
+  - {fileID: -927199367670048503, guid: 2828097ddbb7de249af845a15ea95c2d, type: 3}
+  count: 350
+  maxSteepAngle: 40
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
+--- !u!1 &1252000116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252000117}
+  m_Layer: 0
+  m_Name: Fall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1252000117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252000116}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -182.79398, y: 3935.0164, z: 6908.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1063267525}
+  - {fileID: 782873619}
+  - {fileID: 208673834}
+  m_Father: {fileID: 902378254}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1289037422
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,61 +2125,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1461513850}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1298558018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1298558019}
-  - component: {fileID: 1298558020}
-  m_Layer: 0
-  m_Name: BushSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1298558019
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298558018}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 902378254}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1298558020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298558018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisEnvironmentType: 6
-  size: 500
-  offset: 5
-  blankSpaceCenterPosition: {x: 500, y: 500}
-  blankSpaceRadius: 10
-  gameObjects:
-  - {fileID: -927199367670048503, guid: 6a1e48aaab7c9fa4eb78e1c81c7e492b, type: 3}
-  - {fileID: -927199367670048503, guid: 7bc034edde4e86348af4b6e3479c3d1d, type: 3}
-  count: 50
-  maxSteepAngle: 30
-  lowerOffset: 0.15
-  isNavMeshObstacle: 1
 --- !u!1 &1361570437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +2245,67 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: e0b39058b00e0cb4d8d9f93ba7106de3, type: 2}
+--- !u!1 &1407356743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1407356744}
+  - component: {fileID: 1407356745}
+  m_Layer: 0
+  m_Name: WinterRocksSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1407356744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407356743}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1829954774}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407356745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407356743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 2
+  size: 250
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 9c73dd0fa0b2b074aa22a55b13519f46, type: 3}
+  - {fileID: -927199367670048503, guid: b084b3b4d9b7dcd43889fd3381011c43, type: 3}
+  - {fileID: -927199367670048503, guid: 2cbd7116852266e4fae1847f9a6197d0, type: 3}
+  - {fileID: -927199367670048503, guid: 0eb0bcfbfa2ee0243b423693fabd6273, type: 3}
+  - {fileID: -927199367670048503, guid: bc4171d03d344fa448f92a2ad442b9c4, type: 3}
+  - {fileID: -927199367670048503, guid: 20ad645d3e5947c428edc0c5c89ecbf4, type: 3}
+  - {fileID: -927199367670048503, guid: 36d50afe68ca0504a93edd496c707571, type: 3}
+  count: 120
+  maxSteepAngle: 30
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
 --- !u!1001 &1461513850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1365,6 +2506,38 @@ Light:
     type: 3}
   m_PrefabInstance: {fileID: 3349359029388626064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1663634958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663634959}
+  m_Layer: 0
+  m_Name: Dedicous
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663634959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663634958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 200523331}
+  - {fileID: 888077076}
+  m_Father: {fileID: 1013433765}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664406385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,7 +2664,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3349359029388626064}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1963395230
+--- !u!1 &1784488036
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1499,54 +2672,178 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1963395231}
-  - component: {fileID: 1963395232}
+  - component: {fileID: 1784488037}
   m_Layer: 0
-  m_Name: PineTreesSpawner
+  m_Name: Conifeus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1963395231
+--- !u!4 &1784488037
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963395230}
+  m_GameObject: {fileID: 1784488036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1241064549}
+  m_Father: {fileID: 1013433765}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1829954773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1829954774}
+  m_Layer: 0
+  m_Name: All
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1829954774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829954773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2141147507}
+  - {fileID: 2145475244}
+  - {fileID: 1407356744}
+  m_Father: {fileID: 75641314}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1887170676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887170677}
+  - component: {fileID: 1887170678}
+  m_Layer: 0
+  m_Name: WinterBirchTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1887170677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887170676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 902378254}
+  m_Father: {fileID: 653627593}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1963395232
+--- !u!114 &1887170678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963395230}
+  m_GameObject: {fileID: 1887170676}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnvironmentType: 6
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 2
   size: 800
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
   gameObjects:
-  - {fileID: -927199367670048503, guid: 93881000edc6a7c4f9560043c56b9cc9, type: 3}
-  - {fileID: -927199367670048503, guid: e1a0d5c9ea754f54fbc9be8f227f4819, type: 3}
-  - {fileID: -927199367670048503, guid: 1cd0dd2acfca25e4f8f72bcb3be4d6a3, type: 3}
-  - {fileID: -927199367670048503, guid: 21da8424083720e459da1f4bff951a14, type: 3}
-  - {fileID: -927199367670048503, guid: 2828097ddbb7de249af845a15ea95c2d, type: 3}
-  count: 350
+  - {fileID: -927199367670048503, guid: 21b02a08897e5e04bbbced61e17f6976, type: 3}
+  - {fileID: -927199367670048503, guid: ee2a4230fdd858545aa43ce8b445b2b3, type: 3}
+  - {fileID: -927199367670048503, guid: 43a13f931f28ca64b9c3dd9334984b68, type: 3}
+  - {fileID: -927199367670048503, guid: f81b940bb804f4f499761e5d6d65a30b, type: 3}
+  - {fileID: -927199367670048503, guid: e4fd07c1a234983409f1ae940aff0aff, type: 3}
+  count: 150
   maxSteepAngle: 40
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
+--- !u!1 &1981479641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1981479642}
+  - component: {fileID: 1981479643}
+  m_Layer: 0
+  m_Name: WinterDeadBirchTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1981479642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981479641}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 653627593}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1981479643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981479641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 2
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 14b9412ceff66794c9a47cba7a5a030c, type: 3}
+  - {fileID: -927199367670048503, guid: 32ffcfc814f0efe4dacacf77df4d23ab, type: 3}
+  - {fileID: -927199367670048503, guid: 9ed12565749a63a4fad0f4c195034064, type: 3}
+  - {fileID: -927199367670048503, guid: 59854d201d3b3594a99bf5ecb513f9e5, type: 3}
+  - {fileID: -927199367670048503, guid: 5f7c218a076e2484a8f9ae0fd58f1c3d, type: 3}
+  count: 150
+  maxSteepAngle: 20
   lowerOffset: 0.25
   isNavMeshObstacle: 1
 --- !u!1 &2110089425
@@ -1574,11 +2871,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110089425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 902378254}
-  m_RootOrder: 8
+  m_Father: {fileID: 578011845}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2110089427
 MonoBehaviour:
@@ -1597,6 +2894,176 @@ MonoBehaviour:
   blankSpaceRadius: 30
   prey: {fileID: 1708761484820264130, guid: 9dc9077befe13b240841a1d17b343698, type: 3}
   preyCount: 50
+--- !u!1 &2122407553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2122407554}
+  - component: {fileID: 2122407555}
+  m_Layer: 0
+  m_Name: FallBirchDeadTreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &2122407554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122407553}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 782873619}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2122407555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122407553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 0
+  thisEnvironmentEpoch: 1
+  size: 800
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 045720ded15f17b469913c1e754262f2, type: 3}
+  - {fileID: -927199367670048503, guid: f7c294a33fbd6fa45818da9bf58ed91d, type: 3}
+  - {fileID: -927199367670048503, guid: 48d6c809a52ce6e4798eb7b0ea75e7b8, type: 3}
+  - {fileID: -927199367670048503, guid: 00857a1ae3781d84888595f57da17ed2, type: 3}
+  - {fileID: -927199367670048503, guid: f857ab5700dd42443b43e931ccd79e24, type: 3}
+  count: 150
+  maxSteepAngle: 40
+  lowerOffset: 0.25
+  isNavMeshObstacle: 1
+--- !u!1 &2141147506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2141147507}
+  - component: {fileID: 2141147508}
+  m_Layer: 0
+  m_Name: WinterBushSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2141147507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141147506}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1829954774}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2141147508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141147506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 2
+  size: 250
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: a49198924f5ec8e4e9c324dd1fe30fa5, type: 3}
+  - {fileID: -927199367670048503, guid: 65bff2b00327b594e81dc001919ea043, type: 3}
+  count: 50
+  maxSteepAngle: 30
+  lowerOffset: 0.15
+  isNavMeshObstacle: 1
+--- !u!1 &2145475243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2145475244}
+  - component: {fileID: 2145475245}
+  m_Layer: 0
+  m_Name: WinterWoodLogSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2145475244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145475243}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1829954774}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2145475245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145475243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 2
+  size: 250
+  offset: 5
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 10
+  gameObjects:
+  - {fileID: -927199367670048503, guid: 69e6a7c4975e47440b33bee619b747fa, type: 3}
+  count: 5
+  maxSteepAngle: 10
+  lowerOffset: 1
+  isNavMeshObstacle: 1
 --- !u!1001 &3349359029388626064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1663,6 +3130,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: winterTerrain.r
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: winterTerrain.g
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: winterTerrain.b
+      value: 0.9056604
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}

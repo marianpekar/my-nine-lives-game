@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class ObjectsSpawner : MonoBehaviour
 {
     public EnvironmentManager.EnvironmentType thisEnvironmentType;
+    public EnvironmentManager.EnvironmentEpoch thisEnvironmentEpoch;
 
     public float size = 800;
     public float offset = 5f;

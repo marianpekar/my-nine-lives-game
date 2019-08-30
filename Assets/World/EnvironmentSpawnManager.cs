@@ -11,13 +11,9 @@ public class EnvironmentSpawnManager : MonoBehaviour
 
     public GroundSelector groundSelector;
 
-    EnvironmentManager.EnvironmentType currentEnvironmentType;
-
     // Start is called before the first frame update
     public void Start()
     {
-        currentEnvironmentType = environmentManager.CurrentEnvironmentType;
-
         foreach (ObjectsSpawner objectsSpawner in objectsSpawners)
         {
             objectsSpawner.Spawn();
@@ -25,12 +21,15 @@ public class EnvironmentSpawnManager : MonoBehaviour
             if (objectsSpawner.thisEnvironmentType == EnvironmentManager.EnvironmentType.All ||
                 objectsSpawner.thisEnvironmentType == environmentManager.CurrentEnvironmentType)
             {
-                objectsSpawner.SetAllActive();
+                if (objectsSpawner.thisEnvironmentEpoch == EnvironmentManager.EnvironmentEpoch.All ||
+                objectsSpawner.thisEnvironmentEpoch == environmentManager.CurrentEnvironmentEpoch)
+                {
+                    objectsSpawner.SetAllActive();
+                }
             }
         }
     }
 
-    // Update is called once per frame
     public void Respawn()
     {
         groundSelector.SelectNextGround();
@@ -40,8 +39,15 @@ public class EnvironmentSpawnManager : MonoBehaviour
             if (objectsSpawner.thisEnvironmentType == EnvironmentManager.EnvironmentType.All ||
                 objectsSpawner.thisEnvironmentType == environmentManager.CurrentEnvironmentType)
             {
-                objectsSpawner.RepositionAll();
-                objectsSpawner.SetAllActive();
+                if (objectsSpawner.thisEnvironmentEpoch == EnvironmentManager.EnvironmentEpoch.All ||
+                objectsSpawner.thisEnvironmentEpoch == environmentManager.CurrentEnvironmentEpoch)
+                {
+                    objectsSpawner.RepositionAll();
+                    objectsSpawner.SetAllActive();
+                } else
+                {
+                    objectsSpawner.SetAllInactive();
+                }
             }
             else
                 objectsSpawner.SetAllInactive();

@@ -6,18 +6,23 @@ public class EnvironmentManager : MonoBehaviour
 {
     public enum EnvironmentType
     {
-        DeciduousSpring, 
-        ConiferousSpring,
-        DecidousFall,
-        ConiferousFall,
-        DecidousWinter,
-        ConiferousWinter,
+        Deciduous, 
+        Coniferous,
+        All
+    }
+    public enum EnvironmentEpoch
+    {
+        Spring,
+        Fall,
+        Winter,
         All
     }
 
-    const int EnvironmentTypesCount = 6;
+    const int ENVIRONMENT_TYPES_COUNT = 3;
+    const int ENVIRONMENT_EPOCHS_COUNT = 4;
 
     public EnvironmentType CurrentEnvironmentType { get; set; }
+    public EnvironmentEpoch CurrentEnvironmentEpoch { get; set; }
 
     [Range(0,24)]
     public int hours = 12;
@@ -49,6 +54,7 @@ public class EnvironmentManager : MonoBehaviour
     public Color noonTerrain;
     public Color afternoonTerrain;
     public Color nightTerrain;
+    public Color winterTerrain;
 
     public Light sun;
     public Light moon;
@@ -65,15 +71,18 @@ public class EnvironmentManager : MonoBehaviour
         {
             SetRandomDayTime();
             SetRandomEnvironmentType();
+            SetRandomEnvironmentEpoch();
             environmentPreserverGameObject.AddComponent<EnvironmentPreserver>();
             environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Hours = hours;
             environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Minutes = minutes;
             environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentType = CurrentEnvironmentType;
+            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentEpoch = CurrentEnvironmentEpoch;
         }
         else
         {
             SetDayTime(environmentPreserver.Hours, environmentPreserver.Minutes);
             CurrentEnvironmentType = environmentPreserver.EnvironmentType;
+            CurrentEnvironmentEpoch = environmentPreserver.EnvironmentEpoch;
         }
 
     }
@@ -93,12 +102,20 @@ public class EnvironmentManager : MonoBehaviour
 
     public void SetRandomEnvironmentType()
     {
-        CurrentEnvironmentType = (EnvironmentType)Random.Range(0, EnvironmentTypesCount);
+        CurrentEnvironmentType = (EnvironmentType)Random.Range(0, ENVIRONMENT_TYPES_COUNT - 1);
+        //Debug.Log(CurrentEnvironmentType);
+    }
+
+    public void SetRandomEnvironmentEpoch()
+    {
+        CurrentEnvironmentEpoch = (EnvironmentEpoch)Random.Range(0, ENVIRONMENT_EPOCHS_COUNT - 1);
+        //Debug.Log(CurrentEnvironmentEpoch);
     }
 
     void Init()
     {
         SetRandomEnvironmentType();
+        SetRandomEnvironmentEpoch();
         SetSunRotation();
         SetSunColor();
         SetFogColor();
