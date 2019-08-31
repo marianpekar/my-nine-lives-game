@@ -26,6 +26,5 @@ public class PostProcesingManager : MonoBehaviour
         dof.focusDistance = Mathf.Lerp(originalFocusDistance, targetFocusDistance, speed * Time.deltaTime);
 
         postProcessingProfile.depthOfField.settings = dof;
-
     }
 }

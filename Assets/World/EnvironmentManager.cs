@@ -59,7 +59,7 @@ public class EnvironmentManager : MonoBehaviour
     public Light sun;
     public Light moon;
 
-    public GameObject dayTimePreserverPrefab;
+    GameObject dayTimePreserverPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -111,6 +111,7 @@ public class EnvironmentManager : MonoBehaviour
         CurrentEnvironmentEpoch = (EnvironmentEpoch)Random.Range(0, ENVIRONMENT_EPOCHS_COUNT - 1);
         //Debug.Log(CurrentEnvironmentEpoch);
     }
+
 
     void Init()
     {
