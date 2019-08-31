@@ -266,7 +266,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 349c5a7cd387d5447b41eda14c502044, type: 3}
   count: 120
   maxSteepAngle: 30
-  lowerOffset: 0.25
+  lowerOffset: 0.5
   isNavMeshObstacle: 1
 --- !u!1 &200523330
 GameObject:
@@ -413,7 +413,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: bc1edcffd241aa543a6d3500aa2b2f74, type: 3}
   - {fileID: -927199367670048503, guid: 075cdb710b505e44d95f6878de217857, type: 3}
   - {fileID: -927199367670048503, guid: 5b62ecb2ca5dcd3468a68fa9bfeac33b, type: 3}
-  count: 350
+  count: 500
   maxSteepAngle: 40
   lowerOffset: 0.25
   isNavMeshObstacle: 1
@@ -702,7 +702,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: d07eda94056f0314c82f31c0c567fc27, type: 3}
   count: 120
   maxSteepAngle: 30
-  lowerOffset: 0.25
+  lowerOffset: 0.5
   isNavMeshObstacle: 1
 --- !u!1 &496139709
 GameObject:
@@ -1712,7 +1712,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: e8ad3f27f73762e449f5872da48f84c1, type: 3}
   - {fileID: -927199367670048503, guid: d0be1c7ed24a2e14f8c7e58aba16a24e, type: 3}
   - {fileID: -927199367670048503, guid: 97f77c53e29e32d418706b8073db4695, type: 3}
-  count: 350
+  count: 500
   maxSteepAngle: 40
   lowerOffset: 0.25
   isNavMeshObstacle: 1
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 1cd0dd2acfca25e4f8f72bcb3be4d6a3, type: 3}
   - {fileID: -927199367670048503, guid: 21da8424083720e459da1f4bff951a14, type: 3}
   - {fileID: -927199367670048503, guid: 2828097ddbb7de249af845a15ea95c2d, type: 3}
-  count: 350
+  count: 500
   maxSteepAngle: 40
   lowerOffset: 0.25
   isNavMeshObstacle: 1
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 36d50afe68ca0504a93edd496c707571, type: 3}
   count: 120
   maxSteepAngle: 30
-  lowerOffset: 0.25
+  lowerOffset: 0.5
   isNavMeshObstacle: 1
 --- !u!1 &1564342089
 GameObject:
@@ -2773,7 +2773,7 @@ MonoBehaviour:
   noonColor: {r: 0.745283, g: 0.57268125, b: 0.10194911, a: 0}
   afternoonColor: {r: 0.9150943, g: 0.71784544, b: 0.33236915, a: 0}
   nightColor: {r: 0, g: 0.3652167, b: 0.5188679, a: 0}
-  morningFog: {r: 0.46123874, g: 0.054245293, b: 0.5, a: 1}
+  morningFog: {r: 0.8901961, g: 0.21568628, b: 0.87058824, a: 1}
   noonFog: {r: 0.105882354, g: 0.67058825, b: 0.7647059, a: 1}
   afternoonFog: {r: 0.9372549, g: 0.09411765, b: 0.30980393, a: 1}
   nightFog: {r: 0, g: 0.1983006, b: 0.4339623, a: 1}
