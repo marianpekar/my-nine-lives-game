@@ -447,18 +447,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1248373106 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5669256657523838876, guid: 81c45f8675eee2e4aa947256fe848b50,
-    type: 3}
-  m_PrefabInstance: {fileID: 1461513850}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 648870fddc344e64796a05e40107c2bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1289037422
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,41 +597,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
-        type: 3}
-      propertyPath: postProcesingManager
-      value: 
-      objectReference: {fileID: 1248373106}
-    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
-        type: 3}
-      propertyPath: noonFog.r
-      value: 0.105882354
-      objectReference: {fileID: 0}
-    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
-        type: 3}
-      propertyPath: noonFog.g
-      value: 0.67058825
-      objectReference: {fileID: 0}
-    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
-        type: 3}
-      propertyPath: noonFog.b
-      value: 0.7647059
-      objectReference: {fileID: 0}
-    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
-        type: 3}
-      propertyPath: afternoonFog.r
-      value: 0.9372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
-        type: 3}
-      propertyPath: afternoonFog.g
-      value: 0.09411765
-      objectReference: {fileID: 0}
-    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
-        type: 3}
-      propertyPath: afternoonFog.b
-      value: 0.30980393
       objectReference: {fileID: 0}
     - target: {fileID: 3349359029621242487, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
