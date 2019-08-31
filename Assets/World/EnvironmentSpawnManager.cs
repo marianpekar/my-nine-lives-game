@@ -33,6 +33,7 @@ public class EnvironmentSpawnManager : MonoBehaviour
     public void Respawn()
     {
         groundSelector.SelectNextGround();
+        environmentManager.SetRandomDayTime();
 
         foreach (ObjectsSpawner objectsSpawner in objectsSpawners)
         {
@@ -57,7 +58,5 @@ public class EnvironmentSpawnManager : MonoBehaviour
         {
             preySpawner.RespawnAll();
         }
-
-        environmentManager.SetRandomDayTime();
     }
 }

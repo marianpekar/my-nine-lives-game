@@ -109,7 +109,7 @@ public class EnvironmentManager : MonoBehaviour
     public void SetRandomEnvironmentEpoch()
     {
         CurrentEnvironmentEpoch = (EnvironmentEpoch)Random.Range(0, ENVIRONMENT_EPOCHS_COUNT - 1);
-        //Debug.Log(CurrentEnvironmentEpoch);
+        Debug.Log(CurrentEnvironmentEpoch);
     }
 
 
@@ -126,6 +126,12 @@ public class EnvironmentManager : MonoBehaviour
 
     void SetTerrainColor()
     {
+        if(CurrentEnvironmentEpoch == EnvironmentEpoch.Winter)
+        {
+            terrain.color = winterTerrain;
+            return;
+        }
+
         if (hours < MORNING || hours >= NIGHT)
         {
             terrain.color = nightTerrain;
