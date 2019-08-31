@@ -10,7 +10,7 @@ public class PostProcesingManager : MonoBehaviour
     PostProcessingProfile postProcessingProfile;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         postProcessingProfile = cameraGameObject.GetComponent<PostProcessingBehaviour>().profile;
     }
@@ -26,5 +26,12 @@ public class PostProcesingManager : MonoBehaviour
         dof.focusDistance = Mathf.Lerp(originalFocusDistance, targetFocusDistance, speed * Time.deltaTime);
 
         postProcessingProfile.depthOfField.settings = dof;
+    }
+
+    public void SetTemperature(float temperature)
+    {
+        ColorGradingModel.Settings cog = postProcessingProfile.colorGrading.settings;
+        cog.basic.temperature = temperature;
+        postProcessingProfile.colorGrading.settings = cog;
     }
 }
