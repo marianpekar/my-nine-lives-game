@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
             // Jumps
             if (Input.GetButtonDown("Jump") && PlayerStates.Singleton.IsWalking)
             {
+                Time.timeScale = PlayerStates.Singleton.SlowMotionTimeScale;
+                Invoke("ResetTimeScale", PlayerStates.Singleton.SlowMotionDuration);
                 moveDirection.y = PlayerStates.Singleton.JumpHeight;
                 moveDirection.z = PlayerStates.Singleton.JumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
                 jumpBack.Execute(animator);
             }
         }
+
         // Gravity
         moveDirection.y -= PlayerStates.Singleton.Gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
@@ -89,6 +92,11 @@ public class PlayerController : MonoBehaviour
         float horizontalAxis = Input.GetAxis("Horizontal");
         transform.Rotate(0, horizontalAxis * PlayerStates.Singleton.RotationSpeed, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, GetHitNormal()) * transform.rotation, 5 * Time.deltaTime);
+    }
+
+    private void ResetTimeScale()
+    {
+        Time.timeScale = 1f;
     }
 
     private Vector3 GetHitNormal()

@@ -28,6 +28,10 @@ public sealed class PlayerStates
 
     public Vector3 Position { get; set; }
 
+    // Slow Motion
+    public float SlowMotionTimeScale { get; set; } = 0.25f;
+    public float SlowMotionDuration { get; set; } = 1f; // in seconds
+
 
     private static PlayerStates instance;
 

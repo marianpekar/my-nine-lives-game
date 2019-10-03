@@ -29,9 +29,9 @@ public class FollowCamera : MonoBehaviour
 
     const float obstaclesOnBothSidesRayLength = 1.25f;
 
-    const float closerCameraFStop = 7f;
+    const float closerCameraFStop = 10f;
     const float baseCameraFStop = 12f;
-    const float closerCameraFocusDistance = 1.7f;
+    const float closerCameraFocusDistance = 1.2f;
     const float baseCameraFocusDistance = 2f;
     const float focusSpeed = 2f;
 
