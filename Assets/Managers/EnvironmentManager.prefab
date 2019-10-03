@@ -1414,6 +1414,7 @@ MonoBehaviour:
   preySpawners:
   - {fileID: 424856994}
   - {fileID: 2110089427}
+  - {fileID: 1991770655}
   groundSelector: {fileID: 23846019}
 --- !u!1 &930373492
 GameObject:

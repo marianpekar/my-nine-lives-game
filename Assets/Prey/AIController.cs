@@ -259,6 +259,9 @@ public class AIController : MonoBehaviour
 
     void CheckForGoal()
     {
+        if (!agent.isActiveAndEnabled || !agent.isOnNavMesh)
+            return;
+
         if (agent.remainingDistance < 0.5f)
         {
             animator.SetBool("isRunning", false);
