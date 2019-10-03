@@ -904,6 +904,7 @@ Transform:
   m_Children:
   - {fileID: 2110089426}
   - {fileID: 424856995}
+  - {fileID: 1991770654}
   m_Father: {fileID: 902378254}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2503,6 +2504,54 @@ MonoBehaviour:
   maxSteepAngle: 20
   lowerOffset: 0.25
   isNavMeshObstacle: 1
+--- !u!1 &1991770653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1991770654}
+  - component: {fileID: 1991770655}
+  m_Layer: 0
+  m_Name: FrogSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1991770654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991770653}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 578011845}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1991770655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991770653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4c882ffdfbf0548abe3cfc80759444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 300
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 30
+  prey: {fileID: 1060091646655894385, guid: 10877033043d73146bb80c13fea47e69, type: 3}
+  preyCount: 25
 --- !u!1 &2110089425
 GameObject:
   m_ObjectHideFlags: 0
