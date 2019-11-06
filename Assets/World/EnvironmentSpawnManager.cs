@@ -14,6 +14,9 @@ public class EnvironmentSpawnManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        groundSelector.SelectNextGround();
+        environmentManager.SetRandomDayTime();
+
         foreach (ObjectsSpawner objectsSpawner in objectsSpawners)
         {
             objectsSpawner.Spawn();

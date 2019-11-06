@@ -78,30 +78,6 @@ public class EnvironmentManager : MonoBehaviour
 
     GameObject dayTimePreserverPrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        GameObject environmentPreserverGameObject = new GameObject("EnvironmentPreserver");
-        EnvironmentPreserver environmentPreserver = FindObjectOfType<EnvironmentPreserver>();
-
-        if (!environmentPreserver)
-        {
-            SetRandomDayTime();
-            environmentPreserverGameObject.AddComponent<EnvironmentPreserver>();
-            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Hours = hours;
-            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Minutes = minutes;
-            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentType = CurrentEnvironmentType;
-            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentEpoch = CurrentEnvironmentEpoch;
-        }
-        else
-        {
-            SetDayTime(environmentPreserver.Hours, environmentPreserver.Minutes);
-            CurrentEnvironmentType = environmentPreserver.EnvironmentType;
-            CurrentEnvironmentEpoch = environmentPreserver.EnvironmentEpoch;
-        }
-
-    }
-
     public void SetDayTime(int hour, int minute)
     {
         hours = hour;
@@ -124,6 +100,7 @@ public class EnvironmentManager : MonoBehaviour
     public void SetRandomEnvironmentEpoch()
     {
         CurrentEnvironmentEpoch = (EnvironmentEpoch)Random.Range(0, ENVIRONMENT_EPOCHS_COUNT - 1);
+
         Debug.Log(CurrentEnvironmentEpoch);
     }
 
