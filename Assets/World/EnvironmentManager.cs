@@ -59,7 +59,7 @@ public class EnvironmentManager : MonoBehaviour
     public Light sun;
     public Light moon;
 
-    public PostProcesingManager postProcesingManager;
+    public PostProcessManager postProcessManager;
     public float springMorningTemperature;
     public float fallMorningTemperature;
     public float winterMorningTemperature;
@@ -77,6 +77,30 @@ public class EnvironmentManager : MonoBehaviour
     public float winterNightTemperature;
 
     GameObject dayTimePreserverPrefab;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        GameObject environmentPreserverGameObject = new GameObject("EnvironmentPreserver");
+        EnvironmentPreserver environmentPreserver = FindObjectOfType<EnvironmentPreserver>();
+
+        if (!environmentPreserver)
+        {
+            SetRandomDayTime();
+            environmentPreserverGameObject.AddComponent<EnvironmentPreserver>();
+            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Hours = hours;
+            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Minutes = minutes;
+            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentType = CurrentEnvironmentType;
+            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentEpoch = CurrentEnvironmentEpoch;
+        }
+        else
+        {
+            SetDayTime(environmentPreserver.Hours, environmentPreserver.Minutes);
+            CurrentEnvironmentType = environmentPreserver.EnvironmentType;
+            CurrentEnvironmentEpoch = environmentPreserver.EnvironmentEpoch;
+        }
+
+    }
 
     public void SetDayTime(int hour, int minute)
     {
@@ -100,7 +124,6 @@ public class EnvironmentManager : MonoBehaviour
     public void SetRandomEnvironmentEpoch()
     {
         CurrentEnvironmentEpoch = (EnvironmentEpoch)Random.Range(0, ENVIRONMENT_EPOCHS_COUNT - 1);
-
         Debug.Log(CurrentEnvironmentEpoch);
     }
 
@@ -110,46 +133,46 @@ public class EnvironmentManager : MonoBehaviour
         {
             if (hours < MORNING || hours >= NIGHT)
             {
-                postProcesingManager.SetTemperature(springNightTemperature);
+                postProcessManager.SetTemperature(springNightTemperature);
                 return;
             }
 
             if (hours >= MORNING && hours < NOON)
-                postProcesingManager.SetTemperature(springMorningTemperature);
+                postProcessManager.SetTemperature(springMorningTemperature);
             else if (hours >= NOON && hours < AFTERNOON)
-                postProcesingManager.SetTemperature(springNoonTemperature);
+                postProcessManager.SetTemperature(springNoonTemperature);
             else if (hours >= AFTERNOON && hours < NIGHT)
-                postProcesingManager.SetTemperature(springAfternoonTemperature);
+                postProcessManager.SetTemperature(springAfternoonTemperature);
         }       
         else if (CurrentEnvironmentEpoch == EnvironmentEpoch.Fall)
         {
             if (hours < MORNING || hours >= NIGHT)
             {
-                postProcesingManager.SetTemperature(fallNightTemperature);
+                postProcessManager.SetTemperature(fallNightTemperature);
                 return;
             }
 
             if (hours >= MORNING && hours < NOON)
-                postProcesingManager.SetTemperature(fallMorningTemperature);
+                postProcessManager.SetTemperature(fallMorningTemperature);
             else if (hours >= NOON && hours < AFTERNOON)
-                postProcesingManager.SetTemperature(fallNoonTemperature);
+                postProcessManager.SetTemperature(fallNoonTemperature);
             else if (hours >= AFTERNOON && hours < NIGHT)
-                postProcesingManager.SetTemperature(fallAfternoonTemperature);
+                postProcessManager.SetTemperature(fallAfternoonTemperature);
         }         
         else if (CurrentEnvironmentEpoch == EnvironmentEpoch.Winter)
         {
             if (hours < MORNING || hours >= NIGHT)
             {
-                postProcesingManager.SetTemperature(winterNightTemperature);
+                postProcessManager.SetTemperature(winterNightTemperature);
                 return;
             }
 
             if (hours >= MORNING && hours < NOON)
-                postProcesingManager.SetTemperature(winterMorningTemperature);
+                postProcessManager.SetTemperature(winterMorningTemperature);
             else if (hours >= NOON && hours < AFTERNOON)
-                postProcesingManager.SetTemperature(winterNoonTemperature);
+                postProcessManager.SetTemperature(winterNoonTemperature);
             else if (hours >= AFTERNOON && hours < NIGHT)
-                postProcesingManager.SetTemperature(winterAfternoonTemperature);
+                postProcessManager.SetTemperature(winterAfternoonTemperature);
         }
        
     }

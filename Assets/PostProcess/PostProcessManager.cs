@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 
-public class PostProcesingManager : MonoBehaviour
+public class PostProcessManager : MonoBehaviour
 {
     public GameObject cameraGameObject;
 

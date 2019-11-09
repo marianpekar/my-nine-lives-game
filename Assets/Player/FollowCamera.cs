@@ -35,7 +35,7 @@ public class FollowCamera : MonoBehaviour
     const float baseCameraFocusDistance = 2f;
     const float focusSpeed = 2f;
 
-    public PostProcesingManager postProcesingManager;
+    public PostProcessManager postProcesingManager;
 
     void Start()
     {

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Spring.unity
-    guid: 761291c03fa9ed74b8d864d710054b26
+    path: Assets/Scenes/Menu.unity
+    guid: b77308c257f77274e8f9adff112e3949
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 7c74df5fa2abf604a994cb3824f9993b
   m_configObjects: {}
