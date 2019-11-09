@@ -615,6 +615,21 @@ PrefabInstance:
       propertyPath: postProcessManager
       value: 
       objectReference: {fileID: 1866485901}
+    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: winterTerrain.r
+      value: 0.5990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: winterTerrain.g
+      value: 0.62334967
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349359029621242486, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: winterTerrain.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3349359029621242487, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: m_LocalPosition.x
