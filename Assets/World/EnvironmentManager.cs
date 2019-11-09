@@ -76,13 +76,14 @@ public class EnvironmentManager : MonoBehaviour
     public float fallNightTemperature;
     public float winterNightTemperature;
 
-    GameObject dayTimePreserverPrefab;
+    EnvironmentPreserver environmentPreserver;
+    GameObject environmentPreserverGameObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject environmentPreserverGameObject = new GameObject("EnvironmentPreserver");
-        EnvironmentPreserver environmentPreserver = FindObjectOfType<EnvironmentPreserver>();
+        environmentPreserverGameObject = new GameObject("EnvironmentPreserver");
+        environmentPreserver = FindObjectOfType<EnvironmentPreserver>();
 
         if (!environmentPreserver)
         {
@@ -125,6 +126,18 @@ public class EnvironmentManager : MonoBehaviour
         SetFogColor();
         SetSkybox();
         SetTerrainColor();
+        UpdateEnvironmentPreserver();
+    }
+
+    public void UpdateEnvironmentPreserver()
+    {
+        if(environmentPreserver)
+        {
+            environmentPreserver.Hours = hours;
+            environmentPreserver.Minutes = minutes;
+            environmentPreserver.EnvironmentType = CurrentEnvironmentType;
+            environmentPreserver.EnvironmentEpoch = CurrentEnvironmentEpoch;
+        }
     }
 
     public void SetRandomEnvironmentType()
