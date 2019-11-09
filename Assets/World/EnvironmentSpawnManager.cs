@@ -34,6 +34,8 @@ public class EnvironmentSpawnManager : MonoBehaviour
     {
         groundSelector.SelectNextGround();
         environmentManager.SetRandomDayTime();
+        environmentManager.SetRandomEnvironmentType();
+        environmentManager.SetRandomEnvironmentEpoch();
 
         foreach (ObjectsSpawner objectsSpawner in objectsSpawners)
         {

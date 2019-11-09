@@ -90,6 +90,8 @@ public class EnvironmentManager : MonoBehaviour
             environmentPreserverGameObject.AddComponent<EnvironmentPreserver>();
             environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Hours = hours;
             environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Minutes = minutes;
+            SetRandomEnvironmentType();
+            SetRandomEnvironmentEpoch();
             environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentType = CurrentEnvironmentType;
             environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentEpoch = CurrentEnvironmentEpoch;
         }
@@ -106,13 +108,23 @@ public class EnvironmentManager : MonoBehaviour
     {
         hours = hour;
         minutes = minute;
-        Init();
+        SetEnvironment();
     }
     public void SetRandomDayTime()
     {
         hours = Random.Range(0, 24);
         minutes = Random.Range(0, 60);
-        Init();
+        SetEnvironment();
+    }
+
+    public void SetEnvironment()
+    {
+        SetPostProcessing();
+        SetSunRotation();
+        SetSunColor();
+        SetFogColor();
+        SetSkybox();
+        SetTerrainColor();
     }
 
     public void SetRandomEnvironmentType()
@@ -175,18 +187,6 @@ public class EnvironmentManager : MonoBehaviour
                 postProcessManager.SetTemperature(winterAfternoonTemperature);
         }
        
-    }
-
-    void Init()
-    {
-        SetRandomEnvironmentType();
-        SetRandomEnvironmentEpoch();
-        SetPostProcessing();
-        SetSunRotation();
-        SetSunColor();
-        SetFogColor();
-        SetSkybox();
-        SetTerrainColor();
     }
 
     void SetTerrainColor()
