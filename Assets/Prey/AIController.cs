@@ -27,10 +27,13 @@ public class AIController : MonoBehaviour
     NavMeshAgent agent;
     Animator animator;
     PreySpawner parentSpawner;
+    PostProcessManager postProcessManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        postProcessManager = FindObjectOfType<PostProcessManager>();
+
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -239,7 +242,7 @@ public class AIController : MonoBehaviour
     {
         if (CalculateDistanceToPlayer() < 0.5f)
         {
-            Debug.Log("This agent has been eaten");
+            PlayerStates.Singleton.PreyCatched();
             parentSpawner.Respawn(this.gameObject);
             Walk();
         }

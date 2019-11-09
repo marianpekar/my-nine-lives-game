@@ -32,6 +32,13 @@ public sealed class PlayerStates
     public float SlowMotionTimeScale { get; set; } = 0.25f;
     public float SlowMotionDuration { get; set; } = 1f; // in seconds
 
+    public int Preys { get; set; } = 0;
+
+    public void PreyCatched()
+    {
+        Preys++;
+        Debug.Log(string.Format("Catched {0}", Preys));
+    }
 
     private static PlayerStates instance;
 
