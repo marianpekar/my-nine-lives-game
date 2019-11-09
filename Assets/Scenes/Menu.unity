@@ -315,7 +315,6 @@ GameObject:
   - component: {fileID: 235715735}
   - component: {fileID: 235715739}
   - component: {fileID: 235715738}
-  - component: {fileID: 235715737}
   - component: {fileID: 235715736}
   m_Layer: 9
   m_Name: Ground_3
@@ -367,20 +366,6 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 0622bba7cb458ed40bac8cbd27db5c62, type: 2}
---- !u!114 &235715737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235715734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae26ac1733df3c445bbef0c97d8e21b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heightMapTexture: {fileID: 2800000, guid: 5d94e1ae1aa4c564f9f52cf1885f2a07, type: 3}
-  smoothPasses: 7
 --- !u!154 &235715738
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -631,8 +616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f808f0e6ae470418a1652abcc0a7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneIndex: 1
   mainMenuSceneIndex: 0
+  gameSceneIndex: 1
 --- !u!4 &585763190
 Transform:
   m_ObjectHideFlags: 0
@@ -1644,7 +1629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b10945445aae846998c15de480ba84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OffsetY: 2
+  OffsetY: 1
 --- !u!114 &3644249843653365804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,20 +1986,6 @@ Transform:
   m_Father: {fileID: 8135433859084944524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8135433857739371137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8135433857739371149}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae26ac1733df3c445bbef0c97d8e21b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heightMapTexture: {fileID: 2800000, guid: 0582f651417e84b4ea8247105f5da338, type: 3}
-  smoothPasses: 7
 --- !u!114 &8135433857739371138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2055,7 +2026,6 @@ GameObject:
   - component: {fileID: 8135433857739371136}
   - component: {fileID: 8135433857739371151}
   - component: {fileID: 8135433857739371150}
-  - component: {fileID: 8135433857739371137}
   - component: {fileID: 8135433857739371138}
   m_Layer: 9
   m_Name: Ground_1
@@ -2179,7 +2149,6 @@ GameObject:
   - component: {fileID: 8135433857939255108}
   - component: {fileID: 8135433857939255107}
   - component: {fileID: 8135433857939255106}
-  - component: {fileID: 8135433857939255110}
   - component: {fileID: 8135433857939255109}
   m_Layer: 9
   m_Name: Ground_2
@@ -2274,20 +2243,6 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 354450e1cb4ace5489fcbf07949802c3, type: 2}
---- !u!114 &8135433857939255110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8135433857939255105}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae26ac1733df3c445bbef0c97d8e21b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heightMapTexture: {fileID: 2800000, guid: cab95a98a3fdce746a3971588f7ff3a8, type: 3}
-  smoothPasses: 7
 --- !u!1 &8135433858023067573
 GameObject:
   m_ObjectHideFlags: 0
