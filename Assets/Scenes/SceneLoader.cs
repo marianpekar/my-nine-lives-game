@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
-{
+{ 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
