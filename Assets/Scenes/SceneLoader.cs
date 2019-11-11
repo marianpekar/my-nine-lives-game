@@ -30,5 +30,10 @@ public class SceneLoader : MonoBehaviour
         if(Input.GetKey(KeyCode.Escape) && currentSceneIndex == gameSceneIndex)
             LoadMainMenuScene();
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
     
 }
