@@ -3454,7 +3454,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CHANGE CONTROLLS
+  m_Text: CHANGE CONTROLS
 --- !u!222 &1490132111
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4523,7 +4523,7 @@ GameObject:
   - component: {fileID: 1901260566}
   - component: {fileID: 1901260565}
   m_Layer: 5
-  m_Name: ChangeControllsButton
+  m_Name: ChangeControlsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
