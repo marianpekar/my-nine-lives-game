@@ -17,6 +17,19 @@ public class SettingsManager : MonoBehaviour
     [SerializeField]
     Text resolutionText;
 
+    [SerializeField]
+    Slider masterVolumeSlider;
+
+    [SerializeField]
+    Slider musicVolumeSlider;
+
+    [SerializeField]
+    Slider sfxVolumeSlider;
+
+    float currentMasterVolume;
+    float currentMusicVolume;
+    float currentSfxVolume;
+
     int currentResolutionIndex;
     bool resolutionChanged = false;
     Resolution[] resolutions;
@@ -37,8 +50,9 @@ public class SettingsManager : MonoBehaviour
 
     void Awake()
     {
-        qualityIndex = QualitySettings.GetQualityLevel();
-        isFullscreen = Screen.fullScreen;
+        // TODO: if config file found, load from config, if not, load these defaults
+        SetDefaults();
+
         resolutions = Screen.resolutions;
 
         for (int i = 0; i < resolutions.Length; i++)
@@ -48,6 +62,28 @@ public class SettingsManager : MonoBehaviour
             if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
                 currentResolutionIndex = i;
         }
+    }
+
+    private void SetDefaults()
+    {
+        qualityIndex = DefaultConfigStates.Singleton.QualityIndex;
+        isFullscreen = DefaultConfigStates.Singleton.IsFullscreen;
+
+        Screen.SetResolution(DefaultConfigStates.Singleton.ScreenWidth, 
+                             DefaultConfigStates.Singleton.ScreenHeight, 
+                             DefaultConfigStates.Singleton.IsFullscreen);
+
+        SetMasterVolume(DefaultConfigStates.Singleton.MasterVolume);
+        SetMusicVolume(DefaultConfigStates.Singleton.MusicVolume);
+        SetSfxVolume(DefaultConfigStates.Singleton.SfxVolume);
+
+    }
+
+    public void SetVolumeSliders()
+    {
+        masterVolumeSlider.value = currentMasterVolume;
+        musicVolumeSlider.value = currentMusicVolume;
+        sfxVolumeSlider.value = currentSfxVolume;
     }
 
     public void SetResolutionUp()
@@ -146,16 +182,19 @@ public class SettingsManager : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        audioMixer.SetFloat("masterVolume", volume);
+        currentMasterVolume = volume;
+        audioMixer.SetFloat("masterVolume", currentMasterVolume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("musicVolume", volume);
+        currentMusicVolume = volume;
+        audioMixer.SetFloat("musicVolume", currentMusicVolume);
     }
 
     public void SetSfxVolume(float volume)
     {
-        audioMixer.SetFloat("sfxVolume", volume);
+        currentSfxVolume = volume;
+        audioMixer.SetFloat("sfxVolume", currentSfxVolume);
     }
 }

@@ -1116,6 +1116,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1009638069}
+        m_MethodName: SetVolumeSliders
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onScreenClose:
@@ -2252,6 +2263,9 @@ MonoBehaviour:
   quality: {fileID: 101678738}
   fullScreen: {fileID: 523403257}
   resolutionText: {fileID: 1925755359}
+  masterVolumeSlider: {fileID: 1432754782}
+  musicVolumeSlider: {fileID: 1879668802}
+  sfxVolumeSlider: {fileID: 1145734500}
 --- !u!4 &1009638070
 Transform:
   m_ObjectHideFlags: 0
@@ -8143,4 +8157,4 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
