@@ -73,6 +73,9 @@ public class SettingsManager : MonoBehaviour
                              DefaultConfigStates.Singleton.ScreenHeight, 
                              DefaultConfigStates.Singleton.IsFullscreen);
 
+        SetResolutionText(DefaultConfigStates.Singleton.ScreenWidth, 
+                          DefaultConfigStates.Singleton.ScreenHeight);
+
         SetMasterVolume(DefaultConfigStates.Singleton.MasterVolume);
         SetMusicVolume(DefaultConfigStates.Singleton.MusicVolume);
         SetSfxVolume(DefaultConfigStates.Singleton.SfxVolume);
@@ -123,6 +126,11 @@ public class SettingsManager : MonoBehaviour
     private void SetResolutionText()
     {
         resolutionText.text = resolutionLabels[currentResolutionIndex];
+    }
+
+    private void SetResolutionText(int screenWidth, int screenHeight)
+    {
+        resolutionText.text = string.Format("{0}x{1}", screenWidth, screenHeight);
     }
 
     private void ToogleFullscreen()
