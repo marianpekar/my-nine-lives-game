@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 4102051815546052962}
   - component: {fileID: 6226061168021785624}
   - component: {fileID: 6120931580217903639}
-  - component: {fileID: 5621367272242895254}
+  - component: {fileID: 3704041942184997301}
   m_Layer: 0
   m_Name: Frog
   m_TagString: Untagged
@@ -342,7 +342,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5621367272242895254
+--- !u!114 &3704041942184997301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1060091646655894385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc5673f6791bf464f9917b99287690a2, type: 3}
+  m_Script: {fileID: 11500000, guid: ff0e0a12e7f479142aef284560b258aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wanderRadius: 25
