@@ -37,7 +37,7 @@ public class FollowCamera : MonoBehaviour
 
     public PostProcessManager postProcesingManager;
 
-    void Start()
+    void Awake()
     {
         offset = DirectionTo(PointOneUpThePlayer());
         initialOffset = offset;
