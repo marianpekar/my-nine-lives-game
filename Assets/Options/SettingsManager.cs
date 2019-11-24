@@ -38,7 +38,7 @@ public class SettingsManager : MonoBehaviour
     bool isFullscreen;
 
     int qualityIndex;
-    enum QualityLevel
+    public enum VideoQuality
     {
         VeryLow,
         Low,
@@ -50,8 +50,7 @@ public class SettingsManager : MonoBehaviour
 
     void Awake()
     {
-        // TODO: if config file found, load from config, if not, load these defaults
-        SetDefaults();
+        SetInitials();
 
         resolutions = Screen.resolutions;
 
@@ -64,21 +63,21 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    private void SetDefaults()
+    private void SetInitials()
     {
-        qualityIndex = DefaultConfigStates.Singleton.QualityIndex;
-        isFullscreen = DefaultConfigStates.Singleton.IsFullscreen;
+        qualityIndex = (int)PlayerPrefsManager.QualityIndex;
+        isFullscreen = PlayerPrefsManager.IsFullscreen;
 
-        Screen.SetResolution(DefaultConfigStates.Singleton.ScreenWidth, 
-                             DefaultConfigStates.Singleton.ScreenHeight, 
-                             DefaultConfigStates.Singleton.IsFullscreen);
+        Screen.SetResolution(PlayerPrefsManager.ScreenWidth,
+                             PlayerPrefsManager.ScreenHeight,
+                             PlayerPrefsManager.IsFullscreen);
 
-        SetResolutionText(DefaultConfigStates.Singleton.ScreenWidth, 
-                          DefaultConfigStates.Singleton.ScreenHeight);
+        SetResolutionText(PlayerPrefsManager.ScreenWidth,
+                          PlayerPrefsManager.ScreenHeight);
 
-        SetMasterVolume(DefaultConfigStates.Singleton.MasterVolume);
-        SetMusicVolume(DefaultConfigStates.Singleton.MusicVolume);
-        SetSfxVolume(DefaultConfigStates.Singleton.SfxVolume);
+        SetMasterVolume(PlayerPrefsManager.MasterVolume);
+        SetMusicVolume(PlayerPrefsManager.MusicVolume);
+        SetSfxVolume(PlayerPrefsManager.SfxVolume);
 
     }
 
@@ -115,12 +114,9 @@ public class SettingsManager : MonoBehaviour
             return;
 
         Screen.SetResolution(resolutions[currentResolutionIndex].width, resolutions[currentResolutionIndex].height, isFullscreen);
+        PlayerPrefsManager.ScreenWidth = resolutions[currentResolutionIndex].width;
+        PlayerPrefsManager.ScreenHeight = resolutions[currentResolutionIndex].height;
         resolutionChanged = false;
-
-        // Debug.Log(string.Format("Resolution set to: {0}x{1} (Fullscreen:{2})", 
-        //    resolutions[currentResolutionIndex].width, 
-        //    resolutions[currentResolutionIndex].height,
-        //    isFullscreen));
     }
 
     private void SetResolutionText()
@@ -143,7 +139,8 @@ public class SettingsManager : MonoBehaviour
     public void FullScreenChanged()
     {
         SetFullScreenLabel();
-        Screen.fullScreen = isFullscreen;
+        Screen.SetResolution(resolutions[currentResolutionIndex].width, resolutions[currentResolutionIndex].height, isFullscreen);
+        PlayerPrefsManager.IsFullscreen = isFullscreen;
     }
 
     public void SetFullScreenLabel()
@@ -157,8 +154,8 @@ public class SettingsManager : MonoBehaviour
     public void QualityUp()
     {
         qualityIndex++;
-        if(qualityIndex > (int)QualityLevel.Ultra)
-            qualityIndex = (int)QualityLevel.Ultra;
+        if(qualityIndex > (int)VideoQuality.Ultra)
+            qualityIndex = (int)VideoQuality.Ultra;
 
         QualityChanged();
     }
@@ -166,8 +163,8 @@ public class SettingsManager : MonoBehaviour
     public void QualityDown()
     {
         qualityIndex--;
-        if (qualityIndex < (int)QualityLevel.VeryLow)
-            qualityIndex = (int)QualityLevel.VeryLow;
+        if (qualityIndex < (int)VideoQuality.VeryLow)
+            qualityIndex = (int)VideoQuality.VeryLow;
 
         QualityChanged();
     }
@@ -175,34 +172,38 @@ public class SettingsManager : MonoBehaviour
     private void QualityChanged()
     {
         SetQualityLabel();
-        QualitySettings.SetQualityLevel(qualityIndex); 
+        QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefsManager.QualityIndex = (VideoQuality)qualityIndex;
     }
 
     public void SetQualityLabel()
     {
-        if (qualityIndex == (int)QualityLevel.VeryLow) quality.text = "VERY LOW";
-        else if (qualityIndex == (int)QualityLevel.Low) quality.text = "LOW";
-        else if (qualityIndex == (int)QualityLevel.Medium) quality.text = "MEDIUM";
-        else if (qualityIndex == (int)QualityLevel.High) quality.text = "HIGH";
-        else if (qualityIndex == (int)QualityLevel.VeryHigh) quality.text = "VERY HIGH";
-        else if (qualityIndex == (int)QualityLevel.Ultra) quality.text = "ULTRA";
+        if (qualityIndex == (int)VideoQuality.VeryLow) quality.text = "VERY LOW";
+        else if (qualityIndex == (int)VideoQuality.Low) quality.text = "LOW";
+        else if (qualityIndex == (int)VideoQuality.Medium) quality.text = "MEDIUM";
+        else if (qualityIndex == (int)VideoQuality.High) quality.text = "HIGH";
+        else if (qualityIndex == (int)VideoQuality.VeryHigh) quality.text = "VERY HIGH";
+        else if (qualityIndex == (int)VideoQuality.Ultra) quality.text = "ULTRA";
     }
 
     public void SetMasterVolume(float volume)
     {
         currentMasterVolume = volume;
         audioMixer.SetFloat("masterVolume", currentMasterVolume);
+        PlayerPrefsManager.MasterVolume = volume;
     }
 
     public void SetMusicVolume(float volume)
     {
         currentMusicVolume = volume;
         audioMixer.SetFloat("musicVolume", currentMusicVolume);
+        PlayerPrefsManager.MusicVolume = volume;
     }
 
     public void SetSfxVolume(float volume)
     {
         currentSfxVolume = volume;
         audioMixer.SetFloat("sfxVolume", currentSfxVolume);
+        PlayerPrefsManager.SfxVolume = volume;
     }
 }
