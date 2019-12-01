@@ -24,10 +24,10 @@ public class HeightmapsLoader : MonoBehaviour
 
     public void LoadTexture()
     {
-        float[,] heightMap = new float[terrainData.heightmapWidth, terrainData.heightmapHeight];
+        float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
 
-        for (int x = 0; x < terrainData.heightmapWidth; x++)
-            for (int y = 0; y < terrainData.heightmapHeight; y++)
+        for (int x = 0; x < terrainData.heightmapResolution; x++)
+            for (int y = 0; y < terrainData.heightmapResolution; y++)
                 heightMap[x, y] = heightMapTexture.GetPixel(x, y).grayscale;
 
         terrainData.SetHeights(0, 0, heightMap);
@@ -39,18 +39,18 @@ public class HeightmapsLoader : MonoBehaviour
         if (smoothPasses <= 0)
             return;
 
-        float[,] heightMap = terrainData.GetHeights(0, 0, terrainData.heightmapWidth, terrainData.heightmapHeight);
+        float[,] heightMap = terrainData.GetHeights(0, 0, terrainData.heightmapResolution, terrainData.heightmapResolution);
 
         float smoothProgress = 0;
         EditorUtility.DisplayProgressBar("Smoothing Terrain","Progress", smoothProgress);
 
         for (int i = 0; i < smoothPasses; i++)
         {
-            for (int y = 0; y < terrainData.heightmapHeight; y++)
-                for (int x = 0; x < terrainData.heightmapWidth; x++)
+            for (int y = 0; y < terrainData.heightmapResolution; y++)
+                for (int x = 0; x < terrainData.heightmapResolution; x++)
                 {
                     float avgHeight = heightMap[x, y];
-                    List<Vector2> neighbours = CreateListOfNeighbours(new Vector2(x, y), terrainData.heightmapWidth, terrainData.heightmapHeight);
+                    List<Vector2> neighbours = CreateListOfNeighbours(new Vector2(x, y), terrainData.heightmapResolution, terrainData.heightmapResolution);
 
                     foreach (Vector2 n in neighbours)
                         avgHeight += heightMap[(int)n.x, (int)n.y];
