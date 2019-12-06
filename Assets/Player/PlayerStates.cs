@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,12 +33,46 @@ public sealed class PlayerStates
     public float SlowMotionTimeScale { get; set; } = 0.25f;
     public float SlowMotionDuration { get; set; } = 1f; // in seconds
 
+    // Feeding
+    public float EnergyConsumed { get; set; } = 0.01f;
+    public float EnergyConsumedInterval { get; set; } = 3f; // in seconds
+    private float maxFeedLevel = 1.0f;
+    private float feedLevel = 1.0f;
+
     public int Preys { get; set; } = 0;
 
-    public void PreyCatched()
+    public int Score { get; set; } = 0;
+    public float FeedLevel { 
+        get 
+        {
+            return feedLevel; 
+        } 
+        set
+        {
+            feedLevel = value;
+
+            if (feedLevel > maxFeedLevel) {
+                feedLevel = maxFeedLevel;
+            } 
+            else if (feedLevel <= 0f)
+            {
+                feedLevel = 0f;
+                IsDead = true;
+            }
+        } 
+    } 
+
+    public void PreyCatched(int value, float nutrition)
     {
         Preys++;
-        Debug.Log(string.Format("Catched {0}", Preys));
+        FeedLevel += nutrition;
+        Score += value;
+    }
+
+    public void Reset()
+    {
+        feedLevel = 1.0f;
+        IsDead = false;
     }
 
     private static PlayerStates instance;
@@ -54,4 +89,6 @@ public sealed class PlayerStates
             return instance;
         }
     }
+
+    
 }

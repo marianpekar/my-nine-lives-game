@@ -21,6 +21,9 @@ public class AIController : MonoBehaviour
     public float maxIdleTime = 6f;
     public float minIdleTime = 2f;
 
+    public float nutrition = 0.1f;
+    public int value = 10;
+
     public Vector3 SpawnPosition { get; set; }
     float maxStuckTime;
 
@@ -242,7 +245,7 @@ public class AIController : MonoBehaviour
     {
         if (CalculateDistanceToPlayer() < 0.5f)
         {
-            PlayerStates.Singleton.PreyCatched();
+            PlayerStates.Singleton.PreyCatched(value, nutrition);
             parentSpawner.Respawn(this.gameObject);
             Walk();
         }

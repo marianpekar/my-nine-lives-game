@@ -7,6 +7,22 @@ public interface AnimatorCommand
     void Execute(Animator animator);
 }
 
+public class Die : AnimatorCommand
+{
+    bool played = false;
+    public void Execute(Animator animator)
+    {
+        if (played) return;
+
+        animator.SetBool("isRunning", true);
+        animator.SetBool("isWalkingBack", false);
+        animator.SetBool("isWalking", false);
+
+        animator.SetTrigger("die");
+        played = true;
+    }
+}
+
 public class Run : AnimatorCommand
 {
     public void Execute(Animator animator)

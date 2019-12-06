@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    AnimatorCommand run, walk, walkBack, jumpBack, jump, jumpHigh, idle;
+    AnimatorCommand run, walk, walkBack, jumpBack, jump, idle, die;
     CharacterController characterController;
     Animator animator;
 
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
         jumpBack = new JumpBack();
         jump = new Jump();
         idle = new Idle();
+        die = new Die();
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -27,9 +28,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        PlayerStates.Singleton.Position = transform.position;
+        if (PlayerStates.Singleton.IsDead)
+        {
+            die.Execute(animator);
+            return;
+        }
 
-        if (PlayerStates.Singleton.IsDead) return;
+        PlayerStates.Singleton.Position = transform.position;
 
         PlayerStates.Singleton.IsWalking = Input.GetButton("Walk");
         PlayerStates.Singleton.IsGrounded = characterController.isGrounded;
