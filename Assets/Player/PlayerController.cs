@@ -41,7 +41,11 @@ public class PlayerController : MonoBehaviour
         if (PlayerStates.Singleton.IsGrounded)
         {
             // Move
-            float verticalAxis = Input.GetAxis("Vertical");
+            float verticalAxis = 0f;
+            if (GameInputManager.GetKey("Forward"))
+                verticalAxis = 1f;
+            else if (GameInputManager.GetKey("Backward"))
+                verticalAxis = -1f;
 
             moveDirection = new Vector3(0, 0, verticalAxis);
             moveDirection = transform.TransformDirection(moveDirection);
@@ -92,8 +96,14 @@ public class PlayerController : MonoBehaviour
         moveDirection.y -= PlayerStates.Singleton.Gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
 
+
         // Rotation
-        float horizontalAxis = Input.GetAxis("Horizontal");
+        float horizontalAxis = 0;
+        if (GameInputManager.GetKey("Left"))
+            horizontalAxis = -1f;
+        else if (GameInputManager.GetKey("Right"))
+            horizontalAxis = 1f;
+
         transform.Rotate(0, horizontalAxis * PlayerStates.Singleton.RotationSpeed, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, GetHitNormal()) * transform.rotation, 5 * Time.deltaTime);
     }
