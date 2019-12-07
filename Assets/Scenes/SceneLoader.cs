@@ -26,9 +26,9 @@ public class SceneLoader : MonoBehaviour
         DestroyImmediate(this.gameObject);
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if(Input.GetKey(KeyCode.Escape) && currentSceneIndex == gameSceneIndex)
+        if(GameInputManager.GetKey("Cancel") && currentSceneIndex == gameSceneIndex)
             LoadMainMenuScene();
     }
 

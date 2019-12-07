@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerController : MonoBehaviour
 {
     AnimatorCommand run, walk, walkBack, jumpBack, jump, idle, die;
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         PlayerStates.Singleton.Position = transform.position;
 
-        PlayerStates.Singleton.IsWalking = Input.GetButton("Walk");
+        PlayerStates.Singleton.IsWalking = GameInputManager.GetKey("Walk");
         PlayerStates.Singleton.IsGrounded = characterController.isGrounded;
 
         if (PlayerStates.Singleton.IsGrounded)
@@ -71,7 +70,7 @@ public class PlayerController : MonoBehaviour
             }
 
             // Jumps
-            if (Input.GetButtonDown("Jump") && PlayerStates.Singleton.IsWalking)
+            if (GameInputManager.GetKey("Jump") && PlayerStates.Singleton.IsWalking)
             {
                 Time.timeScale = PlayerStates.Singleton.SlowMotionTimeScale;
                 Invoke("ResetTimeScale", PlayerStates.Singleton.SlowMotionDuration);
@@ -80,7 +79,7 @@ public class PlayerController : MonoBehaviour
                 moveDirection = transform.TransformDirection(moveDirection);
                 jump.Execute(animator);
             }
-            else if (Input.GetButtonDown("Jump") && PlayerStates.Singleton.IsWalkingBackward)
+            else if (GameInputManager.GetKey("Jump") && PlayerStates.Singleton.IsWalkingBackward)
             {
                 moveDirection.y = PlayerStates.Singleton.BackJumpSpeed;
                 moveDirection.z = -PlayerStates.Singleton.BackJumpDistance;
