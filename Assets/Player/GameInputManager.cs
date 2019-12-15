@@ -36,6 +36,11 @@ public static class GameInputManager
     private static void InitializeDictionary()
     {
         keyMapping = new Dictionary<string, KeyCode>();
+        SetDefaults();
+    }
+
+    public static void SetDefaults()
+    {
         for (int i = 0; i < keyMaps.Length; ++i)
         {
             keyMapping.Add(keyMaps[i], defaults[i]);
@@ -52,5 +57,12 @@ public static class GameInputManager
     public static bool GetKey(string keyMap)
     {
         return Input.GetKey(keyMapping[keyMap]);
+    }
+
+    public static KeyCode GetKeyCode(string keyName)
+    {
+        KeyCode keyCode;
+        keyMapping.TryGetValue(keyName, out keyCode);
+        return keyCode; 
     }
 }
