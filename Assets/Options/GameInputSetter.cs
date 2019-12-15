@@ -50,6 +50,11 @@ public class GameInputSetter : MonoBehaviour
     public void SetDefaults()
     {
         GameInputManager.SetDefaults();
+
+        if (onKeyChanged != null)
+        {
+            onKeyChanged.Invoke();
+        }
     }
 
 

@@ -5,22 +5,20 @@ using System;
 public static class GameInputManager
 {
     static Dictionary<string, KeyCode> keyMapping;
-    static string[] keyMaps = new string[8]
+    static string[] keyMaps = new string[7]
     {
         "Jump",
         "Walk",
-        "Change Environment",
         "Cancel",
         "Forward",
         "Backward",
         "Left",
         "Right"
     };
-    static KeyCode[] defaults = new KeyCode[8]
+    static KeyCode[] defaults = new KeyCode[7]
     {
         KeyCode.Space,
         KeyCode.LeftControl,
-        KeyCode.F1,
         KeyCode.Escape,
         KeyCode.W,
         KeyCode.S,
@@ -43,6 +41,7 @@ public static class GameInputManager
     {
         for (int i = 0; i < keyMaps.Length; ++i)
         {
+            keyMapping.Remove(keyMaps[i]);
             keyMapping.Add(keyMaps[i], defaults[i]);
         }
     }
