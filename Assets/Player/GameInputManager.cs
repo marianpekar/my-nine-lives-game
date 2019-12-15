@@ -4,7 +4,7 @@ using System;
 
 public static class GameInputManager
 {
-    static Dictionary<string, KeyCode> keyMapping;
+    static Dictionary<string, KeyCode> keyMapping = new Dictionary<string, KeyCode>();
     static string[] keyMaps = new string[7]
     {
         "Jump",
@@ -26,6 +26,16 @@ public static class GameInputManager
         KeyCode.D
     };
 
+    public static string[] GetKeyMaps()
+    {
+        return keyMaps;
+    }
+
+    public static KeyCode[] GetDefaults()
+    {
+        return defaults;
+    }
+
     static GameInputManager()
     {
         InitializeDictionary();
@@ -33,8 +43,7 @@ public static class GameInputManager
 
     private static void InitializeDictionary()
     {
-        keyMapping = new Dictionary<string, KeyCode>();
-        SetDefaults();
+        keyMapping = PlayerPrefsManager.GameInputs;
     }
 
     public static void SetDefaults()

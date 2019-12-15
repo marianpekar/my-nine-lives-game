@@ -104,4 +104,43 @@ public static class PlayerPrefsManager
             PlayerPrefs.SetFloat("SfxVolume", value);
         }
     }
+
+    public static Dictionary<string, KeyCode> GameInputs
+    {
+        get
+        {
+            Dictionary<string, KeyCode> keyMapping = new Dictionary<string, KeyCode>();
+            string[] keyMaps = GameInputManager.GetKeyMaps();
+            KeyCode[] defaults = GameInputManager.GetDefaults();
+
+            for (int i = 0; i < keyMaps.Length; ++i)
+            {
+                if (PlayerPrefs.HasKey(keyMaps[i]))
+                {
+                    KeyCode keyCode = (KeyCode)PlayerPrefs.GetInt(keyMaps[i]);
+                    keyMapping.Add(keyMaps[i], keyCode);
+                } 
+                else
+                {
+                    keyMapping.Add(keyMaps[i], defaults[i]);
+                }
+            }
+
+            return keyMapping;
+        }
+        set
+        {
+            
+        }
+    }
+
+    public static void SaveGameInputs()
+    {
+        string[] keyMaps = GameInputManager.GetKeyMaps();
+
+        for(int i = 0; i < keyMaps.Length; ++i)
+        {
+            PlayerPrefs.SetInt(keyMaps[i], (int)GameInputManager.GetKeyCode(keyMaps[i]));
+        }
+    }
 }

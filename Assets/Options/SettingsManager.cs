@@ -206,4 +206,9 @@ public class SettingsManager : MonoBehaviour
         audioMixer.SetFloat("sfxVolume", currentSfxVolume);
         PlayerPrefsManager.SfxVolume = volume;
     }
+
+    public void SaveGameInputs()
+    {
+        PlayerPrefsManager.SaveGameInputs();
+    }
 }
