@@ -749,17 +749,17 @@ PrefabInstance:
     - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: size
-      value: 275
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: count
-      value: 3500
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: offset
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}

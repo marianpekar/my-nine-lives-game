@@ -75,32 +75,24 @@ public class EnvironmentManager : MonoBehaviour
     public float fallNightTemperature;
     public float winterNightTemperature;
 
-    EnvironmentPreserver environmentPreserver;
-    GameObject environmentPreserverGameObject;
-
     // Start is called before the first frame update
     void Start()
     {
-        environmentPreserverGameObject = new GameObject("EnvironmentPreserver");
-        environmentPreserver = FindObjectOfType<EnvironmentPreserver>();
 
-        if (!environmentPreserver)
+        if (!EnvironmentPreserver.FirstSet)
         {
-            SetRandomDayTime();
-            environmentPreserverGameObject.AddComponent<EnvironmentPreserver>();
-            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Hours = hours;
-            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().Minutes = minutes;
             SetRandomEnvironmentType();
             SetRandomEnvironmentEpoch();
-            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentType = CurrentEnvironmentType;
-            environmentPreserverGameObject.GetComponent<EnvironmentPreserver>().EnvironmentEpoch = CurrentEnvironmentEpoch;
+            SetRandomDayTime();
+            EnvironmentPreserver.FirstSet = true;
         }
         else
         {
-            SetDayTime(environmentPreserver.Hours, environmentPreserver.Minutes);
-            CurrentEnvironmentType = environmentPreserver.EnvironmentType;
-            CurrentEnvironmentEpoch = environmentPreserver.EnvironmentEpoch;
+            SetDayTime(EnvironmentPreserver.Hours, EnvironmentPreserver.Minutes);
+            CurrentEnvironmentType = EnvironmentPreserver.EnvironmentType;
+            CurrentEnvironmentEpoch = EnvironmentPreserver.EnvironmentEpoch;
         }
+        SetEnvironment();
 
     }
 
@@ -108,13 +100,11 @@ public class EnvironmentManager : MonoBehaviour
     {
         hours = hour;
         minutes = minute;
-        SetEnvironment();
     }
     public void SetRandomDayTime()
     {
         hours = Random.Range(0, 24);
         minutes = Random.Range(0, 60);
-        SetEnvironment();
     }
 
     public void SetEnvironment()
@@ -130,13 +120,10 @@ public class EnvironmentManager : MonoBehaviour
 
     public void UpdateEnvironmentPreserver()
     {
-        if(environmentPreserver)
-        {
-            environmentPreserver.Hours = hours;
-            environmentPreserver.Minutes = minutes;
-            environmentPreserver.EnvironmentType = CurrentEnvironmentType;
-            environmentPreserver.EnvironmentEpoch = CurrentEnvironmentEpoch;
-        }
+        EnvironmentPreserver.Hours = hours;
+        EnvironmentPreserver.Minutes = minutes;
+        EnvironmentPreserver.EnvironmentType = CurrentEnvironmentType;
+        EnvironmentPreserver.EnvironmentEpoch = CurrentEnvironmentEpoch;
     }
 
     public void SetRandomEnvironmentType()

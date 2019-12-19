@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnvironmentPreserver : MonoBehaviour
+public static class EnvironmentPreserver
 {
-    public int Hours { get; set;}
-    public int Minutes { get; set;}
+    public static bool FirstSet { get; set; } = false;
+    public static int Hours { get; set;}
+    public static int Minutes { get; set;}
 
-    public EnvironmentManager.EnvironmentType EnvironmentType { get; set; }
-    public EnvironmentManager.EnvironmentEpoch EnvironmentEpoch { get; set; }
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
+    public static EnvironmentManager.EnvironmentType EnvironmentType { get; set; }
+    public static EnvironmentManager.EnvironmentEpoch EnvironmentEpoch { get; set; }
 
 }
