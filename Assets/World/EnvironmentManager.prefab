@@ -104,6 +104,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: e91860988ea693a46884f721c8063120, type: 3}
   - {fileID: -927199367670048503, guid: b0f62c9bc31852f49b1cfb4829756cb0, type: 3}
@@ -201,6 +202,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: b8a71d6fabc9c4c4a81ddff6fa0d2f30, type: 3}
   - {fileID: -927199367670048503, guid: b39ed59da28b23148a7316da867adda6, type: 3}
@@ -260,6 +262,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: e1b450cb6229b094d955e407d4ac1c37, type: 3}
   - {fileID: -927199367670048503, guid: 5a7fb6def4f579c408a51d1277ac5997, type: 3}
@@ -321,6 +324,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 7891d1c28858f004f900020e8a530c8a, type: 3}
   - {fileID: -927199367670048503, guid: f0e2dfb63ea533d439733366404a00ec, type: 3}
@@ -411,6 +415,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 77733708bf2294642813304e7bb2e654, type: 3}
   - {fileID: -927199367670048503, guid: d324862de3f30f5459bbcbdad44c7abf, type: 3}
@@ -470,6 +475,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 11a06836062e07048848e41385d1ad23, type: 3}
   - {fileID: -927199367670048503, guid: d7306ffe890a84b4a8c4d66b1c3bd383, type: 3}
@@ -530,6 +536,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 5ea1b34e40a1b6040b1c14775095ce4d, type: 3}
   - {fileID: -927199367670048503, guid: 27a006cc6818f664ab1cece68dc55130, type: 3}
@@ -589,6 +596,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 7cfd52a2d62bc054e9f15afbe47b8810, type: 3}
   - {fileID: -927199367670048503, guid: 8621c9e0f46c8ee418e395e3e92be8c3, type: 3}
@@ -696,6 +704,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: f3b376f58f231644e83a39b456bb5045, type: 3}
   - {fileID: -927199367670048503, guid: 66179f38a403ec14e9f30e765fcf81c1, type: 3}
@@ -757,6 +766,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 96c38f43af1722746b0368fa0d91a304, type: 3}
   - {fileID: -927199367670048503, guid: 04b633b116c91014b98792aae60d06f0, type: 3}
@@ -814,6 +824,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: a382b5e8bc9cdc244951cc7b25002d6c, type: 3}
   - {fileID: -927199367670048503, guid: 5b1726783f9c20e4e81450060e483034, type: 3}
@@ -873,6 +884,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 9b1f23c1bc7f57c418810f3277180ca2, type: 3}
   count: 5
@@ -961,6 +973,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 87372837a9c03cd4e8a1fd8d64d8ef7d, type: 3}
   - {fileID: -927199367670048503, guid: a37544cefc408a641a54ce0eea553e9b, type: 3}
@@ -1020,6 +1033,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: e50deb1aba02b3048a5212f3318b06d6, type: 3}
   - {fileID: -927199367670048503, guid: c8a1fd2acff987842a97de51182c4825, type: 3}
@@ -1144,6 +1158,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 587e121c83336824a9bd943e8afdd412, type: 3}
   - {fileID: -927199367670048503, guid: 378903d0b2e2f604189c2d061a8a8ea0, type: 3}
@@ -1239,6 +1254,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 6a1e48aaab7c9fa4eb78e1c81c7e492b, type: 3}
   - {fileID: -927199367670048503, guid: 7bc034edde4e86348af4b6e3479c3d1d, type: 3}
@@ -1295,6 +1311,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: b41ac5b059a72ed4888361b99635ffb6, type: 3}
   - {fileID: -927199367670048503, guid: 60f008f5904df47428baade4c995bad9, type: 3}
@@ -1449,6 +1466,7 @@ Transform:
   m_Children:
   - {fileID: 496139710}
   - {fileID: 338019696}
+  - {fileID: 5118643042844924484}
   m_Father: {fileID: 902378254}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1532,6 +1550,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 2599b968d8ec0144a9adca8db444e918, type: 3}
   count: 5
@@ -1587,6 +1606,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: ed95c97a85ab0ce4998db5e122971ef7, type: 3}
   - {fileID: -927199367670048503, guid: efdaeb230bda37748a6a5a1c30c2234b, type: 3}
@@ -1712,6 +1732,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: d66c977ae6cd89c4db578eac331259c9, type: 3}
   - {fileID: -927199367670048503, guid: 061547dac24e37c4fbe7454438a48c9b, type: 3}
@@ -1771,6 +1792,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 93881000edc6a7c4f9560043c56b9cc9, type: 3}
   - {fileID: -927199367670048503, guid: e1a0d5c9ea754f54fbc9be8f227f4819, type: 3}
@@ -1969,6 +1991,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 9c73dd0fa0b2b074aa22a55b13519f46, type: 3}
   - {fileID: -927199367670048503, guid: b084b3b4d9b7dcd43889fd3381011c43, type: 3}
@@ -2275,6 +2298,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 0caddbe2629e16c4b886b67037242415, type: 3}
   - {fileID: -927199367670048503, guid: 0df4bb3f68c039a438c9c79ace0074b1, type: 3}
@@ -2398,6 +2422,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 21b02a08897e5e04bbbced61e17f6976, type: 3}
   - {fileID: -927199367670048503, guid: ee2a4230fdd858545aa43ce8b445b2b3, type: 3}
@@ -2457,6 +2482,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 14b9412ceff66794c9a47cba7a5a030c, type: 3}
   - {fileID: -927199367670048503, guid: 32ffcfc814f0efe4dacacf77df4d23ab, type: 3}
@@ -2612,6 +2638,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 045720ded15f17b469913c1e754262f2, type: 3}
   - {fileID: -927199367670048503, guid: f7c294a33fbd6fa45818da9bf58ed91d, type: 3}
@@ -2671,6 +2698,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: a49198924f5ec8e4e9c324dd1fe30fa5, type: 3}
   - {fileID: -927199367670048503, guid: 65bff2b00327b594e81dc001919ea043, type: 3}
@@ -2727,6 +2755,7 @@ MonoBehaviour:
   offset: 5
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 10
+  fixRotation: 1
   gameObjects:
   - {fileID: -927199367670048503, guid: 69e6a7c4975e47440b33bee619b747fa, type: 3}
   count: 5
@@ -2904,7 +2933,6 @@ MonoBehaviour:
   noonTerrain: {r: 1, g: 0.94509804, b: 0.105882354, a: 0}
   afternoonTerrain: {r: 0.83137256, g: 0.94509804, b: 0.105882354, a: 0}
   nightTerrain: {r: 0.25882354, g: 0.67058825, b: 1, a: 0}
-  winterTerrain: {r: 0.79607844, g: 0.79607844, b: 0.79607844, a: 0}
   sun: {fileID: 3349359029902370383}
   moon: {fileID: 3349359030847943625}
   postProcessManager: {fileID: 0}
@@ -3104,6 +3132,75 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &4189377185041053313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5118643042844924484}
+  - component: {fileID: 7714044935749329505}
+  m_Layer: 0
+  m_Name: StylizedGrassSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5118643042844924484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4189377185041053313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 682.79395, y: -3935.0164, z: -6408.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 930373493}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7714044935749329505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4189377185041053313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnvironmentType: 2
+  thisEnvironmentEpoch: 3
+  size: 800
+  offset: 2
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 0
+  fixRotation: 0
+  gameObjects:
+  - {fileID: 1000010624020320, guid: 3e23954c2d6baf643af7c1d9d8f1d1c2, type: 3}
+  - {fileID: 1000010624020320, guid: eed944aa3c9fbb642b0f53ffb006b1a7, type: 3}
+  - {fileID: 1000010624020320, guid: 14d9e42374e7cd84ea1f2ced9ecad689, type: 3}
+  - {fileID: 1000010624020320, guid: 97eea77525e972d45bc980d1f95769a4, type: 3}
+  - {fileID: 1000010624020320, guid: c36ea093cb898f945940f7e0c10cd23d, type: 3}
+  - {fileID: 1000010624020320, guid: 74c32da86a228e0418e1490b5d7351cf, type: 3}
+  - {fileID: 1000010624020320, guid: 50cfbc7c572c6564cad13d72634db623, type: 3}
+  - {fileID: 1000010624020320, guid: 8f736346d6454a145819ab8157ae4535, type: 3}
+  - {fileID: 1000010624020320, guid: 230473235324a334b83d54ce7db43720, type: 3}
+  - {fileID: 1000010624020320, guid: 2a10e6fba9e910141b38c413bd084a54, type: 3}
+  - {fileID: 1000010624020320, guid: 4ea5d09a2f2c3e847813c64dfaa5a170, type: 3}
+  - {fileID: 1000010624020320, guid: 1e52804bb49818c45a51f61f5fae5f39, type: 3}
+  - {fileID: 1000010624020320, guid: 613ce2db6994ee748ad4192023afc8a5, type: 3}
+  - {fileID: 1000010624020320, guid: e5f282339bb7da04fbc5642c7e1be928, type: 3}
+  count: 8000
+  maxSteepAngle: 40
+  lowerOffset: 0
+  isNavMeshObstacle: 0
 --- !u!1 &8595565720677159470
 GameObject:
   m_ObjectHideFlags: 0

@@ -446,6 +446,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155127008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
+    type: 3}
+  m_PrefabInstance: {fileID: 3349359029388626064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36726d8088b9a054ca167c1d709a340e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1289037422
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +469,7 @@ GameObject:
   - component: {fileID: 1289037424}
   - component: {fileID: 1289037423}
   m_Layer: 0
-  m_Name: SpawnManager
+  m_Name: PlayerSpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -618,6 +630,18 @@ PrefabInstance:
       propertyPath: smoothPasses
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 909919021, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: objectsSpawners.Array.size
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 909919021, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: objectsSpawners.Array.data[28]
+      value: 
+      objectReference: {fileID: 1155127008}
+    - target: {fileID: 1361570437, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1564342089, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -722,6 +746,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23800000, guid: d8ab80a5b9db60649bc786ec3fbbc152,
         type: 2}
+    - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: size
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: count
+      value: 3500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: offset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: lowerOffset
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: maxSteepAngle
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 8595565720677159470, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: m_IsActive

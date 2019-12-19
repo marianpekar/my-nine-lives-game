@@ -12,6 +12,7 @@ public class ObjectsSpawner : MonoBehaviour
     public float offset = 5f;
     public Vector2 blankSpaceCenterPosition = new Vector2(500, 500);
     public float blankSpaceRadius = 10f;
+    public bool fixRotation = true;
 
     public GameObject[] gameObjects;
     List<GameObject> instantiatedObjects = new List<GameObject>();
@@ -40,11 +41,20 @@ public class ObjectsSpawner : MonoBehaviour
                 //Debug.DrawRay(hit.point, hit.normal, Color.green, Mathf.Infinity);
                 GameObject prefab = gameObjects[Random.Range(0, gameObjects.Length)];
                 GameObject gameObject = Instantiate(prefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), this.transform) as GameObject;
-                gameObject.transform.Rotate(transform.right, -90);
+
+                if (gameObject.GetComponent<Tree>())
+                {
+                    var treeController = gameObject.GetComponent<Tree>().data as TreeEditor.TreeData;
+                    var root = treeController.root;
+                    root.seed = Random.Range(0, 9999999);
+                    root.UpdateSeed();
+                }
+
+                gameObject.transform.Rotate(transform.right, fixRotation ? -90 : 0);
                 gameObject.transform.localPosition += new Vector3(0, -lowerOffset, 0);
                 gameObject.name = prefab.name + "_" + (i + 1);
 
-                if(isNavMeshObstacle)
+                if (isNavMeshObstacle)
                 {
                     gameObject.AddComponent<NavMeshObstacle>().carving = true;
                 }
@@ -90,7 +100,7 @@ public class ObjectsSpawner : MonoBehaviour
         {
             gameObject.transform.position = hit.point;
             gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-            gameObject.transform.Rotate(transform.right, -90);
+            gameObject.transform.Rotate(transform.right, fixRotation ? -90 : 0);
             gameObject.transform.localPosition += new Vector3(0, -lowerOffset, 0);
         }
         else
