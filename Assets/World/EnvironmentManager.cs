@@ -24,7 +24,7 @@ public class EnvironmentManager : MonoBehaviour
     public EnvironmentType CurrentEnvironmentType { get; set; }
     public EnvironmentEpoch CurrentEnvironmentEpoch { get; set; }
 
-    [Range(0,24)]
+    [Range(0, 24)]
     public int hours = 12;
     [Range(0, 60)]
     public int minutes = 0;
@@ -54,7 +54,6 @@ public class EnvironmentManager : MonoBehaviour
     public Color noonTerrain;
     public Color afternoonTerrain;
     public Color nightTerrain;
-    public Color winterTerrain;
 
     public Light sun;
     public Light moon;
@@ -204,12 +203,6 @@ public class EnvironmentManager : MonoBehaviour
 
     void SetTerrainColor()
     {
-        if(CurrentEnvironmentEpoch == EnvironmentEpoch.Winter)
-        {
-            terrain.color = winterTerrain;
-            return;
-        }
-
         if (hours < MORNING || hours >= NIGHT)
         {
             terrain.color = nightTerrain;
