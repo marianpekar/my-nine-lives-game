@@ -42,14 +42,6 @@ public class ObjectsSpawner : MonoBehaviour
                 GameObject prefab = gameObjects[Random.Range(0, gameObjects.Length)];
                 GameObject gameObject = Instantiate(prefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), this.transform) as GameObject;
 
-                if (gameObject.GetComponent<Tree>())
-                {
-                    var treeController = gameObject.GetComponent<Tree>().data as TreeEditor.TreeData;
-                    var root = treeController.root;
-                    root.seed = Random.Range(0, 9999999);
-                    root.UpdateSeed();
-                }
-
                 gameObject.transform.Rotate(transform.right, fixRotation ? -90 : 0);
                 gameObject.transform.localPosition += new Vector3(0, -lowerOffset, 0);
                 gameObject.name = prefab.name + "_" + (i + 1);
