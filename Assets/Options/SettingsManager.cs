@@ -31,7 +31,6 @@ public class SettingsManager : MonoBehaviour
     float currentSfxVolume;
 
     int currentResolutionIndex;
-    bool resolutionChanged = false;
     Resolution[] resolutions;
     List<string> resolutionLabels = new List<string>();
 
@@ -94,8 +93,8 @@ public class SettingsManager : MonoBehaviour
         if (currentResolutionIndex > resolutions.Length - 1)
             currentResolutionIndex = resolutions.Length - 1;
 
-        resolutionChanged = true;
         SetResolutionText();
+        ChangeResolution();
     }
 
     public void SetResolutionDown()
@@ -104,19 +103,15 @@ public class SettingsManager : MonoBehaviour
         if (currentResolutionIndex < 0)
             currentResolutionIndex = 0;
 
-        resolutionChanged = true;
         SetResolutionText();
+        ChangeResolution();
     }
 
     public void ChangeResolution()
     {
-        if (!resolutionChanged)
-            return;
-
         Screen.SetResolution(resolutions[currentResolutionIndex].width, resolutions[currentResolutionIndex].height, isFullscreen);
         PlayerPrefsManager.ScreenWidth = resolutions[currentResolutionIndex].width;
         PlayerPrefsManager.ScreenHeight = resolutions[currentResolutionIndex].height;
-        resolutionChanged = false;
     }
 
     private void SetResolutionText()
