@@ -35,7 +35,8 @@ public sealed class PlayerStates
 
     // Feeding
     public float EnergyConsumed { get; set; } = 0.01f;
-    public float EnergyConsumedInterval { get; set; } = 3f; // in seconds
+    public float EnergyConsumedInterval { get; set; } = 6f; // in seconds
+    public float LowFeedLevel { get; set; } = 0.25f;
     private float maxFeedLevel = 1.0f;
     private float feedLevel = 1.0f;
 
@@ -59,6 +60,8 @@ public sealed class PlayerStates
                 feedLevel = 0f;
                 IsDead = true;
             }
+
+            PlayerEvents.Singleton.ProcessFeedLevelChangedActions();
         } 
     } 
 
@@ -67,12 +70,14 @@ public sealed class PlayerStates
         Preys++;
         FeedLevel += nutrition;
         Score += value;
+        PlayerEvents.Singleton.ProcessPreyCatchedActions();
     }
 
     public void Reset()
     {
-        feedLevel = 1.0f;
+        FeedLevel = 1.0f;
         IsDead = false;
+        PlayerEvents.Singleton.ProcessFeedLevelChangedActions();
     }
 
     private static PlayerStates instance;
