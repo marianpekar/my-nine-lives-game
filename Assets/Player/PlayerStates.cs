@@ -35,7 +35,7 @@ public sealed class PlayerStates
 
     // Feeding
     public float EnergyConsumed { get; set; } = 0.01f;
-    public float EnergyConsumedInterval { get; set; } = 6f; // in seconds
+    public float EnergyConsumedInterval { get; set; } = 12f; // in seconds
     public float LowFeedLevel { get; set; } = 0.25f;
     private float maxFeedLevel = 1.0f;
     private float feedLevel = 1.0f;

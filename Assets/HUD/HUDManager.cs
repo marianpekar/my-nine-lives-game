@@ -11,11 +11,23 @@ public class HUDManager : MonoBehaviour
     public Sprite stomachHappy;
     public Sprite stomachSad;
 
+    public Image stomachBackground;
+    public Gradient stomachGradient;
+    Color stomachBackgroundColor;
+
     private void Start()
     {
         UpdateFeedLevelIndicator();
+
         PlayerEvents.Singleton.RegisterFeedLevelChangedActons(UpdateFeedLevelIndicator);
         PlayerEvents.Singleton.RegisterFeedLevelChangedActons(UpdateStomachImage);
+        PlayerEvents.Singleton.RegisterFeedLevelChangedActons(SetStomachBackgroundColor);
+    }
+
+    void SetStomachBackgroundColor()
+    {
+        stomachBackgroundColor = stomachGradient.Evaluate(PlayerStates.Singleton.FeedLevel);
+        stomachBackground.color = stomachBackgroundColor;
     }
 
     void UpdateFeedLevelIndicator()
