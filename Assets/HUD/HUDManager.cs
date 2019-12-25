@@ -15,10 +15,8 @@ public class HUDManager : MonoBehaviour
     public Gradient stomachGradient;
     Color stomachBackgroundColor;
 
-    private void Start()
+    private void Awake()
     {
-        UpdateFeedLevelIndicator();
-
         PlayerEvents.Singleton.RegisterFeedLevelChangedActons(UpdateFeedLevelIndicator);
         PlayerEvents.Singleton.RegisterFeedLevelChangedActons(UpdateStomachImage);
         PlayerEvents.Singleton.RegisterFeedLevelChangedActons(SetStomachBackgroundColor);
@@ -33,7 +31,6 @@ public class HUDManager : MonoBehaviour
     void UpdateFeedLevelIndicator()
     {
         feedLevelIndicator.text = string.Format("{0}%", Mathf.Round(PlayerStates.Singleton.FeedLevel * 100));
-
     }
 
     void UpdateStomachImage()
