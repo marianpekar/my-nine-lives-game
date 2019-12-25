@@ -33,6 +33,12 @@ public sealed class PlayerEvents
         }
     }
 
+    public void ResetAllActionLists()
+    {
+        preyCatchedActions.Clear();
+        feedLevelChangedActions.Clear();
+    }
+
     private static PlayerEvents instance;
 
     public static PlayerEvents Singleton

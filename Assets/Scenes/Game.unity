@@ -207,16 +207,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 364524779636198761, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.318
-      objectReference: {fileID: 0}
-    - target: {fileID: 364524779636198761, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.349
-      objectReference: {fileID: 0}
     - target: {fileID: 5641631285422964705, guid: f47066f7a0d0d854f820a68a65381450,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -271,46 +261,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621365086650983344, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621365086650983344, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: NoiseModule.strengthZ.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621365086650983344, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: NoiseModule.strengthY.scalar
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621365086650983344, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: NoiseModule.strength.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621365086650983344, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621365086650983344, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621365086650983344, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621365086650983344, guid: f47066f7a0d0d854f820a68a65381450,
-        type: 3}
-      propertyPath: NoiseModule.octaves
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8651485371551141362, guid: f47066f7a0d0d854f820a68a65381450,
         type: 3}

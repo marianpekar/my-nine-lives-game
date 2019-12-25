@@ -16,13 +16,14 @@ public class SceneLoader : MonoBehaviour
     private int currentSceneIndex;
     public void LoadGameScene() {
         currentSceneIndex = gameSceneIndex;
+        PlayerStates.Singleton.Reset();
         StartCoroutine(LoadSceneAsync(gameSceneIndex));
     }
 
     public void LoadMainMenuScene()
     {
         SceneManager.LoadScene(mainMenuSceneIndex);
-        PlayerStates.Singleton.Reset();       
+        PlayerEvents.Singleton.ResetAllActionLists(); 
         DestroyImmediate(this.gameObject);
     }
 
