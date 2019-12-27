@@ -29,7 +29,7 @@ public class AIController : MonoBehaviour
 
     protected NavMeshAgent agent;
     protected Animator animator;
-    protected PreySpawner parentSpawner;
+    protected AISpawner parentSpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class AIController : MonoBehaviour
         agent.updateUpAxis = false;
 
         animator = GetComponent<Animator>();
-        parentSpawner = GetComponentInParent<PreySpawner>();
+        parentSpawner = GetComponentInParent<AISpawner>();
 
         Walk();
         SetRandomDestination();

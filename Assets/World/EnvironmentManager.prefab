@@ -616,7 +616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 424856995}
-  - component: {fileID: 424856994}
+  - component: {fileID: 1117743615}
   m_Layer: 0
   m_Name: RatSpawner
   m_TagString: Untagged
@@ -638,7 +638,7 @@ Transform:
   m_Father: {fileID: 578011845}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &424856994
+--- !u!114 &1117743615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -647,14 +647,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 424856993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4c882ffdfbf0548abe3cfc80759444, type: 3}
+  m_Script: {fileID: 11500000, guid: 65fab6a4f90482c49a807b59925cf694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 300
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 30
-  prey: {fileID: 8334855634422311627, guid: 70b994b77a8994e41ba9a34ef6cbf402, type: 3}
-  preyCount: 50
+  agent: {fileID: 8334855634422311627, guid: 70b994b77a8994e41ba9a34ef6cbf402, type: 3}
+  agentsCount: 30
 --- !u!1 &479644902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,10 +1432,11 @@ MonoBehaviour:
   - {fileID: 943329380}
   - {fileID: 48468954}
   - {fileID: 353212223}
+  - {fileID: 7714044935749329505}
   preySpawners:
-  - {fileID: 424856994}
-  - {fileID: 2110089427}
-  - {fileID: 1991770655}
+  - {fileID: 424856994, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+  - {fileID: 2110089427, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+  - {fileID: 1991770655, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
   groundSelector: {fileID: 23846019}
 --- !u!1 &930373492
 GameObject:
@@ -2248,7 +2249,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: e396a9e68b7470d44a237cd9bb4e2543, type: 2}
 --- !u!1 &1685899426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2502,7 +2503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1991770654}
-  - component: {fileID: 1991770655}
+  - component: {fileID: 196587416}
   m_Layer: 0
   m_Name: FrogSpawner
   m_TagString: Untagged
@@ -2524,7 +2525,7 @@ Transform:
   m_Father: {fileID: 578011845}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1991770655
+--- !u!114 &196587416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2533,14 +2534,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991770653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4c882ffdfbf0548abe3cfc80759444, type: 3}
+  m_Script: {fileID: 11500000, guid: 65fab6a4f90482c49a807b59925cf694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 300
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 30
-  prey: {fileID: 1060091646655894385, guid: 10877033043d73146bb80c13fea47e69, type: 3}
-  preyCount: 25
+  agent: {fileID: 1060091646655894385, guid: 10877033043d73146bb80c13fea47e69, type: 3}
+  agentsCount: 30
 --- !u!1 &2110089425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,7 +2551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2110089426}
-  - component: {fileID: 2110089427}
+  - component: {fileID: 1186397835}
   m_Layer: 0
   m_Name: SpiderSpawner
   m_TagString: Untagged
@@ -2572,7 +2573,7 @@ Transform:
   m_Father: {fileID: 578011845}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2110089427
+--- !u!114 &1186397835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2581,14 +2582,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2110089425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4c882ffdfbf0548abe3cfc80759444, type: 3}
+  m_Script: {fileID: 11500000, guid: 65fab6a4f90482c49a807b59925cf694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 300
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 30
-  prey: {fileID: 1708761484820264130, guid: 9dc9077befe13b240841a1d17b343698, type: 3}
-  preyCount: 50
+  agent: {fileID: 1708761484820264130, guid: 9dc9077befe13b240841a1d17b343698, type: 3}
+  agentsCount: 30
 --- !u!1 &2122407553
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,7 +3178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisEnvironmentType: 2
   thisEnvironmentEpoch: 3
-  size: 800
+  size: 400
   offset: 2
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 0
@@ -3197,9 +3198,9 @@ MonoBehaviour:
   - {fileID: 1000010624020320, guid: 1e52804bb49818c45a51f61f5fae5f39, type: 3}
   - {fileID: 1000010624020320, guid: 613ce2db6994ee748ad4192023afc8a5, type: 3}
   - {fileID: 1000010624020320, guid: e5f282339bb7da04fbc5642c7e1be928, type: 3}
-  count: 8000
-  maxSteepAngle: 40
-  lowerOffset: 0
+  count: 4500
+  maxSteepAngle: 80
+  lowerOffset: 0.05
   isNavMeshObstacle: 0
 --- !u!1 &8595565720677159470
 GameObject:
@@ -3306,4 +3307,4 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 060f33e19c6bd834da5ccd20d5a588ad, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d8ab80a5b9db60649bc786ec3fbbc152, type: 2}

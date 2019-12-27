@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PreySpawner : MonoBehaviour
+public class AISpawner : MonoBehaviour
 {
 
-    public float size = 450f;
+    public float size = 300f;
     public Vector2 blankSpaceCenterPosition = new Vector2(500, 500);
     public float blankSpaceRadius = 30f;
 
-    public GameObject prey;
-    List<GameObject> preys = new List<GameObject>();
-    public int preyCount;
+    public GameObject agent;
+    List<GameObject> agents = new List<GameObject>();
+    public int agentsCount = 30;
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < preyCount; i++)
+        for(int i = 0; i < agentsCount; i++)
         {
             RaycastHit spawnHit = CalculateSpawnHit();
 
@@ -26,18 +26,18 @@ public class PreySpawner : MonoBehaviour
 
             if (spawnHit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
             {
-                GameObject currentPrey = (Instantiate(prey, spawnHit.point, Quaternion.identity, this.transform));
-                currentPrey.name = prey.name + "_" + (i + 1);
-                preys.Add(currentPrey);
+                GameObject currentAgent = (Instantiate(agent, spawnHit.point, Quaternion.identity, this.transform));
+                currentAgent.name = agent.name + "_" + (i + 1);
+                agents.Add(currentAgent);
             }
             else
                 i--;
             }      
     }
 
-    public void Respawn(GameObject prey)
+    public void Respawn(GameObject agent)
     {
-        prey.GetComponent<NavMeshAgent>().enabled = false;
+        agent.GetComponent<NavMeshAgent>().enabled = false;
 
         RaycastHit spawnHit = CalculateSpawnHit();
 
@@ -45,22 +45,22 @@ public class PreySpawner : MonoBehaviour
             || spawnHit.point == Vector3.zero 
             || spawnHit.transform.gameObject.layer != LayerMask.NameToLayer("Terrain"))
         {
-            Respawn(prey);
+            Respawn(agent);
             return;
         }
 
-        prey.transform.position = spawnHit.point;
-        prey.GetComponent<AIController>().SpawnPosition = spawnHit.point;
+        agent.transform.position = spawnHit.point;
+        agent.GetComponent<AIController>().SpawnPosition = spawnHit.point;
 
-        prey.GetComponent<NavMeshAgent>().enabled = true;
+        agent.GetComponent<NavMeshAgent>().enabled = true;
 
-        prey.GetComponent<AIController>().PerformStuckCheck();
+        agent.GetComponent<AIController>().PerformStuckCheck();
     }
 
     public void RespawnAll()
     {
-        foreach (GameObject prey in preys)
-            Respawn(prey);
+        foreach (GameObject agent in agents)
+            Respawn(agent);
     }
 
     public RaycastHit CalculateSpawnHit()
