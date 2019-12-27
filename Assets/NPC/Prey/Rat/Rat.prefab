@@ -1157,6 +1157,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1332,7 +1333,7 @@ GameObject:
   - component: {fileID: 5039531088027932888}
   - component: {fileID: 3132817673489348002}
   - component: {fileID: 1638878304}
-  - component: {fileID: 3090062441653767380}
+  - component: {fileID: 7276920210129668046}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -1397,7 +1398,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3090062441653767380
+--- !u!114 &7276920210129668046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1406,7 +1407,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8334855634422311627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988fdfa7388746549a50824ea9e590e2, type: 3}
+  m_Script: {fileID: 11500000, guid: c08a258bf5285124faed727a48915f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wanderRadius: 30
@@ -1422,6 +1423,8 @@ MonoBehaviour:
   runAngularSpeed: 600
   maxIdleTime: 6
   minIdleTime: 2
+  nutrition: 0.1
+  value: 10
 --- !u!1 &8854547184402036941
 GameObject:
   m_ObjectHideFlags: 0

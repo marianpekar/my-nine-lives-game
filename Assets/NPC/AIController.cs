@@ -27,16 +27,13 @@ public class AIController : MonoBehaviour
     public Vector3 SpawnPosition { get; set; }
     float maxStuckTime;
 
-    NavMeshAgent agent;
-    Animator animator;
-    PreySpawner parentSpawner;
-    PostProcessManager postProcessManager;
+    protected NavMeshAgent agent;
+    protected Animator animator;
+    protected PreySpawner parentSpawner;
 
     // Start is called before the first frame update
     void Start()
     {
-        postProcessManager = FindObjectOfType<PostProcessManager>();
-
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -110,12 +107,12 @@ public class AIController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, visibleRadius);
     }
 
-    bool CloseToPlayer(float detectionRadius)
+    protected bool CloseToPlayer(float detectionRadius)
     {
         return CalculateDistanceToPlayer() < detectionRadius;
     }
 
-    bool SeePlayer()
+    protected bool SeePlayer()
     {
         if(CalculateDistanceToPlayer() < visibleRadius)
         {
@@ -127,35 +124,6 @@ public class AIController : MonoBehaviour
             (Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) < fieldOfView || 
              Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) > 360 - fieldOfView);
     }
-
-    void Flee()
-    {
-        Vector3 fleeDirection = -CalculateDirectionToPlayer().normalized;
-        Vector3 newGoalUp = (transform.position + fleeDirection * fleeRadius) + Vector3.up * fleeRadius;
-
-        Vector3 newGoal;
-        RaycastHit hit;
-        if (Physics.Raycast(newGoalUp, Vector3.down * fleeRadius, out hit))
-            newGoal = hit.point;
-        else
-            newGoal = Vector3.zero;
-   
-
-        Debug.DrawLine(transform.position, newGoalUp, Color.red);
-        Debug.DrawLine(newGoalUp, newGoal, Color.blue);
-
-        NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(newGoal, path);
-
-        if (path.status != NavMeshPathStatus.PathInvalid)
-        {
-            agent.SetDestination(path.corners[path.corners.Length - 1]);
-            animator.SetBool("isRunning", true);
-            agent.speed = runSpeed;
-            agent.angularSpeed = runAngularSpeed;
-        }
-    }
-
     public void Idle()
     {
         animator.SetBool("isWalking", false);
@@ -171,17 +139,6 @@ public class AIController : MonoBehaviour
         agent.speed = walkSpeed;
         agent.angularSpeed = walkAngularSpeed;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        CheckForGoal();
-        CheckForBeingEaten();
-        CheckForDanger();
-
-        animator.SetFloat("velocity", agent.velocity.magnitude);
-    }
-
     void LateUpdate()
     {
         AlignWithTerrain();
@@ -195,12 +152,12 @@ public class AIController : MonoBehaviour
             return agent.destination - this.transform.position;
     }
 
-    Vector3 CalculateDirectionToPlayer()
+    protected Vector3 CalculateDirectionToPlayer()
     {
         return PlayerStates.Singleton.Position - transform.position;
     }
 
-    float CalculateDistanceToPlayer()
+    protected float CalculateDistanceToPlayer()
     {
         return Vector3.Distance(PlayerStates.Singleton.Position, this.transform.position);
     }
@@ -221,7 +178,7 @@ public class AIController : MonoBehaviour
         }
     }
 
-    private Vector3 GetHitNormal()
+    protected Vector3 GetHitNormal()
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
@@ -238,40 +195,6 @@ public class AIController : MonoBehaviour
         else
         {
             return Vector3.zero;
-        }
-    }
-
-    void CheckForBeingEaten()
-    {
-        if (CalculateDistanceToPlayer() < 0.5f)
-        {
-            PlayerStates.Singleton.PreyCatched(value, nutrition);
-            parentSpawner.Respawn(this.gameObject);
-            Walk();
-        }
-    }
-
-    void CheckForDanger()
-    {
-        if(SeePlayer())
-            Flee();
-
-        if (CloseToPlayer(detectionRadius))
-        {
-            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(criticalDetectionRadius))
-                Flee();
-        }
-    }
-
-    void CheckForGoal()
-    {
-        if (!agent.isActiveAndEnabled || !agent.isOnNavMesh)
-            return;
-
-        if (agent.remainingDistance < 0.5f)
-        {
-            animator.SetBool("isRunning", false);
-            Idle();
         }
     }
 }

@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        // TODO: Just for debuging purposes, remove after
+        if (Input.GetKey(KeyCode.P))
+            PlayerStates.Singleton.FeedLevel = 0.25f;
+
         if (PlayerStates.Singleton.IsDead)
         {
             die.Execute(animator);
