@@ -26,7 +26,6 @@ public class FlashController : MonoBehaviour
     void AddOverlay()
     {
         overlayIntensity -= overlayDecreaseStep;
-        Debug.Log(overlayIntensity);
 
         if(overlayIntensity <= 0f)
         {
