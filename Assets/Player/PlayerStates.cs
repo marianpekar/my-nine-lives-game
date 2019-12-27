@@ -45,6 +45,7 @@ public sealed class PlayerStates
             return;
         }
 
+        FeedLevel = 1.0f;
         PlayerEvents.Singleton.ProcessLiveRemovedActions();
     }
 
@@ -56,7 +57,6 @@ public sealed class PlayerStates
     private float feedLevel = 1.0f;
 
     public int Preys { get; set; } = 0;
-
     public int Score { get; set; } = 0;
     public float FeedLevel { 
         get 
@@ -73,7 +73,7 @@ public sealed class PlayerStates
             else if (feedLevel <= 0f)
             {
                 feedLevel = 0f;
-                IsDead = true;
+                RemoveLive();
             }
 
             PlayerEvents.Singleton.ProcessFeedLevelChangedActions();
@@ -91,8 +91,9 @@ public sealed class PlayerStates
     public void Reset()
     {
         FeedLevel = 1.0f;
+        Preys = 0;
+        Score = 0;
         IsDead = false;
-        PlayerEvents.Singleton.ProcessFeedLevelChangedActions();
     }
 
     private static PlayerStates instance;
