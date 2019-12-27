@@ -25,6 +25,8 @@ public class SpawnManager : MonoBehaviour
     {
         spawnPosition = CalculateSpawnHit().point + offset;
         Spawn(spawnPosition);
+
+        PlayerEvents.Singleton.RegisterLifeRemovedActions(Respawn);
     }
 
     public void Spawn(Vector3 position)

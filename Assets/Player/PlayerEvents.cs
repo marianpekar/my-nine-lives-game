@@ -7,6 +7,7 @@ public sealed class PlayerEvents
 {
     List<Action> preyCatchedActions = new List<Action>();
     List<Action> feedLevelChangedActions = new List<Action>();
+    List<Action> liveRemovedActions = new List<Action>(); 
     public void RegisterFeedLevelChangedActons(Action action)
     {
         feedLevelChangedActions.Add(action);
@@ -15,6 +16,19 @@ public sealed class PlayerEvents
     public void RegisterPreyCatchAction(Action action)
     {
         preyCatchedActions.Add(action);
+    }
+
+    public void RegisterLifeRemovedActions(Action action)
+    {
+        liveRemovedActions.Add(action);
+    }
+
+    public void ProcessLiveRemovedActions()
+    {
+        foreach(Action action in liveRemovedActions)
+        {
+            action.Invoke();
+        }
     }
 
     public void ProcessPreyCatchedActions()
@@ -37,6 +51,7 @@ public sealed class PlayerEvents
     {
         preyCatchedActions.Clear();
         feedLevelChangedActions.Clear();
+        liveRemovedActions.Clear();
     }
 
     private static PlayerEvents instance;

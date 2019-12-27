@@ -33,6 +33,21 @@ public sealed class PlayerStates
     public float SlowMotionTimeScale { get; set; } = 0.25f;
     public float SlowMotionDuration { get; set; } = 1f; // in seconds
 
+    // Lives
+    private int lives = 9;
+    public void RemoveLive()
+    {
+        lives--;
+
+        if (lives <= 0)
+        {
+            IsDead = true;
+            return;
+        }
+
+        PlayerEvents.Singleton.ProcessLiveRemovedActions();
+    }
+
     // Feeding
     public float EnergyConsumed { get; set; } = 0.01f;
     public float EnergyConsumedInterval { get; set; } = 6f; // in seconds

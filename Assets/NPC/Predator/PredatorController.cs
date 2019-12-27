@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PredatorController : AIController
 {
@@ -22,10 +23,9 @@ public class PredatorController : AIController
 
     void CheckForPlayerCatched()
     {
-        if (CalculateDistanceToPlayer() < 0.5f)
+        if (CalculateDistanceToPlayer() < 1f)
         {
-            Debug.Log("Player catched");
-            parentSpawner.Respawn(this.gameObject);
+            PlayerStates.Singleton.RemoveLive();
             Walk();
         }
     }

@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
         // TODO: Just for debuging purposes, remove after
         if (Input.GetKey(KeyCode.P))
             PlayerStates.Singleton.FeedLevel = 0.25f;
+        if (Input.GetKey(KeyCode.K))
+            PlayerStates.Singleton.RemoveLive();
 
         if (PlayerStates.Singleton.IsDead)
         {
