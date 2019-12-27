@@ -542,6 +542,7 @@ GameObject:
   - component: {fileID: 2301310047853024325}
   - component: {fileID: 6527212867451141977}
   - component: {fileID: 6527212867451141978}
+  - component: {fileID: 3911153896104581272}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -592,7 +593,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3005234192516114006}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -334000983
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -606,6 +607,30 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3911153896104581272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005234192516114006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d898e12eb0f9364c8b4da9d0cde8c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderRadius: 50
+  visibleRadius: 12
+  fieldOfView: 35
+  detectionRadius: 6
+  criticalDetectionRadius: 4
+  stealthLevelDetectionLimit: 0.75
+  walkSpeed: 0.5
+  walkAngularSpeed: 120
+  runSpeed: 6
+  runAngularSpeed: 600
+  maxIdleTime: 6
+  minIdleTime: 3
 --- !u!1 &3133407709405037034
 GameObject:
   m_ObjectHideFlags: 0

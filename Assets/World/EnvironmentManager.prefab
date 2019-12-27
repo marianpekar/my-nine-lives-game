@@ -921,6 +921,7 @@ Transform:
   - {fileID: 2110089426}
   - {fileID: 424856995}
   - {fileID: 1991770654}
+  - {fileID: 1567875072}
   m_Father: {fileID: 902378254}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1433,10 +1434,11 @@ MonoBehaviour:
   - {fileID: 48468954}
   - {fileID: 353212223}
   - {fileID: 7714044935749329505}
-  preySpawners:
-  - {fileID: 424856994, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
-  - {fileID: 2110089427, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
-  - {fileID: 1991770655, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+  aiSpawners:
+  - {fileID: 1186397835}
+  - {fileID: 1117743615}
+  - {fileID: 196587416}
+  - {fileID: 1567875073}
   groundSelector: {fileID: 23846019}
 --- !u!1 &930373492
 GameObject:
@@ -1849,6 +1851,7 @@ GameObject:
   - component: {fileID: 1361570439}
   - component: {fileID: 1361570438}
   - component: {fileID: 1361570442}
+  - component: {fileID: 842510042}
   m_Layer: 9
   m_Name: Ground_1
   m_TagString: Untagged
@@ -1943,6 +1946,35 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: e0b39058b00e0cb4d8d9f93ba7106de3, type: 2}
+--- !u!114 &842510042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361570437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -902729914
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 3c62696ae324de84cbc1e8cc49dacdc6, type: 2}
 --- !u!1 &1407356743
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2049,7 @@ GameObject:
   - component: {fileID: 1564342091}
   - component: {fileID: 1564342090}
   - component: {fileID: 1564342093}
+  - component: {fileID: 1731548079}
   m_Layer: 9
   m_Name: Ground_2
   m_TagString: Untagged
@@ -2111,6 +2144,83 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 354450e1cb4ace5489fcbf07949802c3, type: 2}
+--- !u!114 &1731548079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564342089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -902729914
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 486c51ac59907c943a47d65f2cd70acb, type: 2}
+--- !u!1 &1567875071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567875072}
+  - component: {fileID: 1567875073}
+  m_Layer: 0
+  m_Name: WolfSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1567875072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567875071}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 578011845}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567875073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567875071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fab6a4f90482c49a807b59925cf694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 300
+  blankSpaceCenterPosition: {x: 500, y: 500}
+  blankSpaceRadius: 100
+  agent: {fileID: 3005234192516114006, guid: 9b28c6c000ee72646b25a650b5d50e73, type: 3}
+  agentsCount: 1
 --- !u!1 &1663634958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,6 +2266,7 @@ GameObject:
   - component: {fileID: 1664406387}
   - component: {fileID: 1664406386}
   - component: {fileID: 1664406389}
+  - component: {fileID: 2090031158}
   m_Layer: 9
   m_Name: Ground_3
   m_TagString: Untagged
@@ -2250,6 +2361,35 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: e396a9e68b7470d44a237cd9bb4e2543, type: 2}
+--- !u!114 &2090031158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664406385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -902729914
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 363e075042c99254aa0c399a6a85f358, type: 2}
 --- !u!1 &1685899426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +2915,7 @@ GameObject:
   - component: {fileID: 8310955993930818285}
   - component: {fileID: 9004027599757069447}
   - component: {fileID: 6869938700269822656}
+  - component: {fileID: 449266521}
   m_Layer: 9
   m_Name: Ground_5
   m_TagString: Untagged
@@ -2869,6 +3010,35 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 53f57bab949009a4a8c2d7db2aa74044, type: 2}
+--- !u!114 &449266521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480501088746317721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -902729914
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 06b1a403a7cefec47b6e1ba547a6e9c2, type: 2}
 --- !u!1 &3349359029621242485
 GameObject:
   m_ObjectHideFlags: 0
@@ -3214,6 +3384,7 @@ GameObject:
   - component: {fileID: 6335171840963647496}
   - component: {fileID: 3271672366302134098}
   - component: {fileID: 7494487814059409425}
+  - component: {fileID: 485307413}
   m_Layer: 9
   m_Name: Ground_4
   m_TagString: Untagged
@@ -3308,3 +3479,32 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: d8ab80a5b9db60649bc786ec3fbbc152, type: 2}
+--- !u!114 &485307413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595565720677159470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -902729914
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: d18ccea0c38c328468f27c37533f7103, type: 2}

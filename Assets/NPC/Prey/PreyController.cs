@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class PreyController : AIController
 {
+    public float fleeRadius = 60f;
+    public float nutrition = 0.1f;
+    public int value = 10;
     void Flee()
     {
         Vector3 fleeDirection = -base.CalculateDirectionToPlayer().normalized;

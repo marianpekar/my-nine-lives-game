@@ -10,7 +10,6 @@ public class AIController : MonoBehaviour
     public float fieldOfView = 45f;
     public float detectionRadius = 6f;
     public float criticalDetectionRadius = 2f;
-    public float fleeRadius = 60f;
     public float stealthLevelDetectionLimit = 0.75f;
 
     public float walkSpeed = 0.5f;
@@ -20,9 +19,6 @@ public class AIController : MonoBehaviour
 
     public float maxIdleTime = 6f;
     public float minIdleTime = 2f;
-
-    public float nutrition = 0.1f;
-    public int value = 10;
 
     public Vector3 SpawnPosition { get; set; }
     float maxStuckTime;

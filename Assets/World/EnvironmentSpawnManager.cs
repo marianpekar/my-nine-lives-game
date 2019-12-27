@@ -7,7 +7,7 @@ public class EnvironmentSpawnManager : MonoBehaviour
     public EnvironmentManager environmentManager;
 
     public ObjectsSpawner[] objectsSpawners;
-    public AISpawner[] preySpawners;
+    public AISpawner[] aiSpawners;
 
     public GroundSelector groundSelector;
 
@@ -57,7 +57,7 @@ public class EnvironmentSpawnManager : MonoBehaviour
                 objectsSpawner.SetAllInactive();
         }
 
-        foreach (AISpawner preySpawner in preySpawners)
+        foreach (AISpawner preySpawner in aiSpawners)
         {
             preySpawner.RespawnAll();
         }
