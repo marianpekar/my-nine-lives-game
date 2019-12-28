@@ -122,6 +122,7 @@ public class AIController : MonoBehaviour
     }
     public void Idle()
     {
+        animator.SetBool("isRunning", false);
         animator.SetBool("isWalking", false);
         agent.speed = 0;
         agent.angularSpeed = 0;
@@ -131,6 +132,7 @@ public class AIController : MonoBehaviour
 
     public void Walk()
     {
+        animator.SetBool("isRunning", false);
         animator.SetBool("isWalking", true);
         agent.speed = walkSpeed;
         agent.angularSpeed = walkAngularSpeed;

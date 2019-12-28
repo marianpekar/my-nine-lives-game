@@ -39,7 +39,7 @@ public class PreyController : AIController
     // Update is called once per frame
     void Update()
     {
-        CheckForGoal();
+        CheckForWanderGoal();
         CheckForBeingEaten();
         CheckForDanger();
 
@@ -68,14 +68,13 @@ public class PreyController : AIController
         }
     }
 
-    void CheckForGoal()
+    void CheckForWanderGoal()
     {
         if (!agent.isActiveAndEnabled || !agent.isOnNavMesh)
             return;
 
         if (agent.remainingDistance < 0.5f)
         {
-            animator.SetBool("isRunning", false);
             Idle();
         }
     }

@@ -625,12 +625,13 @@ MonoBehaviour:
   detectionRadius: 6
   criticalDetectionRadius: 4
   stealthLevelDetectionLimit: 0.75
-  walkSpeed: 0.5
+  walkSpeed: 0.75
   walkAngularSpeed: 120
-  runSpeed: 6
+  runSpeed: 3
   runAngularSpeed: 600
   maxIdleTime: 6
   minIdleTime: 3
+  stopChasingDistance: 20
 --- !u!1 &3133407709405037034
 GameObject:
   m_ObjectHideFlags: 0
