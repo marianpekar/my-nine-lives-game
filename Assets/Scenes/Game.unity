@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 137000468}
   - component: {fileID: 137000467}
   m_Layer: 5
-  m_Name: WorldBoundariesWhiteOverlay
+  m_Name: WhiteOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 1257007806}
   - component: {fileID: 1257007805}
   m_Layer: 0
-  m_Name: WhiteOverlayController
+  m_Name: FlashController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,8 +626,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overlayDecreaseStep: 0.05
   overlayDecreaseInterval: 0.01
-  overlayIncreaseStep: 0.05
-  overlayIncreaseInterval: 0.01
 --- !u!114 &1257007805
 MonoBehaviour:
   m_ObjectHideFlags: 0
