@@ -42,11 +42,12 @@ public sealed class PlayerStates
         if (lives <= 0)
         {
             IsDead = true;
+            PlayerEvents.Singleton.InvokePlayerDiedActions();
             return;
         }
 
         FeedLevel = 1.0f;
-        PlayerEvents.Singleton.ProcessLiveRemovedActions();
+        PlayerEvents.Singleton.InvokeLiveRemovedActions();
     }
 
     // Feeding
@@ -76,7 +77,7 @@ public sealed class PlayerStates
                 RemoveLive();
             }
 
-            PlayerEvents.Singleton.ProcessFeedLevelChangedActions();
+            PlayerEvents.Singleton.InvokeFeedLevelChangedActions();
         } 
     } 
 
@@ -85,7 +86,7 @@ public sealed class PlayerStates
         Preys++;
         FeedLevel += nutrition;
         Score += value;
-        PlayerEvents.Singleton.ProcessPreyCatchedActions();
+        PlayerEvents.Singleton.InvokePreyCatchedActions();
     }
 
     public void Reset()

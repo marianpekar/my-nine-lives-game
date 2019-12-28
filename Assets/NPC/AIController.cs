@@ -47,7 +47,6 @@ public class AIController : MonoBehaviour
 
     public void PerformStuckCheck()
     {
-        GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         Invoke("RespawnIfStuck", maxStuckTime);
     }
 
@@ -55,13 +54,7 @@ public class AIController : MonoBehaviour
     {
         if (Vector3.Distance(SpawnPosition, this.transform.position) < 0.5f)
         {
-            //Debug.Log("Agent is stuck. Respawn.");
             parentSpawner.Respawn(this.gameObject);
-        }
-        else
-        {
-            //Debug.Log("Agent is ok. Make visible.");
-            GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         }
     }
 

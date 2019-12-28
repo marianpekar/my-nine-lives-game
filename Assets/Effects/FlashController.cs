@@ -8,7 +8,7 @@ public class FlashController : MonoBehaviour
 {
     public float overlayDecreaseStep = 0.05f;
     public float overlayDecreaseInterval = 0.01f;
-    
+
     float overlayIntensity;
 
     Image overlay;
@@ -20,10 +20,10 @@ public class FlashController : MonoBehaviour
     void Flash()
     {
         overlayIntensity = 1f;
-        InvokeRepeating("AddOverlay", 0.00001f, overlayDecreaseInterval);
+        InvokeRepeating("PerformFlash", 0.00001f, overlayDecreaseInterval);
     }
 
-    void AddOverlay()
+    void PerformFlash()
     {
         overlayIntensity -= overlayDecreaseStep;
 

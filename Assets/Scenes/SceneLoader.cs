@@ -23,7 +23,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadMainMenuScene()
     {
         SceneManager.LoadScene(mainMenuSceneIndex);
-        PlayerEvents.Singleton.ResetAllActionLists(); 
+        PlayerEvents.Singleton.ClearAllActionLists(); 
         DestroyImmediate(this.gameObject);
     }
 

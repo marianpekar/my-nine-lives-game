@@ -28,7 +28,7 @@ public class PredatorController : AIController
 
     void CheckForStopChasing()
     {
-        if (agent.destination == PlayerStates.Singleton.Position && CalculateDistanceToPlayer() < stopChasingDistance)
+        if ((agent.destination == PlayerStates.Singleton.Position && CalculateDistanceToPlayer() < stopChasingDistance) || PlayerStates.Singleton.IsDead)
             Walk();
     }
 
