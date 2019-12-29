@@ -9,6 +9,8 @@ public sealed class PlayerEvents
     List<Action> feedLevelChangedActions = new List<Action>();
     List<Action> liveRemovedActions = new List<Action>();
     List<Action> playerDiedActions = new List<Action>();
+    List<Action> playerChasedStartActions = new List<Action>();
+    List<Action> playerChasedEndActions = new List<Action>();
 
     private void InvokeActions(List<Action> actions)
     {
@@ -20,11 +22,16 @@ public sealed class PlayerEvents
     public void RegisterPreyCatchAction(Action action) { preyCatchedActions.Add(action); }
     public void RegisterLifeRemovedActions(Action action) { liveRemovedActions.Add(action); }
     public void RegisterPlayerDiedActions(Action action) { playerDiedActions.Add(action); }
+    public void RegisterPlayerChasedStartActions(Action action) { playerChasedStartActions.Add(action); }
+    public void RegisterPlayerChasedEndActions(Action action) { playerChasedEndActions.Add(action); }
+
 
     public void InvokeLiveRemovedActions() { InvokeActions(liveRemovedActions); }
     public void InvokePreyCatchedActions() { InvokeActions(preyCatchedActions); }
     public void InvokeFeedLevelChangedActions() { InvokeActions(feedLevelChangedActions); }
-    public void InvokePlayerDiedActions() { InvokeActions(playerDiedActions); } 
+    public void InvokePlayerDiedActions() { InvokeActions(playerDiedActions); }
+    public void InvokePlayerChasedStartActions() { InvokeActions(playerChasedStartActions); }
+    public void InvokePlayerChasedEndActions() { InvokeActions(playerChasedStartActions); }
 
     public void ClearAllActionLists()
     {
@@ -32,6 +39,8 @@ public sealed class PlayerEvents
         feedLevelChangedActions.Clear();
         liveRemovedActions.Clear();
         playerDiedActions.Clear();
+        playerChasedStartActions.Clear();
+        playerChasedEndActions.Clear();
     }
 
     private static PlayerEvents instance;

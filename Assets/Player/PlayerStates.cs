@@ -6,10 +6,10 @@ using UnityEngine;
 public sealed class PlayerStates
 {
     // Movement
-    public float RunningSpeed { get; } = 3.5f;
+    public float RunningSpeed { get; } = 4.0f;
     public float WalkingSpeed { get; } = 0.8f;
     public float WalkingBackSpeed { get; } = 1f;
-    public float RotationSpeed { get; } = 2f;
+    public float RotationSpeed { get; } = 2.8f;
     public float JumpHeight { get; } = 4f;
     public float JumpDistance { get; } = 10f;
     public float BackJumpSpeed { get; } = 4f;
@@ -49,6 +49,27 @@ public sealed class PlayerStates
 
         FeedLevel = 1.0f;
         PlayerEvents.Singleton.InvokeLiveRemovedActions();
+    }
+
+    // Chasing
+    private bool isChased = false;
+    public bool IsChased { 
+        get { 
+            return isChased; 
+        }
+        set {
+            if (value == true && isChased == false)
+            {
+                isChased = true;
+                PlayerEvents.Singleton.InvokePlayerChasedStartActions();
+            } 
+            else if (value == false && isChased == true) 
+            {
+                isChased = false;
+                PlayerEvents.Singleton.InvokePlayerChasedEndActions();
+            }
+                
+        }
     }
 
     // Feeding

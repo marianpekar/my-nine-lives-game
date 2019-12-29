@@ -1018,7 +1018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567875073, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
       propertyPath: blankSpaceRadius
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1567875073, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
       propertyPath: agentsCount

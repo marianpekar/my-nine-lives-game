@@ -129,13 +129,11 @@ public class EnvironmentManager : MonoBehaviour
     public void SetRandomEnvironmentType()
     {
         CurrentEnvironmentType = (EnvironmentType)Random.Range(0, ENVIRONMENT_TYPES_COUNT - 1);
-        //Debug.Log(CurrentEnvironmentType);
     }
 
     public void SetRandomEnvironmentEpoch()
     {
         CurrentEnvironmentEpoch = (EnvironmentEpoch)Random.Range(0, ENVIRONMENT_EPOCHS_COUNT - 1);
-        Debug.Log(CurrentEnvironmentEpoch);
     }
 
     void SetPostProcessing()

@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderRadius: 30
   visibleRadius: 8
-  fieldOfView: 45
+  fieldOfView: 80
   detectionRadius: 6
   criticalDetectionRadius: 2
   stealthLevelDetectionLimit: 0.75

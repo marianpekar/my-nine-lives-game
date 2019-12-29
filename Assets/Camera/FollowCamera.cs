@@ -56,14 +56,17 @@ public class FollowCamera : MonoBehaviour
 
     void LateUpdate()
     {
+        ResolveCameraLook();
         KeepDistanceFromGround();
-        SetBetweenCloserAndOriginalCamera();
         CalculateOffsetToAvoidObstacle();
         SetPointToLookAt();
         SetPositionAndRotation();
     }
     void KeepDistanceFromGround()
     {
+        if (PlayerStates.Singleton.IsChased)
+            return;
+
         if ((int)DistanceToGround() < initialDistanceToGround || offset.y > maxYOffset)
             offset.y -= 0.01f;
         else if ((int)DistanceToGround() > initialDistanceToGround || offset.y < minYOffset)
@@ -94,18 +97,30 @@ public class FollowCamera : MonoBehaviour
             pointToLookAt = pointToLookAtFront;
     }
 
-    void SetBetweenCloserAndOriginalCamera()
+    void ResolveCameraLook()
     {
+        if (PlayerStates.Singleton.IsChased)
+        {
+            SetChaseCamera();
+            return;
+        }
+
         if ((PlayerStates.Singleton.IsWalking && !PlayerStates.Singleton.IsWalkingBackward && PlayerStates.Singleton.IsGrounded) || ObstaclesFromBothSides(obstaclesOnBothSidesRayLength))
             SetCloserCamera();
         else
             SetOriginalCamera();
     }
 
+    void SetChaseCamera()
+    {
+        offset.y = -3f;
+        offset.z = 4f;
+    }
+
     void SetCloserCamera()
     {
-        offset.y = offset.y / 3f;
-        offset.z = offset.z / 2f;
+        offset.y /= 3f;
+        offset.z /= 2f;
         sideRaysDist = sideRayDistSmall;
         postProcesingManager.SetDOF(closerCameraFStop, closerCameraFocusDistance, focusSpeed);
     }

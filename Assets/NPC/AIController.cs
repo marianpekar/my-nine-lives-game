@@ -28,7 +28,7 @@ public class AIController : MonoBehaviour
     protected AISpawner parentSpawner;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
@@ -110,8 +110,8 @@ public class AIController : MonoBehaviour
         }
 
         return CalculateDistanceToPlayer() < visibleRadius && 
-            (Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) < fieldOfView || 
-             Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) > 360 - fieldOfView);
+            (Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) < fieldOfView / 2 || 
+             Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) > 360 - fieldOfView / 2);
     }
     public void Idle()
     {

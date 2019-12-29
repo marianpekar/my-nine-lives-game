@@ -6,13 +6,28 @@ using UnityEngine.UI;
 
 public class PredatorController : AIController
 {
-    public float stopChasingDistance = 20f;
+    public float stopChasingDistance;
+    private bool isChasingPlayer = false;
+    new void Start()
+    {
+        base.Start();
+        stopChasingDistance = visibleRadius * 2f;
+    }
+
     void Chase()
     {
+        isChasingPlayer = true;
+        PlayerStates.Singleton.IsChased = true;
         agent.destination = PlayerStates.Singleton.Position;
         agent.speed = runSpeed;
         agent.angularSpeed = runAngularSpeed;
         animator.SetBool("isRunning", true);
+    }
+    void StopChasing()
+    {
+        isChasingPlayer = false;
+        PlayerStates.Singleton.IsChased = false;
+        Walk();
     }
 
     // Update is called once per frame
@@ -28,8 +43,10 @@ public class PredatorController : AIController
 
     void CheckForStopChasing()
     {
-        if ((agent.destination == PlayerStates.Singleton.Position && CalculateDistanceToPlayer() < stopChasingDistance) || PlayerStates.Singleton.IsDead)
-            Walk();
+        if ((isChasingPlayer && CalculateDistanceToPlayer() > stopChasingDistance) || PlayerStates.Singleton.IsDead)
+        {
+            StopChasing();
+        }
     }
 
     void CheckForPlayerCatched()
@@ -37,7 +54,7 @@ public class PredatorController : AIController
         if (CalculateDistanceToPlayer() < 1f)
         {
             PlayerStates.Singleton.RemoveLive();
-            Walk();
+            StopChasing();
         }
     }
 

@@ -919,14 +919,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderRadius: 50
   visibleRadius: 12
-  fieldOfView: 35
-  detectionRadius: 6
+  fieldOfView: 90
+  detectionRadius: 8
   criticalDetectionRadius: 4
   stealthLevelDetectionLimit: 0.75
   walkSpeed: 0.8
   walkAngularSpeed: 160
-  runSpeed: 3.3
-  runAngularSpeed: 600
+  runSpeed: 3.7
+  runAngularSpeed: 800
   maxIdleTime: 6
   minIdleTime: 4
   stopChasingDistance: 20
