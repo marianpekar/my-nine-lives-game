@@ -34,7 +34,8 @@ public sealed class PlayerStates
     public float SlowMotionDuration { get; set; } = 1f; // in seconds
 
     // Lives
-    private int lives = 9;
+    private const int maxLives = 9;
+    private int lives = maxLives;
     public void RemoveLive()
     {
         lives--;
@@ -94,6 +95,7 @@ public sealed class PlayerStates
         FeedLevel = 1.0f;
         Preys = 0;
         Score = 0;
+        lives = maxLives;
         IsDead = false;
     }
 
