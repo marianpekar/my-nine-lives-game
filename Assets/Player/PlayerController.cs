@@ -53,6 +53,11 @@ public class PlayerController : MonoBehaviour
             else if (GameInputManager.GetKey("Backward"))
                 verticalAxis = -1f;
 
+            if (GameInputManager.GetKey("Sprint"))
+                PlayerStates.Singleton.IsSprinting = true;
+            else
+                PlayerStates.Singleton.IsSprinting = false;
+
             moveDirection = new Vector3(0, 0, verticalAxis);
             moveDirection = transform.TransformDirection(moveDirection);
 
@@ -70,7 +75,7 @@ public class PlayerController : MonoBehaviour
             else if (verticalAxis > 0)
             {
                 PlayerStates.Singleton.IsWalkingBackward = false;
-                moveDirection *= PlayerStates.Singleton.RunningSpeed;
+                moveDirection *= PlayerStates.Singleton.RunningSpeed + (PlayerStates.Singleton.IsSprinting ? PlayerStates.Singleton.SprintSpeedBoost : 0);
                 run.Execute(animator);
             }
             else

@@ -7,6 +7,7 @@ public sealed class PlayerStates
 {
     // Movement
     public float RunningSpeed { get; } = 4.0f;
+    public float SprintSpeedBoost { get; } = 2.5f;
     public float WalkingSpeed { get; } = 0.8f;
     public float WalkingBackSpeed { get; } = 1f;
     public float RotationSpeed { get; } = 2.8f;
@@ -22,6 +23,7 @@ public sealed class PlayerStates
     public bool IsDead { get; set; } = false;
     public bool IsWalking { get; set; } = false;
     public bool IsWalkingBackward { get; set; } = false;
+    public bool IsSprinting { get; set; } = false;
     public bool IsGrounded { get; set; } = true;
 
     // Stealth

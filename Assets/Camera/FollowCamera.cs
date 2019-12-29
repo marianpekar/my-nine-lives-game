@@ -21,7 +21,9 @@ public class FollowCamera : MonoBehaviour
     const float maxXRotation = 0.15f;
 
     float rotationSpeed = 4f;
-    float followSpeed = 1f;
+
+    const float defaultFollowSpeed = 1.5f;
+    float followSpeed = defaultFollowSpeed;
 
     float sideRaysDist;
     const float sideRayDistSmall = 0.5f;
@@ -51,7 +53,7 @@ public class FollowCamera : MonoBehaviour
 
     public void ResetFollowSpeed()
     {
-        followSpeed = 1f;
+        followSpeed = defaultFollowSpeed;
     }
 
     void LateUpdate()
