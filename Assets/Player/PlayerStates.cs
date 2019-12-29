@@ -6,15 +6,37 @@ using UnityEngine;
 public sealed class PlayerStates
 {
     // Movement
-    public float RunningSpeed { get; } = 4.0f;
-    public float SprintSpeedBoost { get; } = 2.5f;
+    public float RunningSpeed { get; } = 4f;
+    public float SprintSpeedBoost { get; } = 3f;
     public float WalkingSpeed { get; } = 0.8f;
     public float WalkingBackSpeed { get; } = 1f;
-    public float RotationSpeed { get; } = 2.8f;
+    public float RotationSpeed { get; } = 3f;
     public float JumpHeight { get; } = 4f;
     public float JumpDistance { get; } = 10f;
     public float BackJumpSpeed { get; } = 4f;
     public float BackJumpDistance { get; } = 4f;
+
+    // Stamina
+    private float stamina = 1.0f;
+    public float Stamina { 
+        get { 
+            return stamina; 
+        } 
+        set {
+            if (value > MaxStamina)
+                stamina = MaxStamina;
+            else if (value <= 0)
+                stamina = 0;
+            else
+                stamina = value;
+
+            PlayerEvents.Singleton.InvokeStaminaChangedActions();
+        } 
+    }
+    public float MaxStamina { get; set; } = 1.0f;
+    public float StaminaConsumptionInterval { get; } = 0.05f;
+    public float StaminaIncreaseInterval { get; } = 0.5f;
+    public float StaminaStep { get; } = 0.01f;
 
     // Physics
     public float Gravity { get; set; } = 20f;
@@ -24,6 +46,7 @@ public sealed class PlayerStates
     public bool IsWalking { get; set; } = false;
     public bool IsWalkingBackward { get; set; } = false;
     public bool IsSprinting { get; set; } = false;
+    public bool IsRunning { get; set; } = false;
     public bool IsGrounded { get; set; } = true;
 
     // Stealth
@@ -36,21 +59,32 @@ public sealed class PlayerStates
     public float SlowMotionDuration { get; set; } = 1f; // in seconds
 
     // Lives
-    private const int maxLives = 9;
+    const int maxLives = 9;
     private int lives = maxLives;
     public void RemoveLive()
     {
-        lives--;
-
-        if (lives <= 0)
+        if (lives <= 1)
         {
+            lives = 0;
             IsDead = true;
             PlayerEvents.Singleton.InvokePlayerDiedActions();
             return;
         }
 
-        FeedLevel = 1.0f;
+        lives--;
         PlayerEvents.Singleton.InvokeLiveRemovedActions();
+
+        FeedLevel = 1.0f;
+        Stamina = MaxStamina;
+    }
+    public int GetMaxLives()
+    {
+        return maxLives;
+    }
+
+    public int GetLives()
+    {
+        return lives;
     }
 
     // Chasing
@@ -92,7 +126,7 @@ public sealed class PlayerStates
         {
             feedLevel = value;
 
-            if (feedLevel > maxFeedLevel) {
+            if (feedLevel >= maxFeedLevel) {
                 feedLevel = maxFeedLevel;
             } 
             else if (feedLevel <= 0f)
@@ -118,6 +152,7 @@ public sealed class PlayerStates
         FeedLevel = 1.0f;
         Preys = 0;
         Score = 0;
+        Stamina = MaxStamina;
         lives = maxLives;
         IsDead = false;
     }

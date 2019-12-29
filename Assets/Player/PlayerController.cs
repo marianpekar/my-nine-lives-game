@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.K))
             PlayerStates.Singleton.RemoveLive();
 
+        //
+
         if (PlayerStates.Singleton.IsDead)
         {
             die.Execute(animator);
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
             else if (GameInputManager.GetKey("Backward"))
                 verticalAxis = -1f;
 
-            if (GameInputManager.GetKey("Sprint"))
+            if (GameInputManager.GetKey("Sprint") && PlayerStates.Singleton.Stamina > 0f)
                 PlayerStates.Singleton.IsSprinting = true;
             else
                 PlayerStates.Singleton.IsSprinting = false;
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (verticalAxis > 0)
             {
+                PlayerStates.Singleton.IsRunning = true;
                 PlayerStates.Singleton.IsWalkingBackward = false;
                 moveDirection *= PlayerStates.Singleton.RunningSpeed + (PlayerStates.Singleton.IsSprinting ? PlayerStates.Singleton.SprintSpeedBoost : 0);
                 run.Execute(animator);
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 PlayerStates.Singleton.IsWalkingBackward = false;
+                PlayerStates.Singleton.IsRunning = false;
                 idle.Execute(animator);
             }
 

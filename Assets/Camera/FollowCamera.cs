@@ -115,8 +115,8 @@ public class FollowCamera : MonoBehaviour
 
     void SetChaseCamera()
     {
-        offset.y = -3f;
-        offset.z = 4f;
+        offset.y = -2.8f;
+        offset.z = 3.7f;
     }
 
     void SetCloserCamera()

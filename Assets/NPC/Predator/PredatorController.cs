@@ -8,10 +8,13 @@ public class PredatorController : AIController
 {
     public float stopChasingDistance;
     private bool isChasingPlayer = false;
+    public float catchDistance = 1.5f;
     new void Start()
     {
         base.Start();
         stopChasingDistance = visibleRadius * 2f;
+
+        PlayerEvents.Singleton.RegisterPlayerDiedActions(StopChasing);
     }
 
     void Chase()
@@ -27,7 +30,6 @@ public class PredatorController : AIController
     {
         isChasingPlayer = false;
         PlayerStates.Singleton.IsChased = false;
-        Walk();
     }
 
     // Update is called once per frame
@@ -51,7 +53,7 @@ public class PredatorController : AIController
 
     void CheckForPlayerCatched()
     {
-        if (CalculateDistanceToPlayer() < 1f)
+        if (CalculateDistanceToPlayer() <= catchDistance)
         {
             PlayerStates.Singleton.RemoveLive();
             StopChasing();
@@ -60,6 +62,9 @@ public class PredatorController : AIController
 
     void CheckForPlayer()
     {
+        if (PlayerStates.Singleton.IsDead)
+            return;
+
         if (SeePlayer())
             Chase();
 

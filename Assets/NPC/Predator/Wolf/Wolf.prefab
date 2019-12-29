@@ -840,6 +840,7 @@ GameObject:
   - component: {fileID: 6527212867451141977}
   - component: {fileID: 6527212867451141978}
   - component: {fileID: 3911153896104581272}
+  - component: {fileID: 1557145020568541645}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -925,11 +926,25 @@ MonoBehaviour:
   stealthLevelDetectionLimit: 0.75
   walkSpeed: 0.8
   walkAngularSpeed: 160
-  runSpeed: 3.7
+  runSpeed: 4
   runAngularSpeed: 800
   maxIdleTime: 6
   minIdleTime: 4
   stopChasingDistance: 20
+  catchDistance: 1.5
+--- !u!65 &1557145020568541645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005234192516114006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.43192983, y: 0.9066409, z: 1.3292606}
+  m_Center: {x: -0.0049830675, y: 0.56275374, z: -0.019361258}
 --- !u!1 &3133407709405037034
 GameObject:
   m_ObjectHideFlags: 0

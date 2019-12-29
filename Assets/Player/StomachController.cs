@@ -11,6 +11,9 @@ public class StomachController : MonoBehaviour
 
     void ConsumeEnergy()
     {
+        if (PlayerStates.Singleton.IsDead)
+            return;
+
         PlayerStates.Singleton.FeedLevel -= PlayerStates.Singleton.EnergyConsumed;
     }
 }
