@@ -24,6 +24,8 @@ public class HUDManager : MonoBehaviour
     public Gradient staminaGradient;
     Color staminaBackgroundColor;
 
+    public Text score;
+
     private void Awake()
     {
         PlayerEvents.Singleton.RegisterFeedLevelChangedActons(UpdateFeedLevelIndicator);
@@ -35,7 +37,16 @@ public class HUDManager : MonoBehaviour
 
         PlayerEvents.Singleton.RegisterStaminaChangedActions(UpdateStaminaIndicator);
         PlayerEvents.Singleton.RegisterStaminaChangedActions(UpdateStaminaBackgroundImage);
+
+        PlayerEvents.Singleton.RegisterScoreChangedActions(UpdateScore);
     }
+
+    #region Score
+    void UpdateScore()
+    {
+        score.text = PlayerStates.Singleton.Score.ToString();
+    }
+    #endregion
 
     #region Stamina
     void UpdateStaminaIndicator()

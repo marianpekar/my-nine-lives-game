@@ -628,7 +628,7 @@ MonoBehaviour:
   minIdleTime: 2
   fleeRadius: 40
   nutrition: 0.05
-  value: 5
+  value: 500
 --- !u!1 &1937499352019604679
 GameObject:
   m_ObjectHideFlags: 0

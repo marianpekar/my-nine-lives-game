@@ -144,6 +144,8 @@ public sealed class PlayerStates
         Preys++;
         FeedLevel += nutrition;
         Score += value;
+
+        PlayerEvents.Singleton.InvokeScoreChangedActions();
         PlayerEvents.Singleton.InvokePreyCatchedActions();
     }
 
