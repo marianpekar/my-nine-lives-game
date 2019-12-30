@@ -14,7 +14,7 @@ public class Die : AnimatorCommand
     {
         if (played) return;
 
-        animator.SetBool("isRunning", true);
+        animator.SetBool("isRunning", false);
         animator.SetBool("isWalkingBack", false);
         animator.SetBool("isWalking", false);
 
