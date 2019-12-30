@@ -927,11 +927,10 @@ MonoBehaviour:
   walkSpeed: 0.8
   walkAngularSpeed: 160
   runSpeed: 4
-  runAngularSpeed: 800
+  runAngularSpeed: 1000
   maxIdleTime: 6
   minIdleTime: 4
-  stopChasingDistance: 20
-  catchDistance: 1.5
+  catchDistance: 1
 --- !u!65 &1557145020568541645
 BoxCollider:
   m_ObjectHideFlags: 0
