@@ -9276,8 +9276,8 @@ MonoBehaviour:
   noonColor: {r: 0.745283, g: 0.57268125, b: 0.10194911, a: 0}
   afternoonColor: {r: 0.9150943, g: 0.71784544, b: 0.33236915, a: 0}
   nightColor: {r: 0, g: 0.3652167, b: 0.5188679, a: 0}
-  morningFog: {r: 0.8901961, g: 0.21568628, b: 0.87058824, a: 1}
-  noonFog: {r: 0.105882354, g: 0.67058825, b: 0.7647059, a: 1}
+  morningFog: {r: 0.6901961, g: 0.16470589, b: 0.6745098, a: 1}
+  noonFog: {r: 0.62352943, g: 0.41960785, b: 0.18039216, a: 1}
   afternoonFog: {r: 0.9372549, g: 0.09411765, b: 0.30980393, a: 1}
   nightFog: {r: 0, g: 0.1983006, b: 0.4339623, a: 1}
   morningSkybox: {fileID: 2100000, guid: 5ad4bb65494444efebde1a1327e73097, type: 2}
