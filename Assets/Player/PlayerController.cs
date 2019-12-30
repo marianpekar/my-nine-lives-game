@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
             }
 
             // Jumps
-            if (GameInputManager.GetKey("Jump") && PlayerStates.Singleton.IsWalking)
+            if (GameInputManager.GetKey("Jump"))
             {
                 Time.timeScale = PlayerStates.Singleton.SlowMotionTimeScale;
                 Invoke("ResetTimeScale", PlayerStates.Singleton.SlowMotionDuration);
