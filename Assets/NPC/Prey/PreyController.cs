@@ -14,8 +14,7 @@ public class PreyController : AIController
         Vector3 newGoalUp = (transform.position + fleeDirection * fleeRadius) + Vector3.up * fleeRadius;
 
         Vector3 newGoal;
-        RaycastHit hit;
-        if (Physics.Raycast(newGoalUp, Vector3.down * fleeRadius, out hit))
+        if (Physics.Raycast(newGoalUp, Vector3.down * fleeRadius, out RaycastHit hit))
             newGoal = hit.point;
         else
             newGoal = Vector3.zero;
