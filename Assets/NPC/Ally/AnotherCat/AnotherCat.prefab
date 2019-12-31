@@ -371,18 +371,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderRadius: 30
-  visibleRadius: 3
+  visibleRadius: 8
   fieldOfView: 75
-  detectionRadius: 2
+  detectionRadius: 4
   criticalDetectionRadius: 1
   stealthLevelDetectionLimit: 0.75
-  walkSpeed: 0.5
+  walkSpeed: 0.4
   walkAngularSpeed: 120
-  runSpeed: 6
-  runAngularSpeed: 600
+  runSpeed: 5
+  runAngularSpeed: 1000
   maxIdleTime: 6
   minIdleTime: 2
-  interactDistance: 1
+  fleeRadius: 120
 --- !u!195 &5422453982559201412
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -543,9 +543,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.7830189, g: 0.08495018, b: 0.76768744, a: 1}
-  m_Intensity: 3
-  m_Range: 2
+  m_Color: {r: 0.9294118, g: 0.10588236, b: 0.50980395, a: 1}
+  m_Intensity: 1.8
+  m_Range: 3
   m_SpotAngle: 97.025604
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1180,7 +1180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5920198530278640411}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 7.06, z: 0}
+  m_LocalPosition: {x: -0.17, y: 7.54, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1144237807067638219}

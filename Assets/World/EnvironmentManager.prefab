@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 79056417}
   - component: {fileID: 79056418}
   m_Layer: 0
-  m_Name: AllyCatSpawner
+  m_Name: AnotherCatSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   blankSpaceCenterPosition: {x: 500, y: 500}
   blankSpaceRadius: 30
   agent: {fileID: 1683532481262580576, guid: 3e26ab570f9543b448e17c545389141b, type: 3}
-  agentsCount: 5
+  agentsCount: 1
 --- !u!1 &143876916
 GameObject:
   m_ObjectHideFlags: 0
