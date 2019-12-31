@@ -356,6 +356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat
       objectReference: {fileID: 0}
+    - target: {fileID: 8651485371551141362, guid: f47066f7a0d0d854f820a68a65381450,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f47066f7a0d0d854f820a68a65381450, type: 3}
 --- !u!1 &379253433
@@ -1415,7 +1420,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9
+  m_Text: '3
+
+'
 --- !u!222 &1811682562
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1613,7 +1620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0}
+  m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.33333334}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1662,9 +1669,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1567875073, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+    - target: {fileID: 79056418, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
       propertyPath: agentsCount
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3349359029621242485, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}

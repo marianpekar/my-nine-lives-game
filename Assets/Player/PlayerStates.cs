@@ -60,7 +60,8 @@ public sealed class PlayerStates
 
     // Lives
     const int maxLives = 9;
-    private int lives = maxLives;
+    const int defaultLifes = 3;
+    private int lives = defaultLifes;
     public void RemoveLive()
     {
         if (lives <= 1)
@@ -72,11 +73,21 @@ public sealed class PlayerStates
         }
 
         lives--;
-        PlayerEvents.Singleton.InvokeLiveRemovedActions();
+        PlayerEvents.Singleton.InvokeLifeRemovedActions();
 
         FeedLevel = 1.0f;
         Stamina = MaxStamina;
     }
+
+    public void AddLive()
+    {
+        if(lives < maxLives)
+        {
+            lives++;
+            PlayerEvents.Singleton.InvokeLifeAddedActions();
+        }
+    }
+
     public int GetMaxLives()
     {
         return maxLives;
@@ -155,7 +166,7 @@ public sealed class PlayerStates
         Preys = 0;
         Score = 0;
         Stamina = MaxStamina;
-        lives = maxLives;
+        lives = defaultLifes;
         IsDead = false;
     }
 

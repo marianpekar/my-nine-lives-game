@@ -33,6 +33,7 @@ public class HUDManager : MonoBehaviour
         PlayerEvents.Singleton.RegisterFeedLevelChangedActons(UpdateStomachBackgroundText);
 
         PlayerEvents.Singleton.RegisterLifeRemovedActions(UpdateLivesCountText);
+        PlayerEvents.Singleton.RegisterLifeAddedActions(UpdateLivesCountText);
         PlayerEvents.Singleton.RegisterPlayerDiedActions(UpdateLivesCountText);
 
         PlayerEvents.Singleton.RegisterStaminaChangedActions(UpdateStaminaIndicator);
