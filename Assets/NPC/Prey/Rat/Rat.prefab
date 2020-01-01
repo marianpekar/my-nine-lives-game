@@ -1716,8 +1716,8 @@ MonoBehaviour:
   stealthLevelDetectionLimit: 0.75
   walkSpeed: 0.5
   walkAngularSpeed: 120
-  runSpeed: 6
-  runAngularSpeed: 600
+  runSpeed: 7
+  runAngularSpeed: 800
   maxIdleTime: 6
   minIdleTime: 2
   fleeRadius: 60

@@ -14,7 +14,7 @@ public class PredatorController : AIController
     new void Start()
     {
         base.Start();
-        stopChasingDistance = visibleRadius * 2f;
+        stopChasingDistance = visibleRadius * 3f;
 
         PlayerEvents.Singleton.RegisterPlayerDiedActions(StopChasing);
     }

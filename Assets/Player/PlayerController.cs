@@ -89,8 +89,9 @@ public class PlayerController : MonoBehaviour
             }
 
             // Jumps
-            if (GameInputManager.GetKey("Jump"))
+            if (GameInputManager.GetKey("Jump") && PlayerStates.Singleton.Stamina >= PlayerStates.Singleton.StaminaNeededForJump)
             {
+                PlayerStates.Singleton.Stamina -= PlayerStates.Singleton.StaminaNeededForJump;
                 Time.timeScale = PlayerStates.Singleton.SlowMotionTimeScale;
                 Invoke("ResetTimeScale", PlayerStates.Singleton.SlowMotionDuration);
                 moveDirection.y = PlayerStates.Singleton.JumpHeight;

@@ -35,8 +35,10 @@ public sealed class PlayerStates
     }
     public float MaxStamina { get; set; } = 1.0f;
     public float StaminaConsumptionInterval { get; } = 0.05f;
-    public float StaminaIncreaseInterval { get; } = 0.5f;
+    public float StaminaIncreaseInterval { get; } = 0.25f;
     public float StaminaStep { get; } = 0.01f;
+    public float StaminaNeededForJump { get; } = 0.25f;
+    public float StaminaFromCatchedPrey { get; } = 0.5f;
 
     // Physics
     public float Gravity { get; set; } = 20f;
@@ -97,6 +99,12 @@ public sealed class PlayerStates
     {
         return lives;
     }
+    public int AnotherCats { get; set; }
+    public void AnotherCatCatched(int value)
+    {
+        AnotherCats++;
+        Score += value;
+    }
 
     // Chasing
     private bool isChased = false;
@@ -155,6 +163,7 @@ public sealed class PlayerStates
         Preys++;
         FeedLevel += nutrition;
         Score += value;
+        Stamina += StaminaFromCatchedPrey;
 
         PlayerEvents.Singleton.InvokeScoreChangedActions();
         PlayerEvents.Singleton.InvokePreyCatchedActions();
@@ -165,6 +174,7 @@ public sealed class PlayerStates
         FeedLevel = 1.0f;
         Preys = 0;
         Score = 0;
+        AnotherCats = 0;
         Stamina = MaxStamina;
         lives = defaultLifes;
         IsDead = false;

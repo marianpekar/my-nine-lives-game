@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class AnotherCatController : AIController
 {
-    public float fleeRadius = 120f;
+    public float fleeRadius = 8f;
+    public int value = 2000;
 
     void Flee()
     {
@@ -48,7 +49,7 @@ public class AnotherCatController : AIController
     {
         if (CalculateDistanceToPlayer() < 0.5f)
         {
-            PlayerStates.Singleton.AddLive();
+            PlayerStates.Singleton.AnotherCatCatched(value);
             parentSpawner.Respawn(this.gameObject);
             Walk();
         }

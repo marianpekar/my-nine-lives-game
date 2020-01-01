@@ -21,7 +21,7 @@ public class StaminaController : MonoBehaviour
 
     void IncreaseStamina()
     {
-        if (!PlayerStates.Singleton.IsSprinting && !GameInputManager.GetKey("Sprint") && !PlayerStates.Singleton.IsDead)
+        if (!PlayerStates.Singleton.IsSprinting && !GameInputManager.GetKey("Sprint") && !GameInputManager.GetKey("Jump") && !PlayerStates.Singleton.IsDead)
         {
             PlayerStates.Singleton.Stamina += PlayerStates.Singleton.StaminaStep;
         }

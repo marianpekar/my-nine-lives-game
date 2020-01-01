@@ -359,16 +359,16 @@ MonoBehaviour:
   wanderRadius: 25
   visibleRadius: 6
   fieldOfView: 120
-  detectionRadius: 3
+  detectionRadius: 4
   criticalDetectionRadius: 1
   stealthLevelDetectionLimit: 0.75
   walkSpeed: 0.5
   walkAngularSpeed: 120
-  runSpeed: 4
-  runAngularSpeed: 600
+  runSpeed: 6.8
+  runAngularSpeed: 900
   maxIdleTime: 6
   minIdleTime: 2
-  fleeRadius: 60
+  fleeRadius: 100
   nutrition: 0.02
   value: 150
 --- !u!1 &1249451663743547360

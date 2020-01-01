@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 4613929866297336185}
   - component: {fileID: 5422453982559201412}
   m_Layer: 0
-  m_Name: AllyCat
+  m_Name: AnotherCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   runAngularSpeed: 1000
   maxIdleTime: 6
   minIdleTime: 2
-  fleeRadius: 120
+  fleeRadius: 8
 --- !u!195 &5422453982559201412
 NavMeshAgent:
   m_ObjectHideFlags: 0
