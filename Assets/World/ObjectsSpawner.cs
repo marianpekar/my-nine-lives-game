@@ -22,11 +22,6 @@ public class ObjectsSpawner : MonoBehaviour
 
     public bool isNavMeshObstacle = true;
 
-    void Show()
-    {
-       
-    }
-
     // Start is called before the first frame update
     public void Spawn()
     {
