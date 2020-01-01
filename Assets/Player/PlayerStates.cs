@@ -81,7 +81,7 @@ public sealed class PlayerStates
         Stamina = MaxStamina;
     }
 
-    public void AddLive()
+    public void AddLife()
     {
         if(lives < maxLives)
         {

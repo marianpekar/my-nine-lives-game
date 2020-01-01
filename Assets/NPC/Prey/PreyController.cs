@@ -47,7 +47,7 @@ public class PreyController : AIController
 
     void CheckForBeingEaten()
     {
-        if (CalculateDistanceToPlayer() < 0.5f)
+        if (CalculateDistanceToPlayer() < catchDistance)
         {
             PlayerStates.Singleton.PreyCatched(value, nutrition);
             parentSpawner.Respawn(this.gameObject);

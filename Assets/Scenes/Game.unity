@@ -1139,6 +1139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3644249844474166867, guid: 81c45f8675eee2e4aa947256fe848b50,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 3644249844474166871, guid: 81c45f8675eee2e4aa947256fe848b50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1669,6 +1674,118 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 48468954, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 143876918, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 181816161, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 200523332, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 315079131, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 338019697, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 353212223, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 381268392, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 479644904, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 496139711, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 512885818, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 536774198, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 592495463, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 597222480, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 767777547, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 874642611, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 888077077, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 935019537, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 943329380, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 1077729215, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 1241064550, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 1407356745, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 1685899428, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 1887170678, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 1981479643, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 2122407555, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 2141147508, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
+    - target: {fileID: 2145475245, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
     - target: {fileID: 3349359029621242485, guid: b898490b5b861f6469b63ca1cfd7afab,
         type: 3}
       propertyPath: m_Name
@@ -1734,5 +1851,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7714044935749329505, guid: b898490b5b861f6469b63ca1cfd7afab,
+        type: 3}
+      propertyPath: alphaShader
+      value: 
+      objectReference: {fileID: 4800000, guid: 59b8aa835cf35ce448d01d2fd1686bdf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b898490b5b861f6469b63ca1cfd7afab, type: 3}

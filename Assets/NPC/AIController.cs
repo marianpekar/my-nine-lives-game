@@ -11,6 +11,7 @@ public class AIController : MonoBehaviour
     public float detectionRadius = 6f;
     public float criticalDetectionRadius = 2f;
     public float stealthLevelDetectionLimit = 0.75f;
+    public float catchDistance = 1f;
 
     public float walkSpeed = 0.5f;
     public float walkAngularSpeed = 120f;

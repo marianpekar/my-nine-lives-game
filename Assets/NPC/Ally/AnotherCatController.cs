@@ -47,9 +47,10 @@ public class AnotherCatController : AIController
 
     void CheckForBeingCatched()
     {
-        if (CalculateDistanceToPlayer() < 0.5f)
+        if (CalculateDistanceToPlayer() < catchDistance)
         {
             PlayerStates.Singleton.AnotherCatCatched(value);
+            PlayerStates.Singleton.AddLife();
             parentSpawner.Respawn(this.gameObject);
             Walk();
         }

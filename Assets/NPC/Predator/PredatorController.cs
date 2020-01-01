@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PredatorController : AIController
 {
-    public float catchDistance = 1f;
-
     private float stopChasingDistance;
     private bool isChasingPlayer = false;
 
