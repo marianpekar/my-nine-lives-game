@@ -36,7 +36,7 @@ public sealed class PlayerEvents
     public void InvokeFeedLevelChangedActions() { InvokeActions(feedLevelChangedActions); }
     public void InvokePlayerDiedActions() { InvokeActions(playerDiedActions); }
     public void InvokePlayerChasedStartActions() { InvokeActions(playerChasedStartActions); }
-    public void InvokePlayerChasedEndActions() { InvokeActions(playerChasedStartActions); }
+    public void InvokePlayerChasedEndActions() { InvokeActions(playerChasedEndActions); }
     public void InvokeStaminaChangedActions() { InvokeActions(staminaChangedActions); }
     public void InvokeScoreChangedActions() { InvokeActions(scoreChangedActions); }
     public void InvokeLifeAddedActions() { InvokeActions(lifeAddedActions); }
@@ -51,6 +51,7 @@ public sealed class PlayerEvents
         playerChasedStartActions.Clear();
         playerChasedEndActions.Clear();
         staminaChangedActions.Clear();
+        scoreChangedActions.Clear();
     }
 
     private static PlayerEvents instance;
