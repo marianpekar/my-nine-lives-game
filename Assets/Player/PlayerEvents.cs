@@ -14,6 +14,7 @@ public sealed class PlayerEvents
     List<Action> staminaChangedActions = new List<Action>();
     List<Action> scoreChangedActions = new List<Action>();
     List<Action> lifeAddedActions = new List<Action>();
+    List<Action> pausedActions = new List<Action>();
 
     private void InvokeActions(List<Action> actions)
     {
@@ -30,6 +31,7 @@ public sealed class PlayerEvents
     public void RegisterStaminaChangedActions(Action action) { staminaChangedActions.Add(action); }
     public void RegisterScoreChangedActions(Action action) { scoreChangedActions.Add(action); }
     public void RegisterLifeAddedActions(Action action) { lifeAddedActions.Add(action); }
+    public void RegisterPausedActions(Action action) { pausedActions.Add(action); }
 
     public void InvokeLifeRemovedActions() { InvokeActions(lifeRemovedActions); }
     public void InvokePreyCatchedActions() { InvokeActions(preyCatchedActions); }
@@ -40,6 +42,7 @@ public sealed class PlayerEvents
     public void InvokeStaminaChangedActions() { InvokeActions(staminaChangedActions); }
     public void InvokeScoreChangedActions() { InvokeActions(scoreChangedActions); }
     public void InvokeLifeAddedActions() { InvokeActions(lifeAddedActions); }
+    public void InvokePauseActions() { InvokeActions(pausedActions); }
 
     public void ClearAllActionLists()
     {
@@ -52,6 +55,7 @@ public sealed class PlayerEvents
         playerChasedEndActions.Clear();
         staminaChangedActions.Clear();
         scoreChangedActions.Clear();
+        pausedActions.Clear();
     }
 
     private static PlayerEvents instance;

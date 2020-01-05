@@ -27,13 +27,22 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        // Pause Game
+        if (GameInputManager.GetKeyUp("Pause"))
+        {
+            PlayerStates.Singleton.TooglePause();
+        }
+
+        if (PlayerStates.Singleton.IsPaused) return;
+
         // TODO: Just for debuging purposes, remove after
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.F))
             PlayerStates.Singleton.FeedLevel = 0.25f;
         if (Input.GetKey(KeyCode.K))
             PlayerStates.Singleton.RemoveLive();
-
-        //
+        if (Input.GetKey(KeyCode.R))
+            FindObjectOfType<SpawnManager>().Respawn();
+        // ------------------------------------------------
 
         if (PlayerStates.Singleton.IsDead)
         {

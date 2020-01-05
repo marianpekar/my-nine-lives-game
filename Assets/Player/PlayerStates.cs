@@ -180,6 +180,14 @@ public sealed class PlayerStates
         IsDead = false;
     }
 
+    public bool IsPaused { get; private set; } = false;
+
+    public void TooglePause()
+    {
+        IsPaused = !IsPaused;
+        PlayerEvents.Singleton.InvokePauseActions();
+    }
+
     private static PlayerStates instance;
 
     public static PlayerStates Singleton

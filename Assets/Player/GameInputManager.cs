@@ -5,7 +5,7 @@ using System;
 public static class GameInputManager
 {
     static Dictionary<string, KeyCode> keyMapping = new Dictionary<string, KeyCode>();
-    static string[] keyMaps = new string[8]
+    static string[] keyMaps = new string[9]
     {
         "Jump",
         "Walk",
@@ -14,9 +14,10 @@ public static class GameInputManager
         "Backward",
         "Left",
         "Right",
-        "Sprint"
+        "Sprint",
+        "Pause"
     };
-    static KeyCode[] defaults = new KeyCode[8]
+    static KeyCode[] defaults = new KeyCode[9]
     {
         KeyCode.Space,
         KeyCode.LeftControl,
@@ -25,7 +26,8 @@ public static class GameInputManager
         KeyCode.S,
         KeyCode.A,
         KeyCode.D,
-        KeyCode.LeftShift
+        KeyCode.LeftShift,
+        KeyCode.Pause
     };
 
     public static string[] GetKeyMaps()
@@ -67,6 +69,11 @@ public static class GameInputManager
     public static bool GetKey(string keyMap)
     {
         return Input.GetKey(keyMapping[keyMap]);
+    }
+
+    public static bool GetKeyUp(string keyMap)
+    {
+        return Input.GetKeyUp(keyMapping[keyMap]);
     }
 
     public static KeyCode GetKeyCode(string keyName)

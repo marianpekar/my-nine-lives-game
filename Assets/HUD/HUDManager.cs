@@ -25,6 +25,7 @@ public class HUDManager : MonoBehaviour
     Color staminaBackgroundColor;
 
     public Text score;
+    public Text gamePausedText;
 
     private void Awake()
     {
@@ -40,6 +41,8 @@ public class HUDManager : MonoBehaviour
         PlayerEvents.Singleton.RegisterStaminaChangedActions(UpdateStaminaBackgroundImage);
 
         PlayerEvents.Singleton.RegisterScoreChangedActions(UpdateScore);
+
+        PlayerEvents.Singleton.RegisterPausedActions(ToogleGamePausedText);
     }
 
     #region Score
@@ -93,6 +96,13 @@ public class HUDManager : MonoBehaviour
         {
             stomach.sprite = stomachHappy;
         }
+    }
+    #endregion
+
+    #region Game Paused
+    public void ToogleGamePausedText()
+    {
+        gamePausedText.enabled = PlayerStates.Singleton.IsPaused;
     }
     #endregion
 }
