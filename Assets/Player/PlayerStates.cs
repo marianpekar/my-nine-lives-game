@@ -178,9 +178,18 @@ public sealed class PlayerStates
         Stamina = MaxStamina;
         lives = defaultLifes;
         IsDead = false;
+        IsPaused = false;
     }
 
-    public bool IsPaused { get; private set; } = false;
+    // Pause
+    private bool isPaused = false;
+    public bool IsPaused { 
+        get { return isPaused; }
+        set {
+            isPaused = value;
+            PlayerEvents.Singleton.InvokePauseActions();
+        } 
+    }
 
     public void TooglePause()
     {

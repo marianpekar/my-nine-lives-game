@@ -22,15 +22,18 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadMainMenuScene()
     {
+        PlayerStates.Singleton.Reset();
         SceneManager.LoadScene(mainMenuSceneIndex);
         PlayerEvents.Singleton.ClearAllActionLists(); 
         DestroyImmediate(this.gameObject);
     }
 
-    void Update()
+    void LateUpdate()
     {
-        if(GameInputManager.GetKey("Cancel") && currentSceneIndex == gameSceneIndex)
+        if (GameInputManager.GetKey("Cancel") && currentSceneIndex == gameSceneIndex)
+        {
             LoadMainMenuScene();
+        }
     }
 
     IEnumerator LoadSceneAsync(int sceneIndex)
