@@ -3048,7 +3048,7 @@ MonoBehaviour:
   springEarlyMorningTemperature: -22
   fallEarlyMorningTemperature: 60
   winterEarlyMorningTemperature: -50
-  springMorningTemperature: 35
+  springMorningTemperature: -55
   fallMorningTemperature: 22
   winterMorningTemperature: -55
   springBeforeNoonTemperature: 8
