@@ -3017,37 +3017,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hours: 13
   minutes: 0
+  earlyMorningColor: {r: 0.13725491, g: 0.2784314, b: 0.34117648, a: 0}
   morningColor: {r: 0.6981132, g: 0.2758774, b: 0.02963687, a: 0}
+  beforeNoonColor: {r: 0.69803923, g: 0.11615665, b: 0.031372543, a: 0}
   noonColor: {r: 0.745283, g: 0.57268125, b: 0.10194911, a: 0}
-  afternoonColor: {r: 0.9150943, g: 0.71784544, b: 0.33236915, a: 0}
+  afternoonColor: {r: 0.5372549, g: 0.14117648, b: 0.22352941, a: 0}
   nightColor: {r: 0, g: 0.3652167, b: 0.5188679, a: 0}
+  earlyMorningFog: {r: 0.14509805, g: 0.24313726, b: 0.54901963, a: 1}
   morningFog: {r: 0.6901961, g: 0.16470589, b: 0.6745098, a: 1}
-  noonFog: {r: 0.62352943, g: 0.41960785, b: 0.18039216, a: 1}
+  beforeNoonFog: {r: 0.22352941, g: 0.13333334, b: 0.34117648, a: 0}
+  noonFog: {r: 0.62352943, g: 0.44313726, b: 0.18039216, a: 1}
   afternoonFog: {r: 0.9372549, g: 0.09411765, b: 0.30980393, a: 1}
   nightFog: {r: 0, g: 0.1983006, b: 0.4339623, a: 1}
+  earlyMorningSkybox: {fileID: 2100000, guid: 65d3da4941f6640f5affd14afc45ebc2, type: 2}
   morningSkybox: {fileID: 2100000, guid: 5ad4bb65494444efebde1a1327e73097, type: 2}
+  beforenoonSkybox: {fileID: 2100000, guid: 6c154636a358e41b4bcc5d4158c4c529, type: 2}
   noonSkybox: {fileID: 2100000, guid: 1001bc62adaa0451cb40206853391b06, type: 2}
   afternoonSkybox: {fileID: 2100000, guid: 527255ce452b44e4491d619d8f3872f4, type: 2}
   nightSkybox: {fileID: 2100000, guid: dea6b9c1bcbc448ad97333c375aada1d, type: 2}
   terrain: {fileID: 2100000, guid: 911a958908b07dd4ab549feaeba4c7e1, type: 2}
+  earlyMorningTerrain: {r: 0.20784314, g: 0.30980393, b: 0.7176471, a: 0}
   morningTerrain: {r: 0.68235296, g: 0.28627452, b: 0.5372549, a: 0}
-  noonTerrain: {r: 1, g: 0.94509804, b: 0.105882354, a: 0}
-  afternoonTerrain: {r: 0.83137256, g: 0.94509804, b: 0.105882354, a: 0}
+  beforeNoonTerrain: {r: 0.20784314, g: 0.16470589, b: 0.5764706, a: 0}
+  noonTerrain: {r: 1, g: 0.7294118, b: 0.105882354, a: 0}
+  afternoonTerrain: {r: 0.7019608, g: 0, b: 0.1882353, a: 0}
   nightTerrain: {r: 0.25882354, g: 0.67058825, b: 1, a: 0}
   sun: {fileID: 3349359029902370383}
   moon: {fileID: 3349359030847943625}
   postProcessManager: {fileID: 0}
+  springEarlyMorningTemperature: -22
+  fallEarlyMorningTemperature: 60
+  winterEarlyMorningTemperature: -50
   springMorningTemperature: 35
   fallMorningTemperature: 22
   winterMorningTemperature: -55
-  springNoonTemperature: 8
+  springBeforeNoonTemperature: 8
+  fallBeforeNoonTemperature: 20
+  winterBeforeNoonTemperature: 10
+  springNoonTemperature: 39
   fallNoonTemperature: 20
-  winterNoonTemperature: 10
+  winterNoonTemperature: 23
   springAfternoonTemperature: 30
   fallAfternoonTemperature: 80
   winterAfternoonTemperature: 60
   springNightTemperature: 17
-  fallNightTemperature: 45
+  fallNightTemperature: 15
   winterNightTemperature: -55
 --- !u!1 &3349359029902370382
 GameObject:
@@ -3073,7 +3087,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3349359029902370382}
-  m_LocalRotation: {x: 0.3696438, y: -0.23911758, z: 0.099045746, w: 0.89239913}
+  m_LocalRotation: {x: -0.78020984, y: -0.15258649, z: -0.2090566, w: 0.5694606}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3091,7 +3105,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0, g: 0.3652167, b: 0.5188679, a: 0}
   m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
@@ -3165,7 +3179,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3349359030847943624}
-  m_LocalRotation: {x: 0.3696438, y: -0.23911758, z: 0.099045746, w: 0.89239913}
+  m_LocalRotation: {x: 0.5694605, y: -0.20905662, z: 0.15258648, w: 0.7802099}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3293,11 +3307,6 @@ MonoBehaviour:
   - {fileID: 1000010624020320, guid: 50cfbc7c572c6564cad13d72634db623, type: 3}
   - {fileID: 1000010624020320, guid: 8f736346d6454a145819ab8157ae4535, type: 3}
   - {fileID: 1000010624020320, guid: 230473235324a334b83d54ce7db43720, type: 3}
-  - {fileID: 1000010624020320, guid: 2a10e6fba9e910141b38c413bd084a54, type: 3}
-  - {fileID: 1000010624020320, guid: 4ea5d09a2f2c3e847813c64dfaa5a170, type: 3}
-  - {fileID: 1000010624020320, guid: 1e52804bb49818c45a51f61f5fae5f39, type: 3}
-  - {fileID: 1000010624020320, guid: 613ce2db6994ee748ad4192023afc8a5, type: 3}
-  - {fileID: 1000010624020320, guid: e5f282339bb7da04fbc5642c7e1be928, type: 3}
   count: 4500
   maxSteepAngle: 80
   lowerOffset: 0.05

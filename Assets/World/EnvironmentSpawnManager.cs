@@ -19,10 +19,10 @@ public class EnvironmentSpawnManager : MonoBehaviour
             objectsSpawner.Spawn();
 
             if (objectsSpawner.thisEnvironmentType == EnvironmentManager.EnvironmentType.All ||
-                objectsSpawner.thisEnvironmentType == EnvironmentPreserver.EnvironmentType)
+                objectsSpawner.thisEnvironmentType == EnvironmentManager.CurrentEnvironmentType)
             {
                 if (objectsSpawner.thisEnvironmentEpoch == EnvironmentManager.EnvironmentEpoch.All ||
-                objectsSpawner.thisEnvironmentEpoch == EnvironmentPreserver.EnvironmentEpoch)
+                objectsSpawner.thisEnvironmentEpoch == EnvironmentManager.CurrentEnvironmentEpoch)
                 {
                     objectsSpawner.SetAllActive();
                 }
@@ -33,18 +33,18 @@ public class EnvironmentSpawnManager : MonoBehaviour
     public void Respawn()
     {
         groundSelector.SelectNextGround();
-        environmentManager.SetRandomDayTime();
         environmentManager.SetRandomEnvironmentType();
         environmentManager.SetRandomEnvironmentEpoch();
+        environmentManager.SetRandomTime();
         environmentManager.SetEnvironment();
 
         foreach (ObjectsSpawner objectsSpawner in objectsSpawners)
         {
             if (objectsSpawner.thisEnvironmentType == EnvironmentManager.EnvironmentType.All ||
-                objectsSpawner.thisEnvironmentType == EnvironmentPreserver.EnvironmentType)
+                objectsSpawner.thisEnvironmentType == EnvironmentManager.CurrentEnvironmentType)
             {
                 if (objectsSpawner.thisEnvironmentEpoch == EnvironmentManager.EnvironmentEpoch.All ||
-                objectsSpawner.thisEnvironmentEpoch == EnvironmentPreserver.EnvironmentEpoch)
+                objectsSpawner.thisEnvironmentEpoch == EnvironmentManager.CurrentEnvironmentEpoch)
                 {
                     objectsSpawner.RepositionAll();
                     objectsSpawner.SetAllActive();
