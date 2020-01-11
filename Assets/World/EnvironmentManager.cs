@@ -23,6 +23,7 @@ public class EnvironmentManager : MonoBehaviour
 
     public static EnvironmentType CurrentEnvironmentType { get; set; }
     public static EnvironmentEpoch CurrentEnvironmentEpoch { get; set; }
+    private EnvironmentEpoch lastEnvironmentEpoch;
 
     [Range(0, 24)]
     public int hours = 12;
@@ -51,7 +52,8 @@ public class EnvironmentManager : MonoBehaviour
     const int NIGHT = 24;
 
     private enum DayTime { EarlyMorning, Morning, BeforeNoon, Noon, AfterNoon, Night }
-    private DayTime dayTime;
+    private DayTime lastDayTime = DayTime.EarlyMorning; 
+    private DayTime currentDayTime = DayTime.EarlyMorning;
 
     public Material earlyMorningSkybox;
     public Material morningSkybox;
@@ -98,7 +100,6 @@ public class EnvironmentManager : MonoBehaviour
 
     void Start()
     {
-
         if (!EnvironmentPreserver.FirstSet)
         {
             SetRandomEnvironmentType();
@@ -112,36 +113,36 @@ public class EnvironmentManager : MonoBehaviour
             CurrentEnvironmentType = EnvironmentPreserver.EnvironmentType;
             CurrentEnvironmentEpoch = EnvironmentPreserver.EnvironmentEpoch;
         }
-
         SetEnvironment();
     }
 
-    public void SetTime(int hour, int minute)
+    public void SetTime(int hours, int minutes)
     {
-        hours = hour;
-        minutes = minute;
-        SetDayTime();
+        currentDayTime = SetDayTime(hours, minutes);
     }
     public void SetRandomTime()
-    {      
-        hours = Random.Range(0, CurrentEnvironmentEpoch == EnvironmentEpoch.Winter ? EARLY_MORNING - 1 : NIGHT);
-        minutes = Random.Range(0, 60);
-        SetDayTime();
+    {   
+        currentDayTime = SetDayTime(Random.Range(0, CurrentEnvironmentEpoch == EnvironmentEpoch.Winter ? EARLY_MORNING - 1 : NIGHT), Random.Range(0, 60));
+
+        if (currentDayTime == lastDayTime)
+            currentDayTime = SetDayTime(this.hours + hours < 20 ? 4 : -4, Random.Range(0, 60));
+        else
+            lastDayTime = currentDayTime;
     }
 
-    private void SetDayTime()
+    private DayTime SetDayTime(int hours, int minutes)
     {
-        if (hours < EARLY_MORNING)
-        {
-            dayTime = DayTime.Night;
-            return;
-        }
+        this.hours = hours;
+        this.minutes = minutes;
 
-        if      (hours >= EARLY_MORNING && hours < MORNING)     dayTime = DayTime.EarlyMorning;
-        else if (hours >= MORNING && hours < BEFORE_NOON)       dayTime = DayTime.Morning;
-        else if (hours >= BEFORE_NOON && hours < NOON)          dayTime = DayTime.BeforeNoon;
-        else if (hours >= NOON && hours < AFTERNOON)            dayTime = DayTime.Noon;
-        else                                                    dayTime = DayTime.AfterNoon;
+        if (hours < EARLY_MORNING)
+            return DayTime.Night;
+
+        if      (hours >= EARLY_MORNING && hours < MORNING)     return DayTime.EarlyMorning;
+        else if (hours >= MORNING && hours < BEFORE_NOON)       return DayTime.Morning;
+        else if (hours >= BEFORE_NOON && hours < NOON)          return DayTime.BeforeNoon;
+        else if (hours >= NOON && hours < AFTERNOON)            return DayTime.Noon;
+        else                                                    return DayTime.AfterNoon;
     }
 
     public void SetEnvironment()
@@ -177,35 +178,40 @@ public class EnvironmentManager : MonoBehaviour
     public void SetRandomEnvironmentEpoch()
     {
         CurrentEnvironmentEpoch = (EnvironmentEpoch)Random.Range(0, ENVIRONMENT_EPOCHS_COUNT - 1);
+
+        if (CurrentEnvironmentEpoch == lastEnvironmentEpoch)
+            CurrentEnvironmentEpoch = CurrentEnvironmentEpoch == (EnvironmentEpoch)(ENVIRONMENT_EPOCHS_COUNT - 1) ? CurrentEnvironmentEpoch + 1 : 0;
+        else
+            lastEnvironmentEpoch = CurrentEnvironmentEpoch;
     }
 
     void SetPostProcessing()
     {
         if (CurrentEnvironmentEpoch == EnvironmentEpoch.Spring)
         {
-            if      (dayTime == DayTime.Night)              postProcessManager.SetTemperature(springNightTemperature);
-            else if (dayTime == DayTime.EarlyMorning)       postProcessManager.SetTemperature(springEarlyMorningTemperature);
-            else if (dayTime == DayTime.Morning)            postProcessManager.SetTemperature(springMorningTemperature);
-            else if (dayTime == DayTime.BeforeNoon)         postProcessManager.SetTemperature(springBeforeNoonTemperature);
-            else if (dayTime == DayTime.Noon)               postProcessManager.SetTemperature(springNoonTemperature);
+            if      (currentDayTime == DayTime.Night)              postProcessManager.SetTemperature(springNightTemperature);
+            else if (currentDayTime == DayTime.EarlyMorning)       postProcessManager.SetTemperature(springEarlyMorningTemperature);
+            else if (currentDayTime == DayTime.Morning)            postProcessManager.SetTemperature(springMorningTemperature);
+            else if (currentDayTime == DayTime.BeforeNoon)         postProcessManager.SetTemperature(springBeforeNoonTemperature);
+            else if (currentDayTime == DayTime.Noon)               postProcessManager.SetTemperature(springNoonTemperature);
             else                                            postProcessManager.SetTemperature(springAfternoonTemperature);
         }       
         else if (CurrentEnvironmentEpoch == EnvironmentEpoch.Fall)
         {
-            if      (dayTime == DayTime.Night)              postProcessManager.SetTemperature(fallNightTemperature);
-            else if (dayTime == DayTime.EarlyMorning)       postProcessManager.SetTemperature(fallEarlyMorningTemperature);
-            else if (dayTime == DayTime.Morning)            postProcessManager.SetTemperature(fallMorningTemperature);
-            else if (dayTime == DayTime.BeforeNoon)         postProcessManager.SetTemperature(fallBeforeNoonTemperature);
-            else if (dayTime == DayTime.Noon)               postProcessManager.SetTemperature(fallNoonTemperature);
+            if      (currentDayTime == DayTime.Night)              postProcessManager.SetTemperature(fallNightTemperature);
+            else if (currentDayTime == DayTime.EarlyMorning)       postProcessManager.SetTemperature(fallEarlyMorningTemperature);
+            else if (currentDayTime == DayTime.Morning)            postProcessManager.SetTemperature(fallMorningTemperature);
+            else if (currentDayTime == DayTime.BeforeNoon)         postProcessManager.SetTemperature(fallBeforeNoonTemperature);
+            else if (currentDayTime == DayTime.Noon)               postProcessManager.SetTemperature(fallNoonTemperature);
             else                                            postProcessManager.SetTemperature(fallAfternoonTemperature);
         }         
         else if (CurrentEnvironmentEpoch == EnvironmentEpoch.Winter)
         {
-            if      (dayTime == DayTime.Night)              postProcessManager.SetTemperature(winterNightTemperature);
-            else if (dayTime == DayTime.EarlyMorning)       postProcessManager.SetTemperature(winterEarlyMorningTemperature);
-            else if (dayTime == DayTime.Morning)            postProcessManager.SetTemperature(winterMorningTemperature);
-            else if (dayTime == DayTime.BeforeNoon)         postProcessManager.SetTemperature(winterBeforeNoonTemperature);
-            else if (dayTime == DayTime.Noon)               postProcessManager.SetTemperature(winterNoonTemperature);
+            if      (currentDayTime == DayTime.Night)              postProcessManager.SetTemperature(winterNightTemperature);
+            else if (currentDayTime == DayTime.EarlyMorning)       postProcessManager.SetTemperature(winterEarlyMorningTemperature);
+            else if (currentDayTime == DayTime.Morning)            postProcessManager.SetTemperature(winterMorningTemperature);
+            else if (currentDayTime == DayTime.BeforeNoon)         postProcessManager.SetTemperature(winterBeforeNoonTemperature);
+            else if (currentDayTime == DayTime.Noon)               postProcessManager.SetTemperature(winterNoonTemperature);
             else                                            postProcessManager.SetTemperature(winterAfternoonTemperature);
         }
        
@@ -213,41 +219,41 @@ public class EnvironmentManager : MonoBehaviour
 
     void SetTerrainColor()
     {
-        if      (dayTime == DayTime.Night)          terrain.color = nightTerrain;
-        else if (dayTime == DayTime.EarlyMorning)   terrain.color = earlyMorningTerrain;
-        else if (dayTime == DayTime.Morning)        terrain.color = morningTerrain;
-        else if (dayTime == DayTime.BeforeNoon)     terrain.color = beforeNoonTerrain;
-        else if (dayTime == DayTime.Noon)           terrain.color = noonTerrain;
+        if      (currentDayTime == DayTime.Night)          terrain.color = nightTerrain;
+        else if (currentDayTime == DayTime.EarlyMorning)   terrain.color = earlyMorningTerrain;
+        else if (currentDayTime == DayTime.Morning)        terrain.color = morningTerrain;
+        else if (currentDayTime == DayTime.BeforeNoon)     terrain.color = beforeNoonTerrain;
+        else if (currentDayTime == DayTime.Noon)           terrain.color = noonTerrain;
         else                                        terrain.color = afternoonTerrain;
     }
 
     void SetSkybox()
     {
-        if      (dayTime == DayTime.Night)          RenderSettings.skybox = nightSkybox;
-        else if (dayTime == DayTime.EarlyMorning)   RenderSettings.skybox = earlyMorningSkybox;
-        else if (dayTime == DayTime.Morning)        RenderSettings.skybox = morningSkybox;
-        else if (dayTime == DayTime.BeforeNoon)     RenderSettings.skybox = beforenoonSkybox;
-        else if (dayTime == DayTime.Noon)           RenderSettings.skybox = noonSkybox;
+        if      (currentDayTime == DayTime.Night)          RenderSettings.skybox = nightSkybox;
+        else if (currentDayTime == DayTime.EarlyMorning)   RenderSettings.skybox = earlyMorningSkybox;
+        else if (currentDayTime == DayTime.Morning)        RenderSettings.skybox = morningSkybox;
+        else if (currentDayTime == DayTime.BeforeNoon)     RenderSettings.skybox = beforenoonSkybox;
+        else if (currentDayTime == DayTime.Noon)           RenderSettings.skybox = noonSkybox;
         else                                        RenderSettings.skybox = afternoonSkybox;
     }
 
     void SetFogColor()
     {
-        if      (dayTime == DayTime.Night)          RenderSettings.fogColor = nightFog;
-        else if (dayTime == DayTime.EarlyMorning)   RenderSettings.fogColor = earlyMorningFog;
-        else if (dayTime == DayTime.Morning)        RenderSettings.fogColor = morningFog;
-        else if (dayTime == DayTime.BeforeNoon)     RenderSettings.fogColor = beforeNoonFog;
-        else if (dayTime == DayTime.Noon)           RenderSettings.fogColor = noonFog;
+        if      (currentDayTime == DayTime.Night)          RenderSettings.fogColor = nightFog;
+        else if (currentDayTime == DayTime.EarlyMorning)   RenderSettings.fogColor = earlyMorningFog;
+        else if (currentDayTime == DayTime.Morning)        RenderSettings.fogColor = morningFog;
+        else if (currentDayTime == DayTime.BeforeNoon)     RenderSettings.fogColor = beforeNoonFog;
+        else if (currentDayTime == DayTime.Noon)           RenderSettings.fogColor = noonFog;
         else                                        RenderSettings.fogColor = afternoonFog;
     }
 
     void SetSunColor()
     {
-        if (dayTime == DayTime.Night)               sun.color = nightColor;
-        else if (dayTime == DayTime.EarlyMorning)   sun.color = earlyMorningColor;
-        else if (dayTime == DayTime.Morning)        sun.color = morningColor;
-        else if (dayTime == DayTime.BeforeNoon)     sun.color = beforeNoonColor;
-        else if (dayTime == DayTime.Noon)           sun.color = noonColor;
+        if (currentDayTime == DayTime.Night)               sun.color = nightColor;
+        else if (currentDayTime == DayTime.EarlyMorning)   sun.color = earlyMorningColor;
+        else if (currentDayTime == DayTime.Morning)        sun.color = morningColor;
+        else if (currentDayTime == DayTime.BeforeNoon)     sun.color = beforeNoonColor;
+        else if (currentDayTime == DayTime.Noon)           sun.color = noonColor;
         else                                        sun.color = afternoonColor;
     }
 }
