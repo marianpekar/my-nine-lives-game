@@ -1741,7 +1741,6 @@ MonoBehaviour:
   - materials:
     - {fileID: 2100000, guid: 82ec9323af4309f4e9f807fef840df2d, type: 2}
     - {fileID: 2100000, guid: 32ef8708b5616a849a87ee36f76dc681, type: 2}
-    - {fileID: 2100000, guid: 4f2a3b365b7382d4b90d3e36bcc2bd12, type: 2}
     key: 0
 --- !u!1 &8854547184402036941
 GameObject:
