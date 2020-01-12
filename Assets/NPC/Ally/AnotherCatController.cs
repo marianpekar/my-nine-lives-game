@@ -8,6 +8,13 @@ public class AnotherCatController : AIController
     public float fleeRadius = 8f;
     public int value = 2000;
 
+    SkinSelector skinSelector;
+    private new void Start()
+    {
+        base.Start();
+        skinSelector = GetComponent<SkinSelector>();
+    }
+
     void Flee()
     {
         Vector3 fleeDirection = -base.CalculateDirectionToPlayer().normalized;
@@ -52,6 +59,7 @@ public class AnotherCatController : AIController
             PlayerStates.Singleton.AnotherCatCatched(value);
             PlayerStates.Singleton.AddLife();
             parentSpawner.Respawn(this.gameObject);
+            skinSelector.SelectRandom();
             Walk();
         }
     }

@@ -1458,7 +1458,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5243988174349660497, guid: c77a19402b20a2e4f9519f13e9e569f0, type: 3}
+  - {fileID: 2100000, guid: 32ef8708b5616a849a87ee36f76dc681, type: 2}
   - {fileID: -4318571312361772713, guid: c77a19402b20a2e4f9519f13e9e569f0, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1631,6 +1631,7 @@ GameObject:
   - component: {fileID: 3132817673489348002}
   - component: {fileID: 1638878304}
   - component: {fileID: 7276920210129668046}
+  - component: {fileID: 5151039343437155128}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -1709,11 +1710,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderRadius: 30
-  visibleRadius: 8
+  visibleRadius: 15
   fieldOfView: 80
-  detectionRadius: 6
-  criticalDetectionRadius: 2
+  detectionRadius: 8
+  criticalDetectionRadius: 3
   stealthLevelDetectionLimit: 0.75
+  catchDistance: 1
   walkSpeed: 0.5
   walkAngularSpeed: 120
   runSpeed: 7
@@ -1723,6 +1725,24 @@ MonoBehaviour:
   fleeRadius: 60
   nutrition: 0.1
   value: 800
+--- !u!114 &5151039343437155128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334855634422311627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b118ca5f333fe42a92df1ae87b8aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - materials:
+    - {fileID: 2100000, guid: 82ec9323af4309f4e9f807fef840df2d, type: 2}
+    - {fileID: 2100000, guid: 32ef8708b5616a849a87ee36f76dc681, type: 2}
+    - {fileID: 2100000, guid: 4f2a3b365b7382d4b90d3e36bcc2bd12, type: 2}
+    key: 0
 --- !u!1 &8854547184402036941
 GameObject:
   m_ObjectHideFlags: 0

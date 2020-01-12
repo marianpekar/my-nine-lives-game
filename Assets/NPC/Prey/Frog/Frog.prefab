@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 6226061168021785624}
   - component: {fileID: 6120931580217903639}
   - component: {fileID: 5165459383912841669}
+  - component: {fileID: 6522957346807897704}
   m_Layer: 0
   m_Name: Frog
   m_TagString: Untagged
@@ -357,11 +358,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderRadius: 25
-  visibleRadius: 6
+  visibleRadius: 10
   fieldOfView: 120
-  detectionRadius: 4
-  criticalDetectionRadius: 1
+  detectionRadius: 6
+  criticalDetectionRadius: 3
   stealthLevelDetectionLimit: 0.75
+  catchDistance: 1
   walkSpeed: 0.5
   walkAngularSpeed: 120
   runSpeed: 6.8
@@ -369,8 +371,33 @@ MonoBehaviour:
   maxIdleTime: 6
   minIdleTime: 2
   fleeRadius: 100
-  nutrition: 0.02
-  value: 150
+  nutrition: 0.03
+  value: 250
+--- !u!114 &6522957346807897704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060091646655894385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b118ca5f333fe42a92df1ae87b8aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - materials:
+    - {fileID: 2100000, guid: 1ce47725140a1fe4889bb357e71a69ef, type: 2}
+    - {fileID: 2100000, guid: c0ba49a6531ec0f47a713cd1ef67ac45, type: 2}
+    - {fileID: 2100000, guid: 7b3365b821a95b242adbbadb0cb770bb, type: 2}
+    - {fileID: 2100000, guid: 8c7a68d2835c7f14a80af56d83d22478, type: 2}
+    key: 0
+  - materials:
+    - {fileID: 2100000, guid: 1ce47725140a1fe4889bb357e71a69ef, type: 2}
+    - {fileID: 2100000, guid: c0ba49a6531ec0f47a713cd1ef67ac45, type: 2}
+    - {fileID: 2100000, guid: 7b3365b821a95b242adbbadb0cb770bb, type: 2}
+    - {fileID: 2100000, guid: 8c7a68d2835c7f14a80af56d83d22478, type: 2}
+    key: 1
 --- !u!1 &1249451663743547360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1701,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.48056605, g: 0.8490566, b: 0.28435388, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.8
   m_Range: 1
   m_SpotAngle: 97.025604
   m_InnerSpotAngle: 21.80208

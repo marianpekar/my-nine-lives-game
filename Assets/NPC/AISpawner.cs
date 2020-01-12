@@ -36,7 +36,7 @@ public class AISpawner : MonoBehaviour
     }
 
     public void Respawn(GameObject agent)
-    {
+    {       
         agent.GetComponent<NavMeshAgent>().enabled = false;
 
         RaycastHit spawnHit = CalculateSpawnHit();

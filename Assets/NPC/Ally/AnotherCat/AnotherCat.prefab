@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 1182370391841916507}
   - component: {fileID: 4613929866297336185}
   - component: {fileID: 5422453982559201412}
+  - component: {fileID: 7430993549320917756}
   m_Layer: 0
   m_Name: AnotherCat
   m_TagString: Untagged
@@ -376,6 +377,7 @@ MonoBehaviour:
   detectionRadius: 4
   criticalDetectionRadius: 1
   stealthLevelDetectionLimit: 0.75
+  catchDistance: 1
   walkSpeed: 0.4
   walkAngularSpeed: 120
   runSpeed: 5
@@ -383,6 +385,7 @@ MonoBehaviour:
   maxIdleTime: 6
   minIdleTime: 2
   fleeRadius: 8
+  value: 2000
 --- !u!195 &5422453982559201412
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -405,6 +408,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7430993549320917756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683532481262580576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b118ca5f333fe42a92df1ae87b8aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - materials:
+    - {fileID: 2100000, guid: 32ef8708b5616a849a87ee36f76dc681, type: 2}
+    - {fileID: 2100000, guid: 82ec9323af4309f4e9f807fef840df2d, type: 2}
+    - {fileID: 2100000, guid: a6a8e3b0daff60644b29e65d96c694a5, type: 2}
+    key: 1
 --- !u!1 &1763293511935536558
 GameObject:
   m_ObjectHideFlags: 0

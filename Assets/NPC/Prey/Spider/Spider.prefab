@@ -615,19 +615,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderRadius: 80
-  visibleRadius: 4
-  fieldOfView: 60
-  detectionRadius: 3
-  criticalDetectionRadius: 1.5
+  visibleRadius: 8
+  fieldOfView: 90
+  detectionRadius: 5
+  criticalDetectionRadius: 3
   stealthLevelDetectionLimit: 0.75
+  catchDistance: 1
   walkSpeed: 0.8
   walkAngularSpeed: 120
   runSpeed: 8
-  runAngularSpeed: 600
+  runAngularSpeed: 800
   maxIdleTime: 6
   minIdleTime: 2
   fleeRadius: 40
-  nutrition: 0.05
+  nutrition: 0.06
   value: 500
 --- !u!1 &1937499352019604679
 GameObject:
@@ -1403,7 +1404,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.48056605, g: 0.8490566, b: 0.28435388, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.8
   m_Range: 1
   m_SpotAngle: 97.025604
   m_InnerSpotAngle: 21.80208
