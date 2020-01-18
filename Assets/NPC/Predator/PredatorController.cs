@@ -12,7 +12,7 @@ public class PredatorController : AIController
     new void Start()
     {
         base.Start();
-        stopChasingDistance = visibleRadius * 3f;
+        stopChasingDistance = info.visibleRadius * 3f;
 
         PlayerEvents.Singleton.RegisterPlayerDiedActions(StopChasing);
     }
@@ -22,8 +22,8 @@ public class PredatorController : AIController
         isChasingPlayer = true;
         PlayerStates.Singleton.IsChased = true;
         agent.destination = PlayerStates.Singleton.Position;
-        agent.speed = runSpeed;
-        agent.angularSpeed = runAngularSpeed;
+        agent.speed = info.runSpeed;
+        agent.angularSpeed = info.runAngularSpeed;
         animator.SetBool("isRunning", true);
     }
     void StopChasing()
@@ -53,7 +53,7 @@ public class PredatorController : AIController
 
     void CheckForPlayerCatched()
     {
-        if (CalculateDistanceToPlayer() <= catchDistance)
+        if (CalculateDistanceToPlayer() <= info.catchDistance)
         {
             PlayerStates.Singleton.RemoveLive();
             StopChasing();
@@ -68,9 +68,9 @@ public class PredatorController : AIController
         if (SeePlayer())
             Chase();
 
-        if (CloseToPlayer(detectionRadius))
+        if (CloseToPlayer(info.detectionRadius))
         {
-            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(criticalDetectionRadius))
+            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(info.criticalDetectionRadius))
                 Chase();
         }
     }

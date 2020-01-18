@@ -5,21 +5,7 @@ using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
-    public float wanderRadius = 30f;
-    public float visibleRadius = 8f;
-    public float fieldOfView = 45f;
-    public float detectionRadius = 6f;
-    public float criticalDetectionRadius = 2f;
-    public float stealthLevelDetectionLimit = 0.75f;
-    public float catchDistance = 1f;
-
-    public float walkSpeed = 0.5f;
-    public float walkAngularSpeed = 120f;
-    public float runSpeed = 6f;
-    public float runAngularSpeed = 600f;
-
-    public float maxIdleTime = 6f;
-    public float minIdleTime = 2f;
+    public AIBasicInfo info;
 
     public Vector3 SpawnPosition { get; set; }
     float maxStuckTime;
@@ -41,7 +27,7 @@ public class AIController : MonoBehaviour
         Walk();
         SetRandomDestination();
 
-        maxStuckTime = 1.5f * maxIdleTime;
+        maxStuckTime = 1.5f * info.maxIdleTime;
         SpawnPosition = this.transform.position;
         PerformStuckCheck();
     }
@@ -63,7 +49,7 @@ public class AIController : MonoBehaviour
     {
         try
         {
-            agent.SetDestination(RandomNavmeshLocation(wanderRadius));
+            agent.SetDestination(RandomNavmeshLocation(info.wanderRadius));
         }
         catch
         {
@@ -88,13 +74,13 @@ public class AIController : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        Gizmos.DrawWireSphere(transform.position, info.detectionRadius);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, criticalDetectionRadius);
+        Gizmos.DrawWireSphere(transform.position, info.detectionRadius);
 
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, visibleRadius);
+        Gizmos.DrawWireSphere(transform.position, info.visibleRadius);
     }
 
     protected bool CloseToPlayer(float detectionRadius)
@@ -104,15 +90,15 @@ public class AIController : MonoBehaviour
 
     protected bool SeePlayer()
     {
-        if(CalculateDistanceToPlayer() < visibleRadius)
+        if(CalculateDistanceToPlayer() < info.visibleRadius)
         {
             Debug.DrawRay(transform.position, CalculateDirectionToPlayer() * CalculateDistanceToPlayer(), Color.green);
             Debug.DrawRay(transform.position, transform.forward * 3f, Color.blue);
         }
 
-        return CalculateDistanceToPlayer() < visibleRadius && 
-            (Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) < fieldOfView / 2 || 
-             Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) > 360 - fieldOfView / 2);
+        return CalculateDistanceToPlayer() < info.visibleRadius && 
+            (Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) < info.fieldOfView / 2 || 
+             Vector3.Angle(CalculateDirectionToPlayer(), transform.forward) > 360 - info.fieldOfView / 2);
     }
     public void Idle()
     {
@@ -121,15 +107,15 @@ public class AIController : MonoBehaviour
         agent.speed = 0;
         agent.angularSpeed = 0;
         SetRandomDestination();
-        Invoke("Walk", Random.Range(minIdleTime, maxIdleTime));
+        Invoke("Walk", Random.Range(info.minIdleTime, info.maxIdleTime));
     }
 
     public void Walk()
     {
         animator.SetBool("isRunning", false);
         animator.SetBool("isWalking", true);
-        agent.speed = walkSpeed;
-        agent.angularSpeed = walkAngularSpeed;
+        agent.speed = info.walkSpeed;
+        agent.angularSpeed = info.walkAngularSpeed;
     }
     void LateUpdate()
     {

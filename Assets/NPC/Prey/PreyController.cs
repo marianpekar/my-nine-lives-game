@@ -5,16 +5,14 @@ using UnityEngine.AI;
 
 public class PreyController : AIController
 {
-    public float fleeRadius = 60f;
-    public float nutrition = 0.1f;
-    public int value = 10;
+    public AIPreyInfo preyInfo;
     void Flee()
     {
         Vector3 fleeDirection = -base.CalculateDirectionToPlayer().normalized;
-        Vector3 newGoalUp = (transform.position + fleeDirection * fleeRadius) + Vector3.up * fleeRadius;
+        Vector3 newGoalUp = (transform.position + fleeDirection * preyInfo.fleeRadius) + Vector3.up * preyInfo.fleeRadius;
 
         Vector3 newGoal;
-        if (Physics.Raycast(newGoalUp, Vector3.down * fleeRadius, out RaycastHit hit))
+        if (Physics.Raycast(newGoalUp, Vector3.down * preyInfo.fleeRadius, out RaycastHit hit))
             newGoal = hit.point;
         else
             newGoal = Vector3.zero;
@@ -30,8 +28,8 @@ public class PreyController : AIController
         {
             agent.SetDestination(path.corners[path.corners.Length - 1]);
             animator.SetBool("isRunning", true);
-            agent.speed = runSpeed;
-            agent.angularSpeed = runAngularSpeed;
+            agent.speed = info.runSpeed;
+            agent.angularSpeed = info.runAngularSpeed;
         }
     }
 
@@ -47,9 +45,9 @@ public class PreyController : AIController
 
     void CheckForBeingEaten()
     {
-        if (CalculateDistanceToPlayer() < catchDistance)
+        if (CalculateDistanceToPlayer() < info.catchDistance)
         {
-            PlayerStates.Singleton.PreyCatched(value, nutrition);
+            PlayerStates.Singleton.PreyCatched(preyInfo.value, preyInfo.nutrition);
             parentSpawner.Respawn(this.gameObject);
             Walk();
         }
@@ -60,9 +58,9 @@ public class PreyController : AIController
         if (SeePlayer())
             Flee();
 
-        if (CloseToPlayer(detectionRadius))
+        if (CloseToPlayer(info.detectionRadius))
         {
-            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(criticalDetectionRadius))
+            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(info.criticalDetectionRadius))
                 Flee();
         }
     }

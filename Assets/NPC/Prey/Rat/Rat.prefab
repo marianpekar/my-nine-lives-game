@@ -1709,22 +1709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08a258bf5285124faed727a48915f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 30
-  visibleRadius: 15
-  fieldOfView: 80
-  detectionRadius: 8
-  criticalDetectionRadius: 3
-  stealthLevelDetectionLimit: 0.75
-  catchDistance: 1
-  walkSpeed: 0.5
-  walkAngularSpeed: 120
-  runSpeed: 7
-  runAngularSpeed: 800
-  maxIdleTime: 6
-  minIdleTime: 2
-  fleeRadius: 60
-  nutrition: 0.1
-  value: 800
+  info: {fileID: 11400000, guid: 315eeced0d57f8e43a53be36f8c7c33f, type: 2}
+  preyInfo: {fileID: 11400000, guid: 66de9e05617da424aa5476d0f97938a8, type: 2}
 --- !u!114 &5151039343437155128
 MonoBehaviour:
   m_ObjectHideFlags: 0

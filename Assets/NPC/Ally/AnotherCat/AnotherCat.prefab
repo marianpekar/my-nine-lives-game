@@ -372,21 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f4888d6ad77e84c9ddb32da490e028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 30
-  visibleRadius: 8
-  fieldOfView: 75
-  detectionRadius: 4
-  criticalDetectionRadius: 1
-  stealthLevelDetectionLimit: 0.75
-  catchDistance: 1
-  walkSpeed: 0.4
-  walkAngularSpeed: 120
-  runSpeed: 5
-  runAngularSpeed: 1000
-  maxIdleTime: 6
-  minIdleTime: 2
-  fleeRadius: 8
-  value: 2000
+  info: {fileID: 11400000, guid: 54d9c69e315782d48b4f12d3eb65e8ae, type: 2}
+  anotherCatInfo: {fileID: 11400000, guid: 2db94b34a192c3a4bb3fa6324f079d4a, type: 2}
 --- !u!195 &5422453982559201412
 NavMeshAgent:
   m_ObjectHideFlags: 0

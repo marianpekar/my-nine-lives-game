@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public class AnotherCatController : AIController
 {
-    public float fleeRadius = 8f;
-    public int value = 2000;
+    public AnotherCatInfo anotherCatInfo;
 
     SkinSelector skinSelector;
     private new void Start()
@@ -18,10 +17,10 @@ public class AnotherCatController : AIController
     void Flee()
     {
         Vector3 fleeDirection = -base.CalculateDirectionToPlayer().normalized;
-        Vector3 newGoalUp = (transform.position + fleeDirection * fleeRadius) + Vector3.up * fleeRadius;
+        Vector3 newGoalUp = (transform.position + fleeDirection * anotherCatInfo.fleeRadius) + Vector3.up * anotherCatInfo.fleeRadius;
 
         Vector3 newGoal;
-        if (Physics.Raycast(newGoalUp, Vector3.down * fleeRadius, out RaycastHit hit))
+        if (Physics.Raycast(newGoalUp, Vector3.down * anotherCatInfo.fleeRadius, out RaycastHit hit))
             newGoal = hit.point;
         else
             newGoal = Vector3.zero;
@@ -37,8 +36,8 @@ public class AnotherCatController : AIController
         {
             agent.SetDestination(path.corners[path.corners.Length - 1]);
             animator.SetBool("isRunning", true);
-            agent.speed = runSpeed;
-            agent.angularSpeed = runAngularSpeed;
+            agent.speed = info.runSpeed;
+            agent.angularSpeed = info.runAngularSpeed;
         }
     }
 
@@ -54,9 +53,9 @@ public class AnotherCatController : AIController
 
     void CheckForBeingCatched()
     {
-        if (CalculateDistanceToPlayer() < catchDistance)
+        if (CalculateDistanceToPlayer() < info.catchDistance)
         {
-            PlayerStates.Singleton.AnotherCatCatched(value);
+            PlayerStates.Singleton.AnotherCatCatched(anotherCatInfo.value);
             PlayerStates.Singleton.AddLife();
             parentSpawner.Respawn(this.gameObject);
             skinSelector.SelectRandom();
@@ -69,9 +68,9 @@ public class AnotherCatController : AIController
         if (SeePlayer())
             Flee();
 
-        if (CloseToPlayer(detectionRadius))
+        if (CloseToPlayer(info.detectionRadius))
         {
-            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(criticalDetectionRadius))
+            if (!PlayerStates.Singleton.IsStealth || CloseToPlayer(info.criticalDetectionRadius))
                 Flee();
         }
     }

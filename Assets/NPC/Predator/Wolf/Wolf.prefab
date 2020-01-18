@@ -918,19 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d898e12eb0f9364c8b4da9d0cde8c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 50
-  visibleRadius: 12
-  fieldOfView: 90
-  detectionRadius: 8
-  criticalDetectionRadius: 4
-  stealthLevelDetectionLimit: 0.75
-  catchDistance: 1
-  walkSpeed: 0.8
-  walkAngularSpeed: 160
-  runSpeed: 4
-  runAngularSpeed: 1000
-  maxIdleTime: 6
-  minIdleTime: 4
+  info: {fileID: 11400000, guid: 21102b16d5a52ce40850fa8ee2845c19, type: 2}
 --- !u!65 &1557145020568541645
 BoxCollider:
   m_ObjectHideFlags: 0
