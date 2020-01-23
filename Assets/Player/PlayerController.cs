@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (PlayerStates.Singleton.IsDead)
+        {
+            Time.timeScale = 0.15f;
+            die.Execute(animator);
+            return;
+        }
+
         // Pause Game
         if (GameInputManager.GetKeyUp("Pause"))
         {
@@ -43,12 +50,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
             FindObjectOfType<SpawnManager>().Respawn();
         // ------------------------------------------------
-
-        if (PlayerStates.Singleton.IsDead)
-        {
-            die.Execute(animator);
-            return;
-        }
 
         PlayerStates.Singleton.Position = transform.position;
 

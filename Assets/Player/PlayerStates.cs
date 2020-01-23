@@ -69,8 +69,10 @@ public sealed class PlayerStates
         if (lives <= 1)
         {
             lives = 0;
-            IsDead = true;
+            if (IsDead)
+                return;
             PlayerEvents.Singleton.InvokePlayerDiedActions();
+            IsDead = true;
             return;
         }
 

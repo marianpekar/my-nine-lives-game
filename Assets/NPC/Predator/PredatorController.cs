@@ -15,6 +15,7 @@ public class PredatorController : AIController
         stopChasingDistance = info.visibleRadius * 3f;
 
         PlayerEvents.Singleton.RegisterPlayerDiedActions(StopChasing);
+        PlayerEvents.Singleton.RegisterPlayerDiedActions(StopAgent);
     }
 
     void Chase()
@@ -30,6 +31,11 @@ public class PredatorController : AIController
     {
         isChasingPlayer = false;
         PlayerStates.Singleton.IsChased = false;
+    }
+
+    void StopAgent()
+    {
+        agent.SetDestination(agent.transform.position);
     }
 
     // Update is called once per frame
