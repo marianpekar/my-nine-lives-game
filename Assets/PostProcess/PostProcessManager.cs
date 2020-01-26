@@ -28,6 +28,16 @@ public class PostProcessManager : MonoBehaviour
         postProcessingProfile.depthOfField.settings = dof;
     }
 
+    public void SetChroma(float targetChroma, float speed)
+    {
+        ChromaticAberrationModel.Settings chroma = postProcessingProfile.chromaticAberration.settings;
+
+        float originalChroma = chroma.intensity;
+        chroma.intensity = Mathf.Lerp(originalChroma, targetChroma, speed * Time.deltaTime);
+
+        postProcessingProfile.chromaticAberration.settings = chroma;
+    }
+
     public void SetTemperature(float temperature)
     {
         ColorGradingModel.Settings cog = postProcessingProfile.colorGrading.settings;

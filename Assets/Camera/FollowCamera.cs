@@ -37,6 +37,10 @@ public class FollowCamera : MonoBehaviour
     const float baseCameraFocusDistance = 2f;
     const float focusSpeed = 2f;
 
+    const float chromaSpeed = 3.5f;
+    const float originalChroma = 0.09f;
+    const float jumpChroma = 1f;
+
     public PostProcessManager postProcesingManager;
 
     void Awake()
@@ -101,6 +105,11 @@ public class FollowCamera : MonoBehaviour
 
     void ResolveCameraLook()
     {
+        if (PlayerStates.Singleton.IsJumping)
+            SetJumpChroma();
+        else
+            SetOriginalChroma();
+
         if (PlayerStates.Singleton.IsChased)
         {
             SetChaseCamera();
@@ -132,6 +141,16 @@ public class FollowCamera : MonoBehaviour
         offset = initialOffset;
         sideRaysDist = sideRayDistOriginal;
         postProcesingManager.SetDOF(baseCameraFStop, baseCameraFocusDistance, focusSpeed);
+    }
+
+    void SetJumpChroma()
+    {
+        postProcesingManager.SetChroma(jumpChroma, chromaSpeed);
+    }
+
+    void SetOriginalChroma()
+    {
+        postProcesingManager.SetChroma(originalChroma, chromaSpeed);
     }
 
     void SetPositionAndRotation()

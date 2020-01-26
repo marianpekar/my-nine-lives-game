@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
             // Jumps
             if (GameInputManager.GetKey("Jump") && PlayerStates.Singleton.Stamina >= PlayerStates.Singleton.StaminaNeededForJump)
             {
+                PlayerStates.Singleton.IsJumping = true;
                 PlayerStates.Singleton.Stamina -= PlayerStates.Singleton.StaminaNeededForJump;
                 Time.timeScale = PlayerStates.Singleton.SlowMotionTimeScale;
                 Invoke("ResetTimeScale", PlayerStates.Singleton.SlowMotionDuration);
@@ -137,6 +138,7 @@ public class PlayerController : MonoBehaviour
     private void ResetTimeScale()
     {
         Time.timeScale = 1f;
+        PlayerStates.Singleton.IsJumping = false;
     }
 
     private Vector3 GetHitNormal()

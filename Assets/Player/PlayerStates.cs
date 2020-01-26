@@ -15,6 +15,7 @@ public sealed class PlayerStates
     public float JumpDistance { get; } = 10f;
     public float BackJumpSpeed { get; } = 4f;
     public float BackJumpDistance { get; } = 4f;
+    public bool IsJumping { get; set; }
 
     // Stamina
     private float stamina = 1.0f;
