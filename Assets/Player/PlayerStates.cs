@@ -38,7 +38,7 @@ public sealed class PlayerStates
     public float StaminaConsumptionInterval { get; } = 0.05f;
     public float StaminaIncreaseInterval { get; } = 0.25f;
     public float StaminaStep { get; } = 0.01f;
-    public float StaminaNeededForJump { get; } = 0.25f;
+    public float StaminaNeededForJump { get; } = 0.20f;
     public float StaminaFromCatchedPrey { get; } = 0.5f;
 
     // Physics
