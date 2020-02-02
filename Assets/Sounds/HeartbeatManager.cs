@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundsManager : MonoBehaviour
+public class HeartbeatManager : MonoBehaviour
 {
     public AudioSource heartBeat;
+
     void Start()
     {
         PlayerEvents.Singleton.RegisterStealthStartActions(StartPlayingHeartbeat);
