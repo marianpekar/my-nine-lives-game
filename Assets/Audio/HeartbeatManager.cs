@@ -14,33 +14,37 @@ public class HeartbeatManager : MonoBehaviour
 
     private void StartPlayingHeartbeat()
     {
-        InvokeRepeating("IncreaseVolume",0.05f, 0.05f);
+        InvokeRepeating("IncreaseVolume", 0.8f, 0.25f);
     }
 
     private void StopPlayingHeartbeat()
     {
-        InvokeRepeating("DecreaseVolume", 0.05f, 0.01f);
+        InvokeRepeating("DecreaseVolume", 0.4f, 0.12f);
     }
 
     private void IncreaseVolume()
     {
-        if(heartBeat.volume >= 1f)
+        if (heartBeat.volume >= 1f)
         {
             CancelInvoke("IncreaseVolume");
             return;
         }
 
-        heartBeat.volume += 0.05f;
+        if(PlayerStates.Singleton.IsWalking)
+            heartBeat.volume += 0.05f;
     }
 
     private void DecreaseVolume()
     {
+        CancelInvoke("IncreaseVolume");
+
         if (heartBeat.volume <= 0f)
         {
             CancelInvoke("DecreaseVolume");
             return;
         }
 
-        heartBeat.volume -= 0.05f;
+        if (!PlayerStates.Singleton.IsWalking)
+            heartBeat.volume -= 0.05f;
     }
 }
