@@ -15,6 +15,8 @@ public sealed class PlayerEvents
     List<Action> scoreChangedActions = new List<Action>();
     List<Action> lifeAddedActions = new List<Action>();
     List<Action> pausedActions = new List<Action>();
+    List<Action> stealthStartActions = new List<Action>();
+    List<Action> stealthEndActions = new List<Action>();
 
     private void InvokeActions(List<Action> actions)
     {
@@ -32,6 +34,8 @@ public sealed class PlayerEvents
     public void RegisterScoreChangedActions(Action action) { scoreChangedActions.Add(action); }
     public void RegisterLifeAddedActions(Action action) { lifeAddedActions.Add(action); }
     public void RegisterPausedActions(Action action) { pausedActions.Add(action); }
+    public void RegisterStealthStartActions(Action action ) { stealthStartActions.Add(action); }
+    public void RegisterStealthEndActions(Action action) { stealthEndActions.Add(action); }
 
     public void InvokeLifeRemovedActions() { InvokeActions(lifeRemovedActions); }
     public void InvokePreyCatchedActions() { InvokeActions(preyCatchedActions); }
@@ -43,6 +47,8 @@ public sealed class PlayerEvents
     public void InvokeScoreChangedActions() { InvokeActions(scoreChangedActions); }
     public void InvokeLifeAddedActions() { InvokeActions(lifeAddedActions); }
     public void InvokePauseActions() { InvokeActions(pausedActions); }
+    public void InvokeStealthStartActions() { InvokeActions(stealthStartActions); }
+    public void InvokeStealthEndActions() { InvokeActions(stealthEndActions); }
 
     public void ClearAllActionLists()
     {

@@ -46,7 +46,24 @@ public sealed class PlayerStates
 
     // Binary states
     public bool IsDead { get; set; } = false;
-    public bool IsWalking { get; set; } = false;
+
+    private bool isWalking = false;
+    public bool IsWalking
+    {
+        get
+        {
+            return isWalking;
+        }
+        set
+        {
+            if (!isWalking && value)
+                PlayerEvents.Singleton.InvokeStealthStartActions();
+            else if (isWalking && !value)
+                PlayerEvents.Singleton.InvokeStealthEndActions();
+
+            isWalking = value;
+        }
+    }
     public bool IsWalkingBackward { get; set; } = false;
     public bool IsSprinting { get; set; } = false;
     public bool IsRunning { get; set; } = false;
