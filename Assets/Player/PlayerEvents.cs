@@ -62,6 +62,8 @@ public sealed class PlayerEvents
         staminaChangedActions.Clear();
         scoreChangedActions.Clear();
         pausedActions.Clear();
+        stealthStartActions.Clear();
+        stealthEndActions.Clear();
     }
 
     private static PlayerEvents instance;
