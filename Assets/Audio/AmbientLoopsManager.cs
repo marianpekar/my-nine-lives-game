@@ -19,7 +19,7 @@ public class AmbientLoopsManager : MonoBehaviour
 
     void SelectAmbientLoop()
     {
-        if (EnvironmentStates.DayTime == EnvironmentManager.DayTime.Night)
+        if (EnvironmentStates.DayTime == EnvironmentManager.DayTime.Night || EnvironmentStates.DayTime == EnvironmentManager.DayTime.EarlyMorning)
             ambientLoop.clip = nightAmbient;
         else 
             ambientLoop.clip = dayAmbient;
