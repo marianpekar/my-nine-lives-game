@@ -633,7 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayAmbient: {fileID: 8300000, guid: fdc796e614434c14c928a595d3b08412, type: 3}
-  nightAmbient: {fileID: 0}
+  nightAmbient: {fileID: 8300000, guid: 106d041f47c90fa4b8fa78985f12454d, type: 3}
   ambientLoop: {fileID: 882651621}
 --- !u!1 &379253433
 GameObject:

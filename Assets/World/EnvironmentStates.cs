@@ -9,5 +9,15 @@ public static class EnvironmentStates
     public static int Minutes { get; set;}
     public static EnvironmentManager.EnvironmentType EnvironmentType { get; set; }
     public static EnvironmentManager.EnvironmentEpoch EnvironmentEpoch { get; set; }
-    public static EnvironmentManager.DayTime DayTime { get; set; }
+
+    private static EnvironmentManager.DayTime dayTime;
+    public static EnvironmentManager.DayTime DayTime
+    {
+        get => dayTime;
+        set
+        {
+            dayTime = value;
+            EnvironmentEvents.Singleton.InvokeTimeChangedActions();
+        }
+    }
 }

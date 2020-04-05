@@ -123,7 +123,6 @@ public class EnvironmentManager : MonoBehaviour
     public void SetTime(int hours, int minutes)
     {
         CurrentDayTime = SetDayTime(hours, minutes);
-        EnvironmentEvents.Singleton.InvokeTimeChangedActions();
     }
     public void SetRandomTime()
     {   

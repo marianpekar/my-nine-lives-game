@@ -25,6 +25,7 @@ public class SceneLoader : MonoBehaviour
         PlayerStates.Singleton.Reset();
         SceneManager.LoadScene(mainMenuSceneIndex);
         PlayerEvents.Singleton.ClearAllActionLists(); 
+        EnvironmentEvents.Singleton.ClearAllActionLists();
         DestroyImmediate(this.gameObject);
     }
 

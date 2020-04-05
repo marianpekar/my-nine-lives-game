@@ -15,6 +15,11 @@ public sealed class EnvironmentEvents
             action.Invoke();
     }
 
+    public void ClearAllActionLists()
+    {
+        timeChangedActions.Clear();
+    }
+
     private static EnvironmentEvents instance;
 
     public static EnvironmentEvents Singleton

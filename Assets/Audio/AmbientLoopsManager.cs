@@ -17,10 +17,13 @@ public class AmbientLoopsManager : MonoBehaviour
         PlayerEvents.Singleton.RegisterStealthEndActions(StartPlayingAmbientLoop);
     }
 
-    // Update is called once per frame
     void SelectAmbientLoop()
     {
-        ambientLoop.clip = dayAmbient;
+        if (EnvironmentStates.DayTime == EnvironmentManager.DayTime.Night)
+            ambientLoop.clip = nightAmbient;
+        else 
+            ambientLoop.clip = dayAmbient;
+
         ambientLoop.Play();
     }
 
