@@ -99,7 +99,11 @@ public class PlayerController : MonoBehaviour
             }
 
             // Jumps
-            if (GameInputManager.GetKey("Jump") && PlayerStates.Singleton.Stamina >= PlayerStates.Singleton.StaminaNeededForJump && !PlayerStates.Singleton.IsWalkingBackward)
+            if (GameInputManager.GetKey("Jump") && 
+                !PlayerStates.Singleton.IsJumping && 
+                PlayerStates.Singleton.IsWalking && 
+                PlayerStates.Singleton.Stamina >= PlayerStates.Singleton.StaminaNeededForJump && 
+                !PlayerStates.Singleton.IsWalkingBackward)
             {
                 PlayerStates.Singleton.IsJumping = true;
                 PlayerStates.Singleton.Stamina -= PlayerStates.Singleton.StaminaNeededForJump;
