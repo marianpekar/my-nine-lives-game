@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d19ea718eb0992418d3c291dd7babdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chickenLegs: {fileID: 7621365086650983344}
+  ghostPartlicles: {fileID: 7621365086650983344}
 --- !u!1 &1460933569236455313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3341,7 +3341,7 @@ GameObject:
   - component: {fileID: 7621365086650983344}
   - component: {fileID: 6412500874640746913}
   m_Layer: 0
-  m_Name: ChickenLegParticles
+  m_Name: GhostParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ParticleEffectsManager : MonoBehaviour
 {
-    public ParticleSystem chickenLegs;
+    public ParticleSystem ghostPartlicles;
 
     private void Start()
     {
-        PlayerEvents.Singleton.RegisterPreyCatchAction(BurstChickenLegsParticles);
+        PlayerEvents.Singleton.RegisterPreyCatchAction(BurstGhostParticles);
     }
 
-    private void BurstChickenLegsParticles()
+    private void BurstGhostParticles()
     {
-        chickenLegs.Play();
+        ghostPartlicles.Play();
     }
 }
