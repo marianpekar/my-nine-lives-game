@@ -55,7 +55,7 @@ public class HUDManager : MonoBehaviour
     #region Stamina
     void UpdateStaminaIndicator()
     {
-        staminaIndicator.text = string.Format("{0}%", Mathf.Round(PlayerStates.Singleton.Stamina * 100));
+        staminaIndicator.text = Mathf.Round(PlayerStates.Singleton.Stamina * 100).ToString();
     }
 
     void UpdateStaminaBackgroundImage()
@@ -83,7 +83,7 @@ public class HUDManager : MonoBehaviour
 
     void UpdateFeedLevelIndicator()
     {
-        feedIndicator.text = string.Format("{0}%", Mathf.Round(PlayerStates.Singleton.FeedLevel * 100));
+        feedIndicator.text = Mathf.Round(PlayerStates.Singleton.FeedLevel * 100).ToString();
     }
 
     void UpdateStomachSprite()
