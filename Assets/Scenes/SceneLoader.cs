@@ -17,7 +17,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadGameScene() {
         currentSceneIndex = gameSceneIndex;
         PlayerStates.Singleton.Reset();
-        StartCoroutine(LoadSceneAsync(gameSceneIndex));
+        SceneManager.LoadScene(gameSceneIndex);
     }
 
     public void LoadMainMenuScene()
@@ -29,24 +29,11 @@ public class SceneLoader : MonoBehaviour
         DestroyImmediate(this.gameObject);
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (GameInputManager.GetKey("Cancel") && currentSceneIndex == gameSceneIndex)
         {
             LoadMainMenuScene();
-        }
-    }
-
-    IEnumerator LoadSceneAsync(int sceneIndex)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-
-        while(!operation.isDone)
-        {
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            Debug.Log("Level loading:" + progress);
-
-            yield return null;
         }
     }
 
