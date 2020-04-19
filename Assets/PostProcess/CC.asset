@@ -72,8 +72,8 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 1
     m_Settings:
-      focusDistance: 1.9999993
-      aperture: 11.999994
+      focusDistance: 1.9999998
+      aperture: 11.999998
       focalLength: 50
       useCameraFov: 0
       kernelSize: 3
@@ -102,7 +102,7 @@ MonoBehaviour:
     m_Settings:
       bloom:
         intensity: 0.5
-        threshold: 0.9
+        threshold: 0.95
         softKnee: 0.5
         radius: 4
         antiFlicker: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
         neutralWhiteClip: 10
       basic:
         postExposure: 0.5
-        temperature: -55
+        temperature: 80
         tint: 0
         hueShift: 0
         saturation: 1.77
