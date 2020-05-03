@@ -47,7 +47,7 @@ public class SettingsManager : MonoBehaviour
         Ultra
     }
 
-    void Awake()
+    void Start()
     {
         SetInitials();
 
@@ -112,6 +112,7 @@ public class SettingsManager : MonoBehaviour
         Screen.SetResolution(resolutions[currentResolutionIndex].width, resolutions[currentResolutionIndex].height, isFullscreen);
         PlayerPrefsManager.ScreenWidth = resolutions[currentResolutionIndex].width;
         PlayerPrefsManager.ScreenHeight = resolutions[currentResolutionIndex].height;
+        PlayerPrefsManager.Save();
     }
 
     private void SetResolutionText()
@@ -136,14 +137,12 @@ public class SettingsManager : MonoBehaviour
         SetFullScreenLabel();
         Screen.SetResolution(resolutions[currentResolutionIndex].width, resolutions[currentResolutionIndex].height, isFullscreen);
         PlayerPrefsManager.IsFullscreen = isFullscreen;
+        PlayerPrefsManager.Save();
     }
 
     public void SetFullScreenLabel()
     {
-        if (isFullscreen)
-            fullScreen.text = "YES";
-        else
-            fullScreen.text = "NO";
+        fullScreen.text = isFullscreen ? "YES" : "NO";
     }
 
     public void QualityUp()
@@ -169,16 +168,32 @@ public class SettingsManager : MonoBehaviour
         SetQualityLabel();
         QualitySettings.SetQualityLevel(qualityIndex);
         PlayerPrefsManager.QualityIndex = (VideoQuality)qualityIndex;
+        PlayerPrefsManager.Save();
     }
 
     public void SetQualityLabel()
     {
-        if (qualityIndex == (int)VideoQuality.VeryLow) quality.text = "VERY LOW";
-        else if (qualityIndex == (int)VideoQuality.Low) quality.text = "LOW";
-        else if (qualityIndex == (int)VideoQuality.Medium) quality.text = "MEDIUM";
-        else if (qualityIndex == (int)VideoQuality.High) quality.text = "HIGH";
-        else if (qualityIndex == (int)VideoQuality.VeryHigh) quality.text = "VERY HIGH";
-        else if (qualityIndex == (int)VideoQuality.Ultra) quality.text = "ULTRA";
+        switch (qualityIndex)
+        {
+            case (int)VideoQuality.VeryLow:
+                quality.text = "VERY LOW";
+                break;
+            case (int)VideoQuality.Low:
+                quality.text = "LOW";
+                break;
+            case (int)VideoQuality.Medium:
+                quality.text = "MEDIUM";
+                break;
+            case (int)VideoQuality.High:
+                quality.text = "HIGH";
+                break;
+            case (int)VideoQuality.VeryHigh:
+                quality.text = "VERY HIGH";
+                break;
+            case (int)VideoQuality.Ultra:
+                quality.text = "ULTRA";
+                break;
+        }
     }
 
     public void SetMasterVolume(float volume)
@@ -186,6 +201,7 @@ public class SettingsManager : MonoBehaviour
         currentMasterVolume = volume;
         audioMixer.SetFloat("masterVolume", currentMasterVolume);
         PlayerPrefsManager.MasterVolume = volume;
+        PlayerPrefsManager.Save();
     }
 
     public void SetMusicVolume(float volume)
@@ -193,6 +209,7 @@ public class SettingsManager : MonoBehaviour
         currentMusicVolume = volume;
         audioMixer.SetFloat("musicVolume", currentMusicVolume);
         PlayerPrefsManager.MusicVolume = volume;
+        PlayerPrefsManager.Save();
     }
 
     public void SetSfxVolume(float volume)
@@ -200,10 +217,12 @@ public class SettingsManager : MonoBehaviour
         currentSfxVolume = volume;
         audioMixer.SetFloat("sfxVolume", currentSfxVolume);
         PlayerPrefsManager.SfxVolume = volume;
+        PlayerPrefsManager.Save();
     }
 
     public void SaveGameInputs()
     {
         PlayerPrefsManager.SaveGameInputs();
+        PlayerPrefsManager.Save();
     }
 }

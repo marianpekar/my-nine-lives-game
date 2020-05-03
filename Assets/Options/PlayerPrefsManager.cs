@@ -16,6 +16,12 @@ public static class PlayerPrefsManager
             PlayerPrefs.SetInt("ScreenWidth", value);
         }
     }
+
+    public static void Save()
+    {
+        PlayerPrefs.Save();
+    }
+
     public static int ScreenHeight
     {
         get
