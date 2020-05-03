@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        ResetTimeScale();
     }
 
     // Update is called once per frame
