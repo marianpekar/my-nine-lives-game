@@ -156,7 +156,36 @@ public sealed class PlayerStates
     private float feedLevel = 1.0f;
 
     public int Preys { get; set; } = 0;
-    public int Score { get; set; } = 0;
+
+    private int score = 0;
+
+    public int Score
+    {
+        get => score;
+        set
+        {
+            score = value;
+            if (score > HighScore)
+            {
+                HighScore = score;
+            }
+        }
+    }
+
+    public int highScore = PlayerPrefs.HasKey("HighScore") ? PlayerPrefs.GetInt("HighScore") : 0;
+
+    public int HighScore
+    {
+        get => highScore;
+        set
+        {
+            highScore = value;
+            PlayerPrefs.SetInt("HighScore", value);
+            PlayerPrefs.Save();
+        }
+
+    }
+
     public float FeedLevel { 
         get 
         {
