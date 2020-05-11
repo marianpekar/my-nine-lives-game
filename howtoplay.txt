@@ -12,8 +12,6 @@ You're a hunter. When you spot a prey, hold CTRL key and move slowly from behind
 
 When you sneak close enough, but not too close, press SPACE to jump and catch.
 
-Prey is marked with a green steak symbol.
-
 3. Avoid Predators
 
 You can become prey as well. When you see a predator, run away as fast as you can. Hold SHIFT to run faster.
