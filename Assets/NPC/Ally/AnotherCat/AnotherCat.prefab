@@ -550,12 +550,12 @@ Light:
   m_GameObject: {fileID: 1914559105163526713}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9294118, g: 0.10588236, b: 0.50980395, a: 1}
   m_Intensity: 1.8
   m_Range: 3
-  m_SpotAngle: 97.025604
+  m_SpotAngle: 110
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
