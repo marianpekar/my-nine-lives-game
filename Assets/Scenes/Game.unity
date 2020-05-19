@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 343323134}
   - component: {fileID: 343323135}
   - component: {fileID: 343323136}
+  - component: {fileID: 343323137}
   m_Layer: 0
   m_Name: SoundManagers
   m_TagString: Untagged
@@ -635,6 +636,19 @@ MonoBehaviour:
   dayAmbient: {fileID: 8300000, guid: fdc796e614434c14c928a595d3b08412, type: 3}
   nightAmbient: {fileID: 8300000, guid: 106d041f47c90fa4b8fa78985f12454d, type: 3}
   ambientLoop: {fileID: 882651621}
+--- !u!114 &343323137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343323131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213d651f89ade5c40bb0fdb9afbabdf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meow: {fileID: 514822777}
 --- !u!1 &379253433
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +726,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379253433}
   m_CullTransparentMesh: 0
+--- !u!82 &514822777 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2039917200889938801, guid: f47066f7a0d0d854f820a68a65381450,
+    type: 3}
+  m_PrefabInstance: {fileID: 306741235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &522174323
 GameObject:
   m_ObjectHideFlags: 0
