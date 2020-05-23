@@ -31,11 +31,18 @@ public class SceneLoader : MonoBehaviour
         DestroyImmediate(this.gameObject);
     }
 
+    private bool isLoadMainMenuSceneInvoked;
     void FixedUpdate()
     {
         if (GameInputManager.GetKey("Cancel") && currentSceneIndex == gameSceneIndex)
         {
             LoadMainMenuScene();
+        }
+
+        if (PlayerStates.Singleton.IsDead && !isLoadMainMenuSceneInvoked)
+        {
+            Invoke("LoadMainMenuScene", 10 * Time.timeScale);
+            isLoadMainMenuSceneInvoked = true;
         }
     }
 

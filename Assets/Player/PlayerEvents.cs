@@ -17,6 +17,8 @@ public sealed class PlayerEvents
     List<Action> pausedActions = new List<Action>();
     List<Action> stealthStartActions = new List<Action>();
     List<Action> stealthEndActions = new List<Action>();
+    List<Action> playerJumpsActions = new List<Action>();
+    List<Action> playerLandedActions = new List<Action>();
 
     private void InvokeActions(List<Action> actions)
     {
@@ -36,6 +38,8 @@ public sealed class PlayerEvents
     public void RegisterPausedActions(Action action) { pausedActions.Add(action); }
     public void RegisterStealthStartActions(Action action ) { stealthStartActions.Add(action); }
     public void RegisterStealthEndActions(Action action) { stealthEndActions.Add(action); }
+    public void RegisterPlayerJumpsActions(Action action) { playerJumpsActions.Add(action); }
+    public void RegisterPlayerLandedActions(Action action) { playerLandedActions.Add(action); }
 
     public void InvokeLifeRemovedActions() { InvokeActions(lifeRemovedActions); }
     public void InvokePreyCatchedActions() { InvokeActions(preyCatchedActions); }
@@ -49,6 +53,8 @@ public sealed class PlayerEvents
     public void InvokePauseActions() { InvokeActions(pausedActions); }
     public void InvokeStealthStartActions() { InvokeActions(stealthStartActions); }
     public void InvokeStealthEndActions() { InvokeActions(stealthEndActions); }
+    public void InvokePlayerJumpsActions() { InvokeActions(playerJumpsActions); }
+    public void InvokePlayerLandedActions() { InvokeActions(playerLandedActions); }
 
     public void ClearAllActionLists()
     {
@@ -64,6 +70,8 @@ public sealed class PlayerEvents
         pausedActions.Clear();
         stealthStartActions.Clear();
         stealthEndActions.Clear();
+        playerJumpsActions.Clear();
+        playerLandedActions.Clear();
     }
 
     private static PlayerEvents instance;

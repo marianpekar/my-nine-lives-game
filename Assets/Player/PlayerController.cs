@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        ResetTimeScale();
     }
 
     // Update is called once per frame
@@ -30,7 +29,6 @@ public class PlayerController : MonoBehaviour
     {
         if (PlayerStates.Singleton.IsDead)
         {
-            Time.timeScale = 0.15f;
             die.Execute(animator);
             return;
         }
@@ -98,9 +96,8 @@ public class PlayerController : MonoBehaviour
                 !PlayerStates.Singleton.IsWalkingBackward)
             {
                 PlayerStates.Singleton.IsJumping = true;
+                Invoke("SetIsJumpingToFalse", 2.8f * Time.timeScale);
                 PlayerStates.Singleton.Stamina -= PlayerStates.Singleton.StaminaNeededForJump;
-                Time.timeScale = PlayerStates.Singleton.SlowMotionTimeScale;
-                Invoke("ResetTimeScale", PlayerStates.Singleton.SlowMotionDuration);
                 moveDirection.y = PlayerStates.Singleton.JumpHeight;
                 moveDirection.z = PlayerStates.Singleton.JumpDistance;
                 moveDirection = transform.TransformDirection(moveDirection);
@@ -131,9 +128,8 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, GetHitNormal()) * transform.rotation, 5 * Time.deltaTime);
     }
 
-    private void ResetTimeScale()
+    private void SetIsJumpingToFalse()
     {
-        Time.timeScale = 1f;
         PlayerStates.Singleton.IsJumping = false;
     }
 

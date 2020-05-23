@@ -15,7 +15,27 @@ public sealed class PlayerStates
     public float JumpDistance { get; } = 10f;
     public float BackJumpSpeed { get; } = 4f;
     public float BackJumpDistance { get; } = 4f;
-    public bool IsJumping { get; set; }
+
+    private bool isJumping;
+
+    public bool IsJumping
+    {
+        get { 
+            return isJumping;
+        }
+        set
+        {
+            isJumping = value;
+            if (isJumping)
+            {
+                PlayerEvents.Singleton.InvokePlayerJumpsActions();
+            }
+            else
+            {
+                PlayerEvents.Singleton.InvokePlayerLandedActions();
+            }
+        }
+    }
 
     // Stamina
     private float stamina = 1.0f;
@@ -73,10 +93,6 @@ public sealed class PlayerStates
     public bool IsStealth { get; set; } = false;
 
     public Vector3 Position { get; set; }
-
-    // Slow Motion
-    public float SlowMotionTimeScale { get; set; } = 0.25f;
-    public float SlowMotionDuration { get; set; } = 1f; // in seconds
 
     // Lives
     const int maxLives = 9;
