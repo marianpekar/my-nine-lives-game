@@ -16,6 +16,7 @@ public class SceneLoader : MonoBehaviour
     private int currentSceneIndex;
     public void LoadGameScene() {
         currentSceneIndex = gameSceneIndex;
+        Cursor.visible = false;
         PlayerStates.Singleton.Reset();
         SceneManager.LoadScene(gameSceneIndex);
     }
@@ -24,6 +25,7 @@ public class SceneLoader : MonoBehaviour
     {
         PlayerStates.Singleton.Reset();
         SceneManager.LoadScene(mainMenuSceneIndex);
+        Cursor.visible = true;
         PlayerEvents.Singleton.ClearAllActionLists(); 
         EnvironmentEvents.Singleton.ClearAllActionLists();
         DestroyImmediate(this.gameObject);
