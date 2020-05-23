@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RatPreyInfo
   m_EditorClassIdentifier: 
   fleeRadius: 60
-  nutrition: 0.12
+  nutrition: 0.1
   value: 250

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c13d4737b85d5340b4397dba922b093, type: 3}
   m_Name: AnotherCatInfo
   m_EditorClassIdentifier: 
-  fleeRadius: 8
-  value: 2000
+  fleeRadius: 12
+  value: 500
