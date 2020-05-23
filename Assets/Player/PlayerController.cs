@@ -43,15 +43,6 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerStates.Singleton.IsPaused) return;
 
-        // TODO: Just for debuging purposes, remove after
-        if (Input.GetKey(KeyCode.F))
-            PlayerStates.Singleton.FeedLevel = 0.25f;
-        if (Input.GetKey(KeyCode.K))
-            PlayerStates.Singleton.RemoveLive();
-        if (Input.GetKey(KeyCode.R))
-            FindObjectOfType<SpawnManager>().Respawn();
-        // ------------------------------------------------
-
         PlayerStates.Singleton.Position = transform.position;
 
         PlayerStates.Singleton.IsWalking = GameInputManager.GetKey("Walk");
