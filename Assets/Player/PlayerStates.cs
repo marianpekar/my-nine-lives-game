@@ -10,7 +10,7 @@ public sealed class PlayerStates
     public float SprintSpeedBoost { get; } = 3f;
     public float WalkingSpeed { get; } = 1f;
     public float WalkingBackSpeed { get; } = 0.8f;
-    public float RotationSpeed { get; } = 3f;
+    public float RotationSpeed { get; } = 1.5f;
     public float JumpHeight { get; } = 4f;
     public float JumpDistance { get; } = 10f;
     public float BackJumpSpeed { get; } = 4f;
