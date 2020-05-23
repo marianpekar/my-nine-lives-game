@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
+        PlayerStates.Singleton.IsJumping = false;
     }
 
     // Update is called once per frame

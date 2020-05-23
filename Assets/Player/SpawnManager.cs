@@ -51,6 +51,8 @@ public class SpawnManager : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
 
         cam.GetComponent<FollowCamera>().ResetFollowSpeed();
+
+        PlayerStates.Singleton.IsJumping = false;
     }
 
     public void Update()
