@@ -94,6 +94,9 @@ public class PlayerController : MonoBehaviour
 
         transform.Rotate(0, horizontalAxis * PlayerStates.Singleton.RotationSpeed, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, GetHitNormal()) * transform.rotation, 5 * Time.deltaTime);
+
+        if (PlayerStates.Singleton.Stamina <= 0)
+            PlayerStates.Singleton.IsSprinting = false;
     }
 
     public void Walk(bool enabled)
