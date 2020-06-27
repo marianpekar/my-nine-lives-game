@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private FixedJoystick fixedJoystick;
 
+    private float joystickVerticalThreshold = 0.05f;
+    private float joystickHorizontalThreshold = 0.15f;
+
     Vector3 moveDirection = Vector3.zero;
 
     // Start is called before the first frame update
@@ -38,12 +41,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        // Pause Game
-        if (GameInputManager.GetKeyUp("Pause"))
-        {
-            PlayerStates.Singleton.TooglePause();
-        }
-
         if (PlayerStates.Singleton.IsPaused) return;
 
         PlayerStates.Singleton.Position = transform.position;
@@ -53,7 +50,9 @@ public class PlayerController : MonoBehaviour
         if (PlayerStates.Singleton.IsGrounded)
         {
             // Move
-            float verticalAxis = fixedJoystick.Vertical;
+            float verticalAxis = 0;
+            if (fixedJoystick.Vertical > joystickVerticalThreshold) verticalAxis = 1;
+            else if (fixedJoystick.Vertical < -joystickVerticalThreshold) verticalAxis = -1;
 
             moveDirection = new Vector3(0, 0, verticalAxis);
             moveDirection = transform.TransformDirection(moveDirection);
@@ -89,7 +88,9 @@ public class PlayerController : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
 
         // Rotation
-        float horizontalAxis = fixedJoystick.Horizontal;
+        float horizontalAxis = 0;
+        if (fixedJoystick.Horizontal > joystickHorizontalThreshold) horizontalAxis = fixedJoystick.Horizontal;
+        else if (fixedJoystick.Horizontal < -joystickHorizontalThreshold) horizontalAxis = fixedJoystick.Horizontal;
 
         transform.Rotate(0, horizontalAxis * PlayerStates.Singleton.RotationSpeed, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, GetHitNormal()) * transform.rotation, 5 * Time.deltaTime);
