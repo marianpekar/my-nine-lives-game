@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
     Animator animator;
 
+    [SerializeField]
+    private FixedJoystick fixedJoystick;
+
     Vector3 moveDirection = Vector3.zero;
 
     // Start is called before the first frame update
@@ -45,22 +48,12 @@ public class PlayerController : MonoBehaviour
 
         PlayerStates.Singleton.Position = transform.position;
 
-        PlayerStates.Singleton.IsWalking = GameInputManager.GetKey("Walk");
         PlayerStates.Singleton.IsGrounded = characterController.isGrounded;
 
         if (PlayerStates.Singleton.IsGrounded)
         {
             // Move
-            float verticalAxis = 0f;
-            if (GameInputManager.GetKey("Forward"))
-                verticalAxis = 1f;
-            else if (GameInputManager.GetKey("Backward"))
-                verticalAxis = -1f;
-
-            if (GameInputManager.GetKey("Sprint") && PlayerStates.Singleton.Stamina > 0f)
-                PlayerStates.Singleton.IsSprinting = true;
-            else
-                PlayerStates.Singleton.IsSprinting = false;
+            float verticalAxis = fixedJoystick.Vertical;
 
             moveDirection = new Vector3(0, 0, verticalAxis);
             moveDirection = transform.TransformDirection(moveDirection);
@@ -89,45 +82,57 @@ public class PlayerController : MonoBehaviour
                 PlayerStates.Singleton.IsRunning = false;
                 idle.Execute(animator);
             }
-
-            // Jumps
-            if (GameInputManager.GetKey("Jump") && 
-                !PlayerStates.Singleton.IsJumping && 
-                PlayerStates.Singleton.IsWalking && 
-                PlayerStates.Singleton.Stamina >= PlayerStates.Singleton.StaminaNeededForJump && 
-                !PlayerStates.Singleton.IsWalkingBackward)
-            {
-                PlayerStates.Singleton.IsJumping = true;
-                Invoke("SetIsJumpingToFalse", 2.8f * Time.timeScale);
-                PlayerStates.Singleton.Stamina -= PlayerStates.Singleton.StaminaNeededForJump;
-                moveDirection.y = PlayerStates.Singleton.JumpHeight;
-                moveDirection.z = PlayerStates.Singleton.JumpDistance;
-                moveDirection = transform.TransformDirection(moveDirection);
-                jump.Execute(animator);
-            }
-            else if (GameInputManager.GetKey("Jump") && PlayerStates.Singleton.IsWalkingBackward)
-            {
-                moveDirection.y = PlayerStates.Singleton.BackJumpSpeed;
-                moveDirection.z = -PlayerStates.Singleton.BackJumpDistance;
-                moveDirection = transform.TransformDirection(moveDirection);
-                jumpBack.Execute(animator);
-            }
         }
 
         // Gravity
         moveDirection.y -= PlayerStates.Singleton.Gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
 
-
         // Rotation
-        float horizontalAxis = 0;
-        if (GameInputManager.GetKey("Left"))
-            horizontalAxis = -1f;
-        else if (GameInputManager.GetKey("Right"))
-            horizontalAxis = 1f;
+        float horizontalAxis = fixedJoystick.Horizontal;
 
         transform.Rotate(0, horizontalAxis * PlayerStates.Singleton.RotationSpeed, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, GetHitNormal()) * transform.rotation, 5 * Time.deltaTime);
+    }
+
+    public void Walk(bool enabled)
+    {
+        PlayerStates.Singleton.IsWalking = enabled;
+    }
+
+    public void Sprint(bool enabled)
+    {
+        if (PlayerStates.Singleton.Stamina > 0f)
+            PlayerStates.Singleton.IsSprinting = enabled;
+        else
+            PlayerStates.Singleton.IsSprinting = enabled;
+    }
+
+    public void Jump()
+    {
+        if (!PlayerStates.Singleton.IsJumping &&
+            PlayerStates.Singleton.IsWalking &&
+            PlayerStates.Singleton.Stamina >= PlayerStates.Singleton.StaminaNeededForJump &&
+            !PlayerStates.Singleton.IsWalkingBackward)
+        {
+            PlayerStates.Singleton.IsJumping = true;
+            Invoke("SetIsJumpingToFalse", 2.8f * Time.timeScale);
+            PlayerStates.Singleton.Stamina -= PlayerStates.Singleton.StaminaNeededForJump;
+            moveDirection.y = PlayerStates.Singleton.JumpHeight;
+            moveDirection.z = PlayerStates.Singleton.JumpDistance;
+            moveDirection = transform.TransformDirection(moveDirection);
+            jump.Execute(animator);
+
+            characterController.Move(moveDirection * Time.deltaTime);
+        }
+        else if (PlayerStates.Singleton.IsWalkingBackward)
+        {
+            moveDirection.y = PlayerStates.Singleton.BackJumpSpeed;
+            moveDirection.z = -PlayerStates.Singleton.BackJumpDistance;
+            moveDirection = transform.TransformDirection(moveDirection);
+            jumpBack.Execute(animator);
+            characterController.Move(moveDirection * Time.deltaTime);
+        }
     }
 
     private void SetIsJumpingToFalse()

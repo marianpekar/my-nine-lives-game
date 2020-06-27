@@ -15,19 +15,6 @@ public class PostProcessManager : MonoBehaviour
         postProcessingProfile = cameraGameObject.GetComponent<PostProcessingBehaviour>().profile;
     }
 
-    public void SetDOF(float targetAperture, float targetFocusDistance, float speed)
-    {
-        DepthOfFieldModel.Settings dof = postProcessingProfile.depthOfField.settings;
-
-        float originalfStop = dof.aperture;
-        dof.aperture = Mathf.Lerp(originalfStop, targetAperture, speed * Time.deltaTime);
-
-        float originalFocusDistance = dof.focusDistance;
-        dof.focusDistance = Mathf.Lerp(originalFocusDistance, targetFocusDistance, speed * Time.deltaTime);
-
-        postProcessingProfile.depthOfField.settings = dof;
-    }
-
     public void SetChroma(float targetChroma, float speed)
     {
         ChromaticAberrationModel.Settings chroma = postProcessingProfile.chromaticAberration.settings;

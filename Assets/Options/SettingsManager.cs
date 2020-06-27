@@ -12,12 +12,6 @@ public class SettingsManager : MonoBehaviour
     Text quality;
 
     [SerializeField]
-    Text fullScreen;
-
-    [SerializeField]
-    Text resolutionText;
-
-    [SerializeField]
     Slider masterVolumeSlider;
 
     [SerializeField]
@@ -29,12 +23,6 @@ public class SettingsManager : MonoBehaviour
     float currentMasterVolume;
     float currentMusicVolume;
     float currentSfxVolume;
-
-    int currentResolutionIndex;
-    Resolution[] resolutions;
-    List<string> resolutionLabels = new List<string>();
-
-    bool isFullscreen;
 
     int qualityIndex;
     public enum VideoQuality
@@ -50,29 +38,15 @@ public class SettingsManager : MonoBehaviour
     void Start()
     {
         SetInitials();
-
-        resolutions = Screen.resolutions;
-
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            resolutionLabels.Add(string.Format("{0}x{1}", resolutions[i].width, resolutions[i].height));
-
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-                currentResolutionIndex = i;
-        }
     }
 
     private void SetInitials()
     {
         qualityIndex = (int)PlayerPrefsManager.QualityIndex;
-        isFullscreen = PlayerPrefsManager.IsFullscreen;
 
         Screen.SetResolution(PlayerPrefsManager.ScreenWidth,
                              PlayerPrefsManager.ScreenHeight,
                              PlayerPrefsManager.IsFullscreen);
-
-        SetResolutionText(PlayerPrefsManager.ScreenWidth,
-                          PlayerPrefsManager.ScreenHeight);
 
         SetMasterVolume(PlayerPrefsManager.MasterVolume);
         SetMusicVolume(PlayerPrefsManager.MusicVolume);
@@ -85,64 +59,6 @@ public class SettingsManager : MonoBehaviour
         masterVolumeSlider.value = currentMasterVolume;
         musicVolumeSlider.value = currentMusicVolume;
         sfxVolumeSlider.value = currentSfxVolume;
-    }
-
-    public void SetResolutionUp()
-    {
-        currentResolutionIndex++;
-        if (currentResolutionIndex > resolutions.Length - 1)
-            currentResolutionIndex = resolutions.Length - 1;
-
-        SetResolutionText();
-        ChangeResolution();
-    }
-
-    public void SetResolutionDown()
-    {
-        currentResolutionIndex--;
-        if (currentResolutionIndex < 0)
-            currentResolutionIndex = 0;
-
-        SetResolutionText();
-        ChangeResolution();
-    }
-
-    public void ChangeResolution()
-    {
-        Screen.SetResolution(resolutions[currentResolutionIndex].width, resolutions[currentResolutionIndex].height, isFullscreen);
-        PlayerPrefsManager.ScreenWidth = resolutions[currentResolutionIndex].width;
-        PlayerPrefsManager.ScreenHeight = resolutions[currentResolutionIndex].height;
-        PlayerPrefsManager.Save();
-    }
-
-    private void SetResolutionText()
-    {
-        resolutionText.text = resolutionLabels[currentResolutionIndex];
-    }
-
-    private void SetResolutionText(int screenWidth, int screenHeight)
-    {
-        resolutionText.text = string.Format("{0}x{1}", screenWidth, screenHeight);
-    }
-
-    private void ToogleFullscreen()
-    {
-        isFullscreen = !isFullscreen;
-
-        FullScreenChanged();
-    }
-
-    public void FullScreenChanged()
-    {
-        SetFullScreenLabel();
-        Screen.SetResolution(resolutions[currentResolutionIndex].width, resolutions[currentResolutionIndex].height, isFullscreen);
-        PlayerPrefsManager.IsFullscreen = isFullscreen;
-        PlayerPrefsManager.Save();
-    }
-
-    public void SetFullScreenLabel()
-    {
-        fullScreen.text = isFullscreen ? "YES" : "NO";
     }
 
     public void QualityUp()
@@ -217,12 +133,6 @@ public class SettingsManager : MonoBehaviour
         currentSfxVolume = volume;
         audioMixer.SetFloat("sfxVolume", currentSfxVolume);
         PlayerPrefsManager.SfxVolume = volume;
-        PlayerPrefsManager.Save();
-    }
-
-    public void SaveGameInputs()
-    {
-        PlayerPrefsManager.SaveGameInputs();
         PlayerPrefsManager.Save();
     }
 }

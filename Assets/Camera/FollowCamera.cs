@@ -31,12 +31,6 @@ public class FollowCamera : MonoBehaviour
 
     const float obstaclesOnBothSidesRayLength = 1.25f;
 
-    const float closerCameraFStop = 10f;
-    const float baseCameraFStop = 12f;
-    const float closerCameraFocusDistance = 1.8f;
-    const float baseCameraFocusDistance = 2f;
-    const float focusSpeed = 2f;
-
     const float chromaSpeed = 3.5f;
     const float originalChroma = 0.09f;
     const float jumpChroma = 1f;
@@ -48,6 +42,11 @@ public class FollowCamera : MonoBehaviour
         offset = DirectionTo(PointOneUpThePlayer());
         initialOffset = offset;
         initialDistanceToGround = (int)DistanceToGround();
+    }
+
+    void Start()
+    {
+        Screen.SetResolution(Screen.width, Screen.height, true);
     }
 
     public void SetFollowSpeed(float speed)
@@ -133,14 +132,12 @@ public class FollowCamera : MonoBehaviour
         offset.y /= 3f;
         offset.z /= 2f;
         sideRaysDist = sideRayDistSmall;
-        postProcesingManager.SetDOF(closerCameraFStop, closerCameraFocusDistance, focusSpeed);
     }
 
     void SetOriginalCamera()
     {
         offset = initialOffset;
         sideRaysDist = sideRayDistOriginal;
-        postProcesingManager.SetDOF(baseCameraFStop, baseCameraFocusDistance, focusSpeed);
     }
 
     void SetJumpChroma()
